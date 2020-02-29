@@ -1,9 +1,15 @@
 
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b -->
 <html>
 	<head>
 
 		<title>Home Page</title>
 		<script src="jquery-1.11.3.js"></script>
+    <script src="HomePageClient.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/store.css">
+
 		<style>
 			.column {
 				float: left;
@@ -20,18 +26,35 @@
 			.middle {
 				width: 65%;
 			}
+
+
 		</style>
 	</head>
 
 	<body onload="init()">
-		<h2>Welcome to Shar's Book Sanctum</h2>
-		<input type="text" id="searchBar" placeholder="Search for anything" name="searchBar">
-		<select id="genreSelect">
-			<option>All Genres</option>
-		</select>
-		<button type="button" onclick="search()">Search</button>
+    <div class = "topnav">
+      <div class="inner-element">
 
-		<script src="HomePageClient.js"></script>
+
+      <div class="submission">
+        <div  class="header-logo">
+        <a href="HomePage.html"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
+      </div>
+    		<input type="text" class="submissionfield" id="searchBar" placeholder="Search for anything" name="searchBar">
+        <div  class="select-style" >
+      		<select id="genreSelect"  class="select-width">
+      			<option>All Genres</option>
+      		</select>
+        </div>
+        <button type="button" class="submit-button" onclick="search()">Search</button>
+
+      </div>
+
+
+    </div>
+    </div>
+
+
 	</body>
 
 </html>
