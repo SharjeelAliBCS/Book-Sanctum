@@ -15,6 +15,11 @@ function search(){
   requestSearchData(userInputObj);
 }
 
+$(document).on('keypress',function(e) {
+    if(e.which == 13) {
+        search();
+    }
+});
 function requestGenres(){
   var request = $.ajax({
     url: "/genreData",
