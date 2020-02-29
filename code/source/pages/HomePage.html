@@ -1,0 +1,37 @@
+
+<html>
+	<head>
+
+		<title>Home Page</title>
+		<script src="jquery-1.11.3.js"></script>
+		<style>
+			.column {
+				float: left;
+			}
+
+			.left{
+				width: 10%;
+			}
+
+			.right {
+				width: 25%;
+			}
+
+			.middle {
+				width: 65%;
+			}
+		</style>
+	</head>
+
+	<body onload="init()">
+		<h2>Welcome to Shar's Book Sanctum</h2>
+		<input type="text" id="searchBar" placeholder="Search for anything" name="searchBar">
+		<select id="genreSelect">
+			<option>All Genres</option>
+		</select>
+		<button type="button" onclick="search()">Search</button>
+
+		<script src="HomePageClient.js"></script>
+	</body>
+
+</html>
