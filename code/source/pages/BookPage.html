@@ -4,35 +4,17 @@
 <html>
 	<head>
 
-		<title>Home Page</title>
+		<title>book.sanctum.ca</title>
 		<script src="jquery-1.11.3.js"></script>
-    <script src="HomePageClient.js"></script>
+    <script src="BookInfoClient.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/store.css">
+    <link rel="stylesheet" type="text/css" href="css/info.css">
+		<link rel="stylesheet" type="text/css" href="css/navigation.css">
 
-		<style>
-			.column {
-				float: left;
-			}
-
-			.left{
-				width: 10%;
-			}
-
-			.right {
-				width: 25%;
-			}
-
-			.middle {
-				width: 65%;
-			}
-
-
-		</style>
 	</head>
 
 	<body onload="init()" >
-    <div class = "topnav">
+		<div class = "topnav">
       <div class="inner-element">
 
 
@@ -47,49 +29,27 @@
       		</select>
         </div>
         <button type="button" class="submit-button" onclick="search()">Search</button>
-				<span class="advanced-search"><a href="https://www.w3schools.com/html/"></a>Advanced Search</span>
+				<button type="button" class="submit-button" onclick="location.href='AdvancedSearchPage.html'">Advanced Search</button>
+
 
       </div>
 
-
     </div>
     </div>
 
-    <!--
-    <div class="column filter" id="left">
-      <p><b>Filter column here</b></p>
-    </div>
-    <div class="column listing" id="middle">
-      <p><b>Listing column here</b></p>
-        <div class="grid-container" id="searchListing">
-    </div>
-    <div class="column order" id="right">
-        <p><b>order column here</b></p>
-    </div>
-  -->
 
   <div class="row" style="background-color:#ffffff;" id="filterCol">
-  <div class="column filter">
-    <h2>Filter Column</h2>
-    <p>Some text..</p>
-  </div>
 
-  <div class="column listing" >
-    <h2>Listing Column</h2>
-    <p>Some text..</p>
-    <div class="grid-container" id="searchListing" style="background-color:#ffffff;" id="listingCol">
+	  <div class="column info-column">
+	    <h2>Book info Column</h2>
+	    <p>Some text..</p>
+	  </div>
 
+	  <div class="column order-column">
+	    <h2>Order column</h2>
+	    <p>Some text..</p>
+	  </div>
 
-
-
-    </div>
-
-  </div>
-
-  <div class="column order">
-    <h2>Order column</h2>
-    <p>Some text..</p>
-  </div>
 </div>
 
 

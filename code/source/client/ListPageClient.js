@@ -99,7 +99,8 @@ function requestSearchData(userInputObj){
 }
 
 function populateBookList(data,textInput){
-        populateFilterList(data);
+        populateFilterList(data,"categories","genreList","Genres");
+        populateFilterList(data,"authors","authorList","Authors");
 
         //Here we remove the html elements from the html card.
         //Got the removeChild from stackoverflow
@@ -126,16 +127,18 @@ function populateBookList(data,textInput){
           if(book.title!=null && book.imageLinks!=null && book.authors!=null){
             bookPrice = "CDN $"+19.99;
 
+            onclk = '"openBookPage(\''+data[i].id+'\')" ';
+
             divCard.innerHTML = ""
               + '<div class="book-item">'
 
                 + '<div class="book-column book-image">'
                   + '<div role="button" id="' + book.title + '" class="card" style="width:150px; height:209px;">'
-                  + '<div class="imgCard" onclick="openBookPage()"><img src= ' + book.imageLinks.thumbnail + ' style="width:150px; height:209px;"></img></div></a></div>'
+                  + '<div class="imgCard" onclick=' +onclk+ '><img src= ' + book.imageLinks.thumbnail + ' style="width:150px; height:209px;"></img></div></a></div>'
                   +'</div>'
 
                 + '<div class="book-column book-info">'
-                  + '<p style="display:inline" onclick="openBookPage()" class="book-text book-title">' + book.title + '</p><br></br>'
+                  + '<p style="display:inline" onclick=' +onclk+ ' class="book-text book-title">' + book.title + '</p><br></br>'
                   + '<p class="book-text book-author">' + book.authors[0] + ' | '+ book.publishedDate +'</p><br></br>'
                   + '<p class="book-text book-price">' + bookPrice +'</p><br></br>'
                   //+ '<p style="display:inline" class="book-description">' + book.description + '</font></p>'
@@ -162,40 +165,48 @@ function populateBookList(data,textInput){
 }
 function openBookPage(isbn){
   console.log(isbn+ " page opened!");
+
+  localStorage.setItem('ISBN', isbn);
+  window.location.href = "BookPage.html";
 }
 
-function populateFilterList(data){
-  var genres = {};
+function populateFilterList(data,searchParam,divID,type){
+
+  let div = document.getElementById(divID);
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
+
+  document.getElementById(divID).innerHTML = '<p class="genre-title">'+type+'</p>';
+
+
+  var filterList = {};
   for(i in data){
 
-    for(g in data[i].volumeInfo.categories){
+    for(g in data[i].volumeInfo[searchParam]){
 
-      var key = data[i].volumeInfo.categories[g];
-      if(key in genres){
-        genres[key]+=1;
+      var key = data[i].volumeInfo[searchParam][g];
+      if(key in filterList){
+        filterList[key]+=1;
       }
       else{
-        genres[key]=1;
+        filterList[key]=1;
       }
     }
   }
 
-  console.log(genres);
 
-  for(key in genres){
-    console.log(key);
-    let divGenre = document.createElement('div');
+  for(key in filterList){
+
+    let divFilter = document.createElement('div');
 
 
-    divGenre.innerHTML = ""
+    divFilter.innerHTML = ""
     +'<div>'
-    + '<p style="display:inline" class="genre-text">' + `${key} (${genres[key]})` + '</p><br></br>'
+    + '<p style="display:inline" class="genre-text">' + `${key} (${filterList[key]})` + '</p><br></br>'
     +'</div'
 
-    document.getElementById('genreList').appendChild(divGenre);
+    document.getElementById(divID).appendChild(divFilter);
   }
-
-
-
 
 }
