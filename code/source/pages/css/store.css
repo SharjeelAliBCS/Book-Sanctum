@@ -1,6 +1,10 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background: url("bg.png");
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .topnav {
@@ -95,4 +99,100 @@ body {
   font-size: 20px;
   cursor: pointer;
   vertical-align: middle;
+}
+
+h1 {
+   font-family: PokemonLogo;
+   font-size: 72px;
+   color:#ffe600;
+   text-shadow:
+-5px -5px 0 #0066ff,
+5px -5px 0 #0066ff,
+-5px 5px 0 #0066ff,
+5px 5px 0 #0066ff;
+}
+p{
+  font-family: PokemonText;
+  font-size: 17px;
+  color:#000000 ;
+
+}
+.test{
+
+}
+
+
+.grid-container {
+display: grid;
+align-content: center;
+grid-template-columns: auto;
+grid-gap: 30px;
+padding: 30px;
+border-radius: 10px;
+border-style: solid;
+border-color: #bdbdbd;
+}
+
+.grid-container > div {
+background-color: rgba(255, 255, 255, 0);
+text-align: center;
+padding: 20px;
+font-size: 30px;
+border-bottom:1px solid #bdbdbd;
+}
+
+.pokemonName{
+display:inline-block;
+white-space: pre-line;
+word-wrap: wrap break-word;
+}
+
+/*info from: https://www.atyantik.com/creating-card-layout-with-css3-grid/*/
+.card{
+  border: 2px solid #000000;
+}
+
+.column {
+  float: left;
+  height: 100vh;
+  box-sizing: border-box;
+
+}
+
+.filter, .order {
+  width: 25%;
+  max-width: 25%;
+}
+
+.listing {
+  width: 50%;
+  max-width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.book-column{
+  float: left;
+}
+
+.book-image{
+  width: 30%;
+}
+.book-info{
+  width: 70%;
+}
+
+.book-item{
+margin-bottom:10px;
+padding-bottom: 10px;
+}
+
+.book-description{
+  font-size: 12px;
+  LINE-HEIGHT:10px;
 }
