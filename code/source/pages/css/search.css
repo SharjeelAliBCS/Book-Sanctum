@@ -157,6 +157,7 @@ border-bottom:1px solid #bdbdbd;
 
 /*info from: https://www.atyantik.com/creating-card-layout-with-css3-grid/*/
 .card{
+  cursor:pointer;
 
 }
 
@@ -209,7 +210,13 @@ padding-bottom: 10px;
   font-size: 20px;
   font-family: Verdana;
   LINE-HEIGHT:-10px;
+  cursor:pointer;
+
 }
+.book-title:hover{
+  text-decoration: underline;
+}
+
 .book-author{
   font-family: Verdana;
   height: 50px;
@@ -258,4 +265,23 @@ padding-bottom: 10px;
 
 .sort-select select:focus {
     outline: none;
+}
+
+.filter-options{
+  margin-left: 40px;
+  max-width: 300px;
+
+}
+
+.genre-list{
+  LINE-HEIGHT:15px;
+  border-top:1px solid #bdbdbd;
+}
+.genre-text{
+  font-family: Verdana;
+  font-size: 15px;
+}
+.genre-title{
+  font-family: Verdana;
+  font-size: 20px;
 }

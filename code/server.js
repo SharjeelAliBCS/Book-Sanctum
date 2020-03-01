@@ -15,7 +15,12 @@ app.use(express.static(__dirname + HTML_DIR));
 
 app.get('/', function(req, res, next){
   console.log("test html");
-  res.sendFile(__dirname + HTML_DIR + '/HomePage.html');
+  res.sendFile(__dirname + HTML_DIR + '/ListPage.html');
+});
+
+app.get('/ListPage.html', function(req, res, next){
+  console.log("list html");
+  res.sendFile(__dirname + HTML_DIR + '/ListPage.html');
 });
 
 app.get('/genreData',function(req,res,next){
