@@ -15,7 +15,7 @@ app.use(express.static(__dirname + HTML_DIR));
 
 app.get('/', function(req, res, next){
   console.log("test html");
-  res.sendFile(__dirname + HTML_DIR + '/ListPage.html');
+  res.sendFile(__dirname + HTML_DIR + '/HomePage.html');
 });
 
 app.get('/ListPage.html', function(req, res, next){
@@ -33,6 +33,15 @@ app.get('/mainSearch', function (req, res, next) {
 
   console.log(JSON.stringify(data))
   bookData = getBooksURL(data,res,next);
+
+});
+
+app.get('/ISBNSearch', function (req, res, next) {
+
+  data = req.query;
+
+  //console.log(JSON.stringify(data));
+  bookData = getBookURL(Object.keys(data)[0],res,next);
 
 });
 
@@ -76,7 +85,23 @@ function getBooksURL(textInput, res, next){
     if (this.readyState == 4 && this.status == 200) {
       console.log(typeof this.responseText);
       var data = JSON.parse(this.responseText);
-      console.log("parsed it");
+      res.json(JSON.stringify(data));
+    }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+
+function getBookURL(isbn, res, next){
+
+  var url = `https://www.googleapis.com/books/v1/volumes/${isbn}`;
+  console.log(url);
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(typeof this.responseText);
+      var data = JSON.parse(this.responseText);
+      console.log("parsed data for " + JSON.stringify(data));
       res.json(JSON.stringify(data));
     }
   };
