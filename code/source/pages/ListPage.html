@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b -->
+<html>
+	<head>
+
+		<title>Home Page</title>
+		<script src="jquery-1.11.3.js"></script>
+    <script src="ListPageClient.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/search.css">
+
+	</head>
+
+	<body onload="init()" >
+    <div class = "topnav">
+      <div class="inner-element">
+
+
+      <div class="submission">
+        <div  class="header-logo">
+        <a href="HomePage.html"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
+      </div>
+    		<input type="text" class="submissionfield" id="searchBar" placeholder="Search for anything" name="searchBar">
+        <div  class="select-style" >
+      		<select id="genreSelect"  class="select-width">
+      			<option>All Genres</option>
+      		</select>
+        </div>
+        <button type="button" class="submit-button" onclick="search()">Search</button>
+				<button type="button" class="submit-button" onclick="location.href='AdvancedSearchPage.html'">Advanced Search</button>
+
+
+      </div>
+
+
+    </div>
+
+
+    </div>
+
+    <!--
+    <div class="column filter" id="left">
+      <p><b>Filter column here</b></p>
+    </div>
+    <div class="column listing" id="middle">
+      <p><b>Listing column here</b></p>
+        <div class="grid-container" id="searchListing">
+    </div>
+    <div class="column order" id="right">
+        <p><b>order column here</b></p>
+    </div>
+  -->
+
+	  <div class="row" style="background-color:#ffffff;" id="filterCol">
+	  <div class="column filter">
+
+			<div class="filter-options">
+		    <h2>Filters</h2>
+
+
+				<div class="genre-list" id ="genreList">
+					<p class="genre-title">Genres</p>
+				</div>
+
+			</div>
+
+
+	  </div>
+
+	  <div class="column listing" >
+
+			<div class="list-header">
+				<span id = "ListHeading" class="listing-header"></span>
+
+				<div class="sort-select">
+					<select id="sortSelect" >
+						<option>Featured</option>
+						<option>Price: High first</option>
+						<option>Price: Low first</option>
+						<option>Release: New first</option>
+						<option>Release: Old first</option>
+					</select>
+					</div>
+			</div>
+
+	    <div class="grid-container" id="searchListing" style="background-color:#ffffff;" id="listingCol"></div>
+
+		</div>
+
+  <div class="column order">
+
+  </div>
+
+
+
+
+
+	</body>
+
+</html>
