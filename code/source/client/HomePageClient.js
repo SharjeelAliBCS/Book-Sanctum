@@ -63,13 +63,71 @@ function requestSearchData(userInputObj){
   });
 
   request.done(function (data) {
-    console.log(data);
-
+    bookData = JSON.parse(data)
+    console.log("data size is " + bookData.length);
+    //console.log(bookData);
+    populateBookList(bookData.items);
   })
 
   request.fail(function () {
     console.log("ERROR COULD NOT GET DATA")
 
   });
+
+}
+
+function populateBookList(data){
+
+        //Here we remove the html elements from the html card.
+        //Got the removeChild from stackoverflow
+        //https://stackoverflow.com/questions/3450593/how-do-i-clear-the-content-of-a-div-using-javascript
+        let div = document.getElementById('searchListing');
+        while (div.firstChild) {
+          div.removeChild(div.firstChild);
+        }
+
+        console.log(" total = "  + data.length);
+
+        //This adds the cards to the html by using the pokemonCard div.
+
+        for (let i in data) {
+
+          let book = data[i].volumeInfo;
+          console.log(book)
+          //let hyperlink = 'https://pokemontcg.io/cards/' + card.id
+
+          let divCard = document.createElement('div');
+
+          // divCard.className = 'row';
+
+          divCard.innerHTML = ""
+            + '<div class="book-item">'
+
+              + '<div class="book-column book-image">'
+                + '<div role="button" id="' + book.title + '" class="card" style="width:170px; height:237px;">'
+                + '<div class="imgCard"><img src= ' + book.imageLinks.thumbnail + ' style="width:170px; height:237px;"></img></div></a></div>'
+                +'</div>'
+
+              + '<div class="book-column book-info">'
+                + '<p style="display:inline" class="pokemonName">' + book.title + '</font></p><br></br>'
+                //+ '<p style="display:inline" class="book-description">' + book.description + '</font></p>'
+              + '</div>'
+
+            + '</div>'
+
+          document.getElementById('searchListing').appendChild(divCard);
+
+
+        }
+        var viewportHeight = $('.grid-container').outerHeight();
+        console.log(viewportHeight);
+        $(".column").each(function(){
+          $(this).css('height',viewportHeight+180);
+        });
+
+
+        console.log("done")
+
+
 
 }

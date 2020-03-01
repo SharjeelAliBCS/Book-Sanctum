@@ -1,10 +1,14 @@
 const express = require('express');
+const https = require('https') //food2fork now requires https
+let http = require('http')
 const app = express();
 const port = 3000;
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var xhr = new XMLHttpRequest();
 
 const HTML_DIR = "/source/pages";
 const CLIENT_DIR = "/source/client";
-var genres = ["Sci fi", "fantasy", "mystery"];
+var genres = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
 
 app.use(express.static(__dirname + CLIENT_DIR));
 app.use(express.static(__dirname + HTML_DIR));
@@ -19,15 +23,11 @@ app.get('/genreData',function(req,res,next){
 });
 
 app.get('/mainSearch', function (req, res, next) {
-  let validator = Object.keys(req.query)[0];
 
   data = req.query;
 
-  console.log(JSON.stringify(data));
-
-  res.json("got the data yo~!");
-
-
+  console.log(JSON.stringify(data))
+  bookData = getBooksURL(data,res,next);
 
 });
 
@@ -56,3 +56,70 @@ app.use('*', function (req, res, next) {
 //app.use(logger('dev'))
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
+function getGenres(){
+
+}
+
+function getBooksURL(textInput, res, next){
+  search = textInput["textInput"].replace(' ','+')
+  console.log(search);
+
+  var url = `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=40`;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(typeof this.responseText);
+      var data = JSON.parse(this.responseText);
+      console.log("parsed it");
+      res.json(JSON.stringify(data));
+    }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+
+/*
+function getBooksURL(textInput, res, next) {
+  console.log("in url");
+
+  //You need to provide an appid with your request.
+  //Many API services now require that clients register for an app id.
+
+  const options = {
+    host: 'https://www.googleapis.com',
+    path: `/books/v1/volumes?q=isbn:1681196638`
+  }
+  https.request(options, function (apiResponse) {
+    //parseData(apiResponse, res)
+    console.log("got smoething");
+    parseData(apiResponse, res, next, textInput);
+
+  }).end()
+}
+
+function parseData(apiResponse, res, next, textInput) {
+  let apiData = ''
+  apiResponse.on('data', function (chunk) {
+    apiData += chunk
+  })
+  apiResponse.on('end', function () {
+    //sendResponse(apiData, res)
+
+    //Here we need to reduce the size of the data to 30 cards.
+    bookData = JSON.parse(apiData)
+    if(bookData.length>30)bookData.length = 30
+
+    let responseobj = {
+      pokemon: textInput,
+      data: bookData
+    }
+
+    res.json(JSON.stringify(responseobj))
+    //next() //allow next route or middleware to run
+
+
+
+  })
+}
+*/
