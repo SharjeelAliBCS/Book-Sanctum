@@ -8,9 +8,9 @@ function init(){
 
   }
 
-  //$('#genreSelect').val(text.genreInput);
-
 }
+
+
 
 
 function search(){
@@ -75,11 +75,77 @@ function requestBook(isbn){
   request.done(function (data) {
     var book = JSON.parse(data);
     console.log(book);
+    populateBookInfo(book);
 
   })
 
   request.fail(function () {
     console.log("ERROR COULD NOT GET DATA")
   });
+
+}
+
+function populateBookInfo(book){
+
+  isbn = book.id;
+  book = book.volumeInfo;
+  //Here we remove the html elements from the html card.
+  //Got the removeChild from stackoverflow
+  //https://stackoverflow.com/questions/3450593/how-do-i-clear-the-content-of-a-div-using-javascript
+  let div = document.getElementById('bookInfo');
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
+
+  //console.log(data[i]);
+  //let hyperlink = 'https://pokemontcg.io/cards/' + card.id
+
+  let divCard = document.createElement('div');
+
+  // divCard.className = 'row';
+  if(book.title!=null && book.imageLinks!=null && book.authors!=null){
+    bookPrice = "CDN $"+19.99;
+
+    onclk = '"order(\''+isbn+'\')" ';
+
+    divCard.innerHTML = ""
+      + '<div class="info-styling">'
+        + '<div class="row">'
+
+          + '<div class="info-col img-col">'
+            + '<div class="img">'
+                +'<img src= ' + book.imageLinks.thumbnail + ' style="width:350px; height:488;"></img>'
+            +'</div>'
+
+            +'<div class="buy">'
+              + '<b class="price">' + bookPrice +'</b>'
+              +'<div class="quantity">'
+                + '<input type="text" class="quantity-text" id="quantityInput">'
+              +'</div>'
+              + '<button type="button" onclick='+onclk + ' class="order-button"> ORDER NOW</button>'
+            +'</div>'
+
+          +'</div>'
+
+          + '<div class="info-col text-col">'
+            + '<b style="display:inline" class="title">' + book.title + '</b>'
+            + '<p class="author">' + book.authors[0] +'</p>'
+            + '<p class="published">' + book.publishedDate +'</p>'
+            + '<p style="display:inline" class="description">' + book.description + '</font></p>'
+          + '</div>'
+
+        + '</div>'
+      + '</div>'
+    console.log(divCard);
+
+    document.getElementById('bookInfo').appendChild(divCard);
+    document.getElementById('quantityInput').value = 1;
+    console.log("done")
+  }
+
+}
+
+function order(isbn){
+  console.log("ordered book "+ isbn);
 
 }
