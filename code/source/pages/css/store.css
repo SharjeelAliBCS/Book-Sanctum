@@ -18,12 +18,12 @@ p{
 .menu{
   background-color: #e0e0e0;
   padding: 30px;
-  height: 190vh;
+  height: 140vh;
 }
 
 .home-section{
   background-color: #ffffff;
-  height: 350px;
+  height: 400px;
   padding: 30px;
   max-width: 1200px;
   border-radius: 10px;
@@ -32,7 +32,7 @@ p{
   border-width: thin;
 
 
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -50,26 +50,32 @@ p{
   margin-top: 10px;
 display: grid;
 align-content: center;
-grid-template-columns: auto;
+grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
 grid-gap: 30px;
-padding: 30px;
-border-radius: 5px;
-border-style: solid;
-border-color: #bdbdbd;
-border-width: thin;
+padding: 0px;
+
+
+width: 100%;
+margin: 0 auto;
+overflow-x: scroll;
+white-space: nowrap;
+
+
+
 }
 
 .grid-container > div {
-background-color: rgba(255, 255, 255, 0);
-padding: 20px;
-font-size: 30px;
-border-bottom:1px solid #bdbdbd;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 20px;
+  font-size: 30px;
+
 }
 
 
 
 /*info from: https://www.atyantik.com/creating-card-layout-with-css3-grid/*/
 .card{
+    cursor:pointer;
 
 }
 
@@ -88,4 +94,60 @@ border-bottom:1px solid #bdbdbd;
 .listing {
   width: 54%;
   max-width: 50%;
+}
+.book-item{
+    overflow-x: hidden;
+    white-space:nowrap;
+}
+
+.book-title{
+  font-family: Verdana;
+  font-size: 15px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box-flex;
+  line-height: 21px;
+  max-height: 44px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 180px;
+  max-width: 200px;
+}
+
+.book-title:hover{
+  text-decoration: underline;
+}
+
+.book-author{
+  font-family: Verdana;
+  font-size: 12px;
+  top: 20px;
+  margin-top: -15px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box-flex;
+  line-height: 21px;
+  max-height: 44px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 180px;
+  max-width: 200px;
+}
+
+.book-price{
+  font-family: Verdana;
+  margin-top: 15px;
+
+  font-size: 20px;
+
+}
+
+.book-row{
+  display: flex;
+}
+
+.book-col{
+  flex: 1;
 }

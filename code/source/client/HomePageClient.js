@@ -1,6 +1,18 @@
 function init(){
-  console.log("var");
-  requestGenres();
+  requestData("/genreData");
+  requestData("/bestSellersData");
+  //requestData("/newlyAddedData");
+  requestData("/recentlyViewedData");
+
+}
+
+function requestBestSellers(){
+}
+
+function requestRecentlyViewed(){
+}
+
+function requestNewlyAdded(){
 }
 
 function search(){
@@ -21,17 +33,32 @@ $(document).on('keypress',function(e) {
         search();
     }
 });
-function requestGenres(){
+
+function requestData(url){
+
   var request = $.ajax({
-    url: "/genreData",
+    url: url,
     data: "query",
     dataType: "json"
   });
 
-  request.done(function (data) {
-    var genres = JSON.parse(data);
-    console.log(genres);
-    populateGenreSelect(genres);
+  request.done(function (req) {
+    var data = JSON.parse(req);
+    switch(url){
+      case "/genreData":
+        populateGenreSelect(data);
+        break;
+      case "/bestSellersData":
+        populateBookScroll(data.items,"bestSellersGrid");
+        break;
+      case "/recentlyViewedData":
+        console.log(data.items);
+        populateBookScroll(data.items,"recentlyViewedGrid");
+        break;
+      case "/newlyAddedData":
+        populateNewlyAdded(data.items);
+        break;
+    }
 
   })
 
@@ -41,11 +68,72 @@ function requestGenres(){
 
 }
 
+function populateBookScroll(data,divID){
+
+
+  let div = document.getElementById(divID);
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
+
+  //console.log(" total = "  + data.length);
+
+  //This adds the cards to the html by using the pokemonCard div.
+
+  for (let i in data) {
+
+    let book = data[i].volumeInfo;
+
+    let divCard = document.createElement('div');
+
+    // divCard.className = 'row';
+    if(book.title!=null && book.imageLinks!=null && book.authors!=null){
+      bookPrice = "CDN $"+19.99;
+
+      onclk = '"openBookPage(\''+data[i].id+'\')" ';
+
+      divCard.innerHTML = ""
+        + '<div class="book-item">'
+
+            + '<div role="button" id="' + book.title + '" class="card" style="width:150px; height:209px;">'
+              + '<div class="imgCard" onclick=' +onclk+ '><img src= ' + book.imageLinks.thumbnail + ' style="width:150px; height:209px;"></img></div></a>'
+              +'</div>'
+
+              + '<p onclick=' +onclk+ ' class="book-title">' + book.title + '</p>'
+              + '<p class="book-author">' + book.authors[0]+'</p>'
+              + '<p class="book-col book-price">' + bookPrice +'</p>'
+
+        + '</div>'
+
+      document.getElementById(divID).appendChild(divCard);
+    }
+
+
+  }
+  //
+}
+
+function openBookPage(isbn){
+  console.log(isbn+ " page opened!");
+
+  localStorage.setItem('ISBN', isbn);
+  window.location.href = "BookPage.html";
+}
+
+function populateRecentlyViewed(data){
+
+}
+
+
+function populateNewlyAdded(data){
+
+}
+
+
 function populateGenreSelect(genres){
   genreSelect = document.getElementById("genreSelect");
 
   for(index in genres){
-    console.log(genres[index]);
     var opt = document.createElement("option");
     opt.value= genres[index];
     opt.innerHTML = genres[index]; // whatever property it has

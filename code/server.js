@@ -10,8 +10,8 @@ const HTML_DIR = "/source/pages";
 const CLIENT_DIR = "/source/client";
 
 var genres = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
-var bestSellers = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
-var recentlyViewed = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
+var bestSellers = ["yng_CwAAQBAJ", "7ep09WAFbDwC", "YbtNDwAAQBAJ","aVPNxmllbAUC", "Y41zAwAAQBAJ", "htv5QwJC7UkC","ZjzjoAEACAAJ","lqRdDwAAQBAJ","kDvsDQAAQBAJ","ddKwDwAAQBAJ"];
+var recentlyViewed = ["wJWaDwAAQBAJ","XK2aDwAAQBAJ","uv4vqKYsyawC","ZrNzAwAAQBAJ","SjUjAwAAQBAJ","UQzntAEACAAJ","M8PjDAAAQBAJ","0ETIjwEACAAJ","1S1cvgEACAAJ","CsllDwAAQBAJ"];
 var favGenres = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
 var newlyAdded = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
 
@@ -32,12 +32,25 @@ app.get('/genreData',function(req,res,next){
   res.json(JSON.stringify(genres));
 });
 
+app.get('/bestSellersData',function(req,res,next){
+  getBooksURL({"textInput": "self improvement"}, res, next,10);
+});
+
+app.get('/recentlyViewedData',function(req,res,next){
+  console.log("recently viewed!")
+  getBooksURL({"textInput": "Halo"}, res, next,10);
+});
+
+app.get('/newlyAddedData',function(req,res,next){
+  getBooksURL({"textInput": "stuff"}, res, next,10);
+});
+
 app.get('/mainSearch', function (req, res, next) {
 
   data = req.query;
 
   console.log(JSON.stringify(data))
-  bookData = getBooksURL(data,res,next);
+  bookData = getBooksURL(data,res,next,40);
 
 });
 
@@ -47,6 +60,7 @@ app.get('/ISBNSearch', function (req, res, next) {
 
   //console.log(JSON.stringify(data));
   bookData = getBookURL(Object.keys(data)[0],res,next);
+
 
 });
 
@@ -80,11 +94,12 @@ function getGenres(){
 
 }
 
-function getBooksURL(textInput, res, next){
+function getBooksURL(textInput, res, next,max){
   search = textInput["textInput"].replace(' ','+')
   console.log(search);
 
-  var url = `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=40`;
+  var url = `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=${max}`;
+  console.log(url);
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -113,6 +128,10 @@ function getBookURL(isbn, res, next){
   xhttp.open("GET", url, true);
   xhttp.send();
 }
+
+
+
+
 
 /*
 function getBooksURL(textInput, res, next) {
