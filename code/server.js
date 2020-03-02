@@ -42,7 +42,7 @@ app.get('/recentlyViewedData',function(req,res,next){
 });
 
 app.get('/newlyAddedData',function(req,res,next){
-  getBooksURL({"textInput": "stuff"}, res, next,10);
+  getBooksURL({"textInput": "James Dashner"}, res, next,3);
 });
 
 app.get('/mainSearch', function (req, res, next) {

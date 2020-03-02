@@ -1,18 +1,9 @@
 function init(){
   requestData("/genreData");
   requestData("/bestSellersData");
-  //requestData("/newlyAddedData");
+  requestData("/newlyAddedData");
   requestData("/recentlyViewedData");
 
-}
-
-function requestBestSellers(){
-}
-
-function requestRecentlyViewed(){
-}
-
-function requestNewlyAdded(){
 }
 
 function search(){
@@ -68,6 +59,74 @@ function requestData(url){
 
 }
 
+function populateNewlyAdded(data){
+
+  let div = document.getElementById("mainHeader");
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
+
+  colors = ["#ffaba3", "#9cffbd", "#85daff"];
+  console.log("in populate newl");
+
+
+  for (let i in data) {
+
+    let book = data[i].volumeInfo;
+
+    let divCard = document.createElement('div');
+
+    // divCard.className = 'row';
+    if(book.title!=null && book.imageLinks!=null && book.authors!=null){
+      bookPrice = "CDN $"+19.99;
+
+      onclk = '"openBookPage(\''+data[i].id+'\')" ';
+      color = 'style="background-color:'+colors[i]+';" ';
+      console.log(color);
+
+      divCard.innerHTML = ""
+        + '<div class="newly-added" id="newlyAdded'+(i+1) +' " ' + color+'onclick=' +onclk+ '>'
+
+              + '<div class="newly-col newly-info ">'
+              + '  <b class="text-section">New release</b><br></br>'
+
+                + '<b style="display:inline" class="newly-title">' + book.title + '</b>'
+                + '<p class="newly-author">' + book.authors[0] +'</p><br></br>'
+                + '<p class="newly-price">' + bookPrice +'</p><br></br>'
+
+              + '</div>'
+
+              + '<div class="newly-col newly-img">'
+
+                  + '<div role="button" id="' + book.title + '" class="card" style="width:236px; height:330px;">'
+                  + '<div class="imgCard" ><img src= ' + book.imageLinks.thumbnail + ' style="width:236px; height:330px;"></img></div></a></div>'
+
+                +'</div>'
+
+        + '</div>'
+
+
+      console.log(divCard);
+      document.getElementById("mainHeader").appendChild(divCard);
+      //console.log(document.getElementById("mainHeader"));
+    }
+
+
+  }
+  var divs = $('div[id^="newlyAdded"]').hide(),
+    i = 0;
+
+    (function cycle() {
+    divs.eq(i).fadeIn(600)
+              .delay(5000)
+              .fadeOut(600, cycle);
+
+    i = ++i % divs.length; // increment i,
+                           //   and reset to 0 when it equals divs.length
+   })();
+
+}
+
 function populateBookScroll(data,divID){
 
 
@@ -120,14 +179,7 @@ function openBookPage(isbn){
   window.location.href = "BookPage.html";
 }
 
-function populateRecentlyViewed(data){
 
-}
-
-
-function populateNewlyAdded(data){
-
-}
 
 
 function populateGenreSelect(genres){

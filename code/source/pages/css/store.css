@@ -18,25 +18,36 @@ p{
 .menu{
   background-color: #e0e0e0;
   padding: 30px;
-  height: 140vh;
+  height: 160vh;
 }
 
 .home-section{
   background-color: #ffffff;
   height: 400px;
-  padding: 30px;
+
   max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.book-listing{
+  padding: 30px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  border-width: thin;
+  width: 70%;
+}
+
+.main-section{
+  max-width: 1260px;
+
+  width: 120%;
   border-radius: 10px;
   border-style: solid;
   border-color: #bdbdbd;
   border-width: thin;
 
-
-  width: 70%;
-  margin: 0 auto;
-  margin-top: 20px;
 }
-
 .text-section{
   font-family: Verdana;
   font-size: 25px;
@@ -150,4 +161,45 @@ white-space: nowrap;
 
 .book-col{
   flex: 1;
+}
+
+.newly-added{
+
+  display: block;
+  width: 1200px;
+  height: 340px;
+  padding: 30px;
+  border: 0;
+
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  border-width: thin;
+
+  cursor:pointer;
+}
+
+.newly-col{
+  float: left;
+}
+
+.newly-info{
+  width: 70%;
+}
+.newly-title{
+  font-family: Verdana;
+  font-size: 40px;
+}
+.newly-author{
+  font-family: Verdana;
+  font-size: 30px;
+}
+
+.newly-price{
+  font-family: Verdana;
+  font-size: 40px;
+}
+
+.newly-img{
+  width: 30%;
 }
