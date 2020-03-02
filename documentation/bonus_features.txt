@@ -2,3 +2,13 @@
  - If user can't find book, request it. 
  - Book info is sent as messege to owner in messeges table. 
  - owner can choose to order book for store or not in form
+
+-Home page
+ - User: ten most recent books viewed
+ - User: favourite genres (Most searched for)
+ - Displays best sellers or most searched books
+ - New books added
+
+- Sales?
+ - Owner can choose to put publisher books on sale
+

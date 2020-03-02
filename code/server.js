@@ -8,7 +8,12 @@ var xhr = new XMLHttpRequest();
 
 const HTML_DIR = "/source/pages";
 const CLIENT_DIR = "/source/client";
+
 var genres = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
+var bestSellers = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
+var recentlyViewed = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
+var favGenres = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
+var newlyAdded = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
 
 app.use(express.static(__dirname + CLIENT_DIR));
 app.use(express.static(__dirname + HTML_DIR));
