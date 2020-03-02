@@ -1,0 +1,12 @@
+.order-tab{
+  position: fixed;
+  padding: 20px;
+  background-color: #ababab;
+  width: 20%;
+  height: 640px;
+  margin-left: 40px;
+  margin-top: 40px;
+  display: inline-block;
+  /*120px*/
+
+}
