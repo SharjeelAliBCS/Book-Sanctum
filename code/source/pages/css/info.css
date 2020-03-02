@@ -63,6 +63,7 @@
 .price{
     font-size: 30px;
     margin-top: -5px;
+    text-align: center;
 }
 
 .description{
@@ -77,6 +78,7 @@
   border-width: thin;
   margin-top: 10px;
   padding: 5px;
+  text-align: center;
 }
 .order-button{
   background-color: #ffc30b;
@@ -92,8 +94,27 @@
   cursor: pointer;
 }
 .quantity{
-  
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 30%;
+  margin: 0 auto;
+
 }
 .quantity-text{
-  width: 30px;
+  width: 40px;
+  height:30px;
+  font-size: 20px;
+}
+.quantity-button{
+  font-size: 30px;
+  border: none;
+  background: none;
+}
+
+.extra-info{
+  border-bottom:1px solid #bdbdbd;
+}
+
+.extra-text{
+  font-size: 18px;
 }

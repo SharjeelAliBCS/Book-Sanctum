@@ -120,7 +120,9 @@ function populateBookInfo(book){
             +'<div class="buy">'
               + '<b class="price">' + bookPrice +'</b>'
               +'<div class="quantity">'
+                + '<button type="button" onclick="changeQuantity(false)"" class="quantity-button">-</button>'
                 + '<input type="text" class="quantity-text" id="quantityInput">'
+                + '<button type="button" onclick="changeQuantity(true)"" class="quantity-button">+</button>'
               +'</div>'
               + '<button type="button" onclick='+onclk + ' class="order-button"> ORDER NOW</button>'
             +'</div>'
@@ -135,6 +137,14 @@ function populateBookInfo(book){
           + '</div>'
 
         + '</div>'
+
+        + '<div class="extra-info">'
+          + '<p class="extra-text"> <strong>ISBN:</strong> ' +isbn +'</p>'
+          + '<p class="extra-text"> <strong>Publisher:</strong> ' +book.publisher +'</p>'
+          + '<p class="extra-text"> <strong>Genres:</strong> ' +book.categories[0] +'</p>'
+          + '<p class="extra-text"> <strong>Pages:</strong> ' +book.pageCount +'</p>'
+
+        + '</div>'
       + '</div>'
     console.log(divCard);
 
@@ -147,5 +157,19 @@ function populateBookInfo(book){
 
 function order(isbn){
   console.log("ordered book "+ isbn);
+}
+
+function changeQuantity(increase){
+  textInput = document.getElementById('quantityInput');
+  val = parseInt(textInput.value, 10);
+
+  if(increase){
+    console.log("increasing...");
+    textInput.value = val+1;
+  }
+  else if(val>1){
+    console.log("decreasing...");
+    textInput.value =val-1;
+  }
 
 }
