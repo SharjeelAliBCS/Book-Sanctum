@@ -32,3 +32,7 @@ function login(){
   console.log(loginType + " " +user+ " logged in using password "+ password);
 
 }
+
+function createAccount(){
+  console.log("creating account");
+}
