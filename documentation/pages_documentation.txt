@@ -1,7 +1,7 @@
 1. Main Home Page (Done)
 2. Search Page (Done)
 3. Info Page (Done)
-4. Login form Page
+4. Login form Page (Done)
 5. Advanced Search form Page
 6. Order form Page
 7. Checkout Page
