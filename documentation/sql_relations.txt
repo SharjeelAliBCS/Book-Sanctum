@@ -1,0 +1,13 @@
+author(id, fname, lname, mname)
+book(isbn, title, author, publication_date, add_date, image_url, genre, price, publisher_id, sale)
+user(username, email, password, address, billing, shipping)
+
+owner(email, password, address, billing)
+
+billing(user_id, country, state, city, code, street_name, street_number, apt)
+shipping(user_id, country, state, city, code, street_name, street_number, apt)
+
+order(username, order_number, totalPrice)
+order_book(order_number, ISBN)
+publisher(publisher_id, name, address, account)
+history()
