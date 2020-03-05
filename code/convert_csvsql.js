@@ -27,8 +27,8 @@ function readCSV(path){
   .on('end', () => {
     console.log("data loaded");
     dataString =  JSON.stringify(data[3]);
-    console.log(dataString);
-    addData(data);
+    console.log("size of set is " + data.length);
+    //addData(data);
     // handle end of CSV
   })
 }
@@ -63,5 +63,5 @@ function getData(){
 
 }
 
-val = readCSV("../data/book30-listing-test.csv");
+val = readCSV("../../book-depository-dataset/dataset.csv");
 console.log(val);
