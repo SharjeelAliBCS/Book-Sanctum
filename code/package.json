@@ -19,6 +19,7 @@
   "homepage": "https://github.com/SharjeelAliBCS/comp3005W20-project#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "pg": "^7.18.2",
     "xmlhttprequest": "^1.8.0"
   }
 }

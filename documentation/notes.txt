@@ -10,3 +10,8 @@ b = 3933
 url address = https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg
 
 https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/a/b/ISBN13
+
+
+node --max-old-space-size=4096 convert_csvsql.js
+select genre, count(*) from book
+group by(genre);
