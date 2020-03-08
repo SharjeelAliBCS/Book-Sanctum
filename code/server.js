@@ -14,6 +14,7 @@ var bestSellers = ["yng_CwAAQBAJ", "7ep09WAFbDwC", "YbtNDwAAQBAJ","aVPNxmllbAUC"
 var recentlyViewed = ["wJWaDwAAQBAJ","XK2aDwAAQBAJ","uv4vqKYsyawC","ZrNzAwAAQBAJ","SjUjAwAAQBAJ","UQzntAEACAAJ","M8PjDAAAQBAJ","0ETIjwEACAAJ","1S1cvgEACAAJ","CsllDwAAQBAJ"];
 var favGenres = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
 var newlyAdded = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
+var cart = ["Kb4bAQAAIAAJ", "gd7UCwAAQBAJ", "zGY1Sqjwf8kC"]
 
 app.use(express.static(__dirname + CLIENT_DIR));
 app.use(express.static(__dirname + HTML_DIR));
@@ -34,6 +35,10 @@ app.get('/genreData',function(req,res,next){
 
 app.get('/bestSellersData',function(req,res,next){
   getBooksURL({"textInput": "self improvement"}, res, next,10);
+});
+
+app.get('/cart',function(req,res,next){
+  getBooksURL({"textInput": "math"}, res, next,7);
 });
 
 app.get('/recentlyViewedData',function(req,res,next){
@@ -129,7 +134,6 @@ function getBookURL(isbn, res, next){
   xhttp.send();
 }
 
-<br></br>
 
 
 

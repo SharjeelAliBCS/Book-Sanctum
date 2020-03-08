@@ -7,6 +7,7 @@
 		<title>book.sanctum.ca</title>
 		<script src="jquery-1.11.3.js"></script>
     <script src="ListPageClient.js"></script>
+		<script src="MenuContentClient.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/search.css">
 		<link rel="stylesheet" type="text/css" href="css/navigation.css">
@@ -31,6 +32,10 @@
         </div>
         <button type="button" class="submit-button" onclick="search()">Search</button>
 				<button type="button" class="submit-button" onclick="location.href='AdvancedSearchPage.html'">Advanced Search</button>
+				<button type="button" class="login" onclick="location.href='LoginPage.html'">Login</button>
+				<button type="button" class="login" onclick="location.href='AdvancedSearchPage.html'">Account</button>
+				<button type="button" class="login" onclick="location.href='AdvancedSearchPage.html'">Orders</button>
+
 
 
       </div>
@@ -93,12 +98,23 @@
 		</div>
 
 		<div class="column order-column">
-			<!--
+
 			<div class="order-tab">
-				<h2>Order column</h2>
-		    <p>Some text..</p>
+				<div class="order-nav">
+					<div class="cart-nav-info">
+						<a><img class="cart-img" src="themes/images/cart.png" alt="Bootsshop"/></a>
+					</div>
+				</div>
+				<div class="order-main">
+					<p class="subtotal" id="totalItems"> Total items: </p>
+					<p class="subtotal" id="subtotal"> Subtotal: </p>
+					<button type="button" class="checkout-button">Checkout</button>
+					<div class="cart" id = "cart">
+					</div>
+
+				</div>
 			</div>
-		-->
+
 		</div>
 
 

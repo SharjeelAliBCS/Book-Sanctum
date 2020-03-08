@@ -4,11 +4,11 @@
 }
 
 .info-column{
-  width:73%;
+  width:87%;
   background-color:#ffffff;
 }
 .order-column{
-  width: 27%;
+  width: 13%;
   background-color:#ebebeb;
 }
 
@@ -20,12 +20,12 @@
 
 }
 .img-col{
-  width: 30%;
+  width: 10%;
    flex: 1;
 }
 
 .text-col{
-  width: 70%;
+  width: 75%;
   font-family: Verdana;
   padding-left: 40px;
 }

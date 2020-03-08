@@ -1,6 +1,7 @@
 function init(){
-  requestGenres();
 
+  init_menu_content();
+  requestData("/genreData");
 
   text =JSON.parse(localStorage.getItem('textInput'));
 
@@ -18,6 +19,33 @@ function init(){
   }
 
   //$('#genreSelect').val(text.genreInput);
+
+}
+
+function requestData(url){
+
+  var request = $.ajax({
+    url: url,
+    data: "query",
+    dataType: "json"
+  });
+
+  request.done(function (req) {
+    var data = JSON.parse(req);
+    switch(url){
+      case "/genreData":
+        populateGenreSelect(data);
+        break;
+      case "/cart":
+        populateOrderTab(data.items);
+        break;
+    }
+
+  })
+
+  request.fail(function () {
+    console.log("ERROR COULD NOT GET DATA")
+  });
 
 }
 
@@ -43,24 +71,7 @@ $(document).on('keypress',function(e) {
         search();
     }
 });
-function requestGenres(){
-  var request = $.ajax({
-    url: "/genreData",
-    data: "query",
-    dataType: "json"
-  });
 
-  request.done(function (data) {
-    var genres = JSON.parse(data);
-    populateGenreSelect(genres);
-
-  })
-
-  request.fail(function () {
-    console.log("ERROR COULD NOT GET DATA")
-  });
-
-}
 
 function populateGenreSelect(genres){
   genreSelect = document.getElementById("genreSelect");

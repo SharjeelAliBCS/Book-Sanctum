@@ -1,4 +1,6 @@
+
 function init(){
+  init_menu_content();
   requestGenres();
 
   isbn =localStorage.getItem('ISBN');
@@ -124,7 +126,7 @@ function populateBookInfo(book){
                 + '<input type="text" class="quantity-text" id="quantityInput">'
                 + '<button type="button" onclick="changeQuantity(true)"" class="quantity-button">+</button>'
               +'</div>'
-              + '<button type="button" onclick='+onclk + ' class="order-button"> ORDER NOW</button>'
+              + '<button type="button" onclick='+onclk + ' class="order-button"> ADD TO CART</button>'
             +'</div>'
 
           +'</div>'
@@ -150,6 +152,7 @@ function populateBookInfo(book){
 
     document.getElementById('bookInfo').appendChild(divCard);
     document.getElementById('quantityInput').value = 1;
+
     console.log("done")
   }
 

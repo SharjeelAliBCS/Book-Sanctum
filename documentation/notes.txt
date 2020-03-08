@@ -1,4 +1,4 @@
-SELECT pg_size_pretty( pg_database_size('book-sanctum') );
+SELECT pg_size_pretty( pg_database_size('book_sanctum') );
 https://www.bookdepository.com/Great-Escape-Paul-Brickhill/9780393325799
 https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/3933/9780393325799.jpg
 
