@@ -2,8 +2,8 @@
 2. Search Page (Done)
 3. Info Page (Done)
 4. Login form Page (Done)
-5. Advanced Search form Page
-6. Order form Page
+5. Order form Page (Done)
+6. Advanced Search form Page
 7. Checkout Page
 8. Create account form Page
 9. Owner Home Page

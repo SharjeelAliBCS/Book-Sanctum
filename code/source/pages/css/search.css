@@ -55,14 +55,19 @@ border-bottom:1px solid #bdbdbd;
 
 }
 
-.filter, .order {
+.order {
+  width: 17%;
+  max-width: 25%;
+}
+
+.filter {
   width: 23%;
   max-width: 25%;
 }
 
 .listing {
-  width: 54%;
-  max-width: 50%;
+  width: 60%;
+
 }
 
 /* Clear floats after the columns */
