@@ -39,6 +39,20 @@ function readCSV(path,out){
   })
 }
 
+function readJSON(path,out){
+  data = {};
+    const currData = fs.readFileSync(path);
+    data = JSON.parse(currData.toString());
+    data = modifyJSON(data);
+    console.log("found lines: "+data.length)
+    for(i in data){
+      saveJSON(data[i], out[i]);
+    }
+}
+
+
+
+
 function getAuthors(data){
 
 }
@@ -46,12 +60,36 @@ function modifyJSON(data){
   newData = [];
   authors = [];
   publishers = [];
-  genres = [];
+  generes = [];
 
   for(i in data){
     delete data[i][""];
     delete data[i]["SAR"];
+    delete data[i]["isbn10"];
 
+    /*if(data[i]["subjects"].length==0){
+
+      data[i]["subjects"] = data[i]["tags"];
+      console.log(data[i]["subjects"])
+    }*/
+    data[i]["subjects"] = data[i]["tags"];
+    delete data[i]["tags"]
+    if(data[i]["subjects"]==null){
+      continue;
+    }
+
+    if("publishers" in data[i]){
+      data[i]["publisher"] = data[i]["publishers"][0];
+      delete data[i]["publishers"];
+    }
+    if("authors" in data[i]){
+      data[i]["author"] = data[i]["authors"][0];
+      delete data[i]["authors"];
+    }
+    if("subjects" in data[i]){
+      data[i]["generes"] = data[i]["subjects"][0];
+      delete data[i]["subjects"];
+    }
 
 
     renamePub = {"Penguin": "Penguin Group", "DC": "DC Comics","Dark Horse": "Dark Horse Comics","Harper": "Harper Collins","Image Comics": "Image Comics","Kensington": "Kensington"};
@@ -66,18 +104,30 @@ function modifyJSON(data){
       data[i]["generes"]="Staff picks"
     }
 
+    //console.log(data[i]["generes"])
+    data[i]["generes"] = data[i]["generes"].split(' --')[0].replace('-',' ');
+
+    data[i]["price"] = createPrice();
+
     author = createAuthor(authors, data[i]["author"]);
     id = author["data"]["author_id"];
     if(author["new"]){
       authors.push(author["data"]);
     }
-    else{
-      console.log(JSON.stringify(author["data"], null, 2));
-    }
-
     data[i]["author_id"]=author["data"]["author_id"];
+
+
+    genre = createGenre(generes, data[i]["generes"]);
+    id = genre["data"]["genre_id"];
+    if(genre["new"]){
+      generes.push(genre["data"]);
+    }
+    else{
+      console.log(JSON.stringify(genre["data"], null, 2));
+    }
+    data[i]["genre_id"]=genre["data"]["genre_id"];
+
     data[i]["publisher_id"]='';
-    data[i]["genre_id"]='';
     data[i]["stock"]=20;
     data[i]["add_date"]='';
 
@@ -90,12 +140,16 @@ function modifyJSON(data){
 
   }
 
-  return {"books": newData,"authors": authors};
+  return {"books": newData,"authors": authors,"genres": generes};
 }
+function createPrice(){
+  prices = [9.99, 11.99, 19.99, 22.99, 4.99, 34.99, 24.99];
+  return prices[Math.floor(Math.random()*prices.length)];
 
+}
 function createAuthor(authors, data){
   //console.log(data)
-  let old = authors.filter((obj) => obj.fname == data);
+  let old = authors.filter((obj) => obj.author_name == data);
   //
 
   if(old.length>0) {
@@ -105,11 +159,48 @@ function createAuthor(authors, data){
   else{
     author = {};
     author["author_id"] = authors.length;
-    author["fname"] = data;
-    author["lname"] = '';
+    author["author_name"] = data;
+    //author["lname"] = '';
+
     return {"new": true, "data": author};
 
   }
+}
+
+function createPublisher(publishers, data){
+  //console.log(data)
+  let old = publishers.filter((obj) => obj.fname == data);
+  //
+
+  if(old.length>0) {
+
+    return {"new": false, "data": old[0]};
+  }
+  else{
+    publisher = {};
+    author["publisher_id"] = authors.length;
+    author["publisher_name"] = data;
+    return {"new": true, "data": publisher};
+
+  }
+}
+
+function createGenre(generes, data){
+  //console.log(data)
+  let old = generes.filter((obj) => obj.genre_name == data);
+  //
+
+  if(old.length>0) {
+
+    return {"new": false, "data": old[0]};
+  }
+  else{
+    genre = {};
+    genre["genre_id"] = generes.length;
+    genre["genre_name"] = data;
+    return {"new": true, "data": genre};
+  }
+
 }
 
 
@@ -125,77 +216,14 @@ fs.writeFile(filename, JSON.stringify(data,null,2), 'utf8', function (err) {
 });
 
 }
-function addData(data){
 
-  for(let i =0; i<data.length; i++){
-    //console.log(Object.keys(data[i]));
-    //console.log(data[i].description);
-
-    row = data[i];
-      pool.query('insert into book values($1, $2, $3, $4, $5);',
-      [row.isbn13, row.title, row.description, row.authors, row.categories], (err, result) => {
-      if (err) {
-        return console.error('Error executing query', err.stack)
-      }
-      //console.log(result.rows) // brianc
-
-    })
-
-  }
-
-}
-
-function getData(){
-
-  pool.query('select isbn from book order by isbn desc fetch first 100 rows only;', [], (err, result) => {
-  if (err) {
-    return console.error('Error executing query', err.stack)
-  }
-  //console.log(result.rows);
-
-
-
-  api(result.rows);
-
-
-
-
-
-
-
-  })
-
-}
-
-function getBookURL(isbn){
-
-  var url = `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`;
-  console.log(url);
-
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      //console.log(typeof this.responseText);
-      var data = JSON.parse(this.responseText);
-      //console.log(data.pageCount);
-      //console.log("parsed data for " + JSON.stringify(data));
-
-    }
-  };
-  xhttp.open("GET", url, true);
-  xhttp.send();
-}
-
-function api(data){
-  for(i in data){
-    console.log(data[i].isbn);
-    getBookURL(data[i].isbn);
-  }
-
-}
 var start = new Date().getTime();
-getData();
-val = readCSV("../../book-depository-dataset/google_books_1299.csv",{"books": "../data/Full_Data/full_books.json","authors": "../data/Full_Data/full_authors.json"});
+
+paths = {"books": "../data/Full_Data2/full_books.json",
+"authors": "../data/Full_Data2/full_authors.json",
+"genres": "../data/Full_Data2/full_genres.json"}
+//val = readCSV("../../book-depository-dataset/google_books_1299.csv",paths);
+readJSON("../data/CleanedData.json",paths);
 var end = new Date().getTime();
 var time = end - start;
 console.log("time it took was " + time + " miliseconds");
