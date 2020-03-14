@@ -4,6 +4,10 @@ var xhr = new XMLHttpRequest();
 fs = require("fs");
 var csv = require('csv-parser');
 const { Pool, Client } = require("pg");
+let http = require('http')
+
+const port = 3000;
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const pool = new Pool({
   user: "postgres",
@@ -50,12 +54,25 @@ function readJSON(path,out){
     }
 }
 
+function getBookURL(isbn, res, next){
+  //https://www.googleapis.com/books/v1/volumes?q=isbn:9780553573428
 
-
-
-function getAuthors(data){
-
+  var url = `https://www.googleapis.com/books/v1/volumes/${isbn}`;
+  console.log(url);
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(typeof this.responseText);
+      var data = JSON.parse(this.responseText);
+      console.log("parsed data for " + JSON.stringify(data));
+      res.json(JSON.stringify(data));
+    }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
 }
+
+
 function modifyJSON(data){
   newData = [];
   authors = [];
@@ -65,13 +82,16 @@ function modifyJSON(data){
   for(i in data){
     delete data[i][""];
     delete data[i]["SAR"];
-    delete data[i]["isbn10"];
+
 
     /*if(data[i]["subjects"].length==0){
 
       data[i]["subjects"] = data[i]["tags"];
       console.log(data[i]["subjects"])
     }*/
+    data[i]["published_date"] = data[i]["year"];
+    delete data[i]["year"];
+
     data[i]["subjects"] = data[i]["tags"];
     delete data[i]["tags"]
     if(data[i]["subjects"]==null){
@@ -83,13 +103,15 @@ function modifyJSON(data){
       delete data[i]["publishers"];
     }
     if("authors" in data[i]){
-      data[i]["author"] = data[i]["authors"][0];
-      delete data[i]["authors"];
+      authorText = data[i]["authors"][0];
+
     }
     if("subjects" in data[i]){
-      data[i]["generes"] = data[i]["subjects"][0];
+      data[i]["generes"] = data[i]["subjects"];
+      genreText = data[i]["subjects"][0];
       delete data[i]["subjects"];
     }
+    genreText =genreText.split(' --')[0].replace('-',' ');
 
 
     renamePub = {"Penguin": "Penguin Group", "DC": "DC Comics","Dark Horse": "Dark Horse Comics","Harper": "Harper Collins","Image Comics": "Image Comics","Kensington": "Kensington"};
@@ -100,16 +122,11 @@ function modifyJSON(data){
       }
     }
 
-    if(data[i]["generes"]=="none"){
-      data[i]["generes"]="Staff picks"
-    }
-
     //console.log(data[i]["generes"])
-    data[i]["generes"] = data[i]["generes"].split(' --')[0].replace('-',' ');
 
-    data[i]["price"] = createPrice();
+    data[i]["price"] = 0;
 
-    author = createAuthor(authors, data[i]["author"]);
+    author = createAuthor(authors, authorText);
     id = author["data"]["author_id"];
     if(author["new"]){
       authors.push(author["data"]);
@@ -117,7 +134,7 @@ function modifyJSON(data){
     data[i]["author_id"]=author["data"]["author_id"];
 
 
-    genre = createGenre(generes, data[i]["generes"]);
+    genre = createGenre(generes, genreText);
     id = genre["data"]["genre_id"];
     if(genre["new"]){
       generes.push(genre["data"]);
@@ -128,8 +145,10 @@ function modifyJSON(data){
     data[i]["genre_id"]=genre["data"]["genre_id"];
 
     data[i]["publisher_id"]='';
-    data[i]["stock"]=20;
+    data[i]["stock"]=0;
     data[i]["add_date"]='';
+    data[i]["rating"]=0.0;
+    data[i]["rating_count"]=0;
 
     if(data[i]["ISBN"]!=''){
       newData.push(data[i]);
@@ -219,11 +238,11 @@ fs.writeFile(filename, JSON.stringify(data,null,2), 'utf8', function (err) {
 
 var start = new Date().getTime();
 
-paths = {"books": "../data/Full_Data2/full_books.json",
-"authors": "../data/Full_Data2/full_authors.json",
-"genres": "../data/Full_Data2/full_genres.json"}
+paths = {"books": "../data/Full_Data/full_books.json",
+"authors": "../data/Full_Data/full_authors.json",
+"genres": "../data/Full_Data/full_genres.json"}
 //val = readCSV("../../book-depository-dataset/google_books_1299.csv",paths);
-readJSON("../data/CleanedData.json",paths);
+readJSON("../data/Full_Data2/full_info.json",paths);
 var end = new Date().getTime();
 var time = end - start;
 console.log("time it took was " + time + " miliseconds");
