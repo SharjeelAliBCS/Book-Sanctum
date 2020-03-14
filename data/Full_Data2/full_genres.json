@@ -1,0 +1,410 @@
+[
+  {
+    "genre_id": 0,
+    "genre_name": "young adult"
+  },
+  {
+    "genre_id": 1,
+    "genre_name": "classics"
+  },
+  {
+    "genre_id": 2,
+    "genre_name": "fantasy"
+  },
+  {
+    "genre_id": 3,
+    "genre_name": "fiction"
+  },
+  {
+    "genre_id": 4,
+    "genre_name": "children"
+  },
+  {
+    "genre_id": 5,
+    "genre_name": "non fiction"
+  },
+  {
+    "genre_id": 6,
+    "genre_name": "literature"
+  },
+  {
+    "genre_id": 7,
+    "genre_name": "poetry"
+  },
+  {
+    "genre_id": 8,
+    "genre_name": "science fiction"
+  },
+  {
+    "genre_id": 9,
+    "genre_name": "sci fi"
+  },
+  {
+    "genre_id": 10,
+    "genre_name": "chick lit"
+  },
+  {
+    "genre_id": 11,
+    "genre_name": "childrens"
+  },
+  {
+    "genre_id": 12,
+    "genre_name": "nonfiction"
+  },
+  {
+    "genre_id": 13,
+    "genre_name": "erotica"
+  },
+  {
+    "genre_id": 14,
+    "genre_name": "historical fiction"
+  },
+  {
+    "genre_id": 15,
+    "genre_name": "humor"
+  },
+  {
+    "genre_id": 16,
+    "genre_name": "series"
+  },
+  {
+    "genre_id": 17,
+    "genre_name": "school"
+  },
+  {
+    "genre_id": 18,
+    "genre_name": "romance"
+  },
+  {
+    "genre_id": 19,
+    "genre_name": "plays"
+  },
+  {
+    "genre_id": 20,
+    "genre_name": "horror"
+  },
+  {
+    "genre_id": 21,
+    "genre_name": "graphic novels"
+  },
+  {
+    "genre_id": 22,
+    "genre_name": "mystery"
+  },
+  {
+    "genre_id": 23,
+    "genre_name": "memoir"
+  },
+  {
+    "genre_id": 24,
+    "genre_name": "travel"
+  },
+  {
+    "genre_id": 25,
+    "genre_name": "book club"
+  },
+  {
+    "genre_id": 26,
+    "genre_name": "self help"
+  },
+  {
+    "genre_id": 27,
+    "genre_name": "vampires"
+  },
+  {
+    "genre_id": 28,
+    "genre_name": "history"
+  },
+  {
+    "genre_id": 29,
+    "genre_name": "india"
+  },
+  {
+    "genre_id": 30,
+    "genre_name": "science"
+  },
+  {
+    "genre_id": 31,
+    "genre_name": "christian"
+  },
+  {
+    "genre_id": 32,
+    "genre_name": "ya"
+  },
+  {
+    "genre_id": 33,
+    "genre_name": "picture books"
+  },
+  {
+    "genre_id": 34,
+    "genre_name": "china"
+  },
+  {
+    "genre_id": 35,
+    "genre_name": "harry potter"
+  },
+  {
+    "genre_id": 36,
+    "genre_name": "thriller"
+  },
+  {
+    "genre_id": 37,
+    "genre_name": "stephen king"
+  },
+  {
+    "genre_id": 38,
+    "genre_name": "cómics"
+  },
+  {
+    "genre_id": 39,
+    "genre_name": "philosophy"
+  },
+  {
+    "genre_id": 40,
+    "genre_name": "nicholas sparks"
+  },
+  {
+    "genre_id": 41,
+    "genre_name": "art"
+  },
+  {
+    "genre_id": 42,
+    "genre_name": "business"
+  },
+  {
+    "genre_id": 43,
+    "genre_name": "mangá"
+  },
+  {
+    "genre_id": 44,
+    "genre_name": "spirituality"
+  },
+  {
+    "genre_id": 45,
+    "genre_name": "manga"
+  },
+  {
+    "genre_id": 46,
+    "genre_name": "comics"
+  },
+  {
+    "genre_id": 47,
+    "genre_name": "biography"
+  },
+  {
+    "genre_id": 48,
+    "genre_name": "jodi picoult"
+  },
+  {
+    "genre_id": 49,
+    "genre_name": "drama"
+  },
+  {
+    "genre_id": 50,
+    "genre_name": "paranormal"
+  },
+  {
+    "genre_id": 51,
+    "genre_name": "dystopian"
+  },
+  {
+    "genre_id": 52,
+    "genre_name": "scifi"
+  },
+  {
+    "genre_id": 53,
+    "genre_name": "nora roberts"
+  },
+  {
+    "genre_id": 54,
+    "genre_name": "cookbooks"
+  },
+  {
+    "genre_id": 55,
+    "genre_name": "short stories"
+  },
+  {
+    "genre_id": 56,
+    "genre_name": "zombies"
+  },
+  {
+    "genre_id": 57,
+    "genre_name": "john grisham"
+  },
+  {
+    "genre_id": 58,
+    "genre_name": "economics"
+  },
+  {
+    "genre_id": 59,
+    "genre_name": "urban fantasy"
+  },
+  {
+    "genre_id": 60,
+    "genre_name": "james patterson"
+  },
+  {
+    "genre_id": 61,
+    "genre_name": "noir"
+  },
+  {
+    "genre_id": 62,
+    "genre_name": "christian fiction"
+  },
+  {
+    "genre_id": 63,
+    "genre_name": "paranormal romance"
+  },
+  {
+    "genre_id": 64,
+    "genre_name": "psychology"
+  },
+  {
+    "genre_id": 65,
+    "genre_name": "music"
+  },
+  {
+    "genre_id": 66,
+    "genre_name": "graphic novel"
+  },
+  {
+    "genre_id": 67,
+    "genre_name": "religious"
+  },
+  {
+    "genre_id": 68,
+    "genre_name": "sports"
+  },
+  {
+    "genre_id": 69,
+    "genre_name": "military"
+  },
+  {
+    "genre_id": 70,
+    "genre_name": "children s-books"
+  },
+  {
+    "genre_id": 71,
+    "genre_name": "realistic fiction"
+  },
+  {
+    "genre_id": 72,
+    "genre_name": "writing"
+  },
+  {
+    "genre_id": 73,
+    "genre_name": "star wars"
+  },
+  {
+    "genre_id": 74,
+    "genre_name": "russian"
+  },
+  {
+    "genre_id": 75,
+    "genre_name": "lee child"
+  },
+  {
+    "genre_id": 76,
+    "genre_name": "fairy tales"
+  },
+  {
+    "genre_id": 77,
+    "genre_name": "religion"
+  },
+  {
+    "genre_id": 78,
+    "genre_name": "aliens"
+  },
+  {
+    "genre_id": 79,
+    "genre_name": "pretty little-liars"
+  },
+  {
+    "genre_id": 80,
+    "genre_name": "sherrilyn kenyon"
+  },
+  {
+    "genre_id": 81,
+    "genre_name": "leadership"
+  },
+  {
+    "genre_id": 82,
+    "genre_name": "true crime"
+  },
+  {
+    "genre_id": 83,
+    "genre_name": "historical romance"
+  },
+  {
+    "genre_id": 84,
+    "genre_name": "house of-night"
+  },
+  {
+    "genre_id": 85,
+    "genre_name": "lgbt"
+  },
+  {
+    "genre_id": 86,
+    "genre_name": "food"
+  },
+  {
+    "genre_id": 87,
+    "genre_name": "finance"
+  },
+  {
+    "genre_id": 88,
+    "genre_name": "christmas"
+  },
+  {
+    "genre_id": 89,
+    "genre_name": "photography"
+  },
+  {
+    "genre_id": 90,
+    "genre_name": "agatha christie"
+  },
+  {
+    "genre_id": 91,
+    "genre_name": "warriors"
+  },
+  {
+    "genre_id": 92,
+    "genre_name": "dark"
+  },
+  {
+    "genre_id": 93,
+    "genre_name": "steampunk"
+  },
+  {
+    "genre_id": 94,
+    "genre_name": "politics"
+  },
+  {
+    "genre_id": 95,
+    "genre_name": "education"
+  },
+  {
+    "genre_id": 96,
+    "genre_name": "design"
+  },
+  {
+    "genre_id": 97,
+    "genre_name": "feminism"
+  },
+  {
+    "genre_id": 98,
+    "genre_name": "parenting"
+  },
+  {
+    "genre_id": 99,
+    "genre_name": "contemporary"
+  },
+  {
+    "genre_id": 100,
+    "genre_name": "time travel"
+  },
+  {
+    "genre_id": 101,
+    "genre_name": "programming"
+  }
+]

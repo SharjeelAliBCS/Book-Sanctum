@@ -1,0 +1,734 @@
+[
+  {
+    "author_id": 0,
+    "author_name": "Hajime Isayama"
+  },
+  {
+    "author_id": 1,
+    "author_name": "Barbara Allan"
+  },
+  {
+    "author_id": 2,
+    "author_name": "Nintendo"
+  },
+  {
+    "author_id": 3,
+    "author_name": "Sara Rosett"
+  },
+  {
+    "author_id": 4,
+    "author_name": "Peter V. Brett"
+  },
+  {
+    "author_id": 5,
+    "author_name": "George R.R. Martin"
+  },
+  {
+    "author_id": 6,
+    "author_name": "J.M. Barlog"
+  },
+  {
+    "author_id": 7,
+    "author_name": "Brandon Sanderson"
+  },
+  {
+    "author_id": 8,
+    "author_name": "Jason Schreier"
+  },
+  {
+    "author_id": 9,
+    "author_name": "Adam Kay"
+  },
+  {
+    "author_id": 10,
+    "author_name": "Andrzej Sapkowski"
+  },
+  {
+    "author_id": 11,
+    "author_name": "Agatha Christie"
+  },
+  {
+    "author_id": 12,
+    "author_name": "Blake Pierce"
+  },
+  {
+    "author_id": 13,
+    "author_name": "Cullen Bunn"
+  },
+  {
+    "author_id": 14,
+    "author_name": "Robert Jordan"
+  },
+  {
+    "author_id": 15,
+    "author_name": "Thom Zahler"
+  },
+  {
+    "author_id": 16,
+    "author_name": "Story by FUSE"
+  },
+  {
+    "author_id": 17,
+    "author_name": "James Milner"
+  },
+  {
+    "author_id": 18,
+    "author_name": "Ian Flynn"
+  },
+  {
+    "author_id": 19,
+    "author_name": "Brian Michael Bendis"
+  },
+  {
+    "author_id": 20,
+    "author_name": "Nicola Marsh"
+  },
+  {
+    "author_id": 21,
+    "author_name": "Douglas Adams"
+  },
+  {
+    "author_id": 22,
+    "author_name": "Mark Lawrence"
+  },
+  {
+    "author_id": 23,
+    "author_name": "Robert B. Cialdini, PhD"
+  },
+  {
+    "author_id": 24,
+    "author_name": "Matthew Mercer"
+  },
+  {
+    "author_id": 25,
+    "author_name": "Stuart Sim"
+  },
+  {
+    "author_id": 26,
+    "author_name": "Pierce Brown"
+  },
+  {
+    "author_id": 27,
+    "author_name": "Billy Connolly"
+  },
+  {
+    "author_id": 28,
+    "author_name": "Alex Lake"
+  },
+  {
+    "author_id": 29,
+    "author_name": "Dale Carnegie"
+  },
+  {
+    "author_id": 30,
+    "author_name": "Sue Watson"
+  },
+  {
+    "author_id": 31,
+    "author_name": "Sue Grafton"
+  },
+  {
+    "author_id": 32,
+    "author_name": "Madeleine Roux"
+  },
+  {
+    "author_id": 33,
+    "author_name": "Rolf Dobelli"
+  },
+  {
+    "author_id": 34,
+    "author_name": "William Shakespeare"
+  },
+  {
+    "author_id": 35,
+    "author_name": "Robert Anthony"
+  },
+  {
+    "author_id": 36,
+    "author_name": "Ernest Cline"
+  },
+  {
+    "author_id": 37,
+    "author_name": "Morgan Rice"
+  },
+  {
+    "author_id": 38,
+    "author_name": "Thomas Ittelson"
+  },
+  {
+    "author_id": 39,
+    "author_name": "Laura Levine"
+  },
+  {
+    "author_id": 40,
+    "author_name": "Ed Brubaker"
+  },
+  {
+    "author_id": 41,
+    "author_name": "Editors of Martha Stewart Living"
+  },
+  {
+    "author_id": 42,
+    "author_name": "Michaella McCollum"
+  },
+  {
+    "author_id": 43,
+    "author_name": "Edgar Allan Poe"
+  },
+  {
+    "author_id": 44,
+    "author_name": "Brian McGilloway"
+  },
+  {
+    "author_id": 45,
+    "author_name": "Terry Hayes"
+  },
+  {
+    "author_id": 46,
+    "author_name": "Mark Millar"
+  },
+  {
+    "author_id": 47,
+    "author_name": "Jason Kelly"
+  },
+  {
+    "author_id": 48,
+    "author_name": "John Grisham"
+  },
+  {
+    "author_id": 49,
+    "author_name": "Robert Greene"
+  },
+  {
+    "author_id": 50,
+    "author_name": "Michael E. Porter"
+  },
+  {
+    "author_id": 51,
+    "author_name": "Brian Tracy"
+  },
+  {
+    "author_id": 52,
+    "author_name": "Jim Butcher"
+  },
+  {
+    "author_id": 53,
+    "author_name": "T. Harv Eker"
+  },
+  {
+    "author_id": 54,
+    "author_name": "George R. R. Martin"
+  },
+  {
+    "author_id": 55,
+    "author_name": "Derren Brown"
+  },
+  {
+    "author_id": 56,
+    "author_name": "Arthur Conan Doyle"
+  },
+  {
+    "author_id": 57,
+    "author_name": "B A Paris"
+  },
+  {
+    "author_id": 58,
+    "author_name": "Jim Collins"
+  },
+  {
+    "author_id": 59,
+    "author_name": "Bob Cinnamon"
+  },
+  {
+    "author_id": 60,
+    "author_name": "Martina Cole"
+  },
+  {
+    "author_id": 61,
+    "author_name": "Frank Miller"
+  },
+  {
+    "author_id": 62,
+    "author_name": "Clive Cussler"
+  },
+  {
+    "author_id": 63,
+    "author_name": "The Awkward Yeti"
+  },
+  {
+    "author_id": 64,
+    "author_name": "Denise Grover Swank"
+  },
+  {
+    "author_id": 65,
+    "author_name": "Jason Fried"
+  },
+  {
+    "author_id": 66,
+    "author_name": "Scott Snyder"
+  },
+  {
+    "author_id": 67,
+    "author_name": "Sir Arthur Conan Doyle"
+  },
+  {
+    "author_id": 68,
+    "author_name": "Paul S. Kemp"
+  },
+  {
+    "author_id": 69,
+    "author_name": "Edward Snowden"
+  },
+  {
+    "author_id": 70,
+    "author_name": "Cora Seton"
+  },
+  {
+    "author_id": 71,
+    "author_name": "Elizabeth Adler"
+  },
+  {
+    "author_id": 72,
+    "author_name": "Gerald Seymour"
+  },
+  {
+    "author_id": 73,
+    "author_name": "Faith Hunter"
+  },
+  {
+    "author_id": 74,
+    "author_name": "Dan Ariely"
+  },
+  {
+    "author_id": 75,
+    "author_name": "Jack Canfield"
+  },
+  {
+    "author_id": 76,
+    "author_name": "Steven D. Levitt"
+  },
+  {
+    "author_id": 77,
+    "author_name": "Michael G. Manning"
+  },
+  {
+    "author_id": 78,
+    "author_name": "James S. A. Corey"
+  },
+  {
+    "author_id": 79,
+    "author_name": "Robin Hobb"
+  },
+  {
+    "author_id": 80,
+    "author_name": "Kelly Sue Deconnick"
+  },
+  {
+    "author_id": 81,
+    "author_name": "Patrick Rothfuss"
+  },
+  {
+    "author_id": 82,
+    "author_name": "Vanessa Van Edwards"
+  },
+  {
+    "author_id": 83,
+    "author_name": "Georges Simenon"
+  },
+  {
+    "author_id": 84,
+    "author_name": "Ray Dalio"
+  },
+  {
+    "author_id": 85,
+    "author_name": "Art Baltazar"
+  },
+  {
+    "author_id": 86,
+    "author_name": "James Fries"
+  },
+  {
+    "author_id": 87,
+    "author_name": "Stephen King"
+  },
+  {
+    "author_id": 88,
+    "author_name": "Caleb Goellner"
+  },
+  {
+    "author_id": 89,
+    "author_name": "Joanne Fluke"
+  },
+  {
+    "author_id": 90,
+    "author_name": "Grant Morrison"
+  },
+  {
+    "author_id": 91,
+    "author_name": "Michael Connelly"
+  },
+  {
+    "author_id": 92,
+    "author_name": "Shannon Messenger"
+  },
+  {
+    "author_id": 93,
+    "author_name": "Lorenzo Carcaterra"
+  },
+  {
+    "author_id": 94,
+    "author_name": "Timothy Snyder"
+  },
+  {
+    "author_id": 95,
+    "author_name": "Timothy Zahn"
+  },
+  {
+    "author_id": 96,
+    "author_name": "Brian Azzarello"
+  },
+  {
+    "author_id": 97,
+    "author_name": "Michael Hyatt"
+  },
+  {
+    "author_id": 98,
+    "author_name": "Gregory David Roberts"
+  },
+  {
+    "author_id": 99,
+    "author_name": "Brent Weeks"
+  },
+  {
+    "author_id": 100,
+    "author_name": "Shirley Wells"
+  },
+  {
+    "author_id": 101,
+    "author_name": "Geoffrey G. Parker"
+  },
+  {
+    "author_id": 102,
+    "author_name": "Philip K. Dick"
+  },
+  {
+    "author_id": 103,
+    "author_name": "David Baldacci"
+  },
+  {
+    "author_id": 104,
+    "author_name": "Jeffrey Archer"
+  },
+  {
+    "author_id": 105,
+    "author_name": "Jeff Kinney"
+  },
+  {
+    "author_id": 106,
+    "author_name": "Sallie Stone"
+  },
+  {
+    "author_id": 107,
+    "author_name": "Jonathan Maberry"
+  },
+  {
+    "author_id": 108,
+    "author_name": "Leo Tolstoy"
+  },
+  {
+    "author_id": 109,
+    "author_name": "André Aciman"
+  },
+  {
+    "author_id": 110,
+    "author_name": "Blake Crouch"
+  },
+  {
+    "author_id": 111,
+    "author_name": "Paul Tobin"
+  },
+  {
+    "author_id": 112,
+    "author_name": "Dan Slott"
+  },
+  {
+    "author_id": 113,
+    "author_name": "Zoe Ferraris"
+  },
+  {
+    "author_id": 114,
+    "author_name": "Linda Castillo"
+  },
+  {
+    "author_id": 115,
+    "author_name": "Simon Sinek"
+  },
+  {
+    "author_id": 116,
+    "author_name": "Mary Higgins Clark"
+  },
+  {
+    "author_id": 117,
+    "author_name": "Tony Robbins"
+  },
+  {
+    "author_id": 118,
+    "author_name": "Melville Herman"
+  },
+  {
+    "author_id": 119,
+    "author_name": "Zig Ziglar"
+  },
+  {
+    "author_id": 120,
+    "author_name": "David R. Hawkins, M.D./Ph.D."
+  },
+  {
+    "author_id": 121,
+    "author_name": "Charles Duhigg"
+  },
+  {
+    "author_id": 122,
+    "author_name": "Jason Aaron"
+  },
+  {
+    "author_id": 123,
+    "author_name": "Dorothy Gilman"
+  },
+  {
+    "author_id": 124,
+    "author_name": "Lee Child"
+  },
+  {
+    "author_id": 125,
+    "author_name": "Julie Andrews"
+  },
+  {
+    "author_id": 126,
+    "author_name": "Renee Evenson"
+  },
+  {
+    "author_id": 127,
+    "author_name": "Geoff Johns"
+  },
+  {
+    "author_id": 128,
+    "author_name": "Nine99 Innovation Lab"
+  },
+  {
+    "author_id": 129,
+    "author_name": "Sun Tzu"
+  },
+  {
+    "author_id": 130,
+    "author_name": "Jana DeLeon"
+  },
+  {
+    "author_id": 131,
+    "author_name": "Nir Eyal"
+  },
+  {
+    "author_id": 132,
+    "author_name": "Rhonda Byrne"
+  },
+  {
+    "author_id": 133,
+    "author_name": "David Allen"
+  },
+  {
+    "author_id": 134,
+    "author_name": "Voltaire"
+  },
+  {
+    "author_id": 135,
+    "author_name": "Peter Newman"
+  },
+  {
+    "author_id": 136,
+    "author_name": "Rachel Renee Russell"
+  },
+  {
+    "author_id": 137,
+    "author_name": "Fred Van Lente"
+  },
+  {
+    "author_id": 138,
+    "author_name": "Al Ewing"
+  },
+  {
+    "author_id": 139,
+    "author_name": "Rhys Bowen"
+  },
+  {
+    "author_id": 140,
+    "author_name": "Dylan Young"
+  },
+  {
+    "author_id": 141,
+    "author_name": "J. R. R. Tolkien"
+  },
+  {
+    "author_id": 142,
+    "author_name": "Robert Kirkman"
+  },
+  {
+    "author_id": 143,
+    "author_name": "Stephen Guise"
+  },
+  {
+    "author_id": 144,
+    "author_name": "Matthew Walker"
+  },
+  {
+    "author_id": 145,
+    "author_name": "H. P. Lovecraft"
+  },
+  {
+    "author_id": 146,
+    "author_name": "Disha Experts"
+  },
+  {
+    "author_id": 147,
+    "author_name": "Peter J. Tomasi"
+  },
+  {
+    "author_id": 148,
+    "author_name": "Edward Fields"
+  },
+  {
+    "author_id": 149,
+    "author_name": "Napoleon Hill"
+  },
+  {
+    "author_id": 150,
+    "author_name": "Michael Sincere"
+  },
+  {
+    "author_id": 151,
+    "author_name": "Alan Moore"
+  },
+  {
+    "author_id": 152,
+    "author_name": "Jen Sincero"
+  },
+  {
+    "author_id": 153,
+    "author_name": "Holly Black"
+  },
+  {
+    "author_id": 154,
+    "author_name": "Mathias Weske"
+  },
+  {
+    "author_id": 155,
+    "author_name": "David Ulrich"
+  },
+  {
+    "author_id": 156,
+    "author_name": "Garrard Conley"
+  },
+  {
+    "author_id": 157,
+    "author_name": "Judith E. Tintinalli"
+  },
+  {
+    "author_id": 158,
+    "author_name": "Katherine Crowley"
+  },
+  {
+    "author_id": 159,
+    "author_name": "Jonathan Hickman"
+  },
+  {
+    "author_id": 160,
+    "author_name": "David Lagercrantz"
+  },
+  {
+    "author_id": 161,
+    "author_name": "Chimamanda Ngozi Adichie"
+  },
+  {
+    "author_id": 162,
+    "author_name": "J. M. DeMatteis"
+  },
+  {
+    "author_id": 163,
+    "author_name": "Gerard Way"
+  },
+  {
+    "author_id": 164,
+    "author_name": "Greta Thunberg"
+  },
+  {
+    "author_id": 165,
+    "author_name": "Michael A. Stackpole"
+  },
+  {
+    "author_id": 166,
+    "author_name": "Sigmund Freud"
+  },
+  {
+    "author_id": 167,
+    "author_name": "Ari Marmell"
+  },
+  {
+    "author_id": 168,
+    "author_name": "Alvin Hall"
+  },
+  {
+    "author_id": 169,
+    "author_name": "Natahan Edmondson"
+  },
+  {
+    "author_id": 170,
+    "author_name": "Jim Starlin"
+  },
+  {
+    "author_id": 171,
+    "author_name": "Derek Fridolfs"
+  },
+  {
+    "author_id": 172,
+    "author_name": "William J. O'Neil"
+  },
+  {
+    "author_id": 173,
+    "author_name": "M. J. Arlidge"
+  },
+  {
+    "author_id": 174,
+    "author_name": "David J. Schwartz"
+  },
+  {
+    "author_id": 175,
+    "author_name": "Brian Staveley"
+  },
+  {
+    "author_id": 176,
+    "author_name": "Tom Taylor"
+  },
+  {
+    "author_id": 177,
+    "author_name": "Doug Johnstone"
+  },
+  {
+    "author_id": 178,
+    "author_name": "Brent Schlender"
+  },
+  {
+    "author_id": 179,
+    "author_name": "Faith Erin Hicks"
+  },
+  {
+    "author_id": 180,
+    "author_name": "Robert Maurer"
+  },
+  {
+    "author_id": 181,
+    "author_name": "John C. Maxwell"
+  },
+  {
+    "author_id": 182,
+    "author_name": "Yevgeny Zamyatin"
+  }
+]
