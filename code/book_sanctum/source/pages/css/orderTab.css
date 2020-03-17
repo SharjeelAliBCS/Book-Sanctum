@@ -1,0 +1,138 @@
+.order-tab{
+  position: fixed;
+  right: 0;
+  background-color:#ebebeb;
+
+  height: 100vh;
+  width: 270px;
+
+  z-index: 10;
+  margin-top: -100px;
+  display: inline-block;
+  border-left: 1px solid #ccc;
+  border-radius: 3px;
+
+  /*120px*/
+}
+
+.order-nav{
+    background-color: #d13100;
+    height: 100px;
+}
+.order-main{
+  padding: 10px;
+}
+
+.checkout-button{
+  background-color: #ffc30b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.cart{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: auto;
+  max-height: 100vh;
+}
+
+.book-row{
+  padding: 5px;
+
+}
+
+.book-col{
+  float: left;
+
+}
+
+.book-left{
+  width: 50%;
+
+}
+
+.book-right{
+  width: 50%;
+}
+
+.cart-book-price{
+  font-family: Verdana;
+  font-size: 15px;
+}
+.cart-delete{
+  cursor: pointer;
+  color: #ffc30b;
+  font-family: Verdana;
+  font-size: 15px;
+}
+.cart-delete:hover{
+  text-decoration: underline;
+}
+
+
+
+.cart-quantity{
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 45%;
+  margin: 0 auto;
+}
+
+.cart-quantity-text{
+  width: 20px;
+  height:20px;
+  font-size: 12px;
+}
+.cart-quantity-button{
+  cursor: pointer;
+  padding: 2px;
+  font-size: 15px;
+  border: none;
+  background: none;
+}
+
+
+.cart-book-info{
+  margin-top: -5px;
+  clear: left;
+
+}
+
+.cart-nav-info{
+  padding: 10px;
+  width: 50%;
+  margin: 0 auto;
+
+}
+
+.subtotal{
+  font-family: Verdana;
+  font-size: 20px;
+
+}
+.cart-img{
+    width:80px; /* you can use % */
+    height: auto;
+
+}
+.img-card{
+  cursor: pointer;
+}
+
+.cart-book-title{
+  margin-top: -2px;
+  cursor: pointer;
+  font-family: Verdana;
+  font-size: 15px;
+}
+.cart-book-title:hover{
+  text-decoration: underline;
+}

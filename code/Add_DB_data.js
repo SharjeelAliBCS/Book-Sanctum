@@ -43,6 +43,8 @@ function addDataDB(data,key){
     case "genre":
       addGenreDB(data[key]);
       break;
+    case "publisher":
+      addPublisherDB(data[key]);
 
 
   }
@@ -50,7 +52,7 @@ function addDataDB(data,key){
 
 function deleteData(){
 
-    pool.query('delete from book; delete from author; delete from genre;',
+    pool.query('delete from book; delete from author; delete from genre; delete from publisher;',
     (err, result) => {
     if (err) {
       return console.error('Error executing query', err.stack)
@@ -67,8 +69,8 @@ function addBookDB(data){
   for(let i =0; i<data.length; i++){
 
     row = data[i];
-      pool.query('insert into book values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);',
-      [row.isbn13, row.title, row.description, row.author_id, row.genre_id, row.price, row.page_count, row.stock, row.rating, row.year,row.add_date],
+      pool.query('insert into book values($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13);',
+      [row.isbn13, row.title, row.description, row.author_id, row.genre_id, row.publisher_id, row.price, row.page_count, row.stock, row.rating, row.rating_count, row.published_date,row.add_date],
       (err, result) => {
       if (err) {
         return console.error('Error executing query', err.stack)
@@ -86,8 +88,8 @@ function addGenreDB(data){
   for(let i =0; i<data.length; i++){
 
     row = data[i];
-      pool.query('insert into genre values($1, $2);',
-      [row.genre_id, row.genre_name],
+      pool.query('insert into genre values($1, $2, $3);',
+      [row.id, row.name, row.type],
       (err, result) => {
       if (err) {
         return console.error('Error executing query', err.stack)
@@ -106,7 +108,7 @@ function addAuthorDB(data){
 
     row = data[i];
       pool.query('insert into author values($1, $2);',
-      [row.author_id, row.author_name],
+      [row.id, row.name],
       (err, result) => {
       if (err) {
         return console.error('Error executing query', err.stack)
@@ -119,6 +121,23 @@ function addAuthorDB(data){
 
 }
 
+function addPublisherDB(data){
+  for(let i =0; i<data.length; i++){
+
+    row = data[i];
+      pool.query('insert into publisher values($1, $2, $3, $4, $5, $6);',
+      [row.id, row.name, row.address, row.phone, row.email, row.bank_id],
+      (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      //console.log(result.rows) // brianc
+
+    })
+
+  }
+
+}
 
 function getBookURL(isbn){
 
@@ -143,9 +162,11 @@ function getBookURL(isbn){
 var start = new Date().getTime();
 
 paths = {
-  "genre": "../data/Full_Data2/full_genres.json",
-  "author": "../data/Full_Data2/full_authors.json",
-  "book": "../data/Full_Data2/full_books.json",
+  "genre": "../data/Full_Data/full_genres.json",
+  "author": "../data/Full_Data/full_authors.json",
+  "publisher": "../data/Full_Data/full_publishers.json",
+  "book": "../data/Full_Data/full_books.json",
+
 
 
 }
