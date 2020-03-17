@@ -84,7 +84,7 @@ app.get('/ISBNSearch', function (req, res, next) {
 
 });
 
-app.listen(port | process.env.PORT, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port || process.env.PORT, () => console.log(`Example app listening on port ${port}!`))
 
 function getGenres(){
 
@@ -92,6 +92,7 @@ function getGenres(){
 
 /*
 function getBooksURL(textInput, res, next,max){
+
   search = textInput["textInput"].replace(' ','+')
   console.log(search);
 
