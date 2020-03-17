@@ -6,7 +6,6 @@ let sqlQueries = require("./sqlQueries");
 let sqlInstance = new sqlQueries();
 
 const app = express();
-const port = 3000;
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var xhr = new XMLHttpRequest();
 
@@ -84,7 +83,7 @@ app.get('/ISBNSearch', function (req, res, next) {
 
 });
 
-app.listen(port || process.env.PORT, () => console.log(`Example app listening on port ${port}!`))
+app.listen(process.env.PORT || 3000)
 
 function getGenres(){
 
