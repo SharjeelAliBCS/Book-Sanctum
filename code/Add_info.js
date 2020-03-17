@@ -29,12 +29,53 @@ function readJSON(paths){
 
   //console.log(data["in"].length);
   for (i in data["out"]){
+
     //console.log(data["in"][i])
-    if(data["out"][i]["rating"]==0){
-      getBookSync(data["out"],i,paths["out"]);
-      return;
+    if(data["out"][i]["price"]==-1){
+
+      //getPriceSync(data["out"],i,paths["out"]);
+      
+
     }
   }
+}
+
+function createPrice(){
+  prices = [9.99, 11.99, 19.99, 22.99, 4.99, 34.99, 24.99];
+  return prices[Math.floor(Math.random()*prices.length)];
+
+}
+
+
+function getPriceSync(data, i, path){
+  //https://booksrun.com/api/price/sell/1464108730?key=24w62fsmqckmcoq84bj3
+  //https://booksrun.com/api/v3/price/buy/0134093410?key=XYZ
+  //ttps://api.isbndb.com/book/9780134093413?X-API-KEY=YOUR_REST_KEY
+  var url = `GET /book/9780134093413 HTTP/1.1
+            Host: api.isbndb.com
+            User-Agent: insomnia/5.12.4
+            X-API-KEY: 43890_b9697157485161ee2323e3e9f9f21604
+            Accept: */*`
+  //var url = `https://api.isbndb.com/book/${data[i]["isbn13"]}?X-API-KEY=43890_b9697157485161ee2323e3e9f9f21604`;
+  console.log(url);
+  var request = require('sync-request');
+  var res = request('GET', url);
+
+  price = -1;
+  var booksRun = JSON.parse(res.getBody());
+  //apiPrice = booksRun["result"]["text"];
+  console.log(JSON.stringify(booksRun));
+  /*
+
+  for(key in apiPrice){
+    if(apiPrice[key].Buy!="Not available"){
+      price = apiPrice[key].Buy;
+    }
+  }
+  data[i]["price"] = parseFloat(price);
+  //console.log("price is "+price)
+  saveJSON(data,path);*/
+
 }
 
 function getBookSync(data, i, path){
@@ -195,14 +236,14 @@ for(let i =0; i<iterations; i++){
   var start = new Date().getTime();
 
   paths = {
-  "in": "../data/Full_Data2/full_books.json",
-  "out": "../data/Full_Data2/full_info.json",
+  "in": "../data/Full_Data/full_price2.json",
+  "out": "../data/Full_Data/full_price2.json",
   }
   //val = readCSV("../../book-depository-dataset/google_books_1299.csv",paths);
   readJSON(paths);
   var end = new Date().getTime();
   var time = end - start;
-  console.log("time it took was " + time + " miliseconds");
+  console.log(i+": time it took was " + time + " miliseconds");
 }
 //console.log(val);
 //for run in {1..100}; do node Add_info.js; sleep 1; done
