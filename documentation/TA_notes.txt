@@ -1,0 +1,4 @@
+1. Should order_address, order_banking have a relation with address or client_address? Because publisher, warehouse and client all access the same address entity. 
+2. How would Owner connect?
+3. Want to have a relationship with warehouse for order. Thought of connecting order to warehouse, but then no access to book info and redudent as books point to warehouse. Then I thought of connecting order_book to warehouse. 
+   But this also won't work too well. Because the requirements mention a single warehouse for all books (not each). 

@@ -1,6 +1,8 @@
 function init(){
   init_navbar_content();
   init_menu_content();
+  localStorage.setItem('currPage', 'ListPage.html');
+
   requestData("/genreData");
 
   text =JSON.parse(localStorage.getItem('textInput'));
@@ -17,6 +19,8 @@ function init(){
 
     document.getElementById("genreSelect").selectedIndex =2;
   }
+
+
 
 }
 

@@ -38,4 +38,26 @@ create table book
 	 foreign key (genre_id) references genre(id),
          foreign key (publisher_id) references publisher(id)
 	);
-
+create table client
+	(username		varchar(20),
+	email			varchar(40),
+	first_name		varchar(10),
+	last_name		varchar(10),
+	password		varchar(15),
+	primary key (username)
+	);
+create table cart(
+	username		varchar(20),
+	isbn			varchar(13),
+	quantity		numeric(3,0),
+	primary key (username, isbn),
+	foreign key (username) references client,
+	foreign key (isbn) references book
+	);
+/*add constraint for missing username and book isbn*/
+create table status(
+	status_id		varchar(5),
+	name			varchar(30),
+	description		varchar(500),
+	primary key (status_id)
+	);

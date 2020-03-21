@@ -33,7 +33,8 @@ function populateOrderTab(data){
   while (div.firstChild) {
     div.removeChild(div.firstChild);
   }
-
+  let price = 0;
+  let total = 0;
   for (let i in data) {
 
     let book = data[i];
@@ -43,6 +44,7 @@ function populateOrderTab(data){
       bookPrice = "CDN $"+book.price;
       url = `http://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg`;
       onclk = '"openBookPage(\''+book.isbn+'\')" ';
+      removeBookClk = '"removeBook(\''+book.isbn+'\')" ';
       qtyId = "qty"+book.isbn;
 
       divCard.innerHTML = ""
@@ -56,11 +58,11 @@ function populateOrderTab(data){
             + '</div>'
 
             + '<div class="book-col book-right">'
-              + '<p class="cart-delete">remove</p>'
+              + '<p class="cart-delete" onclick= '+removeBookClk+' >remove</p>'
               +'<div class="cart-quantity">'
-                + '<b onclick="changeCartQuantity(false,\''+qtyId+'\')" class="cart-quantity-button">-</b>'
+                + '<b onclick="changeCartQuantity(false,\''+book.isbn+'\')" class="cart-quantity-button">-</b>'
                 + '<input type="text" class="cart-quantity-text" id="'+qtyId+'">'
-                + '<b onclick="changeCartQuantity(true,\''+qtyId+'\')" class="cart-quantity-button">+</b>'
+                + '<b onclick="changeCartQuantity(true,\''+book.isbn+'\')" class="cart-quantity-button">+</b>'
               +'</div>'
               + '<p class="cart-book-price">' + bookPrice +'</p>'
             + '</div>'
@@ -73,21 +75,21 @@ function populateOrderTab(data){
 
       + '</div>'
 
-      console.log(divCard)
-
+      price +=book.quantity*book.price;
+      total +=parseInt(book.quantity, 10);
       document.getElementById('cart').appendChild(divCard);
-      document.getElementById(qtyId).value = 1;
+      document.getElementById(qtyId).value = book.quantity;
 
   }
-  document.getElementById('subtotal').innerHTML = `Subtotal: CDN $${80}`;
-  document.getElementById('totalItems').innerHTML = `Total items: ${data.length}`;
 
-
+  document.getElementById('subtotal').innerHTML = `Subtotal: CDN $${price}`;
+  document.getElementById('totalItems').innerHTML = `Total items: ${total}`;
 
 }
 
-function changeCartQuantity(increase,id){
-  textInput = document.getElementById(id);
+
+function changeCartQuantity(increase,isbn){
+  textInput = document.getElementById("qty"+isbn);
   val = parseInt(textInput.value, 10);
 
   if(increase){
@@ -98,7 +100,45 @@ function changeCartQuantity(increase,id){
     console.log("decreasing...");
     textInput.value =val-1;
   }
+  modifyCart(isbn, document.getElementById("qty"+isbn).value);
 
+
+}
+
+function removeBook(isbn){
+  console.log("removing book "+ isbn);
+  modifyCart(isbn, 0);
+}
+
+function modifyCart(isbn, quantity){
+  console.log("ordered book "+ isbn + " for qty "+quantity);
+  reqObject = {
+    "isbn": isbn,
+    "quantity": quantity
+  };
+  reqModifyCart(reqObject);
+
+}
+
+function reqModifyCart(reqObject){
+  let userRequestJSON = JSON.stringify(reqObject) //make JSON string
+  var request = $.ajax({
+    url: "/modifyCart",
+    data: userRequestJSON,
+    dataType: "json"
+  });
+
+  request.done(function (data) {
+    if(data==''){
+      alert("Log in to add items to cart.")
+    }
+    init_menu_content();
+  })
+
+  request.fail(function () {
+    console.log("ERROR COULD NOT GET DATA")
+
+  });
 }
 
 function openBookPage(isbn){
