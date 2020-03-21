@@ -1,4 +1,6 @@
+let reloadPage = '';
 function init(){
+  reloadPage = localStorage.getItem('currPage');
   toggle();
 }
 function toggle(){
@@ -79,7 +81,7 @@ function correctLogin(){
   }
 
   //localStorage.setItem('textInput', JSON.stringify(userInputObj));
-  window.location.href = "HomePage.html";
+  window.location.href = reloadPage;
 
 }
 

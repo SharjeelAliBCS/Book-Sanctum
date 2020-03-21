@@ -3,6 +3,7 @@ function init(){
   init_menu_content();
   init_navbar_content();
   requestGenres();
+  localStorage.setItem('currPage', 'BookPage.html');
 
   isbn =localStorage.getItem('ISBN');
 
@@ -101,7 +102,7 @@ function populateBookInfo(book){
 }
 
 function order(isbn){
-  console.log("ordered book "+ isbn);
+  modifyCart(isbn, document.getElementById('quantityInput').value);
 }
 
 function changeQuantity(increase){

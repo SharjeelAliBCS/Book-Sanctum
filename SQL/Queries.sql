@@ -52,4 +52,18 @@ select username from client
 where (LOWER(username) = LOWER('ddd') 
 or LOWER(email) = LOWER('randomemail@gmail.com'))
 AND password = '12345';
+--------------------------------------------------
+add book to cart:
+insert into cart values('LordofArbiters','9780062498533',3)
+on conflict (username, isbn) do update
+       set quantity = 3
+       where 'LordofArbiters' = cart.username and '9780062498533' = cart.isbn; 
+
+--------------------------------------------------
+get cart for a user:
+select book.isbn,book.title,book.price,cart.quantity from book
+inner join cart on book.isbn = cart.isbn
+where cart.username = 'username';
+
+ 
 

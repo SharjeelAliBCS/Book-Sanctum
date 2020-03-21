@@ -36,7 +36,8 @@ function populateLoggedInBar(flag){
   let divCard = document.createElement('div');
   console.log(div);
   if(flag){
-    divCard.innerHTML = '<button type="button" class="login" onclick="location.href=`AdvancedSearchPage.html`">Account</button>'+
+    divCard.innerHTML = '<button type="button" class="login" onclick="logout()">Log out</button>'+
+                        '<button type="button" class="login" onclick="location.href=`AdvancedSearchPage.html`">Account</button>'+
                         '<button type="button" class="login" onclick="location.href=`AdvancedSearchPage.html`">Orders</button>';
   }
   else{
@@ -46,6 +47,21 @@ function populateLoggedInBar(flag){
   document.getElementById("loggedInBar").appendChild(divCard);
 }
 
+function logout(){
+  var request = $.ajax({
+    url: "/logout",
+    data: "query",
+    dataType: "json"
+  });
+
+  request.done(function (data) {
+    populateLoggedInBar(false);
+  })
+
+  request.fail(function () {
+    console.log("ERROR COULD NOT GET DATA")
+  });
+}
 
 
 function requestGenres(){

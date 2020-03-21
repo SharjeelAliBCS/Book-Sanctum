@@ -49,6 +49,23 @@ app.get('/genreData',function(req,res,next){
   sqlInstance.getGenres(res);
 });
 
+app.get('/logout', function(req, res, next){
+  username = '';
+  res.json('');
+});
+
+app.get('/modifyCart',function(req,res,next){
+  console.log("testing for "+ username)
+  if(username==''){
+    res.json('');
+  }
+  else{
+  data = JSON.parse(Object.keys(req.query)[0]);
+  sqlInstance.addtoCart(username, data["isbn"], data["quantity"], res);
+  }
+});
+
+
 app.get('/bestSellersData',function(req,res,next){
   sqlInstance.searchBooksByTitle("river",res);
   //getBooksURL({"textInput": "self improvement"}, res, next,10);
@@ -56,7 +73,7 @@ app.get('/bestSellersData',function(req,res,next){
 
 app.get('/cart',function(req,res,next){
   console.log("in cart");
-  sqlInstance.searchBooksByTitle("mountain",res);
+  sqlInstance.getCartList(username,res);
   //getBooksURL({"textInput": "math"}, res, next,7);
 });
 

@@ -54,6 +54,7 @@ create table cart(
 	foreign key (username) references client,
 	foreign key (isbn) references book
 	);
+/*add constraint for missing username and book isbn*/
 create table status(
 	status_id		varchar(5),
 	name			varchar(30),

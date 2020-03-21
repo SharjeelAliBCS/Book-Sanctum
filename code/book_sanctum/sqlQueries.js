@@ -45,6 +45,36 @@ function sqlQueries(){
     });
 
   }
+  this.addtoCart = function(username, isbn, quantity,res){
+    console.log("username "+ username);
+    console.log("isbn "+ isbn);
+    console.log("quantity "+ quantity);
+
+    pool.query("insert into cart values($1, $2, $3) "+
+               "on conflict (username, isbn) do update "+
+               "set quantity = $3 "+
+               "where $1 = cart.username and $2 = cart.isbn;",
+               [username, isbn, quantity], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      //console.log(result.rows) // brianc
+      res.json(JSON.stringify(result.rows));
+    })
+  }
+
+  this.getCartList = function(username, res){
+    pool.query("select book.isbn,book.title,book.price,cart.quantity from book "+
+               "inner join cart on book.isbn = cart.isbn "+
+               "where cart.username = $1;",
+               [username], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      //console.log(result.rows) // brianc
+      res.json(JSON.stringify(result.rows));
+    })
+  }
 
   this.searchBooksByTitle = function(title, res){
     console.log(title);
