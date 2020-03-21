@@ -15,10 +15,12 @@
 	<body onload="init()"style='background-color: #e0e0e0;' >
 		<div class="header">
 			<a href="HomePage.html"><img class ="logo" src="themes/images/logoBlack.png" alt="Bootsshop"/></a>
-		</div> 
+		</div>
 
 		<div class = "login-block">
 			<b class="login-text">Log in</b><br></br><br></br>
+			<div id="incorrect">
+			</div>
 			<b class="input-text">Username</b>
 			<input type="text" class="input user" id="username" placeholder="Type in an email address or username"><br></br>
 
@@ -32,17 +34,17 @@
 			<div id="toggleText" class="toggle-div">
 				<b class="toggle-text">Log in as User</b>
 			</div><br></br><br></br>
-			
+
 			<button type="button" class="login-button" onclick="login()">Login</button><br></br>
 
 			<button type="button" class="login-button" onclick="createAccount()">Create account</button>
-			
+
 
 
 
 		</div>
 
-    
+
 	</body>
 
 </html>

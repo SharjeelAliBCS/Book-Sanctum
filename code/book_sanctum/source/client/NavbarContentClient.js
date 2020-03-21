@@ -1,6 +1,52 @@
 function init_navbar_content(){
   requestGenres();
+  requestUserLogin();
 }
+
+function requestUserLogin(){
+  var request = $.ajax({
+    url: "/loggedIn",
+    data: "query",
+    dataType: "json"
+  });
+
+  request.done(function (data) {
+    user = data;
+    if(user==''){
+      populateLoggedInBar(false);
+    }
+    else{
+      populateLoggedInBar(true);
+    }
+  })
+
+  request.fail(function () {
+    console.log("ERROR COULD NOT GET DATA")
+  });
+}
+
+function populateLoggedInBar(flag){
+  //
+  //
+  div = document.getElementById("loggedInBar");
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
+
+  let divCard = document.createElement('div');
+  console.log(div);
+  if(flag){
+    divCard.innerHTML = '<button type="button" class="login" onclick="location.href=`AdvancedSearchPage.html`">Account</button>'+
+                        '<button type="button" class="login" onclick="location.href=`AdvancedSearchPage.html`">Orders</button>';
+  }
+  else{
+    divCard.innerHTML = '<button type="button" class="login" onclick="location.href=`LoginPage.html`">Login</button>';
+  }
+
+  document.getElementById("loggedInBar").appendChild(divCard);
+}
+
+
 
 function requestGenres(){
   var request = $.ajax({
@@ -13,7 +59,6 @@ function requestGenres(){
     var genres = JSON.parse(data);
     console.log(genres);
     populateGenreSelect(genres);
-
   })
 
   request.fail(function () {

@@ -47,7 +47,7 @@ p{
 .login-text{
   font-size: 45px;
   font-family: Verdana;
-  
+
 }
 
 .input-text{
@@ -63,13 +63,13 @@ p{
   solid #999999;
   padding: 10px;
   font-size: 25px;
- 
+
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
 .user{
-  
+
 
 }
 
@@ -132,18 +132,18 @@ input:checked + .slider:before {
 
 .toggle-text{
   font-size: 20px;
-  
+
 }
 .toggle-div{
   font-family: Verdana;
   display:inline-block;
-  margin-top: 50px; 
+  margin-top: 50px;
 
 }
 
 .login-button {
   background-color: #ffc30b;
-  
+
   border: none;
   color: white;
   text-align: center;
@@ -160,4 +160,9 @@ input:checked + .slider:before {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+.incorrect-text{
+  font-size: 20px;
+  font-family: Verdana;
+  color: red;
 }

@@ -12,18 +12,32 @@ var xhr = new XMLHttpRequest();
 const HTML_DIR = "/source/pages";
 const CLIENT_DIR = "/source/client";
 
+let username = '';
+
 var bestSellers = ["yng_CwAAQBAJ", "7ep09WAFbDwC", "YbtNDwAAQBAJ","aVPNxmllbAUC", "Y41zAwAAQBAJ", "htv5QwJC7UkC","ZjzjoAEACAAJ","lqRdDwAAQBAJ","kDvsDQAAQBAJ","ddKwDwAAQBAJ"];
-var recentlyViewed = ["wJWaDwAAQBAJ","XK2aDwAAQBAJ","uv4vqKYsyawC","ZrNzAwAAQBAJ","SjUjAwAAQBAJ","UQzntAEACAAJ","M8PjDAAAQBAJ","0ETIjwEACAAJ","1S1cvgEACAAJ","CsllDwAAQBAJ"];
-var favGenres = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
-var newlyAdded = ["Sci fi", "fantasy", "mystery","Games & Activities", "Fiction"];
 var cart = ["Kb4bAQAAIAAJ", "gd7UCwAAQBAJ", "zGY1Sqjwf8kC"]
 
 app.use(express.static(__dirname + CLIENT_DIR));
 app.use(express.static(__dirname + HTML_DIR));
 
+
 app.get('/', function(req, res, next){
   console.log("test html");
   res.sendFile(__dirname + HTML_DIR + '/HomePage.html');
+});
+
+app.get('/login',function(req,res,next) {
+
+  data = JSON.parse(Object.keys(req.query)[0]);
+  username = sqlInstance.login(data["user"], data["pwd"], res).then(function(result){
+    username = result;
+    console.log("saved username: "+ username);
+    res.json(username);
+  });
+});
+
+app.get('/loggedIn', function(req, res, next){
+  res.json(username);
 });
 
 app.get('/ListPage.html', function(req, res, next){
@@ -63,6 +77,7 @@ app.get('/genreList',function(req,res,next){
 });
 
 app.get('/authorList',function(req,res,next){
+  data = req.query;
   sqlInstance.filterBooksByAuthor(data["textInput"],res);
   //getBooksURL({"textInput": "James Dashner"}, res, next,3);
 });
@@ -88,6 +103,8 @@ app.listen(process.env.PORT || 3000)
 function getGenres(){
 
 }
+
+
 
 /*
 function getBooksURL(textInput, res, next,max){

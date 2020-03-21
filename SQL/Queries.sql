@@ -27,7 +27,6 @@ where title ILIKE search) as search
 inner join genre on search.genre_id = genre.id
 group by (name);
 --------------------------------------------------
-
 delete all data
 delete from book;
 delete from author;
@@ -37,3 +36,20 @@ drop table book;
 drop table author;
 drop table publisher;
 drop table genre;
+--------------------------------------------------
+fill test_user:
+insert into client values ('LordofArbiters', 'sharjeelali2552@gmail.com', 'Sharjeel', 'Ali', '12345');
+--------------------------------------------------
+fill status:
+insert into status values('0', 'Order Processing', 'Your order is currently being processed. This should only take a few minutes.');
+insert into status values('1', 'Order Preparing', 'Your order is currently being selected from our warehouse, and will be shipped soon.');
+insert into status values('2', 'Shipped', 'Your order has shipped. Expect arrival in the coming days.');
+insert into status values('3', 'Out for Delivery', 'Your order is out for delivery and will arive by the end of the day. ');
+insert into status values('4', 'Delivered', 'Your order has been delivered.');
+--------------------------------------------------
+check login info
+select username from client
+where (LOWER(username) = LOWER('ddd') 
+or LOWER(email) = LOWER('randomemail@gmail.com'))
+AND password = '12345';
+

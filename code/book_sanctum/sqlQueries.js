@@ -20,6 +20,32 @@ function deleteData(){
   })
 }
 function sqlQueries(){
+  this.login = function (username, password, res){
+    console.log("username = "+ username);
+    console.log("password = " + password);
+
+    return new Promise (function(resolve, reject){
+        pool.query("select username from client "+
+                 "where (LOWER(username) = LOWER($1) "+
+                 "or LOWER(email) = LOWER($1) ) "+
+                 "AND password = $2;",
+                 [username, password], (err, result) => {
+        if (err) {
+          return console.error('Error executing query', err.stack)
+        }
+        console.log(result.rows) // brianc
+        //res.json(JSON.stringify(result.rows));
+        if(result.rows.length==0){
+          resolve('');
+        }
+        else{
+          resolve(result.rows[0]["username"]);
+        }
+      })
+    });
+
+  }
+
   this.searchBooksByTitle = function(title, res){
     console.log(title);
     title = `%${title}%`;
