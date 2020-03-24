@@ -147,3 +147,23 @@ function openBookPage(isbn){
   localStorage.setItem('ISBN', isbn);
   window.location.href = "BookPage.html";
 }
+
+function checkout(){
+
+    var request = $.ajax({
+      url: "/checkout",
+      data: "query",
+      dataType: "json"
+    });
+
+    request.done(function (req) {
+      //init_menu_content();
+      window.location.href = "orders.html";
+
+    })
+
+    request.fail(function () {
+      console.log("ERROR COULD NOT GET DATA")
+    });
+
+}
