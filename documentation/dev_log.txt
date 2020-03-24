@@ -3,7 +3,7 @@ SQL TO ADD:
    a. User presses checkout, inserts billing, shipping.
    b. Inserts into order with proper parameters
    c. Trigger for order_book. This reads the cart table and finds all books for the given user. 
-   d. Trigger inserts new book for every book. 
+   d. Trigger inserts new book for every book.    
 
 PAGES TO DO:
 1. Main Home Page (Done)

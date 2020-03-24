@@ -1,5 +1,6 @@
 const express = require('express');
 const https = require('https') //food2fork now requires https
+
 let http = require('http')
 let sqlQueries = require("./sqlQueries");
 
@@ -14,9 +15,6 @@ const CLIENT_DIR = "/source/client";
 
 let username = '';
 
-var bestSellers = ["yng_CwAAQBAJ", "7ep09WAFbDwC", "YbtNDwAAQBAJ","aVPNxmllbAUC", "Y41zAwAAQBAJ", "htv5QwJC7UkC","ZjzjoAEACAAJ","lqRdDwAAQBAJ","kDvsDQAAQBAJ","ddKwDwAAQBAJ"];
-var cart = ["Kb4bAQAAIAAJ", "gd7UCwAAQBAJ", "zGY1Sqjwf8kC"]
-
 app.use(express.static(__dirname + CLIENT_DIR));
 app.use(express.static(__dirname + HTML_DIR));
 
@@ -24,6 +22,21 @@ app.use(express.static(__dirname + HTML_DIR));
 app.get('/', function(req, res, next){
   console.log("test html");
   res.sendFile(__dirname + HTML_DIR + '/HomePage.html');
+});
+
+app.get('/orders', function(req, res, next){
+  sqlInstance.getOrders(username, res);
+})
+
+app.get('/checkout', function(req, res, next){
+  var date = new Date();
+  var dd = String(date.getDate()).padStart(2, '0');
+  var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = date.getFullYear();
+
+date = mm + '/' + dd + '/' + yyyy;
+  sqlInstance.checkoutOrder(username,date, res);
+
 });
 
 app.get('/login',function(req,res,next) {
@@ -39,6 +52,16 @@ app.get('/login',function(req,res,next) {
 app.get('/loggedIn', function(req, res, next){
   res.json(username);
 });
+
+app.get('/signup', function(req, res, next){
+  data = JSON.parse(Object.keys(req.query)[0]);
+  username = sqlInstance.signup(data["user"], data["pwd"], data["email"], data["fname"], data["lname"], res).then(function(result){
+    username = result;
+    console.log("signed up username: "+ username);
+    res.json(username);
+  });
+});
+
 
 app.get('/ListPage.html', function(req, res, next){
   console.log("list html");
@@ -120,42 +143,3 @@ app.listen(process.env.PORT || 3000)
 function getGenres(){
 
 }
-
-
-
-/*
-function getBooksURL(textInput, res, next,max){
-
-  search = textInput["textInput"].replace(' ','+')
-  console.log(search);
-
-  var url = `https://www.googleapis.com/books/v1/volumes?q=${search}&maxResults=${max}`;
-  console.log(url);
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      console.log(typeof this.responseText);
-      var data = JSON.parse(this.responseText);
-      res.json(JSON.stringify(data));
-    }
-  };
-  xhttp.open("GET", url, true);
-  xhttp.send();
-}
-
-function getBookURL(isbn, res, next){
-
-  var url = `https://www.googleapis.com/books/v1/volumes/${isbn}`;
-  console.log(url);
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      console.log(typeof this.responseText);
-      var data = JSON.parse(this.responseText);
-      console.log("parsed data for " + JSON.stringify(data));
-      res.json(JSON.stringify(data));
-    }
-  };
-  xhttp.open("GET", url, true);
-  xhttp.send();
-}*/

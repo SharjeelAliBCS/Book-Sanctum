@@ -20,6 +20,55 @@ function deleteData(){
   })
 }
 function sqlQueries(){
+  this.checkoutOrder = function(username, date, res){
+    console.log("date is "+ date + " user is " + username);
+
+    pool.query("insert into orders values(default, $1, $2)",
+               [username, date], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      //console.log(result.rows) // brianc
+      res.json(JSON.stringify(result.rows));
+    })
+  }
+  this.getOrders = function(username, res){
+    pool.query("select orders.order_date, book.isbn, book.title, author.name, book.price, order_book.quantity, order_book.order_number "+
+              "from order_book "+
+              "inner join orders on orders.order_number = order_book.order_number "+
+              "inner join book on order_book.isbn = book.isbn "+
+              "inner join author on book.author_id = author.id "+
+              "where orders.username = $1 " +
+              "order by order_book.order_number desc;",
+              [username], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      //console.log(result.rows) // brianc
+      res.json(JSON.stringify(result.rows));
+    });
+  }
+
+  this.signup = function (username, password, email, fname, lname, res){
+    console.log("username = "+ username);
+    console.log("password = " + password);
+
+    return new Promise (function(resolve, reject){
+        pool.query("insert into client values ($1, $2, $3, $4, $5);",
+                 [username, email, fname, lname, password], (err, result) => {
+        if (err) {
+        resolve("");
+        }
+        else{
+        //res.json(JSON.stringify(result.rows));
+        resolve(username);
+      }
+
+      })
+    });
+
+  }
+
   this.login = function (username, password, res){
     console.log("username = "+ username);
     console.log("password = " + password);

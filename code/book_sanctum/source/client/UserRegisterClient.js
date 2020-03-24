@@ -1,66 +1,54 @@
 let reloadPage = '';
 function init(){
   reloadPage = localStorage.getItem('currPage');
-  toggle();
 }
-function toggle(){
-  $('#toggle').change(function(){
 
-    div = document.getElementById("toggleText");
-    while (div.firstChild) {
-      div.removeChild(div.firstChild);
-    }
-
-    let divCard = document.createElement('div');
-
-    if(this.checked) {
-        console.log(div);
-        divCard.innerHTML = '<b class="toggle-text">Log in as Owner</b>';
-    }
-    else {
-      console.log("off");
-      divCard.innerHTML = '<b class="toggle-text">Log in as User</b>';
-    }
-
-    document.getElementById("toggleText").appendChild(divCard);
-});
-}
-function login(){
-
-  var user = document.getElementById("username").value;
+function signup(){
+  var fname = document.getElementById("fname").value;
+  var lname = document.getElementById("lname").value;
+  var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
-  loginType = document.getElementById("toggle").checked;
+  var cpassword = document.getElementById("cpassword").value;
+  var user = document.getElementById("username").value;
 
-  if(user==''|| password==''){
-    incorrectLogin("One of the fields is empty");
+  if(fname==''|| lname=='' ||  email=='' ||  password=='' ||  cpassword=='' || user==''){
+    incorrectsignup("One of the fields is empty");
     return;
   }
   else{
-    correctLogin();
+    correctsignup();
+  }
+
+  if(password==cpassword){
+    correctsignup();
+  }
+  else{
+
+    incorrectsignup("Passwords do not match");
+    return;
   }
 
 
   reqObject = {
     "user": user,
+    "fname": fname,
+    "lname": lname,
+    "email": email,
     "pwd": password
   };
-  reqLogin(reqObject);
-
-
-  console.log(loginType + " " +user+ " logged in using password "+ password);
-
+  reqsignup(reqObject);
 }
 
 $(document).on('keypress',function(e) {
     if(e.which == 13) {
-        login();
+        signup();
     }
 });
 
-function reqLogin(reqObject){
+function reqsignup(reqObject){
   let userRequestJSON = JSON.stringify(reqObject) //make JSON string
   var request = $.ajax({
-    url: "/login",
+    url: "/signup",
     data: userRequestJSON,
     dataType: "json"
   });
@@ -70,10 +58,10 @@ function reqLogin(reqObject){
     user = data;
     console.log(user);
     if(user==''){
-      incorrectLogin("Incorrect username or password");
+      incorrectsignup("Username taken");
     }
     else{
-      correctLogin();
+      correctsignup();
       window.location.href = reloadPage;
     }
 
@@ -83,8 +71,9 @@ function reqLogin(reqObject){
     console.log("ERROR COULD NOT GET DATA")
 
   });
+
 }
-function correctLogin(){
+function correctsignup(){
   div = document.getElementById("incorrect");
   while (div.firstChild) {
     div.removeChild(div.firstChild);
@@ -94,7 +83,7 @@ function correctLogin(){
 
 }
 
-function incorrectLogin(text){
+function incorrectsignup(text){
   //<b class="incorrect-text">Incorrect username or password</b>
 
   div = document.getElementById("incorrect");
@@ -107,8 +96,4 @@ function incorrectLogin(text){
   divCard.innerHTML = '<b class="incorrect-text">'+text+'</b>';
 
   document.getElementById("incorrect").appendChild(divCard);
-}
-
-function createAccount(){
-  console.log("creating account");
 }

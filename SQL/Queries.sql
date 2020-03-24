@@ -65,5 +65,19 @@ select book.isbn,book.title,book.price,cart.quantity from book
 inner join cart on book.isbn = cart.isbn
 where cart.username = 'username';
 
+--------------------------------------------------
+Add new order:
+insert into order values ('LordofArbiters', '1', 'Mar 23');
+
+--------------------------------------------------
+get all orders for a user:
+select orders.order_date, book.isbn, book.title, author.name, book.price, order_book.quantity, order_book.order_number
+from order_book 
+inner join orders on orders.order_number = order_book.order_number 
+inner join book on order_book.isbn = book.isbn
+inner join author on book.author_id = author.id
+where orders.username = 'user'
+order by order_book.order_number desc;
+
  
 

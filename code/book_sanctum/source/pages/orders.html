@@ -6,18 +6,16 @@
 
 		<title>book.sanctum.ca</title>
 		<script src="jquery-1.11.3.js"></script>
-    <script src="BookInfoClient.js"></script>
-		<script src="MenuContentClient.js"></script>
+    <script src="ordersClient.js"></script>
 		<script src="NavbarContentClient.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/info.css">
 		<link rel="stylesheet" type="text/css" href="css/navigation.css">
-		<link rel="stylesheet" type="text/css" href="css/orderTab.css">
+		<link rel="stylesheet" type="text/css" href="css/orders.css">
 
 	</head>
 
 	<body onload="init()" >
-		<div class = "topnav">
+    <div class = "topnav">
       <div class="inner-element">
 
 
@@ -34,43 +32,21 @@
         <button type="button" class="submit-button" onclick="search()">Search</button>
 				<button type="button" class="submit-button" onclick="location.href='AdvancedSearchPage.html'">Advanced Search</button>
 				<div id="loggedInBar"></div>
-
-
-
       </div>
-
     </div>
     </div>
 
+	  <div class="column" >
+      <b class = "title">Your Orders</b>
 
-  <div class="row" style="background-color:#ffffff;" id="filterCol">
+			<div class="list-header">
+				<span id = "ListHeading" class="listing-header"></span>
 
-	  <div class="column info-column" id="bookInfo">
-	  </div>
-
-
-		<div class="column order-column">
-
-			<div class="order-tab">
-				<div class="order-nav">
-					<div class="cart-nav-info">
-						<a><img class="cart-img" src="themes/images/cart.png" alt="Bootsshop"/></a>
-					</div>
-				</div>
-				<div class="order-main">
-					<p class="subtotal" id="totalItems"> Total items: </p>
-					<p class="subtotal" id="subtotal"> Subtotal: </p>
-					<button type="button" class="checkout-button" onclick="checkout()">Checkout</button>
-					<div class="cart" id = "cart">
-					</div>
-
-				</div>
 			</div>
 
+	    <div  id="orders" style="background-color:#ffffff;"></div>
+
 		</div>
-
-
-
 
 	</body>
 

@@ -38,7 +38,7 @@ function populateLoggedInBar(flag){
   if(flag){
     divCard.innerHTML = '<button type="button" class="login" onclick="logout()">Log out</button>'+
                         '<button type="button" class="login" onclick="location.href=`AdvancedSearchPage.html`">Account</button>'+
-                        '<button type="button" class="login" onclick="location.href=`AdvancedSearchPage.html`">Orders</button>';
+                        '<button type="button" class="login" onclick="location.href=`orders.html`">Orders</button>';
   }
   else{
     divCard.innerHTML = '<button type="button" class="login" onclick="location.href=`LoginPage.html`">Login</button>';
@@ -63,7 +63,6 @@ function logout(){
   });
 }
 
-
 function requestGenres(){
   var request = $.ajax({
     url: "/genreData",
@@ -73,7 +72,7 @@ function requestGenres(){
 
   request.done(function (data) {
     var genres = JSON.parse(data);
-    console.log(genres);
+    //console.log(genres);
     populateGenreSelect(genres);
   })
 
