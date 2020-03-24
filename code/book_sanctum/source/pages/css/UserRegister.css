@@ -20,10 +20,17 @@ p{
   width: 400px;
   height: 100px;
 }
+.clear{
+  clear: both;
+}
 
 .header{
   text-align:center;
  display:block;
+}
+
+.block{
+
 }
 
 .login-block{
@@ -31,8 +38,9 @@ p{
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+
   width: 600px;
-  height: 700px;
+  height: 1000px;
 
   border-radius: 5px;
   border-style: solid;

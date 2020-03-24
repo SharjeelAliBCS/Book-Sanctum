@@ -20,6 +20,26 @@ function deleteData(){
   })
 }
 function sqlQueries(){
+  this.signup = function (username, password, email, fname, lname, res){
+    console.log("username = "+ username);
+    console.log("password = " + password);
+
+    return new Promise (function(resolve, reject){
+        pool.query("insert into client values ($1, $2, $3, $4, $5);",
+                 [username, email, fname, lname, password], (err, result) => {
+        if (err) {
+        resolve("");
+        }
+        else{
+        //res.json(JSON.stringify(result.rows));
+        resolve(username);
+      }
+
+      })
+    });
+
+  }
+
   this.login = function (username, password, res){
     console.log("username = "+ username);
     console.log("password = " + password);

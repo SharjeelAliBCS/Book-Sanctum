@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b -->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+    <script src="UserRegisterClient.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/UserRegister.css">
+
+	</head>
+
+	<body onload="init()"style='background-color: #e0e0e0;' >
+		<div>
+			<div class="header">
+				<a href="HomePage.html"><img class ="logo" src="themes/images/logoBlack.png" alt="Bootsshop"/></a>
+			</div>
+
+			<div class = "login-block">
+				<b class="login-text">Create Account</b><br></br><br></br>
+				<div id="incorrect">
+				</div>
+				<b class="input-text">Your first name</b>
+				<input type="text" class="input user" id="fname" placeholder="Type in your first name"><br></br>
+
+				<b class="input-text">Your last name</b>
+				<input type="text" class="input user" id="lname" placeholder="Type in your last name"><br></br>
+
+				<b class="input-text">Your username</b>
+				<input type="text" class="input user" id="username" placeholder="Type in your username"><br></br>
+
+				<b class="input-text">Your email</b>
+				<input type="text" class="input user" id="email" placeholder="Type in your email address"><br></br>
+
+				<b class="input-text">Your password</b>
+				<input type="password" class="input password" id="password" placeholder="Type in a valid password"><br></br>
+
+				<b class="input-text">Confirm password</b>
+				<input type="password" class="input password" id="cpassword" placeholder="Type in a valid password">
+				<br></br><br></br>
+
+				<button type="button" class="login-button" onclick="signup()">Register</button>
+
+
+
+
+		</div>
+
+
+	</body>
+
+</html>

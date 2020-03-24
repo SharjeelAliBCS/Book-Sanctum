@@ -40,6 +40,16 @@ app.get('/loggedIn', function(req, res, next){
   res.json(username);
 });
 
+app.get('/signup', function(req, res, next){
+  data = JSON.parse(Object.keys(req.query)[0]);
+  username = sqlInstance.signup(data["user"], data["pwd"], data["email"], data["fname"], data["lname"], res).then(function(result){
+    username = result;
+    console.log("signed up username: "+ username);
+    res.json(username);
+  });
+});
+
+
 app.get('/ListPage.html', function(req, res, next){
   console.log("list html");
   res.sendFile(__dirname + HTML_DIR + '/ListPage.html');
