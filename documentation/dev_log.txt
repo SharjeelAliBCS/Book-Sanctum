@@ -11,7 +11,32 @@ PAGES TO DO:
 3. Info Page (Done)
 4. Login form Page (Done)
 5. Order form Page (Done)
-6. Advanced Search form Page
-7. Checkout Page
-8. Create account form Page
-9. Owner Home Page
+6. Create account form Page (Done)
+7. Orders Page (Done)
+8. Checkout Page
+9. Advanced Search form Page
+10. Owner Home Page
+11. Add book/remove book page
+12. Order book quantity
+13. Stats page
+14. Account Page
+
+Bonus:
+-Request a book
+ - If user can't find book, request it. 
+ - Book info is sent as messege to owner in messeges table. 
+ - owner can choose to order book for store or not in form
+
+-Home page
+ - User: ten most recent books viewed
+ - User: favourite genres (Most searched for)
+ - Displays best sellers or most searched books
+ - New books added
+
+- Sales?
+ - Owner can choose to put publisher books on sale
+
+- Reviews
+ - https://s3.amazonaws.com/amazon-reviews-pds/readme.html
+
+-Download reports

@@ -71,7 +71,7 @@ function populateNewlyAdded(data){
               + '  <b class="text-section">New release</b><br></br>'
 
                 + '<b style="display:inline" class="newly-title">' + book.title + '</b>'
-                + '<p class="newly-author">' + book.author +'</p><br></br>'
+                + '<p class="newly-author">' + book.name +'</p><br></br>'
                 + '<p class="newly-price">' + bookPrice +'</p><br></br>'
 
               + '</div>'

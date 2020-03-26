@@ -1,12 +1,14 @@
 const express = require('express');
 const https = require('https') //food2fork now requires https
-
 let http = require('http')
 let sqlQueries = require("./sqlQueries");
 
 let sqlInstance = new sqlQueries();
 
 const app = express();
+var server = http.createServer(app);
+var io = require('socket.io').listen(server);
+
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var xhr = new XMLHttpRequest();
 
@@ -17,6 +19,9 @@ let username = '';
 
 app.use(express.static(__dirname + CLIENT_DIR));
 app.use(express.static(__dirname + HTML_DIR));
+
+let clients =[];
+
 
 
 app.get('/', function(req, res, next){
@@ -138,7 +143,7 @@ app.get('/ISBNSearch', function (req, res, next) {
 
 });
 
-app.listen(process.env.PORT || 3000)
+server.listen(process.env.PORT || 3000)
 
 function getGenres(){
 

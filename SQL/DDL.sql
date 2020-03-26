@@ -70,6 +70,16 @@ create table order_book(
 	isbn			varchar(13),
 	order_number	    	serial,
 	quantity		numeric(3,0),
-	primary key (order_number,isbn)
+	primary key (order_number,isbn),
+	foreign key (order_number) references client,
+	foreign key (isbn) references book
+	);
+create table recently_viewed(
+	position	    	numeric(2),
+	username	        varchar(20),
+	isbn			varchar(13),
+	primary key (username, isbn),
+	foreign key (username) references client,
+	foreign key (isbn) references book
 	);
 

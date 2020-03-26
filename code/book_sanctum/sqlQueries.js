@@ -32,6 +32,18 @@ function sqlQueries(){
       res.json(JSON.stringify(result.rows));
     })
   }
+  this.insertRecentlyViewed = function(username, date, res){
+    console.log("date is "+ date + " user is " + username);
+
+    pool.query("insert into orders values(default, $1, $2)",
+               [username, date], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      //console.log(result.rows) // brianc
+      res.json(JSON.stringify(result.rows));
+    })
+  }
   this.getOrders = function(username, res){
     pool.query("select orders.order_date, book.isbn, book.title, author.name, book.price, order_book.quantity, order_book.order_number "+
               "from order_book "+
@@ -131,6 +143,8 @@ function sqlQueries(){
     pool.query("select book.isbn,book.title,book.price,author.name as author "+
               "from book inner join author on author.id = book.author_id "+
                "where title ILIKE $1;",
+               //"author.name ILIKE $1 or "+
+               //"description ILIKE $1;",
                [title], (err, result) => {
       if (err) {
         return console.error('Error executing query', err.stack)
