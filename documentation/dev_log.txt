@@ -17,9 +17,11 @@ PAGES TO DO:
 9. Advanced Search form Page
 10. Owner Home Page
 11. Add book/remove book page
-12. Order book quantity
+12. Owner transaction page
 13. Stats page
 14. Account Page
+15. Client request book
+16. Owner request book
 
 Bonus:
 -Request a book
