@@ -9,17 +9,43 @@ const pool = new Pool({
   ssl: true
 });
 
-function deleteData(){
+function addClientAddress(username, address_id,res){
 
-    pool.query('delete from book; delete from author; delete from genre; delete from publisher;',
-    (err, result) => {
+  pool.query("INSERT INTO client_address VALUES ($1, $2);",
+             [username, address_id], (err, result) => {
     if (err) {
       return console.error('Error executing query', err.stack)
     }
-    //console.log(result.rows) // brianc
+    console.log(result.rows) // brianc
+    res.json(JSON.stringify(result.rows));
   })
 }
 function sqlQueries(){
+  this.addAddress = function(username, country, state, city, code, street, apt, res){
+    console.log(username+" "+country+" "+state+" "+city+" "+code+" "+street+" "+apt);
+    pool.query("INSERT INTO address VALUES (default, $1, $2, $3, $4, $5, $6) RETURNING id;",
+               [country, state, city, code, apt, street], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      console.log(result.rows) // brianc
+      addClientAddress(username, result.rows[0].id,res);
+    })
+
+  }
+  this.getAddresses = function(username, res){
+
+    pool.query("select address.country, address.state, address.city, address.code, "+
+              "address.street, address.apt_number from address "+
+              "inner join client_address on address.id = client_address.address_id "+
+              "where username = $1;",
+               [username], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      res.json(JSON.stringify(result.rows));
+    })
+  }
   this.checkoutOrder = function(username, date, res){
     console.log("date is "+ date + " user is " + username);
 

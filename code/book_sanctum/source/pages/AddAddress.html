@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b -->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+    <script src="AddAddressClient.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/UserRegister.css">
+
+	</head>
+
+	<body onload="init()"style='background-color: #e0e0e0;' >
+		<div>
+			<div class="header">
+				<a href="HomePage.html"><img class ="logo" src="themes/images/logoBlack.png" alt="Bootsshop"/></a>
+			</div>
+
+			<div class = "login-block">
+				<b class="login-text">Add Address</b><br></br><br></br>
+				<div id="incorrect">
+				</div>
+				<b class="input-text">Country/Region</b>
+				<input type="text" class="input user" id="country" placeholder="Type in your country"><br></br>
+
+        <b class="input-text">State</b>
+        <input type="text" class="input user" id="state" placeholder="Type in your province/state"><br></br>
+
+        <b class="input-text">City</b>
+        <input type="text" class="input user" id="city" placeholder="Type in your city"><br></br>
+
+        <b class="input-text">Postal/Zip Code</b>
+        <input type="text" class="input user" id="code" placeholder="Type in your postal/zip code"><br></br>
+
+        <b class="input-text">Street Address</b>
+				<input type="text" class="input user" id="street" placeholder="Type in your street"><br></br>
+
+        <b class="input-text">Apartment Number</b>
+				<input type="text" class="input user" id="aptNum" placeholder="Type in your apartment number"><br></br>
+
+				<br></br><br></br>
+
+				<button type="button" class="login-button" onclick="signup()">Register</button>
+
+
+
+
+		</div>
+
+
+	</body>
+
+</html>

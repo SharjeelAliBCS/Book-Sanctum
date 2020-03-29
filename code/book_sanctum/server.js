@@ -22,8 +22,6 @@ app.use(express.static(__dirname + HTML_DIR));
 
 let clients =[];
 
-
-
 app.get('/', function(req, res, next){
   console.log("test html");
   res.sendFile(__dirname + HTML_DIR + '/HomePage.html');
@@ -31,6 +29,14 @@ app.get('/', function(req, res, next){
 
 app.get('/orders', function(req, res, next){
   sqlInstance.getOrders(username, res);
+})
+
+app.get('/getAddresses', function(req, res, next){
+  sqlInstance.getAddresses(username,res);
+})
+app.get('/addAddress', function(req, res, next){
+  data = JSON.parse(Object.keys(req.query)[0]);
+  sqlInstance.addAddress(username,data["country"],data["state"],data["city"],data["code"],data["street"],data["apt"], res);
 })
 
 app.get('/checkout', function(req, res, next){

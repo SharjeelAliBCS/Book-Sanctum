@@ -82,4 +82,38 @@ create table recently_viewed(
 	foreign key (username) references client,
 	foreign key (isbn) references book
 	);
+create table address(
+	id	    	serial,	
+	country		varchar(20),
+	state		varchar(10),
+	city		varchar(20),
+	code		varchar(10),
+	street		varchar(30),
+	apt_number	numeric(4,0),
+	primary key (id)
+);
 
+create table client_address(
+	username	        varchar(20),
+	address_id		serial,
+	primary key (username, address_id),
+	foreign key (username) references client,
+	foreign key (address_id) references address(id)
+);
+
+create table payment_info(
+	card_number		numeric(16,0),
+	name			varchar(30),
+	expiry_date		varchar(5),
+	security_code		numeric(3),
+	primary key (card_number)
+);
+
+
+create table client_billing(
+	card_number		numeric(16,0),
+	name			varchar(30),
+	primary key (username, card_number),
+	foreign key (username) references client,
+	foreign key (card_number) references payment_info
+);

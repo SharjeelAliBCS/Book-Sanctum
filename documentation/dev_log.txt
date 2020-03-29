@@ -13,13 +13,14 @@ PAGES TO DO:
 5. Order form Page (Done)
 6. Create account form Page (Done)
 7. Orders Page (Done)
-8. Checkout Page
-9. Advanced Search form Page
-10. Owner Home Page
-11. Add book/remove book page
-12. Owner transaction page
-13. Stats page
-14. Account Page
+8. Account Page (Done)
+9. Checkout Page
+10. Advanced Search form Page
+11. Owner Home Page
+12. Add book/remove book page
+13. Owner transaction page
+14. Stats page
+
 15. Client request book
 16. Owner request book
 

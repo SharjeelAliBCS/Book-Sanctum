@@ -80,4 +80,12 @@ where orders.username = 'user'
 order by order_book.order_number desc;
 
  
-
+------------------------------------------------
+Insert a new address:
+insert into address values(default,'Canada', 'ON','Ottawa', 'K3Q6M2', 'Exaclior',234, 117);
+insert into client_address values('LordofArbiters', 1);
+------------------------------------------------
+Select all addresses belonging to user:
+select address.country, address.state, address.city, address.code, address.street,address.apt_number from address
+inner join client_address on address.id = client_address.address_id
+where username = 'LordofArbiters';

@@ -37,9 +37,9 @@ function populateLoggedInBar(flag){
   console.log(div);
   if(flag){
     divCard.innerHTML = '<button type="button" class="login" onclick="logout()">Log out</button>'+
-                        '<button type="button" class="login" onclick="location.href=`AdvancedSearchPage.html`">Account</button>'+
+                        '<button type="button" class="login" onclick="location.href=`Account.html`">Account</button>'+
                         '<button type="button" class="login" onclick="location.href=`orders.html`">Orders</button>';
-  }
+  }//
   else{
     divCard.innerHTML = '<button type="button" class="login" onclick="location.href=`LoginPage.html`">Login</button>';
   }

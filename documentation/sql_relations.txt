@@ -32,5 +32,7 @@ client_billing(username, card_number)
 restock(restock_number, isbn, warehouse_id, quantity, restock_date)
 request_book(request_number, username, status, request_name, request_isbn, date)
 
+warehouse_books(warehouse_id, isbn, stock)
+order_book(order_number, isbn, warehouse_id, quantity)
 
 
