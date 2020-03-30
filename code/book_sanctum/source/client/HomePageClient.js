@@ -4,7 +4,7 @@ function init(){
   requestData("/bestSellers");
   requestData("/newlyAdded");
   requestData("/recentlyViewed");
-  localStorage.setItem('currPage', 'HomePage.html');
+  localStorage.setItem('currPage', 'client_home');
 }
 
 function requestData(url){

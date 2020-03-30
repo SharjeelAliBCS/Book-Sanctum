@@ -1,3 +1,4 @@
+let path = require('path');
 let express = require('express');
 let serverData = require('../data');
 let accountQueries = require("../sqlQueries/accountQueries");
@@ -14,7 +15,26 @@ module.exports = function(app){
   router.get('/login', login);
   router.get('/signup', signup);
 
-  function get(req, res, next) {}
+  function get(req, res, next) {
+    pageName = req.query.page;
+    //form?page=login
+    switch(pageName){
+      case "login":
+        res.sendFile(path.join(__dirname, '../source/pages/LoginPage.html'));
+        break;
+      case "register":
+        res.sendFile(path.join(__dirname, '../source/pages/UserRegisterPage.html'));
+        break;
+      case "address":
+        res.sendFile(path.join(__dirname, '../source/pages/AddAddress.html'));
+        break;
+      case "payment":
+        res.sendFile(path.join(__dirname, '../source/pages/AddPayment.html'));
+        break;
+
+
+    }
+  }
 
   function signup(req, res, next){
     data = JSON.parse(Object.keys(req.query)[0]);

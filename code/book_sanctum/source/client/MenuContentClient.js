@@ -158,7 +158,7 @@ function checkout(){
 
     request.done(function (req) {
       //init_menu_content();
-      window.location.href = "orders.html";
+      window.location.href = "/client_orders";
 
     })
 

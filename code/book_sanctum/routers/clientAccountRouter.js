@@ -1,3 +1,4 @@
+let path = require('path');
 let express = require('express');
 let serverData = require('../data');
 let accountQueries = require("../sqlQueries/accountQueries");
@@ -13,6 +14,8 @@ module.exports = function(app){
   router.get('/getPayments', getPayments);
 
   function get(req, res, next) {
+    console.log("session is " +JSON.stringify(req.sessionID ))
+    res.sendFile(path.join(__dirname, '../source/pages/Account.html'));
   }
 
   function getAddresses(req, res, next) {

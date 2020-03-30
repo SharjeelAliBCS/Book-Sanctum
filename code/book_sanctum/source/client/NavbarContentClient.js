@@ -39,11 +39,11 @@ function populateLoggedInBar(flag){
 
   if(flag){
     divCard.innerHTML = '<button type="button" class="login" onclick="logout()">Log out</button>'+
-                        '<button type="button" class="login" onclick="location.href=`Account.html`">Account</button>'+
-                        '<button type="button" class="login" onclick="location.href=`orders.html`">Orders</button>';
+                        '<button type="button" class="login" onclick="location.href=`client_account`">Account</button>'+
+                        '<button type="button" class="login" onclick="location.href=`client_orders`">Orders</button>';
   }//
   else{
-    divCard.innerHTML = '<button type="button" class="login" onclick="location.href=`LoginPage.html`">Login</button>';
+    divCard.innerHTML = '<button type="button" class="login" onclick="location.href=`/form?page=login`">Login</button>';
   }
 
   document.getElementById("loggedInBar").appendChild(divCard);

@@ -5,7 +5,7 @@ function init(){
 
 function reqOrders(){
   var request = $.ajax({
-    url: "/client_orders",
+    url: "/client_orders/orders",
     data: "query",
     dataType: "json"
   });

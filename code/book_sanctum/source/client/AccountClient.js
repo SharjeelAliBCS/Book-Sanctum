@@ -20,10 +20,10 @@ function requestData(url,query){
 
     switch(url){
       case "/getAddresses":
-        populateScroll(data,"addressGrid", "address","AddAddress.html");
+        populateScroll(data,"addressGrid", "address","/form?page=address");
         break;
       case "/getPayments":
-        populateScroll(data,"paymentGrid", "card","AddPayment.html");
+        populateScroll(data,"paymentGrid", "card","/form?page=payment");
       default:
         //init();
         break;
