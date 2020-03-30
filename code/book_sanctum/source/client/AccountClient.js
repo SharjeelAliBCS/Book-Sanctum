@@ -1,24 +1,31 @@
 function init(){
   localStorage.setItem('currPage', 'Account.html');
   init_navbar_content();
-  requestData('/getAddresses');
-  populateScroll([],"paymentGrid", "card","AddPayment.html");
+  requestData('/getAddresses',"query");
+  requestData('/getPayments',"query");
+
 }
 
-function requestData(url){
+function requestData(url,query){
 
   var request = $.ajax({
-    url: url,
-    data: "query",
+    url: "/client_account"+url,
+    data: query,
     dataType: "json"
   });
 
   request.done(function (req) {
     var data = JSON.parse(req);
+    console.log(data);
 
     switch(url){
       case "/getAddresses":
         populateScroll(data,"addressGrid", "address","AddAddress.html");
+        break;
+      case "/getPayments":
+        populateScroll(data,"paymentGrid", "card","AddPayment.html");
+      default:
+        //init();
         break;
     }
   })
@@ -53,22 +60,57 @@ function populateScroll(data,divID,type, link){
 
   for (let i in data) {
 
-    let address = data[i];
-    console.log(address);
+    let dataBlock = data[i];
+    console.log(dataBlock);
     let divCard = document.createElement('div');
 
-      divCard.innerHTML = ""
-        + '<div class="item">'
-
-          + '<p class="address-text"> #' + address.apt_number+'</p>'
-          + '<p class="address-text">' + address.street+'</p>'
-          + '<p class="address-text">' + address.city + ' ' + address.code+'</p>'
-          + '<p class="address-text">' + address.state + ' ' + address.country+'</p>'
-
-        + '</div>'
+      if(type=="address"){
+        divCard.innerHTML = createAddressDiv(dataBlock);
+      }
+      else if(type=="card"){
+        divCard.innerHTML = createPaymentDiv(dataBlock);
+      }
 
       document.getElementById(divID).appendChild(divCard);
 
   }
   //
+}
+function removeInfo(type, pKey){
+  console.log("removed "+ type + " with pkey of " + pKey);
+  url = "/delete"+type;
+  requestData(url, {"pKey": pKey});
+
+}
+function createAddressDiv(address){
+  onclk = '"removeInfo(\'Address\',\''+address.id+'\')" ';
+
+  return ""
+    + '<div class="item">'
+      + '<p class="address-text"> #' + address.apt_number+'</p>'
+      + '<p class="address-text">' + address.street+'</p>'
+      + '<p class="address-text">' + address.city + ' ' + address.code+'</p>'
+      + '<p class="address-text">' + address.state + ' ' + address.country+'</p>'
+      + '<p class="remove" onclick= '+onclk+'>delete</p>'
+    + '</div>'
+}
+
+function createPaymentDiv(payment){
+  cardNum = payment.card_number.toString();
+  cardNum = "************"+cardNum.substring(12);
+  onclk = '"removeInfo(\'Payment\',\''+payment.card_number+'\')" ';
+
+  return ""
+    + '<div class="item">'
+      + '<p class="address-text">' + payment.name+'</p>'
+      + '<p class="address-text">' + cardNum+'</p>'
+      + '<p class="address-text"> Expires: ' + payment.expiry_date+'</p>'
+      + '<p class="address-text">' + payment.security_code+'</p>'
+      + '<p class="remove" onclick= '+onclk+'>delete</p>'
+    + '</div>'
+
+}
+
+function splitValue(value, index) {
+    return value.substring(0, index) + "," + value.substring(index);
 }

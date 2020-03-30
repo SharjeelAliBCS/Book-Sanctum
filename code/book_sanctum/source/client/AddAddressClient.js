@@ -39,7 +39,7 @@ $(document).on('keypress',function(e) {
 function reqsignup(reqObject){
   let userRequestJSON = JSON.stringify(reqObject) //make JSON string
   var request = $.ajax({
-    url: "/addAddress",
+    url: "/form/addAddress",
     data: userRequestJSON,
     dataType: "json"
   });
@@ -49,7 +49,7 @@ function reqsignup(reqObject){
     if(reloadPage=="Account.html"){
       window.location.href = reloadPage;
     }
-    
+
   })
 
   request.fail(function () {

@@ -25,8 +25,17 @@
   font-family: Verdana;
   font-size: 25px;
   color: #4a4a4a;
-
 }
+.remove{
+  cursor: pointer;
+  color: #ffc30b;
+  font-family: Verdana;
+  font-size: 15px;
+}
+.remove:hover{
+  text-decoration: underline;
+}
+
 .item{
     overflow-x: hidden;
     white-space:nowrap;
@@ -35,7 +44,7 @@
     border-style: solid;
     border-color: #bdbdbd;
     border-width: thin;
-    min-height: 120px;
+    min-height: 150px;
     min-width: 150px;
 }
 .add-new-text{

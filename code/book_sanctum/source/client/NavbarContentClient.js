@@ -1,17 +1,19 @@
 function init_navbar_content(){
+  console.log("tihfeihih        eihei8f")
   requestGenres();
   requestUserLogin();
 }
 
 function requestUserLogin(){
   var request = $.ajax({
-    url: "/loggedIn",
+    url: "/nav",
     data: "query",
     dataType: "json"
   });
 
   request.done(function (data) {
     user = data;
+    console.log("user is " + user);
     if(user==''){
       populateLoggedInBar(false);
     }
@@ -34,7 +36,7 @@ function populateLoggedInBar(flag){
   }
 
   let divCard = document.createElement('div');
-  console.log(div);
+
   if(flag){
     divCard.innerHTML = '<button type="button" class="login" onclick="logout()">Log out</button>'+
                         '<button type="button" class="login" onclick="location.href=`Account.html`">Account</button>'+
@@ -49,7 +51,7 @@ function populateLoggedInBar(flag){
 
 function logout(){
   var request = $.ajax({
-    url: "/logout",
+    url: "/nav/logout",
     data: "query",
     dataType: "json"
   });
@@ -65,7 +67,7 @@ function logout(){
 
 function requestGenres(){
   var request = $.ajax({
-    url: "/genreData",
+    url: "/nav/genres",
     data: "query",
     dataType: "json"
   });
@@ -93,6 +95,25 @@ function populateGenreSelect(genres){
   }
 }
 
+function homePage(){
+  var request = $.ajax({
+    url: "/",
+    data: "query",
+    dataType: "json"
+  });
+
+  request.done(function (data) {
+    var genres = JSON.parse(data);
+    //console.log(genres);
+    populateGenreSelect(genres);
+  })
+
+  request.fail(function () {
+    console.log("ERROR COULD NOT GET DATA")
+  });
+
+}
+
 function search(){
   var searchInput = document.getElementById("searchBar").value;
 
@@ -103,7 +124,7 @@ function search(){
     "genreInput": genreInput
   };
   localStorage.setItem('textInput', JSON.stringify(userInputObj));
-  window.location.href = "ListPage.html";
+  window.location.href = "search?text="+searchInput;
 }
 
 $(document).on('keypress',function(e) {

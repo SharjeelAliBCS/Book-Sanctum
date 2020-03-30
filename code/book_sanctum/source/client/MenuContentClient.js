@@ -1,5 +1,5 @@
 function init_menu_content(){
-  requestData("/cart");
+  requestData("/cart_tab");
 }
 
 function requestData(url){
@@ -13,7 +13,7 @@ function requestData(url){
   request.done(function (req) {
     var data = JSON.parse(req);
     switch(url){
-      case "/cart":
+      case "/cart_tab":
         populateOrderTab(data);
         break;
     }
@@ -123,7 +123,7 @@ function modifyCart(isbn, quantity){
 function reqModifyCart(reqObject){
   let userRequestJSON = JSON.stringify(reqObject) //make JSON string
   var request = $.ajax({
-    url: "/modifyCart",
+    url: "/cart_tab/modifyCart",
     data: userRequestJSON,
     dataType: "json"
   });
@@ -145,13 +145,13 @@ function openBookPage(isbn){
   console.log(isbn+ " page opened!");
 
   localStorage.setItem('ISBN', isbn);
-  window.location.href = "BookPage.html";
+  window.location.href = 'book?isbn='+isbn;
 }
 
 function checkout(){
 
     var request = $.ajax({
-      url: "/checkout",
+      url: "/cart_tab/checkout",
       data: "query",
       dataType: "json"
     });

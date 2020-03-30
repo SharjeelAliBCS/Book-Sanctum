@@ -1,0 +1,97 @@
+
+h1 {
+   font-family: PokemonLogo;
+   font-size: 72px;
+   color:#ffe600;
+   text-shadow:
+-5px -5px 0 #0066ff,
+5px -5px 0 #0066ff,
+-5px 5px 0 #0066ff,
+5px 5px 0 #0066ff;
+}
+p{
+  font-family: PokemonText;
+  font-size: 17px;
+  color:#000000 ;
+}
+
+.logo{
+  width: 400px;
+  height: 100px;
+}
+.clear{
+  clear: both;
+}
+
+.header{
+  text-align:center;
+ display:block;
+}
+
+.block{
+
+}
+
+.block{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+  width: 600px;
+
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  background-color: #ffffff;
+  padding: 30px;
+
+}
+
+.text{
+  font-size: 30px;
+  font-family: Verdana;
+}
+
+.input-text{
+  font-size: 20px;
+  font-family: Verdana;
+  margin-top: 100px;
+}
+
+.input{
+  margin-top:5px;
+  width: 90%;
+  solid #999999;
+  padding: 10px;
+  font-size: 20px;
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.button {
+  background-color: #ffc30b;
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30px;
+  font-family: Verdana;
+  cursor: pointer;
+  vertical-align: middle;
+  border-right: 1px solid #d13100;
+
+  width: 90%;
+  padding: 10px;
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.incorrect-text{
+  font-size: 20px;
+  font-family: Verdana;
+  color: red;
+}

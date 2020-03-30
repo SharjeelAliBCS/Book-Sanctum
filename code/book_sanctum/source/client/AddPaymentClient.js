@@ -18,12 +18,12 @@ function signup(){
   }
 
   reqObject = {
-    "card": country,
-    "name": state,
-    "expDate": city,
+    "card": card,
+    "name": name,
+    "expDate": expDate,
     "code": code
   };
-  //reqsignup(reqObject);
+  reqsignup(reqObject);
 }
 
 $(document).on('keypress',function(e) {
@@ -35,7 +35,7 @@ $(document).on('keypress',function(e) {
 function reqsignup(reqObject){
   let userRequestJSON = JSON.stringify(reqObject) //make JSON string
   var request = $.ajax({
-    url: "/addAddress",
+    url: "/form/addPayment",
     data: userRequestJSON,
     dataType: "json"
   });
