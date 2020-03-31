@@ -1,16 +1,16 @@
 function init(){
   init_navbar_content();
 
-  requestData("/bestSellersData");
-  requestData("/newlyAddedData");
-  requestData("/recentlyViewedData");
-  localStorage.setItem('currPage', 'HomePage.html');
+  requestData("/bestSellers");
+  requestData("/newlyAdded");
+  requestData("/recentlyViewed");
+  localStorage.setItem('currPage', 'client_home');
 }
 
 function requestData(url){
 
   var request = $.ajax({
-    url: url,
+    url: "/client_home"+url,
     data: "query",
     dataType: "json"
   });
@@ -19,14 +19,14 @@ function requestData(url){
     var data = JSON.parse(req);
 
     switch(url){
-      case "/bestSellersData":
+      case "/bestSellers":
         populateBookScroll(data,"bestSellersGrid");
         break;
-      case "/recentlyViewedData":
+      case "/recentlyViewed":
         console.log(data);
         populateBookScroll(data,"recentlyViewedGrid");
         break;
-      case "/newlyAddedData":
+      case "/newlyAdded":
         populateNewlyAdded(data);
         break;
     }
@@ -71,7 +71,7 @@ function populateNewlyAdded(data){
               + '  <b class="text-section">New release</b><br></br>'
 
                 + '<b style="display:inline" class="newly-title">' + book.title + '</b>'
-                + '<p class="newly-author">' + book.author +'</p><br></br>'
+                + '<p class="newly-author">' + book.name +'</p><br></br>'
                 + '<p class="newly-price">' + bookPrice +'</p><br></br>'
 
               + '</div>'
@@ -152,5 +152,5 @@ function openBookPage(isbn){
   console.log(isbn+ " page opened!");
 
   localStorage.setItem('ISBN', isbn);
-  window.location.href = "BookPage.html";
+  window.location.href = 'book?isbn='+isbn;
 }

@@ -1,0 +1,42 @@
+doctype html
+// color is d13100, ffc30b
+head
+  title book.sanctum.ca
+
+  link(rel='stylesheet' type='text/css' href='css/info.css')
+  link(rel='stylesheet' type='text/css' href='css/navigation.css')
+  link(rel='stylesheet' type='text/css' href='css/orderTab.css')
+.topnav
+  .inner-element
+    .submission
+      .header-logo
+        a(href='client_home')
+          img(src='themes/images/logo.png' alt='Bootsshop')
+      input#searchBar.submissionfield(type='text' placeholder='Search for anything' name='searchBar')
+      .select-style
+        select#genreSelect.select-width
+          option All Genres
+      button.submit-button(type='button' onclick='search()') Search
+      button.submit-button(type='button' onclick="location.href='AdvancedSearchPage.html'") Advanced Search
+      #loggedInBar
+#filterCol.row(style='background-color:#ffffff;')
+  #bookInfo.column.info-column
+  .column.order-column
+    .order-tab
+      .order-nav
+        .cart-nav-info
+          a
+            img.cart-img(src='themes/images/cart.png' alt='Bootsshop')
+      .order-main
+        p#totalItems.subtotal  Total items:
+        p#subtotal.subtotal  Subtotal:
+        button.checkout-button(type='button' onclick='checkout()') Checkout
+        #cart.cart
+
+script(src='jquery-1.11.3.js')
+script(src='BookInfoClient.js')
+script(src='MenuContentClient.js')
+script(src='NavbarContentClient.js')
+script.
+  let book = !{JSON.stringify(data)};
+  init(book);

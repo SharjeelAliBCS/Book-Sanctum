@@ -5,7 +5,7 @@ function init(){
 
 function reqOrders(){
   var request = $.ajax({
-    url: "/orders",
+    url: "/client_orders/orders",
     data: "query",
     dataType: "json"
   });
@@ -133,5 +133,5 @@ function openBookPage(isbn){
   console.log(isbn+ " page opened!");
 
   localStorage.setItem('ISBN', isbn);
-  window.location.href = "BookPage.html";
+  window.location.href = 'book?isbn='+isbn;
 }

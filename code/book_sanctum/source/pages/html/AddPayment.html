@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b -->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+    <script src="AddPaymentClient.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/userForm.css">
+
+	</head>
+
+	<body onload="init()"style='background-color: #e0e0e0;' >
+		<div>
+			<div class="header">
+				<a href="client_home"><img class ="logo" src="themes/images/logoBlack.png" alt="Bootsshop"/></a>
+			</div>
+
+			<div class = "block">
+				<b class="text">Add Payment</b><br></br><br></br>
+				<div id="incorrect">
+				</div>
+				<b class="input-text">Name</b>
+				<input type="text" class="input user" id="name" placeholder="Type in the name on the card"><br></br>
+
+        <b class="input-text">Card number</b>
+        <input type="text" class="input user" id="card" placeholder="Type in the card number" maxlength="16"><br></br>
+
+        <b class="input-text">Security Code</b>
+        <input type="text" class="input user" id="code" placeholder="Type in your security code" maxlength="3"><br></br>
+
+        <b class="input-text">Expiry Date</b>
+        <input type="text" class="input user" id="expDate" placeholder="Type in your expiry date" maxlength="5"><br></br>
+
+				<br></br><br></br>
+
+				<button type="button" class="button" onclick="signup()">Add Card</button>
+
+
+
+
+		</div>
+
+
+	</body>
+
+</html>

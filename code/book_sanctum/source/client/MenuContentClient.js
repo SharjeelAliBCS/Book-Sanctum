@@ -1,5 +1,5 @@
 function init_menu_content(){
-  requestData("/cart");
+  requestData("/cart_tab");
 }
 
 function requestData(url){
@@ -13,7 +13,7 @@ function requestData(url){
   request.done(function (req) {
     var data = JSON.parse(req);
     switch(url){
-      case "/cart":
+      case "/cart_tab":
         populateOrderTab(data);
         break;
     }
@@ -82,7 +82,7 @@ function populateOrderTab(data){
 
   }
 
-  document.getElementById('subtotal').innerHTML = `Subtotal: CDN $${price}`;
+  document.getElementById('subtotal').innerHTML = `Subtotal: CDN $${price.toFixed(2)}`;
   document.getElementById('totalItems').innerHTML = `Total items: ${total}`;
 
 }
@@ -123,7 +123,7 @@ function modifyCart(isbn, quantity){
 function reqModifyCart(reqObject){
   let userRequestJSON = JSON.stringify(reqObject) //make JSON string
   var request = $.ajax({
-    url: "/modifyCart",
+    url: "/cart_tab/modifyCart",
     data: userRequestJSON,
     dataType: "json"
   });
@@ -145,25 +145,10 @@ function openBookPage(isbn){
   console.log(isbn+ " page opened!");
 
   localStorage.setItem('ISBN', isbn);
-  window.location.href = "BookPage.html";
+  window.location.href = 'book?isbn='+isbn;
 }
 
 function checkout(){
-
-    var request = $.ajax({
-      url: "/checkout",
-      data: "query",
-      dataType: "json"
-    });
-
-    request.done(function (req) {
-      //init_menu_content();
-      window.location.href = "orders.html";
-
-    })
-
-    request.fail(function () {
-      console.log("ERROR COULD NOT GET DATA")
-    });
-
+    window.location.href = 'checkout';
+  
 }

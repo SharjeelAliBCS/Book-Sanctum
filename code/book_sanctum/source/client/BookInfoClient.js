@@ -1,14 +1,16 @@
-
-function init(){
+function init(book){
+  book = JSON.parse(book);
   init_menu_content();
   init_navbar_content();
   requestGenres();
-  localStorage.setItem('currPage', 'BookPage.html');
+  localStorage.setItem('currPage', 'book?isbn='+book.isbn);
+  console.log(book);
 
-  isbn =localStorage.getItem('ISBN');
+  //isbn =localStorage.getItem('ISBN');
 
-  if(isbn!=null){
-    requestBook(isbn);
+  if(book!=null){
+    //requestBook(isbn);
+    populateBookInfo(book);
   }
 }
 
@@ -16,7 +18,7 @@ function init(){
 function requestBook(isbn){
   console.log(isbn);
   var request = $.ajax({
-    url: "/ISBNSearch",
+    url: "/book",
     data: isbn,
     dataType: "json"
   });
@@ -84,7 +86,7 @@ function populateBookInfo(book){
         + '</div>'
 
         + '<div class="extra-info">'
-          + '<p class="extra-text"> <strong>ISBN:</strong> ' +isbn +'</p>'
+          + '<p class="extra-text"> <strong>ISBN:</strong> ' +book.isbn +'</p>'
           + '<p class="extra-text"> <strong>Publisher:</strong> ' +book.publisher +'</p>'
           + '<p class="extra-text"> <strong>Genres:</strong> ' +book.genre +'</p>'
           + '<p class="extra-text"> <strong>Pages:</strong> ' +book.page_count +'</p>'

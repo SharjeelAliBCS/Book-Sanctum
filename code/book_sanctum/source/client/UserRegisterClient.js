@@ -48,7 +48,7 @@ $(document).on('keypress',function(e) {
 function reqsignup(reqObject){
   let userRequestJSON = JSON.stringify(reqObject) //make JSON string
   var request = $.ajax({
-    url: "/signup",
+    url: "/form/signup",
     data: userRequestJSON,
     dataType: "json"
   });

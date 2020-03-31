@@ -60,7 +60,7 @@ $(document).on('keypress',function(e) {
 function reqLogin(reqObject){
   let userRequestJSON = JSON.stringify(reqObject) //make JSON string
   var request = $.ajax({
-    url: "/login",
+    url: "/form/login",
     data: userRequestJSON,
     dataType: "json"
   });

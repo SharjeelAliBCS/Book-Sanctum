@@ -1,23 +1,15 @@
-function init(){
+function init(data, textInput){
   init_navbar_content();
   init_menu_content();
-  localStorage.setItem('currPage', 'ListPage.html');
+  localStorage.setItem('currPage', "search?text="+textInput);
 
-  requestData("/genreData");
+  if(textInput!=null){
+    var searchInput = document.getElementById("searchBar").value = textInput;
 
-  text =JSON.parse(localStorage.getItem('textInput'));
-
-  console.log("init afffgain for data ")
-  console.log(text.genreInput);
-
-  if(text!=null){
-    var searchInput = document.getElementById("searchBar").value = text.textInput;
-
-    requestSearchData(text);
-    localStorage.setItem('textInput', null);
-
-
+    //requestSearchData(text);
+    //localStorage.setItem('textInput', null);
     document.getElementById("genreSelect").selectedIndex =2;
+    populateBookList(JSON.parse(data),textInput);
   }
 
 
@@ -51,7 +43,7 @@ function requestData(url){
 function requestSearchData(userInputObj){
   let userRequestJSON = JSON.stringify(userInputObj) //make JSON string
   var request = $.ajax({
-    url: "/mainSearch",
+    url: "/search",
     data: userInputObj,
     dataType: "json"
   });
@@ -91,6 +83,7 @@ function populateBookList(data,textInput){
         for (let i in data) {
 
           let book = data[i];
+          console.log(book);
           let divCard = document.createElement('div');
 
             bookPrice = "CDN $"+book.price;
@@ -133,13 +126,14 @@ function openBookPage(isbn){
   console.log(isbn+ " page opened!");
 
   localStorage.setItem('ISBN', isbn);
-  window.location.href = "BookPage.html";
+  window.location.href = 'book?isbn='+isbn;
 }
 
 function filterSearch(divID, type,userInputObj){
-  let userRequestJSON = JSON.stringify(userInputObj) //make JSON string
+
+  let userRequestJSON = JSON.stringify({"textInput": userInputObj}) //make JSON string
   var request = $.ajax({
-    url: "/"+divID,
+    url: "/search/"+divID,
     data: userInputObj,
     dataType: "json"
   });
@@ -147,6 +141,7 @@ function filterSearch(divID, type,userInputObj){
   request.done(function (data) {
 
     filterData = JSON.parse(data)
+    console.log("got data of " + data)
     populateFilterList(filterData,divID,type);
   })
 

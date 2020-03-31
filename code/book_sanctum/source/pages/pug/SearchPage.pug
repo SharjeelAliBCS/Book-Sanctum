@@ -1,0 +1,70 @@
+doctype html
+// color is d13100, ffc30b
+head
+
+  title book.sanctum.ca
+
+  link(rel='stylesheet' type='text/css' href='../css/search.css')
+  link(rel='stylesheet' type='text/css' href='../css/navigation.css')
+  link(rel='stylesheet' type='text/css' href='../css/orderTab.css')
+.topnav
+  .inner-element
+    .submission
+      .header-logo
+        a(href='client_home')
+          img(src='themes/images/logo.png' alt='Bootsshop')
+      input#searchBar.submissionfield(type='text' placeholder='Search for anything' name='searchBar')
+      .select-style
+        select#genreSelect.select-width
+          option All Genres
+      button.submit-button(type='button' onclick='search()') Search
+      button.submit-button(type='button' onclick="location.href='AdvancedSearchPage.html'") Advanced Search
+      #loggedInBar
+//
+  <div class="column filter" id="left">
+  <p><b>Filter column here</b></p>
+  </div>
+  <div class="column listing" id="middle">
+  <p><b>Listing column here</b></p>
+  <div class="grid-container" id="searchListing">
+  </div>
+  <div class="column order" id="right">
+  <p><b>order column here</b></p>
+  </div>
+#filterCol.row(style='background-color:#ffffff;')
+  .column.filter
+    .filter-options
+      h2 Filters
+      #genreList.genre-list
+      #authorList.genre-list
+  .column.listing
+    .list-header
+      span#ListHeading.listing-header
+      .sort-select
+        select#sortSelect
+          option Featured
+          option Price: High first
+          option Price: Low first
+          option Release: New first
+          option Release: Old first
+    #searchListing.grid-container(style='background-color:#ffffff;')
+  .column.order-column
+    .order-tab
+      .order-nav
+        .cart-nav-info
+          a
+            img.cart-img(src='themes/images/cart.png' alt='Bootsshop')
+      .order-main
+        p#totalItems.subtotal  Total items:
+        p#subtotal.subtotal  Subtotal:
+        button.checkout-button(type='button' onclick='checkout()') Checkout
+        #cart.cart
+
+script(src='jquery-1.11.3.js')
+script(src='ListPageClient.js')
+script(src='MenuContentClient.js')
+script(src='NavbarContentClient.js')
+script.
+  let searchResults = !{JSON.stringify(data)};
+  let textInput = !{JSON.stringify(param)};
+  init(searchResults,textInput);

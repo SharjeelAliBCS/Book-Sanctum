@@ -2,3 +2,18 @@
 2. How would Owner connect?
 3. Want to have a relationship with warehouse for order. Thought of connecting order to warehouse, but then no access to book info and redudent as books point to warehouse. Then I thought of connecting order_book to warehouse. 
    But this also won't work too well. Because the requirements mention a single warehouse for all books (not each). 
+
+3/26:
+1. Duel total participation allowed???
+2. Hierachy weak entity set
+3. Request book correct or not?
+4. Relations without data sharing?
+
+3/27:
+1. Relations without data sharing
+2. Aggreation
+3. Does my ER have to be normalized? For example my order_book and warehouse one.  
+4. Do I even need to have warehouse_id in order_book?
+5. For normalizing my order_book and warehouse_book, can I just create a unique ID for warehouse_book and reference that?
+6. For order_book, order_number and isbn are primary keys. isbn and warehouse_id are taken from the warehouse_books, but warehouse_id isn't a primary key, or should it?
+7. Making functional dependencies for everything?

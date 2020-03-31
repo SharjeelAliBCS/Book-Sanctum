@@ -80,4 +80,34 @@ where orders.username = 'user'
 order by order_book.order_number desc;
 
  
+------------------------------------------------
+Insert a new address:
+insert into address values(default,'Canada', 'ON','Ottawa', 'K3Q6M2', 'Exaclior',234, 117);
+insert into client_address values('LordofArbiters', 1);
+------------------------------------------------
+Select all addresses belonging to user:
+select address.country, address.state, address.city, address.code, address.street,address.apt_number from address
+inner join client_address on address.id = client_address.address_id
+where username = 'LordofArbiters';
+------------------------------------------------
+Get most sold books (For home page):
+select book.isbn, book.title, book.price, author.name from
+(select isbn, sum(quantity) as sales from order_book
+group by(isbn) ) as sold
+inner join book on sold.isbn = book.isbn
+inner join author on book.author_id = author.id 
+order by sales desc
+limit 10;
 
+------------------------------------------------
+Get most recently viewed books (For home page):
+select book.isbn, book.title, book.price, author.name from
+inner join view_history on book.isbn = view_history.isbn
+inner join book on sold.isbn = book.isbn
+inner join author on book.author_id = author.id 
+where view_history.username = $1
+order by sales desc
+------------------------------------------------
+get recent books for user:
+select book.isbn, book.title, view_history.rank from view_history
+inner join book on book.isbn = view_history.isbn;

@@ -1,12 +1,38 @@
-1. author(id, name)
-2. genre(id, name, type)
-3. publisher(id, phone, email, address, banking)
-4. book(isbn, title, description, price, page_count, published_date, add_date, stock, rating, rating_count, sale_percent, author_id, genre_id, publisher_id)
-5. order(order_number, username, order_date,status,address, banking)
-6. order_book(order_number, isbn, quantity)
-7. client(username, email, first_name, last_name, password)
-8. client_banking(username, bank_number)
-9. client_address(username, address_number)
-10. banking_account(account_number)
-11. address(id, country, state, city, code, street_name, street_number, apartment_number)
+author(id, name)
+genre(id, name, type)
+publisher(id, phone, email, address, banking)
+book(isbn, title, description, price, page_count, published_date, add_date, stock, rating, rating_count, sale_percent, author_id, genre_id, publisher_id)
+
+orders(order_number, username, order_date,status_id,address, banking)
+status(status_id, name, description)
+order_book(order_number, isbn, warehouse_id, quantity)
+cart(username, isbn, quantity)
+
+client(username, email, first_name, last_name, password)
+admin(email, first_name, last_name, password)
+sales_report(report_nmumber, admin_email, start_date, end_date, file)
+report_transaction(report_number, transaction_id)
+transaction(transaction_id, transaction_name, transaction_type, amount, date)
+
+warehouse(id, address)
+warehouse_books(warehouse_id, isbn, stock)
+
+address(id, country, state, city, code, street_name, street_number, apartment_number)
+warehouse_address(warehouse_id, address_id)
+publisher_address(publisher_id, address_id)
+order_address(order_number, address_id)
+client_address(username, address_id)
+
+direct_deposit(transit_number, account_number, instituition number)
+payment_info(card_number, name, expiry_date, security_code)
+publisher_billing(publisher_id, billing_id)
+order_billing(order_number, card_number)
+client_billing(username, card_number)
+
+restock(restock_number, isbn, warehouse_id, quantity, restock_date)
+request_book(request_number, username, status, request_name, request_isbn, date)
+
+warehouse_books(warehouse_id, isbn, stock)
+order_book(order_number, isbn, warehouse_id, quantity)
+
 

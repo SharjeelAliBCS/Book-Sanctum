@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b -->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+    <script src="ListPageClient.js"></script>
+		<script src="MenuContentClient.js"></script>
+		<script src="NavbarContentClient.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../css/search.css">
+		<link rel="stylesheet" type="text/css" href="../css/navigation.css">
+		<link rel="stylesheet" type="text/css" href="../css/orderTab.css">
+
+	</head>
+
+	<body onload="init()" >
+    <div class = "topnav">
+      <div class="inner-element">
+
+
+      <div class="submission">
+        <div  class="header-logo">
+        <a href="client_home"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
+      </div>
+    		<input type="text" class="submissionfield" id="searchBar" placeholder="Search for anything" name="searchBar">
+        <div  class="select-style" >
+      		<select id="genreSelect"  class="select-width">
+      			<option>All Genres</option>
+      		</select>
+        </div>
+        <button type="button" class="submit-button" onclick="search()">Search</button>
+				<button type="button" class="submit-button" onclick="location.href='AdvancedSearchPage.html'">Advanced Search</button>
+				<div id="loggedInBar"></div>
+
+
+
+      </div>
+
+
+    </div>
+
+
+    </div>
+
+    <!--
+    <div class="column filter" id="left">
+      <p><b>Filter column here</b></p>
+    </div>
+    <div class="column listing" id="middle">
+      <p><b>Listing column here</b></p>
+        <div class="grid-container" id="searchListing">
+    </div>
+    <div class="column order" id="right">
+        <p><b>order column here</b></p>
+    </div>
+  -->
+
+	  <div class="row" style="background-color:#ffffff;" id="filterCol">
+	  <div class="column filter">
+
+			<div class="filter-options">
+		    <h2>Filters</h2>
+
+
+				<div class="genre-list" id ="genreList">
+				</div>
+
+				<div class="genre-list" id ="authorList">
+				</div>
+
+			</div>
+
+
+	  </div>
+
+	  <div class="column listing" >
+
+			<div class="list-header">
+				<span id = "ListHeading" class="listing-header"></span>
+
+				<div class="sort-select">
+					<select id="sortSelect" >
+						<option>Featured</option>
+						<option>Price: High first</option>
+						<option>Price: Low first</option>
+						<option>Release: New first</option>
+						<option>Release: Old first</option>
+					</select>
+					</div>
+			</div>
+
+	    <div class="grid-container" id="searchListing" style="background-color:#ffffff;" id="listingCol"></div>
+
+		</div>
+
+		<div class="column order-column">
+
+			<div class="order-tab">
+				<div class="order-nav">
+					<div class="cart-nav-info">
+						<a><img class="cart-img" src="themes/images/cart.png" alt="Bootsshop"/></a>
+					</div>
+				</div>
+				<div class="order-main">
+					<p class="subtotal" id="totalItems"> Total items: </p>
+					<p class="subtotal" id="subtotal"> Subtotal: </p>
+					<button type="button" class="checkout-button" onclick="checkout()">Checkout</button>
+					<div class="cart" id = "cart">
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+	</body>
+
+</html>
