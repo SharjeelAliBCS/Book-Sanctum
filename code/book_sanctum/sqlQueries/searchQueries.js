@@ -16,7 +16,7 @@ function searchQueries(){
     console.log(title);
     title = `%${title}%`;
     return new Promise (function(resolve, reject){
-      pool.query("select book.isbn,book.title,book.price,author.name as author "+
+      pool.query("select book.isbn,book.title,book.price,book.published_date, author.name as author "+
                 "from book inner join author on author.id = book.author_id "+
                  "where title ILIKE $1;",
                  //"author.name ILIKE $1 or "+

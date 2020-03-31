@@ -83,6 +83,7 @@ function populateBookList(data,textInput){
         for (let i in data) {
 
           let book = data[i];
+          console.log(book);
           let divCard = document.createElement('div');
 
             bookPrice = "CDN $"+book.price;
@@ -99,7 +100,7 @@ function populateBookList(data,textInput){
 
                 + '<div class="book-column book-info">'
                   + '<p style="display:inline" onclick=' +onclk+ ' class="book-text book-title">' + book.title + '</p><br></br>'
-                  + '<p class="book-text book-author">' + book.name + ' | '+ book.published_date +'</p><br></br>'
+                  + '<p class="book-text book-author">' + book.author + ' | '+ book.published_date +'</p><br></br>'
                   + '<p class="book-text book-price">' + bookPrice +'</p><br></br>'
                   //+ '<p style="display:inline" class="book-description">' + book.description + '</font></p>'
                 + '</div>'

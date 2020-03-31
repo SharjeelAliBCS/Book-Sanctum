@@ -1,0 +1,187 @@
+.border{
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  border-width: thin;
+  margin: 10px;
+}
+.box{
+  margin-top: 100px;
+  font-family: Verdana;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.column{
+  float: left;
+}
+
+.items-box{
+
+}
+.order-box{
+  width: 30%;
+}
+
+.header-text{
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 5%;
+}
+
+.disclaimer-text{
+  font-size: 15px;
+  line-height: 1%;
+}
+.col-items{
+  width: 70%;
+
+}
+
+.order-info{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.order-stats{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+.order-stats-col{
+  float: left;
+  font-size: 15px;
+}
+
+.order-stats-header{
+  font-size: 20px;
+  font-weight: bold;
+}
+.order-info-header{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.order-stats-title{
+  width: 50%;
+}
+
+
+.order-stats-text{
+  width: 50%;
+  text-align: right;
+}
+
+.book{
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: block;
+  border-bottom:1px solid #bdbdbd;
+}
+
+.total-text{
+  font-size: 30px;
+  color: #ffc30b;
+  font-weight: bold;
+}
+
+.book:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.img{
+  float: left;
+  width: 20%;
+}
+.info{
+  font-size: 20px;
+  font-family: Verdana;
+  float: left;
+  width: 80%;
+}
+
+.info-small{
+  font-size: 15px;
+  margin-top: -2%;
+}
+
+.order-button{
+  background-color: #ffc30b;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.item{
+    overflow-x: hidden;
+    white-space:nowrap;
+    padding: 5px;
+    min-width: 150px;
+}
+
+.address-text{
+  font-size: 15px;
+  line-height:10px;
+}
+
+.select-style {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 200px;
+
+    font-size: 20px;
+    padding-top:8px;
+    line-height: 100%;
+
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 180%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+.select-width{
+  width: 10px;
+}
+
+.add-new{
+  cursor: pointer;
+  color: #ffc30b;
+  font-family: Verdana;
+  font-size: 15px;
+}
+.add-new:hover{
+  text-decoration: underline;
+}
+
+.option-list{
+  float: left;
+}
+
+.option-col-select{
+  width: 60%;
+}
+.option-col-add{
+  width: 40%;
+}

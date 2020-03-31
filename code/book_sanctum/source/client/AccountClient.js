@@ -1,5 +1,5 @@
 function init(){
-  localStorage.setItem('currPage', 'Account.html');
+  localStorage.setItem('currPage', '/client_account');
   init_navbar_content();
   requestData('/getAddresses',"query");
   requestData('/getPayments',"query");
@@ -76,6 +76,8 @@ function populateScroll(data,divID,type, link){
   }
   //
 }
+
+
 function removeInfo(type, pKey){
   console.log("removed "+ type + " with pkey of " + pKey);
   url = "/delete"+type;

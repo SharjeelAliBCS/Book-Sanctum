@@ -117,3 +117,11 @@ create table client_billing(
 	foreign key (username) references client,
 	foreign key (card_number) references payment_info
 );
+create table view_history(
+	username		varchar(20),
+	isbn			varchar(13),
+	rank                    numeric(1,0),
+	primary key (username, isbn),
+	foreign key (username) references client,
+	foreign key (isbn) references book
+	);

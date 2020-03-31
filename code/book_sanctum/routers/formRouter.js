@@ -20,16 +20,16 @@ module.exports = function(app){
     //form?page=login
     switch(pageName){
       case "login":
-        res.sendFile(path.join(__dirname, '../source/pages/LoginPage.html'));
+        res.sendFile(path.join(__dirname, '../source/pages/html/LoginPage.html'));
         break;
       case "register":
-        res.sendFile(path.join(__dirname, '../source/pages/UserRegisterPage.html'));
+        res.sendFile(path.join(__dirname, '../source/pages/html/UserRegisterPage.html'));
         break;
       case "address":
-        res.sendFile(path.join(__dirname, '../source/pages/AddAddress.html'));
+        res.sendFile(path.join(__dirname, '../source/pages/html/AddAddress.html'));
         break;
       case "payment":
-        res.sendFile(path.join(__dirname, '../source/pages/AddPayment.html'));
+        res.sendFile(path.join(__dirname, '../source/pages/html/AddPayment.html'));
         break;
 
 

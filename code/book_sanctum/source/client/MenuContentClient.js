@@ -82,7 +82,7 @@ function populateOrderTab(data){
 
   }
 
-  document.getElementById('subtotal').innerHTML = `Subtotal: CDN $${price}`;
+  document.getElementById('subtotal').innerHTML = `Subtotal: CDN $${price.toFixed(2)}`;
   document.getElementById('totalItems').innerHTML = `Total items: ${total}`;
 
 }
@@ -149,21 +149,6 @@ function openBookPage(isbn){
 }
 
 function checkout(){
-
-    var request = $.ajax({
-      url: "/cart_tab/checkout",
-      data: "query",
-      dataType: "json"
-    });
-
-    request.done(function (req) {
-      //init_menu_content();
-      window.location.href = "/client_orders";
-
-    })
-
-    request.fail(function () {
-      console.log("ERROR COULD NOT GET DATA")
-    });
-
+    window.location.href = 'checkout';
+  
 }

@@ -12,6 +12,11 @@ module.exports = function(app){
   function get(req, res, next) {
     console.log(req.query.isbn);
     isbn = req.query.isbn;
+    if(serverData.users.hasOwnProperty(req.sessionID) && serverData.users[req.sessionID]!=''){
+      console.log("ihdihd8qhdd")
+    bookQueryInstance.addBookHistory(serverData.users[req.sessionID], isbn);
+    }
+
     data = bookQueryInstance.searchBookByISBN(isbn,res).then(function(result){
 
       res.status(200).render('BookPage.pug', {
@@ -19,7 +24,6 @@ module.exports = function(app){
       });
 
     });
-
   }
 
   return router;

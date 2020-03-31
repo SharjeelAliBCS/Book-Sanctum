@@ -12,7 +12,7 @@ module.exports = function(app){
   router.get('/orders', getOrders);
 
   function get(req, res, next) {
-    res.sendFile(path.join(__dirname, '../source/pages/orders.html'));
+    res.sendFile(path.join(__dirname, '../source/pages/html/orders.html'));
   }
 
   function getOrders(req, res, next){

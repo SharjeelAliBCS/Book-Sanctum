@@ -26,12 +26,25 @@ function bookQueries(){
         if (err) {
           return console.error('Error executing query', err.stack)
         }
+    
+        resolve(result.rows);
+      })
+    });
+  }
+
+  this.addBookHistory = function (username, isbn, res){
+    console.log("testing add book");
+    return new Promise (function(resolve, reject){
+      pool.query("insert into view_history values($1, $2, 0)",
+                 [username, isbn], (err, result) => {
+        if (err) {
+          return console.error('Error executing query', err.stack)
+        }
         console.log(result.rows) // brianc
 
         resolve(result.rows);
       })
     });
-
   }
 
 

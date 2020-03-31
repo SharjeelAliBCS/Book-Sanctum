@@ -46,9 +46,7 @@ function reqsignup(reqObject){
 
   request.done(function (data) {
 
-    if(reloadPage=="Account.html"){
-      window.location.href = reloadPage;
-    }
+    window.location.href = reloadPage;
 
   })
 

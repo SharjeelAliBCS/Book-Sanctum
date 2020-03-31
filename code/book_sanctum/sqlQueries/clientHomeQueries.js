@@ -27,8 +27,23 @@ function clientHomeQueries(){
     })
   }
 
+  this.getViewedBooks = function(username, res){
+    console.log(username + " viewes");
+    pool.query("select book.isbn, book.title, book.price, author.name as author from book "+
+              "inner join view_history on book.isbn = view_history.isbn "+
+              "inner join author on book.author_id = author.id  "+
+              "where view_history.username = $1 "+
+               "order by view_history.rank;",
+               [username], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      res.json(JSON.stringify(result.rows));
+    })
+  }
+
   this.searchBooksByTitle = function(title, res){
-    
+
     title = `%${title}%`;
     pool.query("select book.isbn,book.title,book.price,author.name as author "+
               "from book inner join author on author.id = book.author_id "+

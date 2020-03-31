@@ -6,18 +6,18 @@
 
 		<title>book.sanctum.ca</title>
 		<script src="jquery-1.11.3.js"></script>
-    <script src="ListPageClient.js"></script>
+    <script src="BookInfoClient.js"></script>
 		<script src="MenuContentClient.js"></script>
 		<script src="NavbarContentClient.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/search.css">
-		<link rel="stylesheet" type="text/css" href="css/navigation.css">
-		<link rel="stylesheet" type="text/css" href="css/orderTab.css">
+    <link rel="stylesheet" type="text/css" href="../css/info.css">
+		<link rel="stylesheet" type="text/css" href="../css/navigation.css">
+		<link rel="stylesheet" type="text/css" href="../css/orderTab.css">
 
 	</head>
 
 	<body onload="init()" >
-    <div class = "topnav">
+		<div class = "topnav">
       <div class="inner-element">
 
 
@@ -39,62 +39,15 @@
 
       </div>
 
-
+    </div>
     </div>
 
 
-    </div>
+  <div class="row" style="background-color:#ffffff;" id="filterCol">
 
-    <!--
-    <div class="column filter" id="left">
-      <p><b>Filter column here</b></p>
-    </div>
-    <div class="column listing" id="middle">
-      <p><b>Listing column here</b></p>
-        <div class="grid-container" id="searchListing">
-    </div>
-    <div class="column order" id="right">
-        <p><b>order column here</b></p>
-    </div>
-  -->
-
-	  <div class="row" style="background-color:#ffffff;" id="filterCol">
-	  <div class="column filter">
-
-			<div class="filter-options">
-		    <h2>Filters</h2>
-
-
-				<div class="genre-list" id ="genreList">
-				</div>
-
-				<div class="genre-list" id ="authorList">
-				</div>
-
-			</div>
-
-
+	  <div class="column info-column" id="bookInfo">
 	  </div>
 
-	  <div class="column listing" >
-
-			<div class="list-header">
-				<span id = "ListHeading" class="listing-header"></span>
-
-				<div class="sort-select">
-					<select id="sortSelect" >
-						<option>Featured</option>
-						<option>Price: High first</option>
-						<option>Price: Low first</option>
-						<option>Release: New first</option>
-						<option>Release: Old first</option>
-					</select>
-					</div>
-			</div>
-
-	    <div class="grid-container" id="searchListing" style="background-color:#ffffff;" id="listingCol"></div>
-
-		</div>
 
 		<div class="column order-column">
 
@@ -115,7 +68,6 @@
 			</div>
 
 		</div>
-
 
 
 

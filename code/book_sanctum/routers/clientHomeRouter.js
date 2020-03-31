@@ -16,8 +16,10 @@ module.exports = function(app){
 
   function get(req, res, next) {
     //req.session.touch()
-    console.log("session is " +JSON.stringify(req.sessionID ))
-    res.sendFile(path.join(__dirname, '../source/pages/HomePage.html'));
+    console.log(req.cookies);
+    //res.cookie('name', 'express').send('cookie set'); //Sets name = express
+    //console.log("session is " +JSON.stringify(req.sessionID ))
+    res.sendFile(path.join(__dirname, '../source/pages/html/HomePage.html'));
   }
 
   function getBestSellers(req, res, next){
@@ -29,7 +31,14 @@ module.exports = function(app){
   }
 
   function getRecentlyViewed(req, res, next){
-    clientHomeQueryInstance.searchBooksByTitle("earth",res);
+    if(serverData.users.hasOwnProperty(req.sessionID) && serverData.users[req.sessionID]!=''){
+      clientHomeQueryInstance.getViewedBooks(serverData.users[req.sessionID], res);
+    }
+    else{
+      res.json(JSON.stringify([]));
+    }
+
+
   }
 
   return router;

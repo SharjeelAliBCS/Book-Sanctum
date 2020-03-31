@@ -15,7 +15,7 @@ module.exports = function(app){
 
   function get(req, res, next) {
     console.log("session is " +JSON.stringify(req.sessionID ))
-    res.sendFile(path.join(__dirname, '../source/pages/Account.html'));
+    res.sendFile(path.join(__dirname, '../source/pages/html/Account.html'));
   }
 
   function getAddresses(req, res, next) {

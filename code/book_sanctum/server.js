@@ -5,14 +5,21 @@ let serverData = require('./data');
 let path = require('path');
 
 const app = express();
+
+const HTML_DIR = "/source/pages/html";
+const PUG_DIR = "/source/pages/pug";
+const CSS_DIR = "/source/pages/css";
+const CLIENT_DIR = "/source/client";
+
 app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'source/pages/pug'));
+app.set('views', path.join(__dirname,PUG_DIR));
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
-const HTML_DIR = "/source/pages";
-const CLIENT_DIR = "/source/client";
-
+app.use(express.static(__dirname + CLIENT_DIR));
+app.use(express.static(__dirname + HTML_DIR));
+app.use(express.static(__dirname + CSS_DIR));
+app.use(express.static(__dirname + "/source/pages"));
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
 app.use(cookieParser());
@@ -30,6 +37,7 @@ let searchRouter = require('./routers/searchRouter')(app);
 let bookRouter = require('./routers/bookRouter')(app);
 let formRouter = require('./routers/formRouter')(app);
 let cartTabRouter = require('./routers/cartTabRouter')(app);
+let checkoutRouter = require('./routers/checkoutRouter')(app);
 
 app.use('/client_account', clientAccountRouter);
 app.use(['/client_home','/','HomePage.html'], clientHomeRouter);
@@ -39,8 +47,8 @@ app.use('/nav', navigationRouter);
 app.use('/search', searchRouter);
 app.use('/book', bookRouter);
 app.use('/cart_tab', cartTabRouter);
+app.use('/checkout', checkoutRouter);
 
-app.use(express.static(__dirname + CLIENT_DIR));
-app.use(express.static(__dirname + HTML_DIR));
+
 
 server.listen(process.env.PORT || 3000);

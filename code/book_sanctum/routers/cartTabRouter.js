@@ -18,8 +18,9 @@ module.exports = function(app){
   }
 
   function modifyCart(req, res, next) {
-    console.log("testing for "+ serverData.users[req.sessionID])
-    if(serverData.users[req.sessionID]==''){
+    console.log("testing for "+ req.sessionID)
+    console.log(JSON.stringify(serverData.users))
+    if(!serverData.users.hasOwnProperty(req.sessionID) || serverData.users[req.sessionID]==''){
       res.json('');
     }
     else{
