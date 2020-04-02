@@ -1,18 +1,16 @@
-function init(data, textInput){
+function init(data, textInput,genreInput){
   init_navbar_content();
   init_menu_content();
-  localStorage.setItem('currPage', "search?text="+textInput);
 
+  localStorage.setItem('currPage', "search?text="+textInput+"&genre="+genreInput);
+  console.log(JSON.parse(data));
   if(textInput!=null){
-    var searchInput = document.getElementById("searchBar").value = textInput;
 
     //requestSearchData(text);
     //localStorage.setItem('textInput', null);
     document.getElementById("genreSelect").selectedIndex =2;
-    populateBookList(JSON.parse(data),textInput);
+    populateBookList(JSON.parse(data),textInput,genreInput);
   }
-
-
 
 }
 
@@ -63,10 +61,17 @@ function requestSearchData(userInputObj){
 
 }
 
-function populateBookList(data,textInput){
+function populateBookList(data,textInput,genreInput){
         console.log(data);
-        filterSearch("genreList","Genres",textInput);
-        filterSearch("authorList","Authors",textInput);
+        let userInputObj = {
+          "textInput": textInput,
+          "genreInput": genreInput
+        };
+        console.log(userInputObj)
+        //filterSearch("genreList","Genres",userInputObj);
+        //filterSearch("authorList","Authors",userInputObj);
+        //populateFilterList(data, "authorList","Authors");
+        //populateFilterList(data, "genreList","Genres");
 
         //Here we remove the html elements from the html card.
         //Got the removeChild from stackoverflow
@@ -128,7 +133,9 @@ function openBookPage(isbn){
   localStorage.setItem('ISBN', isbn);
   window.location.href = 'book?isbn='+isbn;
 }
+function extractFilter(data, divID, type){
 
+}
 function filterSearch(divID, type,userInputObj){
 
   let userRequestJSON = JSON.stringify({"textInput": userInputObj}) //make JSON string

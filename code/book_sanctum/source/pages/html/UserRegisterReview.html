@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b -->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+    <script src="UserRegisterReviewClient.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../css/UserRegisterReview.css">
+
+	</head>
+
+	<body onload="init()" style='background-color: #e0e0e0;'>
+
+	  <div class="block">
+			<div class="header">
+				<a href="client_home"><img class ="logo" src="themes/images/logoBlack.png" alt="Bootsshop"/></a>
+			</div>
+			<p class="header-text">Review your Registration</p>
+      <div>
+  			<div class="column user-bio-col">
+  	      <div class="user-box border" id="itemsBox">
+            <p class="user-header">Account info</p>
+            <div id="userInfo">
+            </div>
+  				</div>
+  			</div>
+
+  			<div class="column user-shipping-col">
+  				<div class="user-box border">
+  					<p class="user-header">Shipping</p>
+  					<div id="Shipping">
+  					</div>
+          </div>
+        </div>
+
+        <div class="column user-payment-col">
+  				<div class="user-box border">
+  					<p class="user-header">Payment</p>
+  					<div id="Payment">
+  					</div>
+          </div>
+        </div>
+
+      </div>
+
+      <button type="button" class="button" onclick="register()">Complete Registration</button>
+
+		</div>
+
+	</body>
+
+</html>

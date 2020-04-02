@@ -14,7 +14,7 @@ module.exports = function(app){
 
   function logout(req, res, next){
     serverData.users[req.sessionID] = '';
-    res.json('');
+    res.redirect("/client_home");
   }
   function get(req, res, next) {
     console.log("nav router says sessionid is " + req.sessionID)

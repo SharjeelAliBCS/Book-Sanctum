@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b
+https://www.chartjs.org/docs/latest/-->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+		<script src="renderCharts.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
+		<link rel="stylesheet" type="text/css" href="../css/sales.css">
+
+
+	</head>
+
+	<body onload="init_sales_dashboard()" style='background-color: #e0e0e0;' >
+  <ul>
+		<a href="admin_home"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
+    <li><a href="sales">View Sales</a></li>
+    <li><a href="#news">View Transactions</a></li>
+    <li><a href="#contact">Book Manager</a></li>
+    <li><a href="client_home">Log out</a></li>
+  </ul>
+	<div class="dashboard">
+		<p class="title">Sales Dashboard</p>
+
+		<div class="grid-container">
+
+	  <div class="header-box-num header-box">
+				<p class="header">SALE NUMBERS</p>
+				<p class="header-text" id="headerSales"></p>
+		</div>
+	  <div class="header-box-rev header-box">
+				<p class="header">REVENUE</p>
+				<p class="header-text" id="headerRev"></p>
+		</div>
+		<div class="header-box-profit header-box">
+				<p class="header">PROFIT</p>
+				<p class="header-text" id="headerProfit"></p>
+		</div>
+		<div class="header-box-exp header-box">
+				<p class="header">EXPENDITURES</p>
+				<p class="header-text" id="headerExp"></p>
+		</div>
+		<div class="chart-box-rev chart-box">
+				<p class="header">SALES REVENUE</p>
+				<canvas id="salesChart" class="chart chart-coord" width="1100" height="500"></canvas>
+		</div>
+		<div class="breakdown-box-cost breakdown-box">
+				<p class="header">EXPENDITURE BREAKDOWN</p>
+				<div class="pie-container">
+					<canvas id="expBreakdownChart" class="chart chart-coord" width="0px" height="10"></canvas>
+				</div>
+		</div>
+		<div class="chart-box-genre chart-box">
+				<p class="header">SALES PER GENRE</p>
+				<canvas id="genreChart" class="chart chart-coord" width="1100" height="500"></canvas>
+		</div>
+		<div class="breakdown-box-genre breakdown-box">
+				<p class="header">GENRE BREAKDOWN</p>
+				<div class="pie-container">
+					<canvas id="genreBreakdownChart" class="chart chart-coord" width="0px" height="10"></canvas>
+				</div>
+		</div>
+		<div class="chart-box-author chart-box">
+				<p class="header">SALES BY AUTHOR</p>
+				<canvas id="authorChart" class="chart chart-coord" width="800" height="500"></canvas>
+		</div>
+		<div class="chart-box-pub chart-box">
+				<p class="header">SALES BY PUBLISHER</p>
+				<canvas id="publisherChart" class="chart chart-coord" width="800" height="500"></canvas>
+		</div>
+
+
+	</div>
+
+
+</div>
+
+
+	</body>
+
+</html>

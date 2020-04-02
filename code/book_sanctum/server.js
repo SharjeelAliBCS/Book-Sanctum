@@ -20,6 +20,7 @@ app.use(express.static(__dirname + CLIENT_DIR));
 app.use(express.static(__dirname + HTML_DIR));
 app.use(express.static(__dirname + CSS_DIR));
 app.use(express.static(__dirname + "/source/pages"));
+
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
 app.use(cookieParser());
@@ -38,6 +39,8 @@ let bookRouter = require('./routers/bookRouter')(app);
 let formRouter = require('./routers/formRouter')(app);
 let cartTabRouter = require('./routers/cartTabRouter')(app);
 let checkoutRouter = require('./routers/checkoutRouter')(app);
+let adminHomeRouter = require('./routers/adminHomeRouter')(app);
+let salesRouter = require('./routers/salesRouter')(app);
 
 app.use('/client_account', clientAccountRouter);
 app.use(['/client_home','/','HomePage.html'], clientHomeRouter);
@@ -48,7 +51,8 @@ app.use('/search', searchRouter);
 app.use('/book', bookRouter);
 app.use('/cart_tab', cartTabRouter);
 app.use('/checkout', checkoutRouter);
-
+app.use('/admin_home', adminHomeRouter);
+app.use('/sales', salesRouter);
 
 
 server.listen(process.env.PORT || 3000);

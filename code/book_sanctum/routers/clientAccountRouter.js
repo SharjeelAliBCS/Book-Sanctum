@@ -26,5 +26,6 @@ module.exports = function(app){
     accountQueryInstance.getPayments(serverData.users[req.sessionID],res);
   }
 
+
   return router;
 }

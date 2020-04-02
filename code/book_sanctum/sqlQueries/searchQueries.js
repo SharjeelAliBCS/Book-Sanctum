@@ -12,58 +12,84 @@ const pool = new Pool({
 function searchQueries(){
 
 
-  this.searchBooksByTitle = function(title, res){
-    console.log(title);
-    title = `%${title}%`;
+  this.searchBooksByTitle = function(title, genreText, res){
+    console.log("search for "+ title + " and " + genreText);
+    if(title==''){
+      title = null;
+    }
+    else{
+      title = "'"+title+"'";
+    }
+    genreText = `%${genreText}%`;
     return new Promise (function(resolve, reject){
-      pool.query("select book.isbn,book.title,book.price,book.published_date, author.name as author "+
-                "from book inner join author on author.id = book.author_id "+
-                 "where title ILIKE $1;",
-                 //"author.name ILIKE $1 or "+
-                 //"description ILIKE $1;",
-                 [title], (err, result) => {
+      pool.query("select book.isbn,book.title,book.price,book.published_date, author.name as author, genre.name as genre_name from book "+
+                "inner join author on author.id = book.author_id "+
+                "inner join genre on genre.id = book.genre_id "+
+                "WHERE genre.name like $2 "+
+                `and (${title} is null or (similarity(book.title,$1) > 0.15 or similarity(author.name,$1) > 0.3) );`,
+                 [title,genreText], (err, result) => {
         if (err) {
           return console.error('Error executing query', err.stack)
         }
-        //console.log(result.rows) // brianc
-        //res.json(JSON.stringify(result.rows));
         resolve(result.rows);
       })
     });
   }
 
-  this.filterBooksByGenre = function(title, res){
-    console.log(title);
-    title = `%${title}%`;
-    pool.query("select name, count(*) "+
-               "from (select * from book "+
-               "where title ILIKE $1) as search "+
-               "inner join genre on search.genre_id = genre.id "+
-               "group by (name);",
-               [title], (err, result) => {
+  this.filterBooksByGenre = function(title, genreText, res){
+    console.log(title +", "+genreText);
+    if(title==''){
+      title = null;
+    }
+    else{
+      title = "'"+title+"'";
+    }
+    genreText = `%${genreText}%`;
+    /*
+    pool.query(
+              //"select search.name, count(*) from ( "+
+              "select genre.name as name from book "+
+              "inner join author on author.id = book.author_id "+
+              "inner join genre on genre.id = book.genre_id "+
+              "WHERE genre.name like $2 "+
+              `and (${title} is null or (similarity(book.title,$1) > 0.15 or similarity(author.name, $1) > 0.3) ); `+
+              //") as search "+
+              //"group by ( search.name) "
+              //+";",
+               [title, genreText], (err, result) => {
       if (err) {
         return console.error('Error executing query', err.stack)
       }
-      //console.log(result.rows) // brianc
+      console.log(result.rows) // brianc
       res.json(JSON.stringify(result.rows));
-    })
+    })*/
   }
 
-  this.filterBooksByAuthor = function(title, res){
+  this.filterBooksByAuthor = function(title, genreText, res){
     console.log(title);
-    title = `%${title}%`;
-    pool.query("select name, count(*) "+
-               "from (select * from book "+
-               "where title ILIKE $1) as search "+
-               "inner join author on search.author_id = author.id "+
-               "group by (name);",
-               [title], (err, result) => {
+    if(title==''){
+      title = null;
+    }
+    else{
+      title = "'"+title+"'";
+    }
+    /*
+    genreText = `%${genreText}%`;
+    pool.query("select search.name, count(*) from ("+
+              "select author.name as name from book "+
+              "inner join author on author.id = book.author_id "+
+              "inner join genre on genre.id = book.genre_id "+
+              "WHERE genre.name like $2 "+
+              `and (${title} is null or (similarity(book.title,$1) > 0.15 or similarity(author.name,$1) > 0.3) )` +
+               ") as search "+
+               "group by ( search.name);",
+               [title, genreText], (err, result) => {
       if (err) {
         return console.error('Error executing query', err.stack)
       }
 
       res.json(JSON.stringify(result.rows));
-    })
+    })*/
   }
 
 }

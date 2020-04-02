@@ -15,7 +15,7 @@ function toggle(){
 
     if(this.checked) {
         console.log(div);
-        divCard.innerHTML = '<b class="toggle-text">Log in as Owner</b>';
+        divCard.innerHTML = '<b class="toggle-text">Log in as Admin</b>';
     }
     else {
       console.log("off");
@@ -36,6 +36,7 @@ function login(){
     return;
   }
   else{
+
     correctLogin();
   }
 
@@ -44,7 +45,13 @@ function login(){
     "user": user,
     "pwd": password
   };
-  reqLogin(reqObject);
+  console.log(loginType)
+  if(loginType){
+    ownerLogin(reqObject);
+  }
+  else{
+    reqLogin(reqObject);
+  }
 
 
   console.log(loginType + " " +user+ " logged in using password "+ password);
@@ -56,6 +63,10 @@ $(document).on('keypress',function(e) {
         login();
     }
 });
+
+function ownerLogin(reqObject){
+    window.location.href = 'admin_home';
+}
 
 function reqLogin(reqObject){
   let userRequestJSON = JSON.stringify(reqObject) //make JSON string

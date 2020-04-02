@@ -1,0 +1,44 @@
+
+.select-style {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 200px;
+
+    font-size: 20px;
+    padding-top:8px;
+    line-height: 100%;
+
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 180%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+.select-width{
+  width: 10px;
+}
+
+.col-left{
+  float: left;
+  width: 60%;
+}
+.col-right{
+  margin-top: 30px;
+  float: left;
+  width: 30%;
+}
+
+.button-margin{
+  margin-top: 30px;
+}

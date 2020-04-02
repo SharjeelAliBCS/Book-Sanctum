@@ -13,13 +13,20 @@ module.exports = function(app){
   router.get('/authorList', authorList);
 
   function get(req, res, next) {
-    console.log(req.query.text);
+
+
     inputText = req.query.text;
-    data = searchQueryInstance.searchBooksByTitle(inputText,res).then(function(result){
+    genreText = req.query.genre;
+    if(genreText=="All Genres"){
+      genreText = '';
+    }
+    data = searchQueryInstance.searchBooksByTitle(inputText,genreText,res).then(function(result){
 
       res.status(200).render('SearchPage.pug', {
         data: JSON.stringify(result),
-        param: inputText
+        text: inputText,
+        genre: genreText
+
       });
 
     });
@@ -27,15 +34,15 @@ module.exports = function(app){
   }
 
   function genreList(req,res,next){
-    data = req.query;
-    data = Object.keys(data)[0];
-    console.log("in genre list! "+data);
-    searchQueryInstance.filterBooksByGenre(data,res);
+    inputText = req.query.text;
+    genreText = req.query.genre;
+    //console.log("you searched for "+JSON.stringify(req.query));
+    searchQueryInstance.filterBooksByGenre(inputText, genreText,res);
   }
   function authorList(req,res,next){
-    data = req.query;
-    data = Object.keys(data)[0];
-    searchQueryInstance.filterBooksByAuthor(data,res);
+    inputText = req.query.text;
+    genreText = req.query.genre;
+    searchQueryInstance.filterBooksByAuthor(inputText, genreText,res);
   }
 
   return router;

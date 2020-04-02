@@ -1,0 +1,41 @@
+.grid-container {
+  display: grid;
+  grid-template:
+  'stats stats . '
+  'stats stats . '
+  'stats stats . ';
+  grid-gap: 50px;
+  background-color: #e0e0e0;
+  padding: 100px;
+  padding-left: 250px;
+  padding-right: 250px;
+
+
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  cursor: pointer;
+
+}
+
+.item1 {
+  grid-area: stats;
+  height: 700px;
+}
+
+.header{
+  font-family: Verdana;
+  font-size:40px;
+  font-weight: bold;
+}
+
+.chart{
+  width: 50%;
+  margin: 0 auto;
+}

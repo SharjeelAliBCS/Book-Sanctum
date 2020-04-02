@@ -10,32 +10,37 @@
 		<script src="NavbarContentClient.js"></script>
 
     <link rel="stylesheet" type="text/css" href="store.css">
-		<link rel="stylesheet" type="text/css" href="navigation.css">
 
+		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
+		<link rel="stylesheet" type="text/css" href="../css/navigationSearch.css">
 	</head>
 
 	<body onload="init()" >
-    <div class = "topnav">
-      <div class="inner-element">
 
-      <div class="submission">
-        <div  class="header-logo">
-        <a href="client_home"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
-      </div>
-    		<input type="text" class="submissionfield" id="searchBar" placeholder="Search for anything" name="searchBar">
-        <div  class="select-style" >
-      		<select id="genreSelect"  class="select-width">
+		<ul>
+			<a href="client_home"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
+			<div id="loggedInBar"></div>
+
+			</div>
+		</ul>
+
+	<div class="topnav">
+	  <div class="search-container">
+	    <form action="/search?=">
+	      <input type="text" placeholder="Search for anything" name="text">
+				<div  class="select-style" >
+      		<select id="genreSelect"  class="select-width" name="genre">
       			<option>All Genres</option>
       		</select>
         </div>
-        <button type="button" class="submit-button" onclick="search()">Search</button>
-		<button type="button" class="submit-button" onclick="location.href='AdvancedSearchPage.html'">Advanced Search</button>
-		<div id="loggedInBar"></div>
+				<button type="submit">Search</button>
+				<button type="button" onclick="location.href='form?page=search'">Advanced Search</button>
 
-      </div>
+	    </form>
+	  </div>
 
-    </div>
-    </div>
+	</div>
+
 
 		<div class="menu">
 
