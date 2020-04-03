@@ -72,11 +72,15 @@ function requestSalesData(url,urlType){
   });
 
   request.done(function (data) {
+  
     var sales = JSON.parse(data);
 
     switch(urlType){
       case "":
-        renderSalesChart(sales, "order_date", "sum",  'salesChart', 'Revenue per day', renderLineChart);
+        renderSalesChart(sales, "order_date", "revenue",  'salesChart', 'Revenue per day', renderLineChart);
+        break;
+      case "/alltransactionsdaily":
+        renderMultiChart(sales,  'chart', 'Transactions per day');
         break;
       case "/salespercent/":
         sales = roundOther(1, sales,"name", "sold");
@@ -132,6 +136,52 @@ let renderDoughnutChart = function(labels, data, id, title){
       }
   });
 }
+
+let renderMultiChart = function(sales, id, title){
+
+  let labels = sales.map(function (obj) {
+    return obj["order_date"];
+  });
+  let data1 = sales.map(function (obj) {
+    return obj["revenue"];
+  });
+  let data2 = sales.map(function (obj) {
+    return obj["expenditures"];
+  });
+  var ctx = document.getElementById(id).getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: labels,
+          datasets: [{
+              label: "Revenue per day",
+              data: data1,
+              backgroundColor: 'rgba(209, 49, 0, 0.5)',
+              borderColor: 'rgba(209, 49, 0, 1)',
+              borderWidth: 1
+          },
+          {
+              label: "Expenditures per day",
+              data: data2,
+              backgroundColor: 'rgba(255, 195, 11, 0.5)',
+              borderColor: 'rgba(255, 195, 11, 1)',
+              borderWidth: 1
+          }]
+      },
+      options: {
+        responsive: false,
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+
+}
+
 let renderBarChart = function(labels, data, id, title){
   var ctx = document.getElementById(id).getContext('2d');
   var myChart = new Chart(ctx, {

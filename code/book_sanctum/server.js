@@ -41,6 +41,7 @@ let cartTabRouter = require('./routers/cartTabRouter')(app);
 let checkoutRouter = require('./routers/checkoutRouter')(app);
 let adminHomeRouter = require('./routers/adminHomeRouter')(app);
 let salesRouter = require('./routers/salesRouter')(app);
+let transactionsRouter = require('./routers/transactionsRouter')(app);
 
 app.use('/client_account', clientAccountRouter);
 app.use(['/client_home','/','HomePage.html'], clientHomeRouter);
@@ -53,6 +54,6 @@ app.use('/cart_tab', cartTabRouter);
 app.use('/checkout', checkoutRouter);
 app.use('/admin_home', adminHomeRouter);
 app.use('/sales', salesRouter);
-
+app.use('/transactions', transactionsRouter);
 
 server.listen(process.env.PORT || 3000);

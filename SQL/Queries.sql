@@ -151,4 +151,10 @@ inner join genre on book.genre_id = genre.id
 group by genre.name
 order by sum desc
 limit 10;
+------------------------------------------------
+get all book sales:
+select order_date, book.isbn, price*quantity as sales, book.title from orders
+inner join order_book on orders.order_number = order_book.order_number
+inner join book on book.isbn = order_book.isbn
+order by order_date;
 

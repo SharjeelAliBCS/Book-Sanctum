@@ -7,16 +7,16 @@ https://www.chartjs.org/docs/latest/-->
 
 		<title>book.sanctum.ca</title>
 		<script src="jquery-1.11.3.js"></script>
+		<script src="transactionsClient.js"></script>
 		<script src="renderCharts.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
-		<link rel="stylesheet" type="text/css" href="../css/AdminHome.css">
-
+		<link rel="stylesheet" type="text/css" href="../css/transactions.css">
 
 	</head>
 
-	<body onload="init_home()" style='background-color: #e0e0e0;' >
+	<body onload="init_transactions()" style='background-color: #e0e0e0;' >
   <ul>
 		<a href="admin_home"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
     <li><a href="sales">View Sales</a></li>
@@ -25,26 +25,19 @@ https://www.chartjs.org/docs/latest/-->
     <li><a href="client_home">Log out</a></li>
   </ul>
 
-	<div class="grid-container">
-  <div class="item1"  onclick="location.href='sales';">
-			<p class="header">Sales</p>
-		<canvas id="salesChart" class="chart" width="800" height="570"></canvas>
+	<div class="body">
+		<p class="title">Transactions</p>
+
+		<div class="chart">
+			<canvas id="chart" class="chart-coord" width="1900" height="350"></canvas>
+		</div>
+
+		<div class="transactions-box">
+			<p class="header-text" id="total"></p>
+			<div class="transactions" id="transactions"></div>
+		</div>
+
 	</div>
-  <div class="item2" onclick="location.href='transactions';">
-			<p class="header">Transactions</p>
-	</div>
-	<div class="item2">
-			<p class="header">Book Management</p>
-	</div>
-	<div class="item3">
-			<p class="header">Sellers</p>
-	</div>
-
-</div>
-
-
-
-
 
 
 	</body>

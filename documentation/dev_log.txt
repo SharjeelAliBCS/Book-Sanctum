@@ -21,7 +21,7 @@ Owner:
 10. They also need to store information on the publishers of books such as name, address, email address, phone number(s), banking account. 
 11. The banking account for publishers is used to transfer a percentage of the sales of books published by these publishers. 
 12. This percentage is variable and changes from one book to another. 
-13. The owners should have access to reports that show sales vs. expenditures, sales per genres, sales per author, etc.. 
+13. (Done) The owners should have access to reports that show sales vs. expenditures, sales per genres, sales per author, etc.. 
 14. The application should also be able to automatically place orders for new books if the remaining quantity is less than a given threshold (e.g., 10 books). This is done by sending an email to the publisher of the limited books to order a number of books equal to how many books were sold in the previous month (you do not have to implement the email sending component).
 
 PAGES TO DO:
@@ -38,10 +38,11 @@ PAGES TO DO:
 11. (Done) User register overview Page
 12. (Done) Owner Home Page
 13. (Done) Sales page
-14. Owner transaction page
+14. (Done) Owner transaction page
 15. Add book/remove book page
-16  Client request book
-17. Owner request book
+16. Publisher page
+17  Client request book
+18. Owner request book
 
 Bonus:
 -Request a book
