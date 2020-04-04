@@ -1,0 +1,92 @@
+.border{
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bdbdbd;
+
+  margin: 10px;
+}
+
+.block{
+  width: 70%;
+  margin: 0 auto;
+  font-family: Verdana;
+  margin-top: 50px;
+}
+.header{
+  text-align:center;
+ display:block;
+}
+.logo{
+  width: 300px;
+  height: 75px;
+}
+.column{
+  float: left;
+
+}
+
+.user-box{
+  padding: 20px;
+  min-height: 200px;
+  background-color: white;
+}
+
+.user-bio-col{
+  width: 40%;
+}
+
+.bio-title{
+  width: 60%;
+}
+
+.bio-info{
+  width: 40%;
+  text-align: right;
+}
+
+.user-shipping-col{
+  width: 30%;
+}
+
+.user-payment-col{
+  width: 30%;
+}
+.header-text{
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 5%;
+}
+
+.user-header{
+  font-size: 20px;
+  font-weight: bold;
+}
+.info-header{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.button {
+  background-color: #ffc30b;
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30px;
+  font-family: Verdana;
+  cursor: pointer;
+  vertical-align: middle;
+  border-right: 1px solid #d13100;
+
+  width: 30%;
+  padding: 5px;
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.address-text{
+  font-size: 15px;
+  line-height:10px;
+}

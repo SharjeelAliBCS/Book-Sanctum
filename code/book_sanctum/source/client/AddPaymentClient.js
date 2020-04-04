@@ -23,7 +23,17 @@ function signup(){
     "expDate": expDate,
     "code": code
   };
-  reqsignup(reqObject);
+
+  account = JSON.parse(localStorage.getItem('registerData'));
+  if(account==null){
+    reqsignup(reqObject);
+  }
+  else{
+    console.log("adding it");
+    account.payment = reqObject;
+    localStorage.setItem('registerData', JSON.stringify(account));
+    window.location.href = 'form?page=review';
+  }
 }
 
 $(document).on('keypress',function(e) {

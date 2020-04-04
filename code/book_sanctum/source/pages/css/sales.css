@@ -1,0 +1,107 @@
+.dashboard{
+  padding: 50px;
+  margin-top: -50px;
+}
+.grid-container {
+  display: grid;
+  grid-template:
+  'numstats numstats revstats revstats profitstats profitstats expstats expstats'
+  'revchart revchart revchart revchart revchart costbrk costbrk costbrk'
+  'genrechart genrechart genrechart genrechart genrechart genrebrk genrebrk genrebrk'
+  'pubchart pubchart pubchart pubchart authchart authchart authchart authchart';
+  grid-gap: 50px;
+  background-color: #e0e0e0;
+
+
+
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-left: 10px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bdbdbd;
+}
+
+.header-box-num{
+  grid-area: numstats;
+}
+.header-box-rev{
+  grid-area: revstats;
+}
+.header-box-profit{
+  grid-area: profitstats;
+}
+.header-box-exp{
+  grid-area: expstats;
+}
+.chart-box-rev{
+  grid-area: revchart;
+  height: 300px;
+}
+.breakdown-box-cost{
+  grid-area: costbrk;
+  height: 300px;
+}
+.chart-box-genre{
+  grid-area: genrechart;
+  height: 300px;
+}
+.breakdown-box-genre{
+  grid-area: genrebrk;
+  height: 300px;
+}
+.chart-box-pub{
+  grid-area: pubchart;
+  height: 300px;
+}
+.breakdown-box-pub{
+  grid-area: pubbrk;
+  height: 300px;
+}
+.chart-box-author{
+  grid-area: authchart;
+  height: 300px;
+}
+
+.header{
+  font-family: Verdana;
+  font-size:20px;
+  font-weight: bold;
+}
+.header-text{
+  font-family: Verdana;
+  font-size:40px;
+  font-weight: bold;
+  color: #d13100;
+}
+
+.chart{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.title{
+  font-family: Verdana;
+  font-size:40px;
+  font-weight: bold;
+}
+.chart-coord{
+  margin-top: -30px;
+}
+.chart-box{
+  height: 550px;
+}
+.breakdown-box{
+  height: 550px;
+}
+
+.header-box{
+  min-height: 100px;
+}
+.pie-container{
+  margin-top: 50px;
+  width: 500px;
+  height: 500px;
+}

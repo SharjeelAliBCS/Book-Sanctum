@@ -6,73 +6,56 @@
 
 		<title>book.sanctum.ca</title>
 		<script src="jquery-1.11.3.js"></script>
-    <script src="HomePageClient.js"></script>
+    <script src="AdvancedSearchClient.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../css/store.css">
+    <link rel="stylesheet" type="text/css" href="../css/userForm.css">
+		\<link rel="stylesheet" type="text/css" href="../css/AdvancedSearchForm.css">
+
 	</head>
 
-	<body onload="init()" >
-    <div class = "topnav">
-      <div class="inner-element">
+	<body onload="init()"style='background-color: #e0e0e0;' >
+		<div>
+			<div class="header">
+				<a href="client_home"><img class ="logo" src="themes/images/logoBlack.png" alt="Bootsshop"/></a>
+			</div>
+
+			<div class = "block">
+				<b class="text">Advanced Search</b><br></br><br></br>
+				<div id="incorrect">
+				</div>
+				<b class="input-text">ISBN</b>
+				<input type="text" class="input user" id="isbn" placeholder="Enter the 13 digit ISBN number"maxlength="16" ><br></br>
+
+        <b class="input-text">Title</b>
+        <input type="text" class="input user" id="title" placeholder="Type in the book title"><br></br>
+
+        <b class="input-text">Author</b>
+        <input type="text" class="input user" id="author" placeholder="Type in the book author"><br></br>
 
 
-      <div class="submission">
-        <div  class="header-logo">
-        <a href="HomePage.html"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
-      </div>
-    		<input type="text" class="submissionfield" id="searchBar" placeholder="Search for anything" name="searchBar">
-        <div  class="select-style" >
-      		<select id="genreSelect"  class="select-width">
-      			<option>All Genres</option>
-      		</select>
-        </div>
-        <button type="button" class="submit-button" onclick="search()">Search</button>
-				<span class="advanced-search"><a href="https://www.w3schools.com/html/"></a>Advanced Search</span>
+				<b class="input-text">Publisher</b>
+        <input type="text" class="input user" id="publisher" placeholder="Type in the book publisher" maxlength="4"><br></br>
 
-      </div>
+				<div class="group">
+					<div class="col-left">
+	        	<b class="input-text">Published Date</b>
+		        <input type="text" class="input user date-width" id="year" placeholder="Type in the published date (year)" maxlength="4">
+					</div>
+					<div  class="select-style col-right" >
+	      		<select id="genreSelect"  class="select-width">
+	      			<option>All Genres</option>
+	      		</select>
+	        </div>
+			</div>
 
+				<br></br><br></br>
 
-    </div>
-    </div>
-
-    <!--
-    <div class="column filter" id="left">
-      <p><b>Filter column here</b></p>
-    </div>
-    <div class="column listing" id="middle">
-      <p><b>Listing column here</b></p>
-        <div class="grid-container" id="searchListing">
-    </div>
-    <div class="column order" id="right">
-        <p><b>order column here</b></p>
-    </div>
-  -->
-
-  <div class="row" style="background-color:#ffffff;" id="filterCol">
-  <div class="column filter">
-    <h2>Filter Column</h2>
-    <p>Some text..</p>
-  </div>
-
-  <div class="column listing" >
-    <h2>Listing Column</h2>
-    <p>Some text..</p>
-    <div class="grid-container" id="searchListing" style="background-color:#ffffff;" id="listingCol">
+				<button type="button" class="button button-margin" onclick="search()">Search</button>
 
 
 
 
-    </div>
-
-  </div>
-
-  <div class="column order">
-    <h2>Order column</h2>
-    <p>Some text..</p>
-  </div>
-</div>
-
-
+		</div>
 
 
 	</body>

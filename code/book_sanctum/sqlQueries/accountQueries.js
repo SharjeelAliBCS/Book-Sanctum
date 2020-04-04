@@ -34,6 +34,18 @@ function addClientBilling(cardNum, username,res){
 }
 
 function accountQueries(){
+  this.validateEmail = function(email, res){
+    pool.query("select email from client where lower(email) = lower($1);",
+               [email], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      console.log(result.rows) // brianc
+      res.json(JSON.stringify(result.rows));
+
+    })
+
+  }
   this.login = function (username, password, res){
     console.log("username = "+ username);
     console.log("password = " + password);

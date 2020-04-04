@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b
+https://www.chartjs.org/docs/latest/-->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+		<script src="renderCharts.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
+		<link rel="stylesheet" type="text/css" href="../css/AdminHome.css">
+
+
+	</head>
+
+	<body onload="init_home()" style='background-color: #e0e0e0;' >
+  <ul>
+		<a href="admin_home"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
+    <li><a href="sales">View Sales</a></li>
+    <li><a href="transactions">View Transactions</a></li>
+    <li><a href="inventory">Inventory Manager</a></li>
+		<li><a href="sellers">Seller Manager</a></li>
+    <li><a href="client_home">Log out</a></li>
+  </ul>
+
+	<div class="grid-container">
+  <div class="item1"  onclick="location.href='sales';">
+			<p class="header">Sales</p>
+		<canvas id="salesChart" class="chart" width="800" height="570"></canvas>
+	</div>
+  <div class="item2" onclick="location.href='transactions';">
+			<p class="header">Transactions</p>
+	</div>
+	<div class="item2" onclick="location.href='inventory';">
+			<p class="header">Inventory Management</p>
+	</div>
+	<div class="item3" onclick="location.href='sellers';">
+			<p class="header">Seller Management</p>
+	</div>
+
+</div>
+
+
+
+
+
+
+	</body>
+
+</html>

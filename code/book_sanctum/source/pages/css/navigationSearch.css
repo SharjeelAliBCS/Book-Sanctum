@@ -1,0 +1,86 @@
+
+.topnav {
+  overflow: hidden;
+  background-color: #d13100;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: Verdana;
+  font-size: 20px;
+  color: white;
+}
+
+.topnav a:hover {
+  background-color: #ffc30b;
+  color: black;
+}
+
+.topnav .search-container {
+  float: left;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 20px;
+  border: none;
+  width: 40%;
+}
+
+.topnav .search-container button {
+
+  padding: 6px;
+  margin-top: 8px;
+
+  background: #ffc30b;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.select-style {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 200px;
+
+
+    font-size: 20px;
+    padding: 6px;
+    margin-top: 8px;
+
+    display: inline-block;
+
+    vertical-align:top;
+    height: 21px;
+
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 200%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    font-family: Verdana;
+
+}
+
+.select-style select:focus {
+    outline: none;
+}
+.select-width{
+  width: 30px;
+}

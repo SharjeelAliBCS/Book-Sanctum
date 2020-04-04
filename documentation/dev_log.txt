@@ -4,7 +4,7 @@ Design and implement an application for an online bookstore (Look Inna Book). Th
 browse a collection of books that are available in the bookstore. 
 
 User browsing:
-1. A user can search the bookstore by book name, author name, ISBN, genre, etc.. 
+1. (Done) A user can search the bookstore by book name, author name, ISBN, genre, etc.. 
 2. (Done) When a book is selected, information on the author(s), genre, publisher, number of pages, price, etc. can be viewed. 
 3. (Done) A user can select as many books as she likes to be added to the checkout basket. 
 4. (Done) A user needs to be registered in the bookstore to be able to checkout. 
@@ -21,34 +21,29 @@ Owner:
 10. They also need to store information on the publishers of books such as name, address, email address, phone number(s), banking account. 
 11. The banking account for publishers is used to transfer a percentage of the sales of books published by these publishers. 
 12. This percentage is variable and changes from one book to another. 
-13. The owners should have access to reports that show sales vs. expenditures, sales per genres, sales per author, etc.. 
+13. (Done) The owners should have access to reports that show sales vs. expenditures, sales per genres, sales per author, etc.. 
 14. The application should also be able to automatically place orders for new books if the remaining quantity is less than a given threshold (e.g., 10 books). This is done by sending an email to the publisher of the limited books to order a number of books equal to how many books were sold in the previous month (you do not have to implement the email sending component).
 
-SQL TO ADD:
-1. Checkout
-   a. User presses checkout, inserts billing, shipping.
-   b. Inserts into order with proper parameters
-   c. Trigger for order_book. This reads the cart table and finds all books for the given user. 
-   d. Trigger inserts new book for every book.    
-
 PAGES TO DO:
-1. (Done) Main Home Page
-2. (Done) Search Page
-3. (Done) Info Page
-4. (Done) Login form Page
-5. (Done) Order form Page
-6. (Done) Create account form Page
-7. (Done) Orders Page
-8. (Done) Account Page
-9. (Done) Checkout Page
-10. Advanced Search form Page
-11. Owner Home Page
-12. Add book/remove book page
-13. Owner transaction page
-14. Stats page
-15. Client request book
-16. Owner request book
-
+1.  (Done) Main Home Page
+2.  (Done) Search Page
+3.  (Done) Info Page
+4.  (Done) Login form Page
+5.  (Done) Order form Page
+6.  (Done) Create account form Page
+7.  (Done) Orders Page
+8.  (Done) Account Page
+9.  (Done) Checkout Page
+10. (Done) Advanced Search form Page
+11. (Done) User register overview Page
+12. (Done) Owner Home Page
+13. (Done) Sales page
+14. (Done) Owner transaction page
+15. (Done) Add book/remove book page
+16. (Done) Publisher page
+17. Owner request book  
+18. Client request book
+ 
 Bonus:
 -Request a book
  - If user can't find book, request it. 
@@ -58,7 +53,7 @@ Bonus:
 -Bestsellers
 -Newly Released
 -Recently viewed
-
+ 
 - Sales?
  - Owner can choose to put publisher books on sale
 

@@ -42,22 +42,6 @@ function clientHomeQueries(){
     })
   }
 
-  this.searchBooksByTitle = function(title, res){
-
-    title = `%${title}%`;
-    pool.query("select book.isbn,book.title,book.price,author.name as author "+
-              "from book inner join author on author.id = book.author_id "+
-               "where title ILIKE $1;",
-
-               [title], (err, result) => {
-      if (err) {
-        return console.error('Error executing query', err.stack)
-      }
-
-      res.json(JSON.stringify(result.rows));
-    })
-  }
-
   this.searchBookByISBN = function(isbn, res){
 
     pool.query("select book.isbn, book.title, book.description, book.price, book.page_count, book.stock, "+

@@ -28,6 +28,23 @@ end;
 $BODY$ language plpgsql
 
 -----------------------------------------------------------------------------
+add random books to order:
+create function random_order()
+   returns trigger as
+$BODY$
+begin
+   insert into order_book(isbn, order_number, quantity)
+   select isbn, new.order_number, SELECT floor(random() * 5 + 1)::int;
+   from book 
+   offset floor(random()*2699) limit 1;
+      
+   return new;
+end;
+$BODY$ language plpgsql
+
+
+
+-----------------------------------------------------------------------------
 delete all books from the cart for a user after inserting them into order:
 create function insert_order_book()
    returns trigger as

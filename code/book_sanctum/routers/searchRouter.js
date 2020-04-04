@@ -11,31 +11,47 @@ module.exports = function(app){
   router.get('/', get);
   router.get('/genreList', genreList);
   router.get('/authorList', authorList);
+  router.get('/:type', getType);
+  router.get('/publisher/:name', getPublisher);
 
   function get(req, res, next) {
-    console.log(req.query.text);
+
+
     inputText = req.query.text;
-    data = searchQueryInstance.searchBooksByTitle(inputText,res).then(function(result){
+    genreText = req.query.genre;
+    if(genreText=="All Genres"){
+      genreText = '';
+    }
+    data = searchQueryInstance.searchBooksByTitle(inputText,genreText,res).then(function(result){
 
       res.status(200).render('SearchPage.pug', {
         data: JSON.stringify(result),
-        param: inputText
+        text: inputText,
+        genre: genreText
+
       });
 
     });
 
   }
 
+  function getType(req,res,next){
+    searchQueryInstance.getAllType(req.params.type,res);
+  }
+  function getPublisher(req,res,next){
+    searchQueryInstance.getPublisher(req.params.name,res);
+  }
+
   function genreList(req,res,next){
-    data = req.query;
-    data = Object.keys(data)[0];
-    console.log("in genre list! "+data);
-    searchQueryInstance.filterBooksByGenre(data,res);
+    inputText = req.query.text;
+    genreText = req.query.genre;
+    //console.log("you searched for "+JSON.stringify(req.query));
+    searchQueryInstance.filterBooksByGenre(inputText, genreText,res);
   }
   function authorList(req,res,next){
-    data = req.query;
-    data = Object.keys(data)[0];
-    searchQueryInstance.filterBooksByAuthor(data,res);
+    inputText = req.query.text;
+    genreText = req.query.genre;
+    searchQueryInstance.filterBooksByAuthor(inputText, genreText,res);
   }
 
   return router;

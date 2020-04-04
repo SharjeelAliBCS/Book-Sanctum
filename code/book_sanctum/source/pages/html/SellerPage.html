@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b
+https://www.chartjs.org/docs/latest/-->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+		<script src="SellersClient.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
+		<link rel="stylesheet" type="text/css" href="../css/inventory.css">
+		<link rel="stylesheet" type="text/css" href="../css/sellers.css">
+
+	</head>
+
+	<body onload="init()" style='background-color: #e0e0e0;' >
+  <ul>
+		<a href="admin_home"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
+    <li><a href="sales">View Sales</a></li>
+    <li><a href="transactions">View Transactions</a></li>
+    <li><a href="inventory">Inventory Manager</a></li>
+    <li><a href="sellers">Seller Manager</a></li>
+    <li><a href="client_home">Log out</a></li>
+  </ul>
+
+	<div class="content">
+		<p class="title">Seller Management</p>
+
+		<div class="col manage-col">
+			<div class="block input-box">
+				<p class="header">Add Publisher</p>
+				<p class="incorrect-text" id="incorrect"></p>
+
+				<b class="input-text">Name</b>
+				<input type="text" class="wide-input" id="name" placeholder="Type in the publisher name"><br>
+
+				<div class="input-row">
+					<div class="input-col">
+						<b class="input-text">Phone</b>
+						<input type="text" class="small-input" id="phone" placeholder="Type in the phone"><br>
+					</div>
+					<div class="input-col">
+						<b class="input-text">Email</b>
+						<input type="text" class="small-input" id="email" placeholder="Type in the email"><br>
+					</div>
+			</div>
+
+			<b class="input-text">Direct Deposit Transit #</b>
+			<input type="text" class="wide-input" id="transit" placeholder="Type in the transit#"><br>
+
+			<b class="input-text">Direct Deposit Instituition  #</b>
+			<input type="text" class="wide-input" id="instituition" placeholder="Type in the instituition#"><br>
+
+			<b class="input-text">Direct Deposit Account  #</b>
+			<input type="text" class="wide-input" id="account" placeholder="Type in the account#"><br>
+
+			<div class="input-row">
+				<div class="address-col">
+					<b class="input-text">Unit #</b>
+					<input type="text" class="small-input" id="unit" placeholder="Type in the unit"><br>
+			 </div>
+				<div class="address-col">
+					<b class="input-text">Street </b>
+					<input type="text" class="small-input" id="street" placeholder="Type in the street"><br>
+				</div>
+				<div class="address-col">
+					<b class="input-text">Postal Code</b>
+					<input type="text" class="small-input" id="code" placeholder="Type in the code"><br>
+				</div>
+		</div>
+
+		<div class="input-row">
+			<div class="input-col">
+				<b class="input-text">City</b>
+				<input type="text" class="small-input" id="city" placeholder="Type in the city"><br>
+		 </div>
+			<div class="input-col">
+				<b class="input-text">Country</b>
+				<input type="text" class="small-input" id="country" placeholder="Type in the country"><br>
+			</div>
+	</div>
+
+	<br>
+	<button type="button" class="button" onclick="addPublisher()">Add Publisher</button>
+
+
+</div>
+
+	</div>
+
+		<div class="col info-col">
+			<div class="block">
+				<p class="header">Publisher Information</p>
+				<div class="book-info scroll" id="pubInfo">
+				</div>
+			</div>
+		</div>
+
+		<div class="col books-col">
+			<div class="block">
+				<p class="header" id="total"></p>
+				<div class="scroll" id="scroll">
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	</body>
+
+</html>

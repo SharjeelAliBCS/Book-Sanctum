@@ -125,3 +125,29 @@ create table view_history(
 	foreign key (username) references client,
 	foreign key (isbn) references book
 	);
+create table warehouse(
+	id			serial,
+	address_id		serial,
+	primary key (id),
+	);
+create table warehouse_books(
+	warehouse_id		serial,
+	isbn			varchar(13),
+	stock                  numeric(4,0),
+	primary key (warehouse_id, isbn),
+	foreign key (isbn) references book,
+	foreign key (warehouse_id) references warehouse (id)
+);
+
+create table removedis(
+	isbn			varchar(13),
+	order_number	    	serial,
+	warehouse_id		serial,
+	quantity		numeric(3,0),
+	primary key (order_number,isbn),
+	foreign key (order_number) references orders,
+	foreign key (warehouse_id,isbn) references warehouse_books,
+);
+	
+	
+	

@@ -26,7 +26,6 @@ function bookQueries(){
         if (err) {
           return console.error('Error executing query', err.stack)
         }
-    
         resolve(result.rows);
       })
     });

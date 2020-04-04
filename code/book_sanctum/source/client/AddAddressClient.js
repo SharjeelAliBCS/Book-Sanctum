@@ -1,5 +1,6 @@
 let reloadPage = '';
 function init(){
+
   reloadPage = localStorage.getItem('currPage');
 }
 
@@ -27,7 +28,16 @@ function signup(){
     "street": street,
     "apt": aptNum
   };
-  reqsignup(reqObject);
+  account = JSON.parse(localStorage.getItem('registerData'));
+  if(account==null){
+    reqsignup(reqObject);
+  }
+  else{
+    console.log("adding it");
+    account.address = reqObject;
+    localStorage.setItem('registerData', JSON.stringify(account));
+    window.location.href = 'form?page=payment';
+  }
 }
 
 $(document).on('keypress',function(e) {
@@ -37,6 +47,7 @@ $(document).on('keypress',function(e) {
 });
 
 function reqsignup(reqObject){
+
   let userRequestJSON = JSON.stringify(reqObject) //make JSON string
   var request = $.ajax({
     url: "/form/addAddress",
@@ -61,8 +72,6 @@ function correctsignup(){
   while (div.firstChild) {
     div.removeChild(div.firstChild);
   }
-  //localStorage.setItem('textInput', JSON.stringify(userInputObj));
-
 
 }
 

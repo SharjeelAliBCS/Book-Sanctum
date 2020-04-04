@@ -1,9 +1,9 @@
-regex example. Insenstive case search for "halo"
-where $1 is '%halo%': 
-select book.isbn,book.title,book.price,author.name 
-from book left join author on author.id = book.author_id
-where title ILIKE $1;
-
+regex example. Insenstive case search for "water", "george r r martin"
+select book.isbn,book.title,book.price,book.published_date, author.name as author, genre.name as genre_name from book
+inner join author on author.id = book.author_id 
+inner join genre on genre.id = book.genre_id 
+WHERE genre.name like '%classics%'
+and ('dragon' is null or (similarity(book.title,'') > 0.15 or similarity(author.name,'dragon') > 0.3) );
 --------------------------------------------------
 get 3 most newest books:
 select * from book
@@ -111,3 +111,50 @@ order by sales desc
 get recent books for user:
 select book.isbn, book.title, view_history.rank from view_history
 inner join book on book.isbn = view_history.isbn;
+
+------------------------------------------------
+get sales history:
+select order_date, sum(price*quantity) from orders
+inner join order_book on orders.order_number = order_book.order_number
+inner join book on book.isbn = order_book.isbn
+group by order_date;
+------------------------------------------------
+Populate orders with data:
+SELECT isbn FROM book OFFSET floor(random()*2699) LIMIT 1;
+insert into orders values (default, 'test', '03/02/2020');
+
+
+insert into order_book(isbn, order_number, quantity)
+   select isbn, new.order_number, floor(random() * 5 + 1)::int
+   from book 
+   offset floor(random()*2699) limit 1;
+------------------------------------------------
+get entire book revenue:
+select sum(price*quantity) from order_book
+inner join book on book.isbn = order_book.isbn;
+------------------------------------------------
+get entire book genre sales by percent
+select name, round(100*sum(quantity)/
+(select sum(quantity) from order_book)::numeric, 2) as sold
+from order_book
+inner join book on book.isbn = order_book.isbn
+inner join genre on book.genre_id = genre.id
+group by genre.name;
+
+------------------------------------------------
+get entire book genre sales for top 10:
+
+select name, sum(quantity)
+from order_book
+inner join book on book.isbn = order_book.isbn
+inner join genre on book.genre_id = genre.id
+group by genre.name
+order by sum desc
+limit 10;
+------------------------------------------------
+get all book sales:
+select order_date, book.isbn, price*quantity as sales, book.title from orders
+inner join order_book on orders.order_number = order_book.order_number
+inner join book on book.isbn = order_book.isbn
+order by order_date;
+

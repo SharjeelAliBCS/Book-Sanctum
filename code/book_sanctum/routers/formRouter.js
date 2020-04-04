@@ -14,6 +14,7 @@ module.exports = function(app){
   router.get('/addPayment', addPayment);
   router.get('/login', login);
   router.get('/signup', signup);
+  router.get('/validate', validate);
 
   function get(req, res, next) {
     pageName = req.query.page;
@@ -31,9 +32,23 @@ module.exports = function(app){
       case "payment":
         res.sendFile(path.join(__dirname, '../source/pages/html/AddPayment.html'));
         break;
-
+      case "search":
+        res.sendFile(path.join(__dirname, '../source/pages/html/AdvancedSearchPage.html'));
+        break;
+      case "review":
+        res.sendFile(path.join(__dirname, '../source/pages/html/UserRegisterReview.html'));
+        break;
 
     }
+  }
+
+  function validate(req, res, next){
+    let query = JSON.parse(Object.keys(req.query)[0]);
+    if("email" in query){
+      accountQueryInstance.validateEmail(query.email, res);
+    }
+
+
   }
 
   function signup(req, res, next){

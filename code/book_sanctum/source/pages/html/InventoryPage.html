@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b
+https://www.chartjs.org/docs/latest/-->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+		<script src="InventoryClient.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
+		<link rel="stylesheet" type="text/css" href="../css/inventory.css">
+
+	</head>
+
+	<body onload="init()" style='background-color: #e0e0e0;' >
+  <ul>
+		<a href="admin_home"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
+    <li><a href="sales">View Sales</a></li>
+    <li><a href="transactions">View Transactions</a></li>
+    <li><a href="inventory">Inventory Manager</a></li>
+    <li><a href="sellers">Seller Manager</a></li>
+    <li><a href="client_home">Log out</a></li>
+  </ul>
+
+	<div class="content">
+		<p class="title">Inventory Management</p>
+
+		<div class="col manage-col">
+			<div class="block input-box">
+				<p class="header">Add book</p>
+				<p class="incorrect-text" id="incorrect"></p>
+
+				<div class="input-row">
+					<div class="input-col">
+						<b class="input-text">Title</b>
+						<input type="text" class="wide-input" id="title" placeholder="Type in the book title"><br>
+					</div>
+					<div class="input-col">
+						<b class="input-text">ISBN</b>
+						<input type="text" class="wide-input" id="isbn" placeholder="Type in the book ISBN"><br>
+					</div>
+			</div>
+
+				<div class="input-row">
+					<div class="input-col">
+						<b class="input-text">MSRP</b>
+						<input type="text" class="small-input" id="price" placeholder="Type in the MSRP"><br>
+					</div>
+					<div class="input-col">
+						<b class="input-text">Seller Deduction %</b>
+						<input type="text" class="small-input" id="percent" placeholder="Type in the %"><br>
+					</div>
+			</div>
+
+				<div class="input-row">
+					<div class="input-col">
+						<b class="input-text">Pages</b>
+						<input type="text" class="small-input" id="pages" placeholder="Type in the page count"><br>
+					</div>
+					<div class="input-col">
+						<b class="input-text">Year</b>
+						<input type="text" class="small-input" id="year" placeholder="Type in the book year"><br>
+					</div>
+			</div>
+
+			<div class="input-row">
+				<div class="input-col">
+					<b class="input-text">Select Genre</b>
+					<div class="select-style">
+						<select id='genreSelect' onchange='+onchange+' class="select-width">
+						</select>
+				 </div>
+			 </div>
+				<div class="input-col">
+					<b class="input-text">New Genre</b>
+					<input type="text" class="small-input" id="genre" placeholder="Type in the genre"><br>
+				</div>
+		</div>
+
+		<div class="input-row">
+			<div class="input-col">
+				<b class="input-text">Select Author</b>
+				<div class="select-style">
+					<select id='authorSelect' onchange='+onchange+' class="select-width">
+					</select>
+			 </div>
+		 </div>
+			<div class="input-col">
+				<b class="input-text">New Author</b>
+				<input type="text" class="small-input" id="author" placeholder="Type in the author"><br>
+			</div>
+	</div>
+
+		<div class="input-row">
+			<div class="input-col">
+				<b class="input-text">Select Publisher</b>
+				<div class="select-style">
+					<select id='publisherSelect' onchange='+onchange+' class="select-width">
+					</select>
+			 </div>
+		 </div>
+			<div class="input-col">
+					<button type="button" class="add-pub" onclick="location.href='sellers';">Add Publisher</button>
+			</div>
+	</div>
+
+	<b class="input-text description-title">Description</b>
+	<textarea class="text-area" id="description" placeholder="Type in the book description..."></textarea><br>
+	<br>
+	<button type="button" class="button" onclick="addBook()">Add Book</button>
+
+
+</div>
+
+	</div>
+
+		<div class="col info-col">
+			<div class="block">
+				<p class="header">Book Information</p>
+				<div class="book-info scroll" id="bookInfo">
+				</div>
+			</div>
+		</div>
+
+		<div class="col books-col">
+			<div class="block">
+				<p class="header" id="total"></p>
+				<div class="scroll" id="scroll">
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	</body>
+
+</html>

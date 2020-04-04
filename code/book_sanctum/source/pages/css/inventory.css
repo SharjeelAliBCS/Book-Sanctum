@@ -1,0 +1,225 @@
+.content{
+  padding: 20px;
+  margin-top: -30px;
+}
+.col{
+  float: left;
+  margin: 10px;
+}
+
+.manage-col{
+  width: 40%;
+}
+.info-col{
+  width: 30%;
+}
+.books-col{
+  width: 20%;
+}
+
+.block{
+  background-color: white;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+
+}
+
+.title{
+  font-family: Verdana;
+  font-size:30px;
+  font-weight: bold;
+}
+
+.header{
+  font-family: Verdana;
+  font-size:25px;
+  font-weight: bold;
+}
+.isbn-text{
+  font-family: Verdana;
+  font-size:20px;
+  font-weight: bold;
+}
+
+.scroll{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  overflow: auto;
+  max-height: 690px;
+  min-height: 690px;
+}
+
+.book-list-text{
+  font-family: Verdana;
+  font-size:15px;
+}
+.checkbox-col{
+  float: left;
+  width: 30%;
+}
+.isbn-col{
+  float: left;
+  width: 70%;
+}
+
+.row{
+  padding-left: 30px;
+  padding-right: 30px;
+  overflow:hidden;
+  border-bottom:1px solid #bdbdbd;
+}
+
+.pointer{
+  cursor: pointer;
+}
+.pointer:hover{
+  text-decoration: underline;
+}
+
+
+.img-col{
+  float: left;
+  width: 50%;
+}
+
+.book-info-col{
+  float: left;
+  width: 50%;
+
+}
+.extra-text{
+  font-family: Verdana;
+}
+
+.wide-input{
+  margin-top:5px;
+  width: 90%;
+  solid #999999;
+  padding: 10px;
+  font-size: 20px;
+
+  display: block;
+}
+
+.small-input{
+  margin-top:5px;
+  width: 50%;
+  solid #999999;
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+}
+.text-area{
+  margin-top:5px;
+  width: 90%;
+  solid #999999;
+  padding: 10px;
+  font-size: 20px;
+  display: block;
+  height: 50px;
+}
+.input-row{
+}
+
+.input-text{
+  font-family: Verdana;
+  font-size:15px;
+  font-weight: bold;
+}
+
+.input-col{
+  float: left;
+  width: 50%;
+}
+
+.button {
+  background-color: #ffc30b;
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30px;
+  font-family: Verdana;
+  cursor: pointer;
+  vertical-align: middle;
+
+  width: 90%;
+  padding: 10px;
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.add-pub {
+  background-color: #ffc30b;
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  font-family: Verdana;
+  cursor: pointer;
+  vertical-align: middle;
+
+  width: 50%;
+  padding: 10px;
+  margin-top: 18px;
+  display: block;
+
+}
+
+
+.select-style {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 200px;
+
+    font-size: 20px;
+    padding-top:8px;
+    line-height: 100%;
+
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 180%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+.select-width{
+  width: 10px;
+}
+
+.option-col-select{
+  width: 60%;
+}
+.option-col-add{
+  width: 40%;
+}
+
+.description-title{
+  display:inline-block
+}
+
+.input-box{
+  overflow:hidden;
+}
+.incorrect-text{
+  font-size: 15px;
+  font-family: Verdana;
+  color: red;
+}

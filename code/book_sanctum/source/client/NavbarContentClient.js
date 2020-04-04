@@ -38,12 +38,15 @@ function populateLoggedInBar(flag){
   let divCard = document.createElement('div');
 
   if(flag){
-    divCard.innerHTML = '<button type="button" class="login" onclick="logout()">Log out</button>'+
-                        '<button type="button" class="login" onclick="location.href=`client_account`">Account</button>'+
-                        '<button type="button" class="login" onclick="location.href=`client_orders`">Orders</button>';
+
+
+
+    divCard.innerHTML = '<li><a href="nav/logout">Log out</a></li>'+
+                        '<li><a href="client_account">Account</a></li>'+
+                        '<li><a href="client_orders">Orders</a></li>';
   }//
   else{
-    divCard.innerHTML = '<button type="button" class="login" onclick="location.href=`/form?page=login`">Login</button>';
+    divCard.innerHTML = '<li><a href="/form?page=login">Log in</a></li>';
   }
 
   document.getElementById("loggedInBar").appendChild(divCard);
@@ -111,20 +114,24 @@ function homePage(){
   request.fail(function () {
     console.log("ERROR COULD NOT GET DATA")
   });
-
 }
 
 function search(){
   var searchInput = document.getElementById("searchBar").value;
 
-  console.log("searched for "+searchInput);
+
   genreInput = document.getElementById("genreSelect").value;
   let userInputObj = {
     "textInput": searchInput,
     "genreInput": genreInput
   };
-  localStorage.setItem('textInput', JSON.stringify(userInputObj));
-  window.location.href = "search?text="+searchInput;
+  console.log("searched for "+searchInput + genreInput);
+  if(genreInput=='All Genres'){
+    genreInput=''
+  }
+  window.location.href = "search?text="+searchInput+"&genre="+genreInput;
+
+
 }
 
 $(document).on('keypress',function(e) {

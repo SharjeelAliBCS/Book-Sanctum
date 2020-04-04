@@ -4,21 +4,23 @@ head
   title book.sanctum.ca
 
   link(rel='stylesheet' type='text/css' href='css/info.css')
-  link(rel='stylesheet' type='text/css' href='css/navigation.css')
+  link(rel='stylesheet' type='text/css' href='css/navigationBar.css')
+  link(rel='stylesheet' type='text/css' href='css/navigationSearch.css')
   link(rel='stylesheet' type='text/css' href='css/orderTab.css')
-.topnav
-  .inner-element
-    .submission
-      .header-logo
-        a(href='client_home')
-          img(src='themes/images/logo.png' alt='Bootsshop')
-      input#searchBar.submissionfield(type='text' placeholder='Search for anything' name='searchBar')
-      .select-style
-        select#genreSelect.select-width
-          option All Genres
-      button.submit-button(type='button' onclick='search()') Search
-      button.submit-button(type='button' onclick="location.href='AdvancedSearchPage.html'") Advanced Search
-      #loggedInBar
+  ul
+    a(href='client_home')
+      img(src='themes/images/logo.png' alt='Bootsshop')
+    #loggedInBar
+  .topnav
+    .search-container
+      form(action='/search?=')
+        input(type='text' placeholder='Search for anything' name='text')
+        .select-style
+          select#genreSelect.select-width(name='genre')
+            option All Genres
+        button(type='submit') Search
+        button(type='button' onclick="location.href='form?page=search'") Advanced Search
+
 #filterCol.row(style='background-color:#ffffff;')
   #bookInfo.column.info-column
   .column.order-column

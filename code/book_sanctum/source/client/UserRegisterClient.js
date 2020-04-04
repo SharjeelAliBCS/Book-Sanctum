@@ -29,40 +29,40 @@ function signup(){
   }
 
 
-  reqObject = {
+  registerObj = {
     "user": user,
     "fname": fname,
     "lname": lname,
     "email": email,
     "pwd": password
   };
-  reqsignup(reqObject);
+  reqNext(registerObj);
 }
 
 $(document).on('keypress',function(e) {
     if(e.which == 13) {
-        signup();
+        reqNext();
     }
 });
 
-function reqsignup(reqObject){
-  let userRequestJSON = JSON.stringify(reqObject) //make JSON string
+function reqNext(registerObj){
   var request = $.ajax({
-    url: "/form/signup",
-    data: userRequestJSON,
+    url: "/form/validate",
+    data: JSON.stringify({"email": registerObj.email}),
     dataType: "json"
   });
 
   request.done(function (data) {
 
-    user = data;
-    console.log(user);
-    if(user==''){
-      incorrectsignup("Username taken");
+    user = JSON.parse(data);
+    console.log("size is " + user.length);
+    if(user.length==0){
+      correctsignup();
+      localStorage.setItem('registerData', JSON.stringify({"info": registerObj}));
+      window.location.href = 'form?page=address';
     }
     else{
-      correctsignup();
-      window.location.href = reloadPage;
+      incorrectsignup("Email taken");
     }
 
   })
@@ -78,8 +78,6 @@ function correctsignup(){
   while (div.firstChild) {
     div.removeChild(div.firstChild);
   }
-  //localStorage.setItem('textInput', JSON.stringify(userInputObj));
-
 
 }
 
