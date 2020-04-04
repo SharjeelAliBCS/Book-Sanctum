@@ -11,6 +11,41 @@ const pool = new Pool({
 
 function searchQueries(){
 
+  this.getAllType = function(type, res){
+    //string char replacement:
+    //https://www.tutorialrepublic.com/faq/how-to-replace-character-inside-a-string-in-javascript.php
+    let queryStr = "select name from X order by name;";
+    queryStr = queryStr.replace(/X/g, type);
+    pool.query(queryStr,
+               [], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      res.json(JSON.stringify(result.rows));
+    })
+  }
+
+  this.getAllBooks = function(size, res){
+    pool.query("select isbn from book order by isbn limit $1",
+              [size], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      //console.log(result.rows);
+      res.json(JSON.stringify(result.rows));
+    });
+  }
+
+  this.getAllBooks = function(size, res){
+    pool.query("select isbn from book order by isbn limit $1",
+              [size], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      //console.log(result.rows);
+      res.json(JSON.stringify(result.rows));
+    });
+  }
 
   this.searchBooksByTitle = function(title, genreText, res){
     console.log("search for "+ title + " and " + genreText);

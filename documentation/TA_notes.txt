@@ -17,3 +17,6 @@
 5. For normalizing my order_book and warehouse_book, can I just create a unique ID for warehouse_book and reference that?
 6. For order_book, order_number and isbn are primary keys. isbn and warehouse_id are taken from the warehouse_books, but warehouse_id isn't a primary key, or should it?
 7. Making functional dependencies for everything?
+
+4/3:
+Do I need direct deposit anyway as a seperate relation?

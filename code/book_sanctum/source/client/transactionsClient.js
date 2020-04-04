@@ -65,6 +65,7 @@ function populateTransactions(data){
         + '<p class="header money">Profit-to-Date</p>'
       + '</div>'
     + '</div>'
+  document.getElementById('transactions').appendChild(divCard);
 
   let profit = 0;
   document.getElementById("total").innerHTML = data.length + " Transactions listed";
@@ -88,7 +89,7 @@ function populateTransactions(data){
       debit = transaction.transaction;
       name = "PUBLISHER FEES: "
     }
-
+    let divCard = document.createElement('div');
     divCard.innerHTML += ""
       + '<div class="row">'
         + '<div class="col col-date">'
@@ -107,10 +108,7 @@ function populateTransactions(data){
           + '<p class="header money">'+profit.toFixed(2)+'</p>'
         + '</div>'
       + '</div>'
-
+    document.getElementById('transactions').appendChild(divCard);
   }
 
-
-    console.log(divCard);
-    document.getElementById('transactions').appendChild(divCard);
 }

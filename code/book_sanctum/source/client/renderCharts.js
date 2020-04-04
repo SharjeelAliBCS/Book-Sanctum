@@ -72,7 +72,7 @@ function requestSalesData(url,urlType){
   });
 
   request.done(function (data) {
-  
+
     var sales = JSON.parse(data);
 
     switch(urlType){

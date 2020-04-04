@@ -39,11 +39,11 @@ PAGES TO DO:
 12. (Done) Owner Home Page
 13. (Done) Sales page
 14. (Done) Owner transaction page
-15. Add book/remove book page
+15. (Done) Add book/remove book page
 16. Publisher page
-17  Client request book
-18. Owner request book
-
+17. Owner request book  
+18. Client request book
+ 
 Bonus:
 -Request a book
  - If user can't find book, request it. 

@@ -7,12 +7,9 @@ https://www.chartjs.org/docs/latest/-->
 
 		<title>book.sanctum.ca</title>
 		<script src="jquery-1.11.3.js"></script>
-		<script src="transactionsClient.js"></script>
-		<script src="renderCharts.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
-		<link rel="stylesheet" type="text/css" href="../css/transactions.css">
 
 	</head>
 
@@ -22,24 +19,9 @@ https://www.chartjs.org/docs/latest/-->
     <li><a href="sales">View Sales</a></li>
     <li><a href="transactions">View Transactions</a></li>
     <li><a href="inventory">Inventory Manager</a></li>
-		<li><a href="sellers">Seller Manager</a></li>
+    <li><a href="sellers">Seller Manager</a></li>
     <li><a href="client_home">Log out</a></li>
   </ul>
-
-	<div class="body">
-		<p class="title">Transactions</p>
-
-		<div class="chart">
-			<canvas id="chart" class="chart-coord" width="1900" height="350"></canvas>
-		</div>
-
-		<div class="transactions-box">
-			<p class="header-text" id="total"></p>
-			<div class="transactions" id="transactions"></div>
-		</div>
-
-	</div>
-
 
 	</body>
 

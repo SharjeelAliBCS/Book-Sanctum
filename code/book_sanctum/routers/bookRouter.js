@@ -8,7 +8,7 @@ module.exports = function(app){
   let router = express.Router();
 
   router.get('/', get);
-
+  router.get('/:isbn', getBook);
   function get(req, res, next) {
     console.log(req.query.isbn);
     isbn = req.query.isbn;
@@ -24,6 +24,15 @@ module.exports = function(app){
       });
 
     });
+  }
+
+  function getBook(req, res, next){
+
+    bookQueryInstance.searchBookByISBN(req.params.isbn,res).then(function(result){
+
+      res.json(JSON.stringify(result[0]));
+      });
+
   }
 
   return router;
