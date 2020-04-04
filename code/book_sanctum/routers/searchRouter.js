@@ -12,6 +12,7 @@ module.exports = function(app){
   router.get('/genreList', genreList);
   router.get('/authorList', authorList);
   router.get('/:type', getType);
+  router.get('/publisher/:name', getPublisher);
 
   function get(req, res, next) {
 
@@ -36,6 +37,9 @@ module.exports = function(app){
 
   function getType(req,res,next){
     searchQueryInstance.getAllType(req.params.type,res);
+  }
+  function getPublisher(req,res,next){
+    searchQueryInstance.getPublisher(req.params.name,res);
   }
 
   function genreList(req,res,next){

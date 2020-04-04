@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <!-- color is d13100, ffc30b
+https://www.npmjs.com/package/jspdf-html2canvas
 https://www.chartjs.org/docs/latest/-->
 <html>
 	<head>
@@ -8,7 +9,11 @@ https://www.chartjs.org/docs/latest/-->
 		<title>book.sanctum.ca</title>
 		<script src="jquery-1.11.3.js"></script>
 		<script src="renderCharts.js"></script>
+		<script src="SalesClient.js"></script>
+
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+	<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
 		<link rel="stylesheet" type="text/css" href="../css/sales.css">
@@ -25,7 +30,8 @@ https://www.chartjs.org/docs/latest/-->
 		<li><a href="sellers">Seller Manager</a></li>
     <li><a href="client_home">Log out</a></li>
   </ul>
-	<div class="dashboard">
+	<div class="dashboard"  id="body">
+		<button id="btn" onclick="generatePDF()">Generate</button>
 		<p class="title">Sales Dashboard</p>
 
 		<div class="grid-container">

@@ -1,0 +1,14 @@
+.scroll-text-pub{
+  font-size: 15px;
+  font-family: Verdana;
+}
+
+.pub-info-text{
+  font-size: 20px;
+  font-family: Verdana;
+}
+
+.address-col{
+  float: left;
+  width: 33%;
+}

@@ -25,6 +25,17 @@ function searchQueries(){
     })
   }
 
+  this.getPublisher = function(name, res){
+    pool.query("select * from publisher where name=$1;",
+              [name], (err, result) => {
+      if (err) {
+        return console.error('Error executing query', err.stack)
+      }
+      //console.log(result.rows);
+      res.json(JSON.stringify(result.rows[0]));
+    });
+  }
+
   this.getAllBooks = function(size, res){
     pool.query("select isbn from book order by isbn limit $1",
               [size], (err, result) => {
