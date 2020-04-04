@@ -40,7 +40,7 @@ PAGES TO DO:
 13. (Done) Sales page
 14. (Done) Owner transaction page
 15. (Done) Add book/remove book page
-16. Publisher page
+16. (Done) Publisher page
 17. Owner request book  
 18. Client request book
  
