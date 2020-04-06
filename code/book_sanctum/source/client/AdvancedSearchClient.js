@@ -34,20 +34,17 @@ function populateGenreSelect(genres){
 }
 
 function search(){
-  var searchInput = document.getElementById("title").value;
+  var title = document.getElementById("title").value;
   let isbn = document.getElementById("isbn").value;
   let publisher = document.getElementById("publisher").value;
   let year = document.getElementById("year").value;
   let author = document.getElementById("author").value;
-  let genreInput = document.getElementById("genreSelect").value;
+  let genre = document.getElementById("genreSelect").value;
 
-  console.log("searched for "+searchInput + genreInput);
-  if(genreInput=='All Genres'){
-    genreInput=''
+  if(genre=='All Genres'){
+    genre=''
   }
-  window.location.href = "search?text="+searchInput+"&genre="+genreInput;
-
-
+  window.location.href = "search?title="+title+"&genre="+genre+"&publisher="+publisher+"&year="+year+"&author="+author+"&isbn="+isbn;
 }
 
 $(document).on('keypress',function(e) {

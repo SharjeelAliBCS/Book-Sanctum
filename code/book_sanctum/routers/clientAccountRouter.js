@@ -19,11 +19,11 @@ module.exports = function(app){
   }
 
   function getAddresses(req, res, next) {
-    accountQueryInstance.getAddresses(serverData.users[req.sessionID],res);
+    accountQueryInstance.getAddresses(serverData.users[req.sessionID].user,res);
   }
 
   function getPayments(req, res, next) {
-    accountQueryInstance.getPayments(serverData.users[req.sessionID],res);
+    accountQueryInstance.getPayments(serverData.users[req.sessionID].user,res);
   }
 
 

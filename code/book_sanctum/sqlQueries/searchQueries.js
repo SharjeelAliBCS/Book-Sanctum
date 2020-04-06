@@ -58,22 +58,43 @@ function searchQueries(){
     });
   }
 
-  this.searchBooksByTitle = function(title, genreText, res){
-    console.log("search for "+ title + " and " + genreText);
-    if(title==''){
-      title = null;
-    }
-    else{
-      title = "'"+title+"'";
-    }
-    genreText = `%${genreText}%`;
+  this.searchBooksByTitle = function(title, genre, res){
+    console.log("search for "+ title + " and " + genre);
+
+    genre = `%${genre}%`;
     return new Promise (function(resolve, reject){
       pool.query("select book.isbn,book.title,book.price,book.published_date, author.name as author, genre.name as genre_name from book "+
                 "inner join author on author.id = book.author_id "+
                 "inner join genre on genre.id = book.genre_id "+
                 "WHERE genre.name like $2 "+
-                `and (${title} is null or (similarity(book.title,$1) > 0.15 or similarity(author.name,$1) > 0.3) );`,
-                 [title,genreText], (err, result) => {
+                `and (length($1)= 0 or (similarity(book.title,$1) > 0.15 or similarity(author.name,$1) > 0.3) );`,
+                 [title,genre], (err, result) => {
+        if (err) {
+          return console.error('Error executing query', err.stack)
+        }
+        resolve(result.rows);
+      })
+    });
+  }
+
+  this.advancedBookSearch = function(isbn, title, genre,author, year, publisher, isbn, res){
+
+    genre = `%${genre}%`;
+    year = `%${year}%`;
+    isbn = `%${isbn}%`;
+    return new Promise (function(resolve, reject){
+      pool.query("select book.isbn,book.title,book.price,book.published_date, author.name as author, genre.name as genre_name from book "+
+                "inner join author on author.id = book.author_id "+
+                "inner join genre on genre.id = book.genre_id "+
+                "inner join publisher on publisher.id = book.publisher_id "+
+                "where genre.name like $2 "+
+                "and book.published_date like $5"+
+                "and book.isbn like $6"+
+                "and (length($1)= 0 or similarity(book.title,$1) > 0.15 ) "+
+                "and (length($3) = 0 or  similarity(author.name,$3) > 0.15 ) "+
+                "and (length($4) = 0 or  similarity(publisher.name,$4) > 0.15 ) "+
+                ";",
+                 [title,genre,author,publisher, year, isbn], (err, result) => {
         if (err) {
           return console.error('Error executing query', err.stack)
         }

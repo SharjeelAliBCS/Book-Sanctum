@@ -15,23 +15,42 @@ module.exports = function(app){
   router.get('/publisher/:name', getPublisher);
 
   function get(req, res, next) {
+    genre = req.query.genre;
 
+    if('text' in req.query){
+      console.log("hello")
+      inputText = req.query.text;
+      if(genre=="All Genres"){
+        genre = '';
+      }
 
-    inputText = req.query.text;
-    genreText = req.query.genre;
-    if(genreText=="All Genres"){
-      genreText = '';
-    }
-    data = searchQueryInstance.searchBooksByTitle(inputText,genreText,res).then(function(result){
+      data = searchQueryInstance.searchBooksByTitle(inputText,genre,res).then(function(result){
 
-      res.status(200).render('SearchPage.pug', {
-        data: JSON.stringify(result),
-        text: inputText,
-        genre: genreText
-
+        res.status(200).render('SearchPage.pug', {
+          data: JSON.stringify(result),
+          text: inputText,
+          genre: genre
+        });
       });
+    }
+    else{
+      title = req.query.title;
+      isbn = req.query.isbn;
+      publisher = req.query.publisher;
+      author = req.query.author;
+      year = req.query.year;
 
-    });
+      console.log("got "+ genre+ ", "+title+ ", "+isbn+ ", "+author+ ", "+year+ ", "+publisher)
+      data = searchQueryInstance.advancedBookSearch(isbn, title, genre,author, year, publisher, isbn,res).then(function(result){
+
+        res.status(200).render('SearchPage.pug', {
+          data: JSON.stringify(result),
+          text: title,
+          genre: genre
+        });
+      });
+    }
+
 
   }
 

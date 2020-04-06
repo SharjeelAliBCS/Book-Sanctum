@@ -43,16 +43,16 @@ function login(){
 
   reqObject = {
     "user": user,
-    "pwd": password
+    "pwd": password,
+    "client": !loginType
   };
   console.log(loginType)
   if(loginType){
-    ownerLogin(reqObject);
+    reqLogin(reqObject);
   }
   else{
     reqLogin(reqObject);
   }
-
 
   console.log(loginType + " " +user+ " logged in using password "+ password);
 
@@ -63,10 +63,6 @@ $(document).on('keypress',function(e) {
         login();
     }
 });
-
-function ownerLogin(reqObject){
-    window.location.href = 'admin_home';
-}
 
 function reqLogin(reqObject){
   let userRequestJSON = JSON.stringify(reqObject) //make JSON string
@@ -85,14 +81,18 @@ function reqLogin(reqObject){
     }
     else{
       correctLogin();
-      window.location.href = reloadPage;
+      if(reqObject.client){
+        window.location.href = reloadPage;
+      }
+      else{
+        window.location.href = 'admin_home';
+      }
     }
 
   })
 
   request.fail(function () {
     console.log("ERROR COULD NOT GET DATA")
-
   });
 }
 function correctLogin(){

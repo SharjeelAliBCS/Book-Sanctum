@@ -13,13 +13,13 @@ module.exports = function(app){
   router.get('/logout', logout);
 
   function logout(req, res, next){
-    serverData.users[req.sessionID] = '';
+    delete serverData.users[req.sessionID];
     res.redirect("/client_home");
   }
   function get(req, res, next) {
     console.log("nav router says sessionid is " + req.sessionID)
     if(req.sessionID in serverData.users){
-      res.json(serverData.users[req.sessionID]);
+      res.json(serverData.users[req.sessionID].user);
     }
     else{
       res.json('');

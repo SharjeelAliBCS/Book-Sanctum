@@ -9,30 +9,71 @@ https://www.chartjs.org/docs/latest/-->
 		<title>book.sanctum.ca</title>
 		<script src="jquery-1.11.3.js"></script>
 		<script src="renderCharts.js"></script>
-		<script src="SalesClient.js"></script>
+		<script src="filterDateClient.js"></script>
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-	<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
 		<link rel="stylesheet" type="text/css" href="../css/sales.css">
-
+		<link rel="stylesheet" type="text/css" href="../css/filterDates.css">
 
 	</head>
 
-	<body onload="init_sales_dashboard()" style='background-color: #e0e0e0;' >
+	<body onload="init_sales_dashboard()" class="body-color" id="dashboard">
   <ul>
 		<a href="admin_home"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
     <li><a href="sales">View Sales</a></li>
     <li><a href="transactions">View Transactions</a></li>
     <li><a href="inventory">Inventory Manager</a></li>
 		<li><a href="sellers">Seller Manager</a></li>
-    <li><a href="client_home">Log out</a></li>
+    <li><a href="nav/logout">Log out</a></li>
   </ul>
-	<div class="dashboard"  id="body">
-		<button id="btn" onclick="generatePDF()">Generate</button>
+	<div class="dashboard" >
+
 		<p class="title">Sales Dashboard</p>
+
+		<div class="filter-box">
+			<div class="filter-col">
+				<p class="filter-title">Start Date</p>
+
+				<div class="filter-select-style">
+					<select id='sMonth' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+				<div class="filter-select-style">
+					<select id='sDay' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+				<div class="filter-select-style">
+					<select id='sYear' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+
+			</div>
+			<div class="filter-col">
+				<p class="filter-title">End Date</p>
+
+				<div class="filter-select-style">
+					<select id='eMonth' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+				<div class="filter-select-style">
+					<select id='eDay' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+				<div class="filter-select-style">
+					<select id='eYear' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+
+			</div>
+
+			<div class="filter-col-button">
+			<button type="button" class="filter-button button" onclick="filterDate()">Filter</button>
+			</div>
+
+		</div>
 
 		<div class="grid-container">
 
@@ -51,6 +92,10 @@ https://www.chartjs.org/docs/latest/-->
 		<div class="header-box-exp header-box">
 				<p class="header">EXPENDITURES</p>
 				<p class="header-text" id="headerExp"></p>
+		</div>
+		<div class="chart-box-stock chart-box">
+				<p class="header">STOCK</p>
+				<canvas id="stockChart" class="chart chart-coord" width="1800" height="500"></canvas>
 		</div>
 		<div class="chart-box-rev chart-box">
 				<p class="header">SALES REVENUE</p>
@@ -83,7 +128,6 @@ https://www.chartjs.org/docs/latest/-->
 
 
 	</div>
-
 
 </div>
 

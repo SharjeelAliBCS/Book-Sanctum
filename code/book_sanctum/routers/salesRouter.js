@@ -10,52 +10,64 @@ module.exports = function(app){
   let router = express.Router();
 
   router.get('/', get);
-  router.get(['/allsales','/alltransactionsdaily'], getAllSales);
-  router.get('/salespercent/:type', getGenreSalesPercent);
-  router.get('/sales/:type', getGenreSales);
-  router.get('/saleSum', getSumSales);
-  router.get('/profit', getProfit);
-  router.get('/transactions/:size', getTransactions);
+  router.get('/salespercent/:type', getSalePercent);
+  router.get('/sales/:type', getSales);
+  router.get('/numbers', getSaleNumbers);
+  router.get('/transactions/', getTransactions);
+  router.get('/allsales', getAllSales);
+  router.get('/alltransactionsdaily', getAllDaily);
+  router.get('/stock', getDailyStock);
 
   function get(req, res, next) {
     res.sendFile(path.join(__dirname, '../source/pages/html/SalesPage.html'));
   }
 
+  function getDailyStock(req,res,next){
+    data = JSON.parse(Object.keys(req.query)[0]);
+    salesQueryInstance.allStock(data.start, data.end, res);
+  }
+
   function getTransactions(req,res,next){
-    console.log("yayagag");
-    salesQueryInstance.allRevenue(req.params.size).then(function(result1){
+    data = JSON.parse(Object.keys(req.query)[0]);
+    console.log("hello word: "+ data);
+    salesQueryInstance.allTransactions(data.start, data.end, res);
+  }
 
-      salesQueryInstance.allExpenditures(req.params.size).then(function(result2){
+  function getSales(req,res,next){
+    data = JSON.parse(Object.keys(req.query)[0]);
+    type = req.params.type;
+    salesQueryInstance.allTypeSales(data.start, data.end, type, res);
+  }
 
-        data = {"revenue": result1, "expenditures": result2};
-        res.json(JSON.stringify(data));
+  function getSalePercent(req,res,next){
+    console.log("getting sale percent");
+    type = req.params.type;
+    data = JSON.parse(Object.keys(req.query)[0])
+    salesQueryInstance.allTypeSalesByPercent(data.start, data.end,type, res);
+  }
+  function getAllSales(req, res, next){
+    data = JSON.parse(Object.keys(req.query)[0]);
+
+    salesQueryInstance.allTransactionsType(data.start, data.end, '=',res).then(function(result){
+        res.json(JSON.stringify(result));
       });
-    });
+  }
+  function getAllDaily(req,res,next){
+    data = JSON.parse(Object.keys(req.query)[0]);
 
+    salesQueryInstance.allTransactionsType(data.start, data.end, '=',res).then(function(result1){
+      salesQueryInstance.allTransactionsType(data.start, data.end, '!=',res).then(function(result2){
+        obj = {"sales": result1, "expenditures": result2};
+
+        res.json(JSON.stringify(obj));
+        });
+      });
   }
 
-  function getGenreSales(req,res,next){
-    type = req.params.type;
-    salesQueryInstance.allTypeSales(type, res);
-  }
-
-  function getGenreSalesPercent(req,res,next){
-    type = req.params.type;
-    salesQueryInstance.allTypeSalesByPercent(type, res);
-  }
-
-  function getAllSales(req,res,next){
-    salesQueryInstance.getAllSales(res);
-  }
-
-  function getSumSales(req,res,next){
-    salesQueryInstance.getSalesSum(res);
-  }
-
-  function getProfit(req,res,next){
-    salesQueryInstance.getRevenue().then(function(result){
-      res.json(JSON.stringify(result));
-    });
+  function getSaleNumbers(req,res,next){
+    console.log("testing for sale sum");
+    data = JSON.parse(Object.keys(req.query)[0]);
+    salesQueryInstance.getSalesNumbers(data.start, data.end, res);
   }
 
   return router;

@@ -1,22 +1,35 @@
 function init_transactions(){
-  requestSalesData('', "/alltransactionsdaily");
-  requestTransactions(50);
+    populateFilter();
+  page = "transactions";
+  var date = new Date();
+  var dd = String(date.getDate()).padStart(2, '0');
+  var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = date.getFullYear();
+
+  let start = '01/01/2020';
+  let end = `${mm}/${dd}/${yyyy}`;
+  let range = {"start": start, "end": end};
+
+  init_transactions_data(range);
 }
 
-function requestTransactions(size){
-  console.log("heello ")
+function init_transactions_data(range){
+
+  requestSalesData('', "/alltransactionsdaily",range);
+  requestTransactions(range);
+}
+function requestTransactions(range){
+
   var request = $.ajax({
-    url: "/sales/transactions/"+size,
-    data: "query",
+    url: "/sales/transactions/",
+    data: JSON.stringify(range),
     dataType: "json"
   });
 
   request.done(function (result) {
     let data = JSON.parse(result);
-    data = formatTransactions(data);
-    console.log(data);
     populateTransactions(data);
-
+  
   })
 
   request.fail(function () {
@@ -26,10 +39,7 @@ function requestTransactions(size){
 }
 
 function formatTransactions(data){
-  newData = [];
-  newData = data.revenue.concat(data.expenditures);
-  newData.sort(compare);
-  return newData;
+
 }
 //sort object
 //https://stackoverflow.com/questions/1129216/sort-array-of-objects-by-string-property-value
@@ -70,33 +80,30 @@ function populateTransactions(data){
   let profit = 0;
   document.getElementById("total").innerHTML = data.length + " Transactions listed";
   for(let i in data){
-    profit+=parseFloat(data[i].transaction);
+    profit+=parseFloat(data[i].amount);
   }
   for (let i in data) {
 
     let transaction = data[i];
     //console.log(transaction);
-    profit-=parseFloat(transaction.transaction)
-    console.log(profit);
+    profit-=parseFloat(transaction.amount)
     let debit ='';
     let credit ='';
-    let name = '';
-    if(transaction.transaction>=0){
-      credit = transaction.transaction;
-      name = "BOOK SALE: ";
+    if(transaction.amount<0){
+      debit = transaction.amount;
     }
     else{
-      debit = transaction.transaction;
-      name = "PUBLISHER FEES: "
+      credit = transaction.amount;
     }
+
     let divCard = document.createElement('div');
     divCard.innerHTML += ""
       + '<div class="row">'
         + '<div class="col col-date">'
-          + '<p class="header">'+transaction.order_date+'</p>'
+          + '<p class="header">'+transaction.date+'</p>'
         + '</div>'
         + '<div class="col col-transaction">'
-          + '<p class="header">'+name + transaction.name+'</p>'
+          + '<p class="header">'+ transaction.type.toUpperCase() + ": "+transaction.name+'</p>'
         + '</div>'
         + '<div class="col col-debit">'
           + '<p class="header money">'+debit+'</p>'
@@ -111,4 +118,51 @@ function populateTransactions(data){
     document.getElementById('transactions').appendChild(divCard);
   }
 
+}
+function addTransaction(){
+
+  var name = document.getElementById("name").value;
+  var amount = document.getElementById("amount").value;
+  var type = document.getElementById("inputSelect").value;
+  if(name==''|| amount==''){
+    document.getElementById('incorrect').innerHTML = "One of the fields is empty";
+    return;
+  }
+  else{
+    document.getElementById('incorrect').innerHTML = "";
+
+    if(type=="debit"){
+      amount = -amount
+    }
+    reqObject = {
+      "name": name,
+      "amount": parseFloat(amount)
+    };
+    //console.log(reqObject)
+    reqAddTransaction(reqObject);
+
+  }
+
+}
+
+
+function reqAddTransaction(reqObject){
+  let userRequestJSON = JSON.stringify(reqObject) //make JSON string
+  var request = $.ajax({
+    url: "/transactions/add",
+    data: userRequestJSON,
+    dataType: "json"
+  });
+
+  request.done(function (data) {
+    document.getElementById("name").value='';
+    document.getElementById("amount").value='';
+    init_transactions();
+
+  })
+
+  request.fail(function () {
+    console.log("ERROR COULD NOT GET DATA")
+
+  });
 }

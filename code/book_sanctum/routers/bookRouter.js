@@ -12,9 +12,9 @@ module.exports = function(app){
   function get(req, res, next) {
     console.log(req.query.isbn);
     isbn = req.query.isbn;
-    if(serverData.users.hasOwnProperty(req.sessionID) && serverData.users[req.sessionID]!=''){
+    if(serverData.users.hasOwnProperty(req.sessionID) && serverData.users[req.sessionID].user!=''){
       console.log("ihdihd8qhdd")
-    bookQueryInstance.addBookHistory(serverData.users[req.sessionID], isbn);
+    bookQueryInstance.addBookHistory(serverData.users[req.sessionID].user, isbn);
     }
 
     data = bookQueryInstance.searchBookByISBN(isbn,res).then(function(result){

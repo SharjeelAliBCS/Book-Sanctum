@@ -72,3 +72,106 @@
 .money{
   text-align: right;
 }
+
+.input-form{
+  width: 90%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding-left: 10px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bdbdbd;
+  padding-bottom: 10px;
+  overflow: auto;
+}
+
+.input-text{
+  font-size: 20px;
+  font-family: Verdana;
+  margin-top: 100px;
+}
+
+.input{
+  margin-top:5px;
+  width: 90%;
+  solid #999999;
+  padding: 10px;
+  font-size: 20px;
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+}
+
+.input-col{
+  float: left;
+  width: 25%;
+}
+
+.button {
+  background-color: #ffc30b;
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30px;
+  font-family: Verdana;
+  cursor: pointer;
+  vertical-align: middle;
+
+  width: 90%;
+  height: 50%;
+  padding: 10px;
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.incorrect-text{
+  font-size: 20px;
+  font-family: Verdana;
+  color: red;
+}
+.select-style {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 200px;
+
+    font-size: 20px;
+    padding-top:8px;
+    line-height: 100%;
+
+
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 180%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    font-size: 20px;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+.select-width{
+  width: 10px;
+}
+
+.option-col-select{
+  width: 60%;
+}
+.option-col-add{
+  width: 40%;
+}
+.option-select{
+  font-size: 20px;
+}

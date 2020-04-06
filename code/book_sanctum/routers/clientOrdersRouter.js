@@ -16,7 +16,7 @@ module.exports = function(app){
   }
 
   function getOrders(req, res, next){
-    orderQueryInstance.getOrders(serverData.users[req.sessionID], res);
+    orderQueryInstance.getOrders(serverData.users[req.sessionID].user, res);
   }
 
   return router;

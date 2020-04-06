@@ -46,6 +46,30 @@ function accountQueries(){
     })
 
   }
+  this.loginAdmin = function (username, password, res){
+    console.log("username = "+ username);
+    console.log("password = " + password);
+
+    return new Promise (function(resolve, reject){
+        pool.query("select email from admin "+
+                 "where LOWER(email) = LOWER($1) "+
+                 "AND password = $2;",
+                 [username, password], (err, result) => {
+        if (err) {
+          return console.error('Error executing query', err.stack)
+        }
+        console.log(result.rows) // brianc
+        if(result.rows.length==0){
+          resolve('');
+        }
+        else{
+          resolve(result.rows[0]["email"]);
+        }
+      })
+    });
+
+  }
+
   this.login = function (username, password, res){
     console.log("username = "+ username);
     console.log("password = " + password);

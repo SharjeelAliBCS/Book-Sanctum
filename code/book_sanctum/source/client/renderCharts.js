@@ -1,5 +1,15 @@
-
-
+/*
+The documentation on charts and sources for the function codes can be found here:
+https://www.chartjs.org/docs/latest/
+*/
+let transactionChart='';
+let salesRevChart='';
+let expBrkChart = '';
+let genreChart = '';
+let authorChart = '';
+let publisherChart = '';
+let genreBrkChart = '';
+let stockChart = '';
 function getColors(opacity){
   colorList = [
     'rgba(209, 49, 0, $)',
@@ -30,17 +40,39 @@ function getColors(opacity){
 }
 
 function init_home(){
-  requestSalesData("/allsales",'');
+  var date = new Date();
+  var dd = String(date.getDate()).padStart(2, '0');
+  var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = date.getFullYear();
+
+  let start = '01/01/2020';
+  let end = `${mm}/${dd}/${yyyy}`;
+  let range = {"start": start, "end": end};
+  requestSalesData("/allsales",'', range);
 }
+
 function init_sales_dashboard(){
-  requestSalesData("/allsales",'');
-  renderDoughnutChart(["Rent", "taxes", "publishers"], [20, 15, 65], "expBreakdownChart","");
-  requestSalesData("genre","/salespercent/");
-  requestSalesData("genre","/sales/");
-  requestSalesData("publisher","/sales/");
-  requestSalesData("author","/sales/");
-  requestSalesData("","/saleSum");
-  requestSalesData("","/profit");
+  populateFilter();
+  page = "sales";
+  var date = new Date();
+  var dd = String(date.getDate()).padStart(2, '0');
+  var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = date.getFullYear();
+
+  let start = '01/01/2020';
+  let end = `${mm}/${dd}/${yyyy}`;
+  let range = {"start": start, "end": end};
+  init_sales_data(range);
+}
+
+function init_sales_data(range){
+  requestSalesData("/allsales",'', range);
+  requestSalesData("genre","/salespercent/", range);
+  requestSalesData("genre","/sales/", range);
+  requestSalesData("publisher","/sales/", range);
+  requestSalesData("author","/sales/", range);
+  requestSalesData("","/numbers",range);
+  requestSalesData("","/stock",range);
 }
 
 function roundOther(val, data, labelKey, dataKey){
@@ -61,13 +93,19 @@ function roundOther(val, data, labelKey, dataKey){
       newData.push(data[i]);
     }
   }
-  newData[otherIndex][dataKey] = newData[otherIndex][dataKey].toFixed(2)
+  for(i in newData){
+    if(newData[i][labelKey]=="other"){
+      newData[otherIndex][dataKey] = newData[otherIndex][dataKey].toFixed(2)
+    }
+  }
+
   return newData;
 }
-function requestSalesData(url,urlType){
+function requestSalesData(url,urlType, range){
+  console.log(range);
   var request = $.ajax({
     url: "/sales/"+urlType+url,
-    data: "query",
+    data: JSON.stringify(range),
     dataType: "json"
   });
 
@@ -77,26 +115,39 @@ function requestSalesData(url,urlType){
 
     switch(urlType){
       case "":
-        renderSalesChart(sales, "order_date", "revenue",  'salesChart', 'Revenue per day', renderLineChart);
+        salesRevChart = renderSalesChart(sales, "date", "amount",  'salesChart', 'Revenue per day', renderLineChart,salesRevChart);
         break;
       case "/alltransactionsdaily":
-        renderMultiChart(sales,  'chart', 'Transactions per day');
+        transactionChart = renderMultiChart(sales,  'chart', 'Transactions per day', transactionChart);
+        break;
+      case "/stock":
+      console.log(sales);
+        stockChart = renderSalesChart(sales, "date", "sum",  'stockChart', 'Stock per day', renderLineChart,stockChart);
         break;
       case "/salespercent/":
+
         sales = roundOther(1, sales,"name", "sold");
-        renderSalesChart(sales, "name", "sold", url+'BreakdownChart', '', renderDoughnutChart);
+        genreBrkChart = renderSalesChart(sales, "name", "sold", url+'BreakdownChart', '', renderDoughnutChart, genreBrkChart);
         break;
       case "/sales/":
-        renderSalesChart(sales, "name", "sum", url+"Chart","Sales Per Genre", renderBarChart);
+        switch(url){
+          case "genre":
+            genreChart = renderSalesChart(sales, "name", "sum", url+"Chart","Sales Per Genre", renderBarChart, genreChart);
+            break;
+          case "author":
+            authorChart = renderSalesChart(sales, "name", "sum", url+"Chart","Sales Per Author", renderBarChart, authorChart);
+            break;
+          case "publisher":
+            publisherChart = renderSalesChart(sales, "name", "sum", url+"Chart","Sales Per Publisher", renderBarChart, publisherChart);
+            break;
+        }
         break;
-      case "/saleSum":
-        document.getElementById('headerSales').innerHTML = sales[0].sum;
-        break;
-      case "/profit":
-        console.log(sales)
-        document.getElementById('headerRev').innerHTML = "$"+parseFloat(sales[0].revenue).toFixed(2);
-        document.getElementById('headerProfit').innerHTML = "$"+parseFloat(sales[0].revenue-sales[0].expenditures).toFixed(2);
-        document.getElementById('headerExp').innerHTML ="$"+parseFloat(sales[0].expenditures).toFixed(2);
+      case "/numbers":
+        expBrkChart = renderDoughnutChart(['publisher fees', 'other'], [sales[0].publisher_fees, sales[0].other], "expBreakdownChart", 'Debit per expenditure', expBrkChart)
+        document.getElementById('headerSales').innerHTML = sales[0].sold;
+        document.getElementById('headerRev').innerHTML = "$"+parseFloat(sales[0].sales).toFixed(2);
+        document.getElementById('headerProfit').innerHTML = "$"+parseFloat(sales[0].profit).toFixed(2);
+        document.getElementById('headerExp').innerHTML ="$"+(-parseFloat(sales[0].expenditures).toFixed(2));
         break;
 
     }
@@ -109,9 +160,14 @@ function requestSalesData(url,urlType){
 
 }
 
-let renderDoughnutChart = function(labels, data, id, title){
+let renderDoughnutChart = function(labels, data, id, title, chart){
   var ctx = document.getElementById(id).getContext('2d');
-  var myChart = new Chart(ctx, {
+  if(chart!=''){
+    console.log("destorying dougnut")
+    chart.destroy();
+  }
+
+  var chart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         labels: labels,
@@ -135,56 +191,69 @@ let renderDoughnutChart = function(labels, data, id, title){
           }
       }
   });
+  return chart;
 }
 
-let renderMultiChart = function(sales, id, title){
+let renderMultiChart = function(sales, id, title, chart){
+  data1 = sales.sales.map(function (obj) {
+    return obj["amount"];
+  });
 
-  let labels = sales.map(function (obj) {
-    return obj["order_date"];
+  let labels = sales.sales.map(function (obj) {
+    return obj["date"];
   });
-  let data1 = sales.map(function (obj) {
-    return obj["revenue"];
+
+  let data2 = sales.expenditures.map(function (obj) {
+    return obj["amount"];
   });
-  let data2 = sales.map(function (obj) {
-    return obj["expenditures"];
-  });
+  document.getElementById(id).innerHTML = '<canvas id="myCanvas"></canvas>';
   var ctx = document.getElementById(id).getContext('2d');
-  var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: labels,
-          datasets: [{
-              label: "Revenue per day",
-              data: data1,
-              backgroundColor: 'rgba(209, 49, 0, 0.5)',
-              borderColor: 'rgba(209, 49, 0, 1)',
-              borderWidth: 1
-          },
-          {
-              label: "Expenditures per day",
-              data: data2,
-              backgroundColor: 'rgba(255, 195, 11, 0.5)',
-              borderColor: 'rgba(255, 195, 11, 1)',
-              borderWidth: 1
-          }]
-      },
-      options: {
-        responsive: false,
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }]
-          }
-      }
-  });
+  if(chart!=''){
+    console.log("destorying multi")
+    chart.destroy();
+  }
+    chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "Revenue per day",
+                data: data1,
+                backgroundColor: 'rgba(209, 49, 0, 0.5)',
+                borderColor: 'rgba(209, 49, 0, 1)',
+                borderWidth: 1
+            },
+            {
+                label: "Expenditures per day",
+                data: data2,
+                backgroundColor: 'rgba(255, 195, 11, 0.5)',
+                borderColor: 'rgba(255, 195, 11, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+          responsive: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    return chart;
 
 }
 
-let renderBarChart = function(labels, data, id, title){
+let renderBarChart = function(labels, data, id, title, chart){
   var ctx = document.getElementById(id).getContext('2d');
-  var myChart = new Chart(ctx, {
+  console.log("chart is "+ chart)
+  if(chart!=''){
+    console.log("destorying bar")
+    chart.destroy();
+  }
+  chart = new Chart(ctx, {
       type: 'bar',
       data: {
           labels: labels,
@@ -208,11 +277,18 @@ let renderBarChart = function(labels, data, id, title){
       }
   });
 
+  return chart;
+
 }
 
-let renderLineChart = function(labels, data, id, title){
+let renderLineChart = function(labels, data, id, title, chart){
+
   var ctx = document.getElementById(id).getContext('2d');
-  var myChart = new Chart(ctx, {
+  if(chart!=''){
+    console.log("destorying line")
+    chart.destroy();
+  }
+  chart = new Chart(ctx, {
       type: 'line',
       data: {
           labels: labels,
@@ -235,9 +311,10 @@ let renderLineChart = function(labels, data, id, title){
           }
       }
   });
+  return chart;
 
 }
-function renderSalesChart(sales, labelsKey, dataKey, id, title, func){
+function renderSalesChart(sales, labelsKey, dataKey, id, title, func, chart){
 
   let labels = sales.map(function (obj) {
     return obj[labelsKey];
@@ -245,7 +322,7 @@ function renderSalesChart(sales, labelsKey, dataKey, id, title, func){
   let data = sales.map(function (obj) {
     return obj[dataKey];
   });
-  func(labels, data, id, title);
+  return func(labels, data, id, title, chart);
 
 
 }

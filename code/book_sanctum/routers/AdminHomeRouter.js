@@ -12,7 +12,7 @@ module.exports = function(app){
   router.get('/', get);
   function get(req, res, next) {
     //req.session.touch()
-    console.log(req.cookies);
+    
     res.sendFile(path.join(__dirname, '../source/pages/html/AdminHome.html'));
   }
 
