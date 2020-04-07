@@ -45,8 +45,8 @@ function init_home(){
   var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = date.getFullYear();
 
-  let start = '01/01/2020';
-  let end = `${mm}/${dd}/${yyyy}`;
+  let start = '2020-01-01';
+  let end = `${yyyy}-${mm}-${dd}`;
   let range = {"start": start, "end": end};
   requestSalesData("/allsales",'', range);
 }
@@ -59,8 +59,8 @@ function init_sales_dashboard(){
   var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = date.getFullYear();
 
-  let start = '01/01/2020';
-  let end = `${mm}/${dd}/${yyyy}`;
+  let start = '2020-01-01';
+  let end = `${yyyy}-${mm}-${dd}`;
   let range = {"start": start, "end": end};
   init_sales_data(range);
 }
@@ -143,7 +143,8 @@ function requestSalesData(url,urlType, range){
         }
         break;
       case "/numbers":
-        expBrkChart = renderDoughnutChart(['publisher fees', 'other'], [sales[0].publisher_fees, sales[0].other], "expBreakdownChart", 'Debit per expenditure', expBrkChart)
+        console.log(sales)
+        expBrkChart = renderDoughnutChart(['publisher fees', 'other', 'restock'], [sales[0].publisher_fees, sales[0].other, sales[0].restock], "expBreakdownChart", 'Debit per expenditure', expBrkChart)
         document.getElementById('headerSales').innerHTML = sales[0].sold;
         document.getElementById('headerRev').innerHTML = "$"+parseFloat(sales[0].sales).toFixed(2);
         document.getElementById('headerProfit').innerHTML = "$"+parseFloat(sales[0].profit).toFixed(2);
@@ -161,6 +162,7 @@ function requestSalesData(url,urlType, range){
 }
 
 let renderDoughnutChart = function(labels, data, id, title, chart){
+
   var ctx = document.getElementById(id).getContext('2d');
   if(chart!=''){
     console.log("destorying dougnut")

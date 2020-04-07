@@ -58,6 +58,7 @@ module.exports = function(app){
     searchQueryInstance.getAllType(req.params.type,res);
   }
   function getPublisher(req,res,next){
+    console.log("got name " + req.params.name)
     searchQueryInstance.getPublisher(req.params.name,res);
   }
 

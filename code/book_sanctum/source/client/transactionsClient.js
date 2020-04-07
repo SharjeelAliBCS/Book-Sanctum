@@ -6,8 +6,8 @@ function init_transactions(){
   var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
   var yyyy = date.getFullYear();
 
-  let start = '01/01/2020';
-  let end = `${mm}/${dd}/${yyyy}`;
+  let start = '2020-01-01';
+  let end = `${yyyy}-${mm}-${dd}`;
   let range = {"start": start, "end": end};
 
   init_transactions_data(range);
@@ -29,7 +29,7 @@ function requestTransactions(range){
   request.done(function (result) {
     let data = JSON.parse(result);
     populateTransactions(data);
-  
+
   })
 
   request.fail(function () {
@@ -50,6 +50,7 @@ function compare(a,b) {
 }
 
 function populateTransactions(data){
+  console.log(data)
   let div = document.getElementById('transactions');
   while (div.firstChild) {
     div.removeChild(div.firstChild);

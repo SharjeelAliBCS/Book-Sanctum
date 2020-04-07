@@ -199,3 +199,9 @@ left outer join admin on admin.email = admin_decides.email;
 ------------------------------------------------
 get random number
 select round( ((random() * 30 + 5)/100)::numeric, 2)
+------------------------------------------------
+get quantity of book from last 30 days
+select sum(quantity)
+from orders
+inner join order_book on orders.order_number = order_book.order_number
+where order_date > current_timestamp - interval '30 day' and isbn = '9780060929879';

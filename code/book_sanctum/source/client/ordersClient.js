@@ -66,7 +66,7 @@ function populateOrders(data){
 
         + '<div class="info">'
           + '<p class="info-title" onclick=' +onclk+ '>' + book.title + '</p>'
-          + '<p class="info-small info-author">' + book.name +'</p>'
+          + '<p class="info-small info-author">' + book.author +'</p>'
           + '<p>' + bookPrice +'</p>'
           + '<p class="info-small"> Qty: ' + book.quantity +'</p>'
         + '</div>'
@@ -112,7 +112,7 @@ function populateOrders(data){
 
           + '<div class="order-header-text">'
             +'<p>Status</p>'
-            +'<p>'+order[0].name+'</p>'
+            +'<p>'+order[0].status+'</p>'
           + '</div>'
 
         + '</div>'

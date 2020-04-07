@@ -86,7 +86,7 @@ async function addBookDB(data){
     }
     //console.log(row.published_date)
 
-    row.isbn13, row.title, row.description, row.author_id, row.genre_id, row.publisher_id, row.price, row.page_count,row.year
+    row.isbn13, row.title, row.description, row.author_id, row.genre_id, row.publisher_id, row.price, row.pages,row.year
     //console.log(row)
 
     a = await bookQueryInstance.addBook(row).then(function(result){
@@ -133,7 +133,6 @@ async function addPublisherDB(data){
     });
 
   }
-
 }
 
 function getBookURL(isbn){

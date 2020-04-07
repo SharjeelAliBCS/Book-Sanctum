@@ -11,10 +11,10 @@ User browsing:
 5. (Done) When checking out, the user inserts billing and shipping information (can be dierent than those used in registration), and completes the order. 
 
 User ordering:
-5. The bookstore has the feature of tracking an order via an order number. 
-6. A user can use this order number to track where the order is currently. 
-7. Although shipping is carried out by a third-party shipping service, the online bookstore should have the tracking information available for when the user inquires about an order using the order number. 
-8. Assume all books are shipped from only one warehouse (no multiple order numbers for multiple books shipped from multiple warehouses). 
+5. (Done) The bookstore has the feature of tracking an order via an order number. 
+6. (Done) A user can use this order number to track where the order is currently. 
+7. (Done) Although shipping is carried out by a third-party shipping service, the online bookstore should have the tracking information available for when the user inquires about an order using the order number. 
+8. (Done) Assume all books are shipped from only one warehouse (no multiple order numbers for multiple books shipped from multiple warehouses). 
 
 Owner: 
 9. The bookstore owners can add new books to their collections, or remove books from their store. 
@@ -22,7 +22,8 @@ Owner:
 11. (Done) The banking account for publishers is used to transfer a percentage of the sales of books published by these publishers. 
 12. (Done) This percentage is variable and changes from one book to another. 
 13. (Done) The owners should have access to reports that show sales vs. expenditures, sales per genres, sales per author, etc.. 
-14. The application should also be able to automatically place orders for new books if the remaining quantity is less than a given threshold (e.g., 10 books). This is done by sending an email to the publisher of the limited books to order a number of books equal to how many books were sold in the previous month (you do not have to implement the email sending component).
+14. The application should also be able to automatically place orders for new books if the remaining quantity is less than a given threshold (e.g., 10 books). This is done by sending an email to the publisher of the limited books to order a number of books equal to how many books were sold in the previous month 
+
 
 PAGES TO DO:
 1.  (Done) Main Home Page
@@ -46,34 +47,12 @@ PAGES TO DO:
  
 Goals:
 1.  (Done) Request Book
-2.  Add publisher
-3.  Add book
-4.  Remove book
-5.  Automatic book restocking
+2.  (Done) Add publisher
+3.  (Done) Add book
+4.  (Done) Remove book
+5.  (Done) Automatic book restocking
 5.  (Done) User account creation
 6.  (Done) order tracking
 7.  (Done) order uses address and billing
 9.  (Done) Fix entire postgres schema
 10. (Done) Use date values for all dates instead of varchar
-
-DDL that are fixed:
-1. admin
-2. request_book
-3. admin_decides
-4. address_second
-5. address_main
-6. warehouse
-7. status
-8. client
-9. genre
-10. author
-11. publisher
-12. book
-13. warehouse_books
-14. orders
-15. order_book
-16. restock
-17. transaction
-18. cart
-19. view_history
-

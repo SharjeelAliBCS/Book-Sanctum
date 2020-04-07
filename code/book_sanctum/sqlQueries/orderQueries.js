@@ -12,7 +12,7 @@ const pool = new Pool({
 function orderQueries(){
 
   this.getOrders = function(username, res){
-    pool.query("select orders.order_date, book.isbn, book.title, author.name,status.name, "+
+    pool.query("select orders.order_date, book.isbn, book.title, author.name as author,status.name as status, "+
                "book.price, order_book.quantity, order_book.order_number, "+
                "orders.card_number, address.code, address.street, address.unit, address.region,address.city "+
               "from order_book "+

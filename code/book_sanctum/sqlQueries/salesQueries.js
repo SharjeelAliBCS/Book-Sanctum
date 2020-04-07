@@ -89,7 +89,7 @@ function reportQueries(){
   this.allExpenditures = function(size, res){
 
     return new Promise (function(resolve, reject){
-      pool.query("select order_date, publisher.name as name, round(-price*quantity*0.2::numeric,2) as transaction from orders "+
+      pool.query("select order_date, publisher.name as name, round(-price*quantity*sale_percent::numeric,2) as transaction from orders "+
                  "inner join order_book on orders.order_number = order_book.order_number "+
                  "inner join book on book.isbn = order_book.isbn "+
                  "inner join publisher on book.publisher_id = publisher.id "+
@@ -150,7 +150,7 @@ function reportQueries(){
 
   this.getAllSales = function(res){
 
-    pool.query("select order_date, sum(price*quantity) as revenue, sum(price*quantity*-0.2) as expenditures from orders "+
+    pool.query("select order_date, sum(price*quantity) as revenue, sum(price*quantity*-*sale_percent) as expenditures from orders "+
               "inner join order_book on orders.order_number = order_book.order_number "+
               "inner join book on book.isbn = order_book.isbn "+
               "group by order_date order by order_date;",
@@ -170,7 +170,8 @@ function reportQueries(){
               "sum(case when amount > 0 then amount else 0 end) as sales, "+
               "sum(case when amount < 0 then amount else 0 end) as expenditures, "+
               "sum(case when type ='publisher fees' then -amount else 0 end) as publisher_fees, "+
-              "sum(case when type = 'other' then -amount else 0 end) as other "+
+              "sum(case when type = 'other' then -amount else 0 end) as other, "+
+              "sum(case when type = 'restock' then -amount else 0 end) as restock "+
               "from transactions "+
               "where date >=$1 and date<=$2;",
                [start, end], (err, result) => {

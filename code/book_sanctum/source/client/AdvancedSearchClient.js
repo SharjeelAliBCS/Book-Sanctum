@@ -44,6 +44,9 @@ function search(){
   if(genre=='All Genres'){
     genre=''
   }
+  if(year==''){
+    year = '0';
+  }
   window.location.href = "search?title="+title+"&genre="+genre+"&publisher="+publisher+"&year="+year+"&author="+author+"&isbn="+isbn;
 }
 

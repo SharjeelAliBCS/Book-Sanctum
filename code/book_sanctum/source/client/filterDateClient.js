@@ -49,8 +49,8 @@ function filterDate(){
   eMonth = eMonth.toString().padStart(2, '0');
   eDay = eDay.toString().padStart(2, '0');
 
-  start = `${sMonth}/${sDay}/${sYear}`;
-  end = `${eMonth}/${eDay}/${eYear}`;
+  start = `${sYear}-${sMonth}-${sDay}`;
+  end = `${eYear}-${eMonth}-${eDay}`;
   let range = {"start": start, "end": end};
   //console.log(page);
   //console.log(range);

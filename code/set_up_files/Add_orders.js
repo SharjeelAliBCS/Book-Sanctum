@@ -15,7 +15,7 @@ const pool = new Pool({
 
 function insertOrder(date){
   return new Promise (function(resolve, reject){
-    pool.query("insert into orders values (default, 'test', $1) returning order_number;",
+    pool.query("insert into orders values (default, 'test', $1,1111111111111111, 1027,1) returning order_number;",
                [date], (err, result) => {
       if (err) {
         return console.error('Error executing query', err.stack)
@@ -23,13 +23,12 @@ function insertOrder(date){
       resolve(result.rows);
     })
   });
-
 }
 
 function insert_order_book(order_number){
   return new Promise (function(resolve, reject){
-    pool.query("insert into order_book(isbn, order_number, quantity) "+
-               "select isbn, $1, floor(random() * 5 + 1)::int "+
+    pool.query("insert into order_book(isbn, order_number, warehouse_id, quantity) "+
+               "select isbn, $1, 1, floor(random() * 5 + 1)::int "+
                "from book "+
                 "offset floor(random()*2699) limit 1;",
                [order_number], (err, result) => {
@@ -47,13 +46,12 @@ function add(){
   for (var d = new Date(2020, 0, 1); d <= now; d.setDate(d.getDate() + 1)) {
     daysOfYear.push(new Date(d));
   }
-  for(i in daysOfYear){
+  for(i = 0; i<daysOfYear.length; i++){
     date = daysOfYear[i]
     var dd = String(date.getDate()).padStart(2, '0');
     var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = date.getFullYear();
-
-    date = mm + '/' + dd + '/' + yyyy;
+    date = yyyy+'-'+mm+'-'+dd;
     console.log(date);
 
     data = insertOrder(date).then(function(result){
