@@ -4,8 +4,24 @@ function init(){
   requestData('/search/genre','');
   requestData('/search/publisher','');
   requestData('/search/author','');
+  if(localStorage.getItem('requestData')!=null){
+    setDefaultInput(JSON.parse(localStorage.getItem('requestData')));
+  }
 }
 
+
+function setDefaultInput(requestData){
+  if(requestData.title!=''){
+    document.getElementById("title").value =  requestData.title;
+    $('#title').attr('readonly', true);
+  }
+  if(requestData.isbn!=''){
+    document.getElementById("isbn").value =  requestData.isbn;
+    $('#isbn').attr('readonly', true);
+  }
+  console.log(requestData)
+
+}
 function requestData(url, param){
   var request = $.ajax({
     url: url+"/"+param,

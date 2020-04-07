@@ -20,7 +20,7 @@ Owner:
 9. The bookstore owners can add new books to their collections, or remove books from their store. 
 10. (Done) They also need to store information on the publishers of books such as name, address, email address, phone number(s), banking account. 
 11. (Done) The banking account for publishers is used to transfer a percentage of the sales of books published by these publishers. 
-12. This percentage is variable and changes from one book to another. 
+12. (Done) This percentage is variable and changes from one book to another. 
 13. (Done) The owners should have access to reports that show sales vs. expenditures, sales per genres, sales per author, etc.. 
 14. The application should also be able to automatically place orders for new books if the remaining quantity is less than a given threshold (e.g., 10 books). This is done by sending an email to the publisher of the limited books to order a number of books equal to how many books were sold in the previous month (you do not have to implement the email sending component).
 
@@ -41,23 +41,39 @@ PAGES TO DO:
 14. (Done) Owner transaction page
 15. (Done) Add book/remove book page
 16. (Done) Publisher page
-17. Owner request book  
-18. Client request book
+17. (Done) Owner request book  
+18. (Done) Client request book
  
-Bonus:
--Request a book
- - If user can't find book, request it. 
- - Book info is sent as messege to owner in messeges table. 
- - owner can choose to order book for store or not in form
+Goals:
+1.  (Done) Request Book
+2.  Add publisher
+3.  Add book
+4.  Remove book
+5.  Automatic book restocking
+5.  (Done) User account creation
+6.  (Done) order tracking
+7.  (Done) order uses address and billing
+9.  (Done) Fix entire postgres schema
+10. (Done) Use date values for all dates instead of varchar
 
--Bestsellers
--Newly Released
--Recently viewed
- 
-- Sales?
- - Owner can choose to put publisher books on sale
+DDL that are fixed:
+1. admin
+2. request_book
+3. admin_decides
+4. address_second
+5. address_main
+6. warehouse
+7. status
+8. client
+9. genre
+10. author
+11. publisher
+12. book
+13. warehouse_books
+14. orders
+15. order_book
+16. restock
+17. transaction
+18. cart
+19. view_history
 
-- Reviews
- - https://s3.amazonaws.com/amazon-reviews-pds/readme.html
-
--Download reports

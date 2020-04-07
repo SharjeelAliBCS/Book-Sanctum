@@ -43,7 +43,8 @@ function populateLoggedInBar(flag){
 
     divCard.innerHTML = '<li><a href="nav/logout">Log out</a></li>'+
                         '<li><a href="client_account">Account</a></li>'+
-                        '<li><a href="client_orders">Orders</a></li>';
+                        '<li><a href="client_orders">Orders</a></li>'+
+                        '<li><a href="request">Book Requests</a></li>';
   }//
   else{
     divCard.innerHTML = '<li><a href="/form?page=login">Log in</a></li>';

@@ -30,13 +30,10 @@ module.exports = function(app){
   }
 
   function checkout(req, res, next) {
-    var date = new Date();
-    var dd = String(date.getDate()).padStart(2, '0');
-    var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = date.getFullYear();
 
-    date = mm + '/' + dd + '/' + yyyy;
-    cartTabQueryInstance.checkoutOrder(serverData.users[req.sessionID].user,date, res);
+    data = JSON.parse(Object.keys(req.query)[0]);
+    console.log(data);
+    cartTabQueryInstance.checkoutOrder(serverData.users[req.sessionID].user,data.card_number, data.address_id, res);
 
   }
 

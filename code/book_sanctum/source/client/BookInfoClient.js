@@ -79,7 +79,7 @@ function populateBookInfo(book){
           + '<div class="info-col text-col">'
             + '<b style="display:inline" class="title">' + book.title + '</b>'
             + '<p class="author">' + book.author +'</p>'
-            + '<p class="published">' + book.published_date +'</p>'
+            + '<p class="published">' + book.published_year +'</p>'
             + '<p style="display:inline" class="description">' + book.description + '</font></p>'
           + '</div>'
 
@@ -90,6 +90,7 @@ function populateBookInfo(book){
           + '<p class="extra-text"> <strong>Publisher:</strong> ' +book.publisher +'</p>'
           + '<p class="extra-text"> <strong>Genres:</strong> ' +book.genre +'</p>'
           + '<p class="extra-text"> <strong>Pages:</strong> ' +book.page_count +'</p>'
+          + '<p class="extra-text"> <strong>Date added:</strong> ' +book.add_date.split('T')[0] +'</p>'
 
         + '</div>'
       + '</div>'

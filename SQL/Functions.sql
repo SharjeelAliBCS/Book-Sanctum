@@ -16,8 +16,8 @@ create function insert_order_book()
    returns trigger as
 $BODY$
 begin
-   insert into order_book(isbn, order_number, quantity)
-   select isbn, new.order_number, quantity
+   insert into order_book(isbn, order_number, warehouse_id, quantity)
+   select isbn, new.order_number, 1 as warehouse_id quantity
    from cart
    where username = new.username;
 
@@ -50,13 +50,15 @@ create function insert_order_book()
    returns trigger as
 $BODY$
 begin
-   insert into order_book(isbn, order_number, quantity)
-   select isbn, new.order_number, quantity
+   insert into order_book(isbn, order_number, warehouse_id, quantity)
+   select isbn, new.order_number, 1, quantity
    from cart
    where username = new.username;
 
    delete from cart
    where username = new.username;
+   update 
+   
    return new;
 end;
 $BODY$ language plpgsql

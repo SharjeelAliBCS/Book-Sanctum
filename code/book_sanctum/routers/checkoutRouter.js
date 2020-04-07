@@ -14,9 +14,6 @@ module.exports = function(app){
 
   function get(req, res, next) {
 
-    /*res.status(200).render('CheckoutPage.pug', {
-      //data: JSON.stringify(result[0]),
-    });*/
     res.sendFile(path.join(__dirname, '../source/pages/html/checkout.html'));
   }
 

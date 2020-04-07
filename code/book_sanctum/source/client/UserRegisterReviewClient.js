@@ -2,14 +2,13 @@ function init(){
   account = JSON.parse(localStorage.getItem('registerData')).info;
   address = JSON.parse(localStorage.getItem('registerData')).address;
   payment = JSON.parse(localStorage.getItem('registerData')).payment;
-  localStorage.removeItem('registerData');
+
   console.log(payment);
   populateInfo(account);
   populateUserOrder(address, "Shipping");
   populateUserOrder(payment, "Payment");
 
 }
-
 
 function populateInfo(info){
   let div = document.getElementById('userInfo');
@@ -67,9 +66,25 @@ function populateUserOrder(data, type){
 
 }
 
-
 function register(){
 
+  console.log("yue boi")
+  var request = $.ajax({
+    url: "/form/signup",
+    data: localStorage.getItem('registerData'),
+    dataType: "json"
+  });
+
+  request.done(function (data) {
+  localStorage.removeItem('registerData');
+  window.location.href = 'client_home';
+
+  })
+
+  request.fail(function () {
+    console.log("ERROR COULD NOT GET DATA")
+
+  });
 }
 
 function createAddressDiv(address){
@@ -91,7 +106,6 @@ function createPaymentDiv(payment){
       + '<p class="address-text">' + payment.name+'</p>'
       + '<p class="address-text">' + cardNum+'</p>'
       + '<p class="address-text"> Expires: ' + payment.expDate+'</p>'
-      + '<p class="address-text">' + payment.code+'</p>'
     + '</div>'
 
 }

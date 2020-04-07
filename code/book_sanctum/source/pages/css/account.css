@@ -20,6 +20,7 @@
 .address-text{
   font-size: 15px;
   line-height:10px;
+  font-family: Verdana;
 }
 .text-section{
   font-family: Verdana;
@@ -54,6 +55,7 @@
   height: 50%;
   margin: 0 auto;
   font-weight: bold;
+  font-family: Verdana;
 }
 .add-new{
   cursor:pointer;

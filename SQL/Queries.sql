@@ -187,3 +187,15 @@ from transactions
 get total sales one after the other per day:
 select date, sum(amount) over (order by date) from 
 (select date, sum(amount) as amount from transactions group by date ) as daily;
+
+------------------------------------------------
+get list of requested books
+select  request_book.request_number, username, request_isbn as isbn, request_title as title, request_book.date as req_date,
+admin_decides.date as desc_date, last_name
+from request_book
+left outer join admin_decides on admin_decides.request_number = request_book.request_number
+left outer join admin on admin.email = admin_decides.email;
+
+------------------------------------------------
+get random number
+select round( ((random() * 30 + 5)/100)::numeric, 2)

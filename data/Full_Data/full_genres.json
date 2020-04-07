@@ -1,146 +1,307 @@
 [
   {
-    "genre_id": 0,
-    "genre_name": "Staff picks"
+    "id": 0,
+    "name": "young adult",
+    "type": "fiction"
   },
   {
-    "genre_id": 1,
-    "genre_name": "Fiction "
+    "id": 1,
+    "name": "classics",
+    "type": "fiction"
   },
   {
-    "genre_id": 2,
-    "genre_name": "Games &amp"
+    "id": 2,
+    "name": "fantasy",
+    "type": "fiction"
   },
   {
-    "genre_id": 3,
-    "genre_name": "Biography &amp"
+    "id": 3,
+    "name": "mystery",
+    "type": "fiction"
   },
   {
-    "genre_id": 4,
-    "genre_name": "Comics &amp"
+    "id": 4,
+    "name": "sci-fi",
+    "type": "fiction"
   },
   {
-    "genre_id": 5,
-    "genre_name": "Comics & Graphic Novels "
+    "id": 5,
+    "name": "thriller",
+    "type": "fiction"
   },
   {
-    "genre_id": 6,
-    "genre_name": "Juvenile Fiction "
+    "id": 6,
+    "name": "historical",
+    "type": "fiction"
   },
   {
-    "genre_id": 7,
-    "genre_name": "Business &amp"
+    "id": 7,
+    "name": "children",
+    "type": "fiction"
   },
   {
-    "genre_id": 8,
-    "genre_name": "Social Science "
+    "id": 8,
+    "name": "memoir",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 9,
-    "genre_name": "Literary Criticism "
+    "id": 9,
+    "name": "poetry",
+    "type": "fiction"
   },
   {
-    "genre_id": 10,
-    "genre_name": "Cooking "
+    "id": 10,
+    "name": "fiction",
+    "type": "fiction"
   },
   {
-    "genre_id": 11,
-    "genre_name": "Literary Collections "
+    "id": 11,
+    "name": "nonfiction",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 12,
-    "genre_name": "Self-Help "
+    "id": 12,
+    "name": "biography",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 13,
-    "genre_name": "Family &amp"
+    "id": 13,
+    "name": "science",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 14,
-    "genre_name": "Psychology "
+    "id": 14,
+    "name": "erotica",
+    "type": "fiction"
   },
   {
-    "genre_id": 15,
-    "genre_name": "Drama "
+    "id": 15,
+    "name": "humor",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 16,
-    "genre_name": "Humor "
+    "id": 16,
+    "name": "education",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 17,
-    "genre_name": "Sports &amp"
+    "id": 17,
+    "name": "plays",
+    "type": "fiction"
   },
   {
-    "genre_id": 18,
-    "genre_name": "History "
+    "id": 18,
+    "name": "horror",
+    "type": "fiction"
   },
   {
-    "genre_id": 19,
-    "genre_name": "Poetry "
+    "id": 19,
+    "name": "romance",
+    "type": "fiction"
   },
   {
-    "genre_id": 20,
-    "genre_name": "Philosophy "
+    "id": 20,
+    "name": "christian",
+    "type": "fiction"
   },
   {
-    "genre_id": 21,
-    "genre_name": "Business & Economics "
+    "id": 21,
+    "name": "graphic-novels",
+    "type": "fiction"
   },
   {
-    "genre_id": 22,
-    "genre_name": "True Crime "
+    "id": 22,
+    "name": "contemporary",
+    "type": "fiction"
   },
   {
-    "genre_id": 23,
-    "genre_name": "Health &amp"
+    "id": 23,
+    "name": "self-help",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 24,
-    "genre_name": "Technology &amp"
+    "id": 24,
+    "name": "travel",
+    "type": "fiction"
   },
   {
-    "genre_id": 25,
-    "genre_name": "Computers "
+    "id": 25,
+    "name": "business",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 26,
-    "genre_name": "Medical "
+    "id": 26,
+    "name": "history",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 27,
-    "genre_name": "Young Adult Fiction "
+    "id": 27,
+    "name": "international",
+    "type": "fiction"
   },
   {
-    "genre_id": 28,
-    "genre_name": "Nature "
+    "id": 28,
+    "name": "psychology",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 29,
-    "genre_name": "Art "
+    "id": 29,
+    "name": "food",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 30,
-    "genre_name": "Body"
+    "id": 30,
+    "name": "philosophy",
+    "type": "nonfiction"
   },
   {
-    "genre_id": 31,
-    "genre_name": "Political Science "
+    "id": 31,
+    "name": "picture-books",
+    "type": "fiction"
   },
   {
-    "genre_id": 32,
-    "genre_name": "Science "
+    "id": 32,
+    "name": "comics",
+    "type": "fiction"
   },
   {
-    "genre_id": 33,
-    "genre_name": "Juvenile Nonfiction "
+    "id": 33,
+    "name": "art",
+    "type": "fiction"
   },
   {
-    "genre_id": 34,
-    "genre_name": "Performing Arts "
+    "id": 34,
+    "name": "manga",
+    "type": "fiction"
   },
   {
-    "genre_id": 35,
-    "genre_name": "Music "
+    "id": 35,
+    "name": "dystopian",
+    "type": "fiction"
+  },
+  {
+    "id": 36,
+    "name": "running",
+    "type": "nonfiction"
+  },
+  {
+    "id": 37,
+    "name": "politics",
+    "type": "nonfiction"
+  },
+  {
+    "id": 38,
+    "name": "writing",
+    "type": "nonfiction"
+  },
+  {
+    "id": 39,
+    "name": "spirituality",
+    "type": "nonfiction"
+  },
+  {
+    "id": 40,
+    "name": "western",
+    "type": "fiction"
+  },
+  {
+    "id": 41,
+    "name": "drama",
+    "type": "fiction"
+  },
+  {
+    "id": 42,
+    "name": "cookbooks",
+    "type": "nonfiction"
+  },
+  {
+    "id": 43,
+    "name": "short-stories",
+    "type": "fiction"
+  },
+  {
+    "id": 44,
+    "name": "animals",
+    "type": "nonfiction"
+  },
+  {
+    "id": 45,
+    "name": "noir",
+    "type": "fiction"
+  },
+  {
+    "id": 46,
+    "name": "religion",
+    "type": "nonfiction"
+  },
+  {
+    "id": 47,
+    "name": "feminism",
+    "type": "nonfiction"
+  },
+  {
+    "id": 48,
+    "name": "sports",
+    "type": "nonfiction"
+  },
+  {
+    "id": 49,
+    "name": "economics",
+    "type": "nonfiction"
+  },
+  {
+    "id": 50,
+    "name": "military",
+    "type": "fiction"
+  },
+  {
+    "id": 51,
+    "name": "medicine",
+    "type": "nonfiction"
+  },
+  {
+    "id": 52,
+    "name": "parenting",
+    "type": "nonfiction"
+  },
+  {
+    "id": 53,
+    "name": "music",
+    "type": "nonfiction"
+  },
+  {
+    "id": 54,
+    "name": "fairy-tales",
+    "type": "fiction"
+  },
+  {
+    "id": 55,
+    "name": "finance",
+    "type": "nonfiction"
+  },
+  {
+    "id": 56,
+    "name": "leadership",
+    "type": "nonfiction"
+  },
+  {
+    "id": 57,
+    "name": "christmas",
+    "type": "fiction"
+  },
+  {
+    "id": 58,
+    "name": "lgbt",
+    "type": "fiction"
+  },
+  {
+    "id": 59,
+    "name": "steampunk",
+    "type": "fiction"
+  },
+  {
+    "id": 60,
+    "name": "design",
+    "type": "nonfiction"
   }
 ]

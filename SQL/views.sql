@@ -24,4 +24,6 @@ inner join publisher on book.publisher_id = publisher.id
 order by date desc
 );
 -------------------------------------------------------------------------------------
-view to get sales per day form transactions:
+create address view
+create view address as 
+select * from  address_main  natural join address_second;

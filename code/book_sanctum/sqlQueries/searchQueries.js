@@ -63,7 +63,7 @@ function searchQueries(){
 
     genre = `%${genre}%`;
     return new Promise (function(resolve, reject){
-      pool.query("select book.isbn,book.title,book.price,book.published_date, author.name as author, genre.name as genre_name from book "+
+      pool.query("select book.isbn,book.title,book.price,book.published_year, author.name as author, genre.name as genre_name from book "+
                 "inner join author on author.id = book.author_id "+
                 "inner join genre on genre.id = book.genre_id "+
                 "WHERE genre.name like $2 "+
@@ -83,12 +83,12 @@ function searchQueries(){
     year = `%${year}%`;
     isbn = `%${isbn}%`;
     return new Promise (function(resolve, reject){
-      pool.query("select book.isbn,book.title,book.price,book.published_date, author.name as author, genre.name as genre_name from book "+
+      pool.query("select book.isbn,book.title,book.price,book.published_year, author.name as author, genre.name as genre_name from book "+
                 "inner join author on author.id = book.author_id "+
                 "inner join genre on genre.id = book.genre_id "+
                 "inner join publisher on publisher.id = book.publisher_id "+
                 "where genre.name like $2 "+
-                "and book.published_date like $5"+
+                "and book.published_year like $5"+
                 "and book.isbn like $6"+
                 "and (length($1)= 0 or similarity(book.title,$1) > 0.15 ) "+
                 "and (length($3) = 0 or  similarity(author.name,$3) > 0.15 ) "+

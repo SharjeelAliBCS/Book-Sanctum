@@ -1,64 +1,63 @@
 create table address_second(
 	code			varchar(6),
-	region	        	varchar(10),
-	city			varchar(20),
+	city			varchar(20) not null,
 	primary key (code)
 );
 
 create table address_main(
 	id	    		serial,	
-	code			varchar(6),
-	street			varchar(30),
-	unit			numeric(4,0),
+	region	        	varchar(2)
+	check (region in ('AB', 'BC', 'MB', 'NB', 'NL','NT','NS','NU','ON','PE','QC','SK','YT') ),
+	code			varchar(6) not null,
+	street			varchar(30) not null,
+	unit			numeric(4,0) not null,
 	primary key (id),
 	foreign key (code) references address_second
 );
 
-create table payment_info(
+create table card_info(
 	card_number		numeric(16,0),
-	name			varchar(30),
-	expiry_date		varchar(5),
+	name			varchar(30) not null,
+	expiry_date		varchar(5) not null,
 	primary key (card_number)
 );
 
 create table author(
-	 id		        varchar(5), 
-	 name		        varchar(50),
+	 id		        serial, 
+	 name		        varchar(50) not null,
 	 primary key (id)
 );
 create table genre(
-	 id		        varchar(5), 
-	 name		        varchar(50),
+	 id		        serial, 
+	 name		        varchar(50) not null,
          type                   varchar(15),
 	 primary key (id)
 );
 create table publisher(
-	 id		        varchar(5), 
-	 name		        varchar(200),
-         phone                  varchar(10),
-         email                  varchar(230),
-	 address_id		serial,
-	 transit_number		numeric(5,0),
-	 account_number		numeric(9,0),
-	 institution_number	numeric(3,0),
+	 id		        serial, 
+	 name		        varchar(200)  not null,
+         phone                  varchar(12)  not null,
+         email                  varchar(230)  not null,
+	 address_id		serial  not null,
+	 routing_number		numeric(9,0)  not null,
+	 account_number		numeric(10,0)  not null,
 	 primary key (id),
 	 foreign key (address_id) references address_main(id)
 );
 
 create table book(
 	 isbn			varchar(13), 
-	 title			varchar(500),
-         description            varchar(8000), 
-	 author_id		varchar(5), 
-	 genre_id               varchar(5),
-         publisher_id           varchar(5),
-         price                  numeric(5,2),
-         page_count             numeric(4,0),
-         rating                 numeric(2,1),
-         rating_count           numeric(5,0),
-         published_date         varchar(15),
-         date			varchar(10),
-	 removed		boolean,
+	 title			varchar(500) not null,
+         description            varchar(8000) not null, 
+	 author_id		serial not null, 
+	 genre_id               serial  not null,
+         publisher_id           serial   not null,
+         price                  numeric(5,2)  not null,
+         page_count             numeric(4,0)  not null,
+         published_year		numeric(4,0)  not null,
+         add_date		date not null default current_date,
+	 removed		boolean  not null,
+	 sale_percent		numeric(5,2)  not null,
 	 primary key (isbn),
 	 foreign key (author_id) references author(id),
 	 foreign key (genre_id) references genre(id),
@@ -67,15 +66,15 @@ create table book(
 
 create table warehouse(
 	id			serial,
-	address_id		serial,
+	address_id		serial  not null,
 	primary key (id),
 	foreign key (address_id) references address_main(id)
 );
 
 create table warehouse_books(
 	warehouse_id		serial,
-	isbn			varchar(13),
-	stock                   numeric(4,0),
+	isbn			varchar(13)  not null,
+	stock                   numeric(4,0)  not null,
 	primary key (warehouse_id, isbn),
 	foreign key (isbn) references book,
 	foreign key (warehouse_id) references warehouse (id)
@@ -83,17 +82,17 @@ create table warehouse_books(
 
 create table client(
 	username		varchar(20),
-	email			varchar(40),
+	email			varchar(40)  not null,
 	first_name		varchar(10),
 	last_name		varchar(10),
-	password		varchar(15),
+	password		varchar(15)  not null,
 	primary key (username)
 );
 
 create table cart(
 	username		varchar(20),
 	isbn			varchar(13),
-	quantity		numeric(3,0),
+	quantity		numeric(3,0)  not null,
 	primary key (username, isbn),
 	foreign key (username) references client,
 	foreign key (isbn) references book
@@ -102,31 +101,38 @@ create table cart(
 create table view_history(
 	username		varchar(20),
 	isbn			varchar(13),
-	rank                    numeric(1,0),
+	rank                    numeric(1,0)  not null,
 	primary key (username, isbn),
 	foreign key (username) references client,
 	foreign key (isbn) references book
 );
 
 create table status(
-	status_id		varchar(5),
-	name			varchar(30),
-	description		varchar(500),
+	status_id		serial,
+	name			varchar(30)  not null,
+	description		varchar(500)  not null,
 	primary key (status_id)
 );
 
 create table orders(
 	order_number	    	serial,	
-	username	        varchar(20),
-	date			varchar(10),
+	username	        varchar(20)   not null,
+	order_date		date not null default current_date,
+	card_number		numeric(16,0) not null,
+	address_id		serial not null,
+	status			serial   not null,
+	foreign key (status) references status,
+	foreign key (username) references client,
+	foreign key (card_number) references card_info,
+	foreign key (address_id) references address_main(id),
 	primary key (order_number)
 );
 
 create table order_book(
 	isbn			varchar(13),
 	order_number	    	serial,
-	warehouse_id		serial,
-	quantity		numeric(3,0),
+	warehouse_id		serial not null,
+	quantity		numeric(3,0)  not null,
 	primary key (order_number,isbn),
 	foreign key (order_number) references orders,
 	foreign key (warehouse_id,isbn) references warehouse_books
@@ -134,7 +140,7 @@ create table order_book(
 
 create table client_address(
 	username	        varchar(20),
-	address_id		serial,
+	address_id		serial not null,
 	primary key (username, address_id),
 	foreign key (username) references client,
 	foreign key (address_id) references address_main(id)
@@ -143,18 +149,18 @@ create table client_address(
 
 create table client_billing(
 	card_number		numeric(16,0),
-	name			varchar(30),
+	username                varchar(20),
 	primary key (username, card_number),
 	foreign key (username) references client,
-	foreign key (card_number) references payment_info
+	foreign key (card_number) references card_info
 );
 
 create table restock(
 	restock_number		serial,
 	warehouse_id		serial,
 	isbn			varchar(13),
-	quantity		numeric(3,0),
-	date			varchar(10),
+	quantity		numeric(3,0)  not null,
+	date			date not null default current_date,
 	primary key (restock_number),
 	foriegn key (warehouse_id, isbn) references warehouse_books
 );
@@ -171,34 +177,26 @@ create table transaction(
 	transaction_id		serial,
 	name			varchar(30) not null,
 	amount			numeric(6,2)not null,
-	date			varchar(10) not null,
+	date			date not null default current_date,
 	primary key (transaction_id)
-);
-
-create table sales_report(
-	report_number		serial,
-	email			varchar(40),
-	start_date		varchar(10),
-	end_date		varchar(10),
-	file			VAR	
-	primary key (report_number),
-	foreign key (email) references admin
 );
 
 create table request_book(
 	request_number		serial,
-	username		varchar(20),
-	request_isbn		varchar(13), 
+	username		varchar(20) not null,
+	request_isbn		varchar(13),
 	request_title		varchar(500),
-	date			varchar(10),		
+	date			date not null default current_date,
 	primary key (request_number),
-	foreign key (username) references client
+	foreign key (username) references client on delete cascade
 );
-
 create table admin_decides(
 	request_number		serial,
 	email			varchar(40),
+	decision		bool not null,
+	date			date not null default current_date,
 	primary key (request_number, email),
-	foreign key (email) references admin
+	foreign key (request_number) references request_book on delete cascade,
+	foreign key (email) references admin on delete cascade
 );
 	

@@ -53,10 +53,17 @@ module.exports = function(app){
 
   function signup(req, res, next){
     data = JSON.parse(Object.keys(req.query)[0]);
-    serverData.users[req.sessionID] = accountQueryInstance.signup(data["user"], data["pwd"], data["email"], data["fname"], data["lname"], res).then(function(result){
-      serverData.users[req.sessionID] = result;
-      //console.log("signed up username: "+ serverData.users);
-      res.json(serverData.users[req.sessionID].user);
+    info = data.info;
+    address = data.address;
+    pay = data.payment;
+    console.log(data)
+    serverData.users[req.sessionID] = accountQueryInstance.signup(info["user"], info["pwd"], info["email"], info["fname"], info["lname"], res).then(function(result){
+        serverData.users[req.sessionID] = {"user": result, "client": true};
+
+      accountQueryInstance.addPayment(info["user"],pay["card"],pay["name"],pay["expDate"], res,false)
+      console.log("signed up username: "+ serverData.users);
+      accountQueryInstance.addAddress(info["user"],address["state"],address["city"],address["code"],address["street"],address["apt"], res)
+      //res.json(serverData.users[req.sessionID].user);
     });
   }
   function login(req, res, next){
@@ -68,6 +75,7 @@ module.exports = function(app){
 
         serverData.users[req.sessionID] = {"user": result, "client": true};
         console.log("saved admin "+ JSON.stringify(serverData.users[req.sessionID]));
+
         res.json(serverData.users[req.sessionID].user);
       });
     }
@@ -83,12 +91,12 @@ module.exports = function(app){
 
   function addAddress(req, res, next) {
     data = JSON.parse(Object.keys(req.query)[0]);
-    accountQueryInstance.addAddress(serverData.users[req.sessionID].user,data["country"],data["state"],data["city"],data["code"],data["street"],data["apt"], res);
+    accountQueryInstance.addAddress(serverData.users[req.sessionID].user,data["state"],data["city"],data["code"],data["street"],data["apt"], res);
   }
 
   function addPayment(req, res, next) {
     data = JSON.parse(Object.keys(req.query)[0]);
-    accountQueryInstance.addPayment(serverData.users[req.sessionID].user,data["card"],data["name"],data["expDate"],data["code"], res);
+    accountQueryInstance.addPayment(serverData.users[req.sessionID].user,data["card"],data["name"],data["expDate"], res, true);
   }
 
   return router;
