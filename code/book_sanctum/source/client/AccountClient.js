@@ -85,30 +85,25 @@ function removeInfo(type, pKey){
 
 }
 function createAddressDiv(address){
-  onclk = '"removeInfo(\'Address\',\''+address.id+'\')" ';
 
   return ""
     + '<div class="item">'
-      + '<p class="address-text"> #' + address.apt_number+'</p>'
+      + '<p class="address-text"> #' + address.unit+'</p>'
       + '<p class="address-text">' + address.street+'</p>'
       + '<p class="address-text">' + address.city + ' ' + address.code+'</p>'
-      + '<p class="address-text">' + address.state + ' ' + address.country+'</p>'
-      + '<p class="remove" onclick= '+onclk+'>delete</p>'
+      + '<p class="address-text">' + address.region + ' ' + 'Canada'+'</p>'
     + '</div>'
 }
 
 function createPaymentDiv(payment){
   cardNum = payment.card_number.toString();
   cardNum = "************"+cardNum.substring(12);
-  onclk = '"removeInfo(\'Payment\',\''+payment.card_number+'\')" ';
 
   return ""
     + '<div class="item">'
       + '<p class="address-text">' + payment.name+'</p>'
       + '<p class="address-text">' + cardNum+'</p>'
       + '<p class="address-text"> Expires: ' + payment.expiry_date+'</p>'
-      + '<p class="address-text">' + payment.security_code+'</p>'
-      + '<p class="remove" onclick= '+onclk+'>delete</p>'
     + '</div>'
 
 }

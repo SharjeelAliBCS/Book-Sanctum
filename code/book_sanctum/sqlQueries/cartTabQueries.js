@@ -11,15 +11,14 @@ const pool = new Pool({
 
 function cartTabQueries(){
 
-  this.checkoutOrder = function(username, date, res){
-    console.log("date is "+ date + " user is " + username);
+  this.checkoutOrder = function(username, card_number,address_id, res){
+    console.log("date is " + " user is " + username);
 
-    pool.query("insert into orders values(default, $1, $2)",
-               [username, date], (err, result) => {
+    pool.query("insert into orders values(default, $1, default, $2, $3, 1)",
+               [username, card_number, address_id], (err, result) => {
       if (err) {
         return console.error('Error executing query', err.stack)
       }
-      //console.log(result.rows) // brianc
       res.json(JSON.stringify(result.rows));
     })
   }

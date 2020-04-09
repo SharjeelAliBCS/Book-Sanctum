@@ -2,8 +2,12 @@ regex example. Insenstive case search for "water", "george r r martin"
 select book.isbn,book.title,book.price,book.published_date, author.name as author, genre.name as genre_name from book
 inner join author on author.id = book.author_id 
 inner join genre on genre.id = book.genre_id 
-WHERE genre.name like '%classics%'
-and ('dragon' is null or (similarity(book.title,'') > 0.15 or similarity(author.name,'dragon') > 0.3) );
+inner join publisher on publisher.id = book.publisher_id 
+where genre.name like '%fantasy%'
+and book.published_date like '%2005%'
+and (length('')= 0 or similarity(book.title,'') > 0.15 )
+and (length('robert') = 0 or  similarity(author.name,'chris') > 0.15 )
+and (length('') = 0 or  similarity(publisher.name,'') > 0.15 );
 --------------------------------------------------
 get 3 most newest books:
 select * from book
@@ -99,6 +103,10 @@ inner join author on book.author_id = author.id
 order by sales desc
 limit 10;
 
+select book.isbn, book.title, book.price,author.name
+from book left join author on author.id = book.author_id
+order by book.add_date DESC
+limit $1;
 ------------------------------------------------
 Get most recently viewed books (For home page):
 select book.isbn, book.title, book.price, author.name from
@@ -158,3 +166,45 @@ inner join order_book on orders.order_number = order_book.order_number
 inner join book on book.isbn = order_book.isbn
 order by order_date;
 
+------------------------------------------------
+get all daily sales:
+select distinct(transactions.date), daily.sum from transactions
+left outer join 
+(select date, sum(amount) from transactions 
+where type = 'book sale' 
+group by date) as daily
+on daily.date = transactions.date 
+order by date desc
+;
+------------------------------------------------
+get all 6 types of sale information
+select
+	count(case when type='book sale' then 1 else 0 end) as sold,
+    sum(amount) as profit,
+    sum(case when amount > 0 then amount else 0 end) as sales,
+    sum(case when amount < 0 then -amount else 0 end) as expenditures
+    sum(case when type ='publisher fees' then -amount else 0 end) as publisher_fees,
+    sum(case when type = 'other' then -amount else 0 end) as other
+from transactions
+------------------------------------------------
+get total sales one after the other per day:
+select date, sum(amount) over (order by date) from 
+(select date, sum(amount) as amount from transactions group by date ) as daily;
+
+------------------------------------------------
+get list of requested books
+select  request_book.request_number, username, request_isbn as isbn, request_title as title, request_book.date as req_date,
+admin_decides.date as desc_date, last_name
+from request_book
+left outer join admin_decides on admin_decides.request_number = request_book.request_number
+left outer join admin on admin.email = admin_decides.email;
+
+------------------------------------------------
+get random number
+select round( ((random() * 30 + 5)/100)::numeric, 2)
+------------------------------------------------
+get quantity of book from last 30 days
+select sum(quantity)
+from orders
+inner join order_book on orders.order_number = order_book.order_number
+where order_date > current_timestamp - interval '30 day' and isbn = '9780060929879';

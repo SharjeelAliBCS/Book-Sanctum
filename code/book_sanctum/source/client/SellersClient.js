@@ -1,12 +1,12 @@
 
 function init(){
-  requestData('/search/' ,'publisher');
+  requestData('/search/' ,'publisher','');
 }
 
-function requestData(url, param){
+function requestData(url, param, data){
   var request = $.ajax({
     url: url+"/"+param,
-    data: "query",
+    data: data,
     dataType: "json"
   });
 
@@ -19,6 +19,9 @@ function requestData(url, param){
       case '/search/publisher':
         populatePublisherInfo(data);
         break;
+     case '/sellers':
+      outputPublisher(data);
+
     }
   })
 
@@ -59,7 +62,7 @@ function populateScroll(data){
 
 }
 function outputPublisher(name){
-  requestData('/search/publisher',name)
+  requestData('/search/publisher',name,'')
 }
 function populatePublisherInfo(data){
   console.log(data);
@@ -75,17 +78,16 @@ function populatePublisherInfo(data){
   + '<b style="display:inline" class="title">Name</b><br>'
   + '<p class="pub-info-text">' + data.name +'</p>'
   + '<b style="display:inline" class="title">Phone</b><br>'
-  + '<p class="pub-info-text">' + '613-232-8302' +'</p>'
+  + '<p class="pub-info-text">' + data.phone +'</p>'
   + '<b style="display:inline" class="title">Email</b><br>'
   + '<p class="pub-info-text">' + data.email +'</p>'
   + '<b style="display:inline" class="title">Direct Deposit</b><br>'
-  + '<p class="pub-info-text"> <strong>Transit #:</strong> ' +'12345' +'</p>'
-  + '<p class="pub-info-text"> <strong>Instituition #:</strong> ' +'004' +'</p>'
-  + '<p class="pub-info-text"> <strong>Account #:</strong> ' +'193748392' +'</p>'
+  + '<p class="pub-info-text"> <strong>Routing #:</strong> ' +data.routing_number +'</p>'
+  + '<p class="pub-info-text"> <strong>Account #:</strong> ' +data.account_number +'</p>'
   + '<b style="display:inline" class="title">Address</b><br>'
-  + '<p style="display:inline" class="pub-info-text">'+'#4'+' '+'123 Kernaolo Drive South'+'</p><br>'
-  + '<p style="display:inline" class="pub-info-text">'+'R3D-JK4 Toronto'+'</p><br>'
-  + '<p style="display:inline" class="pub-info-text">'+'ON Canada'+'</p><br>'
+  + '<p style="display:inline" class="pub-info-text">'+data.unit+' '+data.street+'</p><br>'
+  + '<p style="display:inline" class="pub-info-text">'+data.code + ' '+ data.city+'</p><br>'
+  + '<p style="display:inline" class="pub-info-text">'+data.region+' Canada</p><br>'
 
   console.log(divCard);
   document.getElementById('pubInfo').appendChild(divCard);
@@ -98,17 +100,16 @@ function addPublisher(){
   var name = document.getElementById("name").value;
   var phone = document.getElementById("phone").value;
   var email = document.getElementById("email").value;
-  var transit = document.getElementById("transit").value;
-  var instituition = document.getElementById("instituition").value;
+  var routing = document.getElementById("routing").value;
   var account = document.getElementById("account").value;
   var unit = document.getElementById("unit").value;
   var street = document.getElementById("street").value;
   var code = document.getElementById("code").value;
   var city = document.getElementById("city").value;
-  var country = document.getElementById("country").value;
+  var region = document.getElementById("region").value;
 
-  if(name==''|| phone=='' ||  email=='' ||  transit=='' ||  instituition=='' || account==''
-    || unit=='' || street=='' || code=='' || city=='' || country==''){
+  if(name==''|| phone=='' ||  email=='' ||  routing==''|| account==''
+    || unit=='' || street=='' || code=='' || city=='' || region==''){
     document.getElementById('incorrect').innerHTML = "One of the fields is empty";
     return;
   }
@@ -120,14 +121,14 @@ function addPublisher(){
     "name": name,
     "phone": phone,
     "email": email,
-    "transit": transit,
-    "instituition": instituition,
-    "account": account,
+    "rn": routing,
+    "an": account,
     "unit": unit,
     "street": street,
     "code": code,
     "city": city,
-    "country": country
+    "region": region
   };
+  requestData('/sellers', '/add', JSON.stringify(reqObject))
   console.log(reqObject);
 }

@@ -90,14 +90,20 @@ function populateOrderStats(info){
 }
 
 function order(){
+  let sOption = document.getElementById("ShippingSelect").value;
+  let pOption = document.getElementById("PaymentSelect").value;
+  let reqObject = {};
+  reqObject["card_number"] =  paymentList[pOption].card_number;
+  reqObject["address_id"] = addressList[sOption].id;
+  console.log(reqObject)
+
   var request = $.ajax({
     url: "/cart_tab/checkout",
-    data: "query",
+    data: JSON.stringify(reqObject),
     dataType: "json"
   });
 
   request.done(function (req) {
-    //init_menu_content();
     window.location.href = "/client_orders";
 
   })
@@ -205,8 +211,6 @@ function populateOrderInfo(data, id){
   populateSelectedInfo(id);
 }
 
-
-
 function populateSelectedInfo(id){
   console.log("doing stuff");
   let div = document.getElementById(id+"Info");
@@ -218,6 +222,7 @@ function populateSelectedInfo(id){
   let divCard = document.createElement('div');
   let option = document.getElementById(id+"Select").value;
   if(id=="Payment"){
+    console.log(paymentList[option])
     divCard.innerHTML = createPaymentDiv(paymentList[option]);
   }
   else if(id=="Shipping"){
@@ -229,10 +234,10 @@ function populateSelectedInfo(id){
 function createAddressDiv(address){
   return ""
     + '<div class="item">'
-      + '<p class="address-text"> #' + address.apt_number+'</p>'
+      + '<p class="address-text"> #' + address.unit+'</p>'
       + '<p class="address-text">' + address.street+'</p>'
       + '<p class="address-text">' + address.city + ' ' + address.code+'</p>'
-      + '<p class="address-text">' + address.state + ' ' + address.country+'</p>'
+      + '<p class="address-text">' + address.region + ' ' + 'Canada'+'</p>'
     + '</div>'
 }
 
@@ -245,7 +250,7 @@ function createPaymentDiv(payment){
       + '<p class="address-text">' + payment.name+'</p>'
       + '<p class="address-text">' + cardNum+'</p>'
       + '<p class="address-text"> Expires: ' + payment.expiry_date+'</p>'
-      + '<p class="address-text">' + payment.security_code+'</p>'
+
     + '</div>'
 
 }

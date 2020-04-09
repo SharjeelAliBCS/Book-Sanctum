@@ -1,0 +1,73 @@
+.filter-box{
+  width: 50%;
+  background-color: white;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bdbdbd;
+
+  overflow: auto;
+  margin-bottom: 10px;
+}
+
+.filter-col{
+  float: left;
+  width: 45%;
+}
+.filter-col-button{
+  float: left;
+  width: 10%;
+}
+.filter-title{
+  font-size: 20px;
+  font-family: Verdana;
+  font-weight: bold;
+ margin-bottom: -3px;
+}
+
+.filter-select-style {
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    width: 30%;
+
+    font-size: 20px;
+    padding-top:8px;
+    line-height: 100%;
+    display:inline-block;
+}
+
+.filter-select-style select {
+    padding: 5px 8px;
+    width: 180%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    font-size: 20px;
+}
+
+.filter-select-style select:focus {
+    outline: none;
+}
+.filter-select-width{
+  width: 10px;
+}
+
+.option-col-select{
+  width: 60%;
+}
+.option-col-add{
+  width: 40%;
+}
+.option-select{
+  font-size: 20px;
+}
+
+.filter-button{
+  margin-top: 20px;
+}

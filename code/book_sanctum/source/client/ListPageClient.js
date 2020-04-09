@@ -11,7 +11,6 @@ function init(data, textInput,genreInput){
     document.getElementById("genreSelect").selectedIndex =2;
     populateBookList(JSON.parse(data),textInput,genreInput);
   }
-
 }
 
 function requestData(url){
@@ -105,7 +104,7 @@ function populateBookList(data,textInput,genreInput){
 
                 + '<div class="book-column book-info">'
                   + '<p style="display:inline" onclick=' +onclk+ ' class="book-text book-title">' + book.title + '</p><br></br>'
-                  + '<p class="book-text book-author">' + book.author + ' | '+ book.published_date +'</p><br></br>'
+                  + '<p class="book-text book-author">' + book.author + ' | '+ book.published_year +'</p><br></br>'
                   + '<p class="book-text book-price">' + bookPrice +'</p><br></br>'
                   //+ '<p style="display:inline" class="book-description">' + book.description + '</font></p>'
                 + '</div>'

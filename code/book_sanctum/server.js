@@ -44,6 +44,7 @@ let salesRouter = require('./routers/salesRouter')(app);
 let transactionsRouter = require('./routers/transactionsRouter')(app);
 let inventoryRouter = require('./routers/inventoryRouter')(app);
 let sellerRouter = require('./routers/sellerRouter')(app);
+let requestRouter = require('./routers/requestRouter')(app);
 
 app.use('/client_account', clientAccountRouter);
 app.use(['/client_home','/','HomePage.html'], clientHomeRouter);
@@ -59,5 +60,6 @@ app.use('/sales', salesRouter);
 app.use('/transactions', transactionsRouter);
 app.use('/inventory', inventoryRouter);
 app.use('/sellers', sellerRouter);
+app.use('/request', requestRouter);
 
 server.listen(process.env.PORT || 3000);

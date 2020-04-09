@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b -->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+    <script src="requestBookClient.js"></script>
+		<script src="NavbarContentClient.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="store.css">
+
+		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
+		<link rel="stylesheet" type="text/css" href="../css/navigationSearch.css">
+    <link rel="stylesheet" type="text/css" href="../css/request.css">
+	</head>
+
+	<body onload="init_admin()"  style='background-color: #e0e0e0;'>
+
+    <ul>
+  		<a href="admin_home"><img src="themes/images/logo.png"  class="logo"/></a>
+      <li><a href="sales">View Sales</a></li>
+      <li><a href="transactions">View Transactions</a></li>
+      <li><a href="inventory">Inventory Manager</a></li>
+  		<li><a href="sellers">Seller Manager</a></li>
+      <li><a href="request">Book Requests</a></li>
+      <li><a href="nav/logout">Log out</a></li>
+    </ul>
+
+  <div class="body-admin">
+    <p class="title">Book Requests</p>
+
+    <div class="block">
+      <p class="col-title">View requests</p>
+      <p class="subtitle" id="listNum"></p>
+      <div class="request-list" id="list">
+      </div>
+    </div>
+
+  </div>
+
+
+	</body>
+
+</html>

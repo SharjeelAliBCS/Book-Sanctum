@@ -1,15 +1,31 @@
 
 function init(){
-  requestData('/inventory/booklist',3000);
-  requestData('/search/genre','');
-  requestData('/search/publisher','');
-  requestData('/search/author','');
+  requestData('/inventory/booklist',3000,'');
+  requestData('/search/genre','','');
+  requestData('/search/publisher','','');
+  requestData('/search/author','','');
+  if(localStorage.getItem('requestData')!=null){
+    setDefaultInput(JSON.parse(localStorage.getItem('requestData')));
+  }
 }
 
-function requestData(url, param){
+
+function setDefaultInput(requestData){
+  if(requestData.title!=''){
+    document.getElementById("title").value =  requestData.title;
+    $('#title').attr('readonly', true);
+  }
+  if(requestData.isbn!=''){
+    document.getElementById("isbn").value =  requestData.isbn;
+    $('#isbn').attr('readonly', true);
+  }
+  console.log(requestData)
+
+}
+function requestData(url, param, data){
   var request = $.ajax({
     url: url+"/"+param,
-    data: "query",
+    data: data,
     dataType: "json"
   });
 
@@ -31,8 +47,27 @@ function requestData(url, param){
       case '/search/author':
         populateSelect(data,'authorSelect');
         break;
-    }
+      case '/inventory':
+        if(param=='remove'){
+          console.log(data);
+          let div = document.getElementById('bookInfo');
+          while (div.firstChild) {
+            div.removeChild(div.firstChild);
+          }
+          init();
+        }else{
+          if(localStorage.getItem('requestData')!=null){
+             console.log("removing it!")
+             reqObject = {"num": JSON.parse(localStorage.getItem('requestData')).num, "desc": true}
+             window.localStorage.removeItem('requestData');
+             console.log(reqObject)
+             requestData('/request', 'decide', JSON.stringify(reqObject));
 
+          }
+          outputBook(data);
+          break;
+        }
+    }
   })
 
   request.fail(function () {
@@ -73,7 +108,7 @@ function populateScroll(data){
 }
 function outputBook(isbn){
   console.log(isbn);
-  requestData('/book',isbn)
+  requestData('/book',isbn,'')
 }
 function populateBookInfo(book){
   console.log(book);
@@ -97,11 +132,13 @@ function populateBookInfo(book){
     +'<div class="book-info-col">'
       + '<b style="display:inline" class="title">' + book.title + '</b>'
       + '<p class="extra-text">' + book.author +'</p>'
-      + '<p class="extra-text">' + book.published_date +'</p>'
+      + '<p class="extra-text">' + book.published_year +'</p>'
+      + '<p class="extra-text"> <strong>Added:</strong> ' + book.add_date.split('T')[0] +'</p>'
       + '<p class="extra-text"> <strong>ISBN:</strong> ' +book.isbn +'</p>'
       + '<p class="extra-text"> <strong>Publisher:</strong> ' +book.publisher +'</p>'
       + '<p class="extra-text"> <strong>Genres:</strong> ' +book.genre +'</p>'
       + '<p class="extra-text"> <strong>Pages:</strong> ' +book.page_count +'</p>'
+      + '<p class="extra-text"> <strong>Stock:</strong> ' +book.stock +'</p>'
       + '<b class="extra-text">' + bookPrice +'</b>'
     +'</div>'
 
@@ -119,8 +156,8 @@ function populateSelect(genres, id){
 
   for(index in genres){
     var opt = document.createElement("option");
-    opt.value= genres[index].name;
-    opt.innerHTML = genres[index].name; // whatever property it has
+    opt.value= genres[index].id;
+    opt.innerHTML = genres[index].name;
     genreSelect.appendChild(opt);
 
   }
@@ -144,7 +181,7 @@ function addBook(){
   if(genre==''){
     genre = document.getElementById("genreSelect").value;
   }
-
+  console.log(author);
 
   if(title==''|| isbn=='' ||  price=='' ||  percent=='' ||  pages=='' || year==''
     || description==''){
@@ -154,8 +191,6 @@ function addBook(){
   else{
     document.getElementById('incorrect').innerHTML = "";
   }
-
-
 
   reqObject = {
     "title": title,
@@ -170,9 +205,11 @@ function addBook(){
     "publisher": publisher
   };
   console.log(reqObject);
+  requestData('/inventory','add',JSON.stringify(reqObject))
 }
 
 function removeBook(isbn){
+  requestData('/inventory', 'remove', isbn)
   console.log("removed book " + isbn);
 
 }

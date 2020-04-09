@@ -8,30 +8,103 @@ https://www.chartjs.org/docs/latest/-->
 		<title>book.sanctum.ca</title>
 		<script src="jquery-1.11.3.js"></script>
 		<script src="transactionsClient.js"></script>
+		<script src="filterDateClient.js"></script>
 		<script src="renderCharts.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
 		<link rel="stylesheet" type="text/css" href="../css/transactions.css">
+		<link rel="stylesheet" type="text/css" href="../css/filterDates.css">
 
 	</head>
 
 	<body onload="init_transactions()" style='background-color: #e0e0e0;' >
   <ul>
-		<a href="admin_home"><img src="themes/images/logo.png" alt="Bootsshop"/></a>
+		<a href="admin_home"><img src="themes/images/logo.png"  class="logo"/></a>
     <li><a href="sales">View Sales</a></li>
     <li><a href="transactions">View Transactions</a></li>
     <li><a href="inventory">Inventory Manager</a></li>
 		<li><a href="sellers">Seller Manager</a></li>
-    <li><a href="client_home">Log out</a></li>
+		<li><a href="request">Book Requests</a></li>
+    <li><a href="nav/logout">Log out</a></li>
   </ul>
 
 	<div class="body">
-		
+
 		<p class="title">Transactions</p>
+
+		<div class="filter-box">
+			<div class="filter-col">
+				<p class="filter-title">Start Date</p>
+
+				<div class="filter-select-style">
+					<select id='sMonth' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+				<div class="filter-select-style">
+					<select id='sDay' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+				<div class="filter-select-style">
+					<select id='sYear' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+
+			</div>
+			<div class="filter-col">
+				<p class="filter-title">End Date</p>
+
+				<div class="filter-select-style">
+					<select id='eMonth' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+				<div class="filter-select-style">
+					<select id='eDay' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+				<div class="filter-select-style">
+					<select id='eYear' onchange='+onchange+' class="filter-select-width">
+					</select>
+			 	</div>
+
+			</div>
+
+			<div class="filter-col-button">
+			<button type="button" class="filter-button button" onclick="filterDate()">Filter</button>
+			</div>
+
+		</div>
 
 		<div class="chart">
 			<canvas id="chart" class="chart-coord" width="1900" height="350"></canvas>
+		</div>
+
+		<div class="input-form">
+			<p class="header-text">Add New Transaction</p>
+			<p class="incorrect-text" id="incorrect"></p>
+			<div class="input-col">
+				<b class="input-text">Type</b>
+				<div class="select-style">
+					<select id='inputSelect' onchange='+onchange+' class="select-width">
+						<option class="option-select"value="debit">debit</option>
+						<option class="option-select"value="credit">credit</option>
+					</select>
+			 </div>
+			</div>
+			<div class="input-col">
+				<b class="input-text">Name</b>
+				<input type="text" class="input" id="name" placeholder="Type in the transaction name"><br>
+			</div>
+			<div class="input-col">
+				<b class="input-text">Amount</b>
+				<input type="text" class="input" id="amount" placeholder="Type in the amount charge"><br>
+			</div>
+			<br>
+			<div class="input-col">
+				<button type="button" class="button" onclick="addTransaction()">Add Transaction</button>
+			</div>
+			<br>
+
 		</div>
 
 		<div class="transactions-box">

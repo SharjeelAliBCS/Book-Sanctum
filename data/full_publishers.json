@@ -1,0 +1,2194 @@
+[
+  {
+    "id": 0,
+    "name": "Scholastic",
+    "address": "",
+    "phone": "",
+    "email": "Scholastic@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 1,
+    "name": "Little, Brown Young Readers",
+    "address": "",
+    "phone": "",
+    "email": "Little.BrownYoungReaders@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 2,
+    "name": "Harper Collins",
+    "address": "",
+    "phone": "",
+    "email": "HarperCollins@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 3,
+    "name": "Scribner",
+    "address": "",
+    "phone": "",
+    "email": "Scribner@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 4,
+    "name": "Dutton Books",
+    "address": "",
+    "phone": "",
+    "email": "DuttonBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 5,
+    "name": "Houghton Mifflin",
+    "address": "",
+    "phone": "",
+    "email": "HoughtonMifflin@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 6,
+    "name": "Pocket Books",
+    "address": "",
+    "phone": "",
+    "email": "PocketBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 7,
+    "name": "Modern Library",
+    "address": "",
+    "phone": "",
+    "email": "ModernLibrary@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 8,
+    "name": "Signet Classic",
+    "address": "",
+    "phone": "",
+    "email": "SignetClassic@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 9,
+    "name": "Plume",
+    "address": "",
+    "phone": "",
+    "email": "Plume@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 10,
+    "name": "Alfred A. Knopf",
+    "address": "",
+    "phone": "",
+    "email": "AlfredA.Knopf@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 11,
+    "name": "Arthur A. Levine Books",
+    "address": "",
+    "phone": "",
+    "email": "ArthurA.LevineBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 12,
+    "name": "Anchor Books",
+    "address": "",
+    "phone": "",
+    "email": "AnchorBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 13,
+    "name": "Penguin Group",
+    "address": "",
+    "phone": "",
+    "email": "PenguinGroup@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 14,
+    "name": "Washington Square Press (Pocket Books)",
+    "address": "",
+    "phone": "",
+    "email": "WashingtonSquarePress(PocketBooks)@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 15,
+    "name": "Random House Large Print",
+    "address": "",
+    "phone": "",
+    "email": "RandomHouseLargePrint@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 16,
+    "name": "Delacorte Books for Young Readers",
+    "address": "",
+    "phone": "",
+    "email": "DelacorteBooksforYoungReaders@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 17,
+    "name": "Seal Books",
+    "address": "",
+    "phone": "",
+    "email": "SealBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 18,
+    "name": "Algonquin Books",
+    "address": "",
+    "phone": "",
+    "email": "AlgonquinBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 19,
+    "name": "Plaza y Janes",
+    "address": "",
+    "phone": "",
+    "email": "PlazayJanes@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 20,
+    "name": "Margaret K. McElderry",
+    "address": "",
+    "phone": "",
+    "email": "MargaretK.McElderry@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 21,
+    "name": "Perennial Classics",
+    "address": "",
+    "phone": "",
+    "email": "PerennialClassics@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 22,
+    "name": "Vintage Contemporaries",
+    "address": "",
+    "phone": "",
+    "email": "VintageContemporaries@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 23,
+    "name": "Dial Press",
+    "address": "",
+    "phone": "",
+    "email": "DialPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 24,
+    "name": "Warner Books",
+    "address": "",
+    "phone": "",
+    "email": "WarnerBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 25,
+    "name": "Riverhead Books",
+    "address": "",
+    "phone": "",
+    "email": "RiverheadBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 26,
+    "name": "TOR",
+    "address": "",
+    "phone": "",
+    "email": "TOR@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 27,
+    "name": "New English Library Ltd",
+    "address": "",
+    "phone": "",
+    "email": "NewEnglishLibraryLtd@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 28,
+    "name": "Puffin",
+    "address": "",
+    "phone": "",
+    "email": "Puffin@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 29,
+    "name": "Harcourt",
+    "address": "",
+    "phone": "",
+    "email": "Harcourt@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 30,
+    "name": "Delta Trade Paperbacks",
+    "address": "",
+    "phone": "",
+    "email": "DeltaTradePaperbacks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 31,
+    "name": "Hill and Wang, a division of Farrar, Straus and Giroux",
+    "address": "",
+    "phone": "",
+    "email": "HillandWang.adivisionofFarrar,StrausandGiroux@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 32,
+    "name": "Speak",
+    "address": "",
+    "phone": "",
+    "email": "Speak@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 33,
+    "name": "William Morrow",
+    "address": "",
+    "phone": "",
+    "email": "WilliamMorrow@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 34,
+    "name": "Children's Classics",
+    "address": "",
+    "phone": "",
+    "email": "Children'sClassics@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 35,
+    "name": "W.W. Norton",
+    "address": "",
+    "phone": "",
+    "email": "W.W.Norton@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 36,
+    "name": "Abacus",
+    "address": "",
+    "phone": "",
+    "email": "Abacus@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 37,
+    "name": "Spectra",
+    "address": "",
+    "phone": "",
+    "email": "Spectra@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 38,
+    "name": "Time Warner Paperbacks",
+    "address": "",
+    "phone": "",
+    "email": "TimeWarnerPaperbacks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 39,
+    "name": "Picador",
+    "address": "",
+    "phone": "",
+    "email": "Picador@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 40,
+    "name": "Yearling",
+    "address": "",
+    "phone": "",
+    "email": "Yearling@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 41,
+    "name": "Pearson ESL",
+    "address": "",
+    "phone": "",
+    "email": "PearsonESL@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 42,
+    "name": "Cambridge University Press",
+    "address": "",
+    "phone": "",
+    "email": "CambridgeUniversityPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 43,
+    "name": "Hodder & Stoughton",
+    "address": "",
+    "phone": "",
+    "email": "Hodder&Stoughton@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 44,
+    "name": "Dell",
+    "address": "",
+    "phone": "",
+    "email": "Dell@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 45,
+    "name": "Quirk Books",
+    "address": "",
+    "phone": "",
+    "email": "QuirkBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 46,
+    "name": "Miramax Books/Hyperion Books for Children",
+    "address": "",
+    "phone": "",
+    "email": "MiramaxBooks/HyperionBooksforChildren@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 47,
+    "name": "St. Martins Press",
+    "address": "",
+    "phone": "",
+    "email": "St.MartinsPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 48,
+    "name": "Beginner Books (Div. Of Random House, Inc.) simultaneously in Canada, by Random House of Canada, Ltd.",
+    "address": "",
+    "phone": "",
+    "email": "BeginnerBooks(Div.OfRandomHouse.Inc.)simultaneouslyinCanada,byRandomHouseofCanada,Ltd.@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 49,
+    "name": "Oxford University Press, USA",
+    "address": "",
+    "phone": "",
+    "email": "OxfordUniversityPress.USA@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 50,
+    "name": "Orion Publishing Group",
+    "address": "",
+    "phone": "",
+    "email": "OrionPublishingGroup@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 51,
+    "name": "Bantam Dell",
+    "address": "",
+    "phone": "",
+    "email": "BantamDell@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 52,
+    "name": "Doubleday",
+    "address": "",
+    "phone": "",
+    "email": "Doubleday@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 53,
+    "name": "Grand Central Pub.",
+    "address": "",
+    "phone": "",
+    "email": "GrandCentralPub.@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 54,
+    "name": "Corgi Books",
+    "address": "",
+    "phone": "",
+    "email": "CorgiBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 55,
+    "name": "Windblown Media",
+    "address": "",
+    "phone": "",
+    "email": "WindblownMedia@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 56,
+    "name": "Simon Pulse",
+    "address": "",
+    "phone": "",
+    "email": "SimonPulse@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 57,
+    "name": "The Dial Press",
+    "address": "",
+    "phone": "",
+    "email": "TheDialPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 58,
+    "name": "Ace Books",
+    "address": "",
+    "phone": "",
+    "email": "AceBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 59,
+    "name": "Bethany House Publishers",
+    "address": "",
+    "phone": "",
+    "email": "BethanyHousePublishers@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 60,
+    "name": "Ballantine Books",
+    "address": "",
+    "phone": "",
+    "email": "BallantineBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 61,
+    "name": "Crown Publishers",
+    "address": "",
+    "phone": "",
+    "email": "CrownPublishers@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 62,
+    "name": "Arrow",
+    "address": "",
+    "phone": "",
+    "email": "Arrow@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 63,
+    "name": "Health Communications",
+    "address": "",
+    "phone": "",
+    "email": "HealthCommunications@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 64,
+    "name": "Laurel Leaf",
+    "address": "",
+    "phone": "",
+    "email": "LaurelLeaf@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 65,
+    "name": "Free Press",
+    "address": "",
+    "phone": "",
+    "email": "FreePress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 66,
+    "name": "Mariner Books",
+    "address": "",
+    "phone": "",
+    "email": "MarinerBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 67,
+    "name": "Gramercy",
+    "address": "",
+    "phone": "",
+    "email": "Gramercy@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 68,
+    "name": "Broadway Books",
+    "address": "",
+    "phone": "",
+    "email": "BroadwayBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 69,
+    "name": "Virago",
+    "address": "",
+    "phone": "",
+    "email": "Virago@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 70,
+    "name": "Trans-World",
+    "address": "",
+    "phone": "",
+    "email": "Trans-World@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 71,
+    "name": "Berkley Trade",
+    "address": "",
+    "phone": "",
+    "email": "BerkleyTrade@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 72,
+    "name": "Disney-Hyperion",
+    "address": "",
+    "phone": "",
+    "email": "Disney-Hyperion@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 73,
+    "name": "David Fickling Books",
+    "address": "",
+    "phone": "",
+    "email": "DavidFicklingBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 74,
+    "name": "Atria Books/Beyond Words",
+    "address": "",
+    "phone": "",
+    "email": "AtriaBooks/BeyondWords@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 75,
+    "name": "Vermilion",
+    "address": "",
+    "phone": "",
+    "email": "Vermilion@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 76,
+    "name": "Black Swan",
+    "address": "",
+    "phone": "",
+    "email": "BlackSwan@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 77,
+    "name": "Avon",
+    "address": "",
+    "phone": "",
+    "email": "Avon@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 78,
+    "name": "Razorbill",
+    "address": "",
+    "phone": "",
+    "email": "Razorbill@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 79,
+    "name": "Atheneum/Richard Jackson Books",
+    "address": "",
+    "phone": "",
+    "email": "Atheneum/RichardJacksonBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 80,
+    "name": "Bloomsbury USA Children's",
+    "address": "",
+    "phone": "",
+    "email": "BloomsburyUSAChildren's@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 81,
+    "name": "Shambhala",
+    "address": "",
+    "phone": "",
+    "email": "Shambhala@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 82,
+    "name": "Grove Press",
+    "address": "",
+    "phone": "",
+    "email": "GrovePress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 83,
+    "name": "Prestwick House",
+    "address": "",
+    "phone": "",
+    "email": "PrestwickHouse@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 84,
+    "name": "Viking Adult",
+    "address": "",
+    "phone": "",
+    "email": "VikingAdult@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 85,
+    "name": "Michael Joseph",
+    "address": "",
+    "phone": "",
+    "email": "MichaelJoseph@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 86,
+    "name": "Zondervan Publishing Company",
+    "address": "",
+    "phone": "",
+    "email": "ZondervanPublishingCompany@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 87,
+    "name": "G.P. Putnam's Sons",
+    "address": "",
+    "phone": "",
+    "email": "G.P.Putnam'sSons@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 88,
+    "name": "Dramatists Play Service Inc.",
+    "address": "",
+    "phone": "",
+    "email": "DramatistsPlayServiceInc.@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 89,
+    "name": "Beacon Press",
+    "address": "",
+    "phone": "",
+    "email": "BeaconPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 90,
+    "name": "Jove",
+    "address": "",
+    "phone": "",
+    "email": "Jove@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 91,
+    "name": "Dante University of America Press",
+    "address": "",
+    "phone": "",
+    "email": "DanteUniversityofAmericaPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 92,
+    "name": "Touchstone Books",
+    "address": "",
+    "phone": "",
+    "email": "TouchstoneBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 93,
+    "name": "Image Comics",
+    "address": "",
+    "phone": "",
+    "email": "ImageComics@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 94,
+    "name": "Roc",
+    "address": "",
+    "phone": "",
+    "email": "Roc@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 95,
+    "name": "Tyndale House Publishers",
+    "address": "",
+    "phone": "",
+    "email": "TyndaleHousePublishers@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 96,
+    "name": "Henry Holt and Co. (BYR)",
+    "address": "",
+    "phone": "",
+    "email": "HenryHoltandCo.(BYR)@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 97,
+    "name": "Dover Publications",
+    "address": "",
+    "phone": "",
+    "email": "DoverPublications@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 98,
+    "name": "Picture Lions",
+    "address": "",
+    "phone": "",
+    "email": "PictureLions@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 99,
+    "name": "Phaidon Press",
+    "address": "",
+    "phone": "",
+    "email": "PhaidonPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 100,
+    "name": "VIZ Media LLC",
+    "address": "",
+    "phone": "",
+    "email": "VIZMediaLLC@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 101,
+    "name": "Voyager",
+    "address": "",
+    "phone": "",
+    "email": "Voyager@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 102,
+    "name": "Firefly Books",
+    "address": "",
+    "phone": "",
+    "email": "FireflyBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 103,
+    "name": "Spiegel & Grau",
+    "address": "",
+    "phone": "",
+    "email": "Spiegel&Grau@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 104,
+    "name": "Wordsworth Editions Ltd",
+    "address": "",
+    "phone": "",
+    "email": "WordsworthEditionsLtd@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 105,
+    "name": "Harvest Books",
+    "address": "",
+    "phone": "",
+    "email": "HarvestBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 106,
+    "name": "Aladdin Paperbacks",
+    "address": "",
+    "phone": "",
+    "email": "AladdinPaperbacks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 107,
+    "name": "Heinemann Educational Publishers",
+    "address": "",
+    "phone": "",
+    "email": "HeinemannEducationalPublishers@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 108,
+    "name": "BleachCenter1",
+    "address": "",
+    "phone": "",
+    "email": "BleachCenter1@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 109,
+    "name": "Entangled Publishing, LLC",
+    "address": "",
+    "phone": "",
+    "email": "EntangledPublishing.LLC@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 110,
+    "name": "Oni Press",
+    "address": "",
+    "phone": "",
+    "email": "OniPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 111,
+    "name": "Starscape",
+    "address": "",
+    "phone": "",
+    "email": "Starscape@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 112,
+    "name": "Sceptre",
+    "address": "",
+    "phone": "",
+    "email": "Sceptre@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 113,
+    "name": "Ecco",
+    "address": "",
+    "phone": "",
+    "email": "Ecco@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 114,
+    "name": "Andrews, McMeel & Parker",
+    "address": "",
+    "phone": "",
+    "email": "Andrews.McMeel&Parker@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 115,
+    "name": "Pantheon Books",
+    "address": "",
+    "phone": "",
+    "email": "PantheonBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 116,
+    "name": "Eos",
+    "address": "",
+    "phone": "",
+    "email": "Eos@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 117,
+    "name": "Faber and Faber",
+    "address": "",
+    "phone": "",
+    "email": "FaberandFaber@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 118,
+    "name": "Jonathan Cape",
+    "address": "",
+    "phone": "",
+    "email": "JonathanCape@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 119,
+    "name": "Graphix",
+    "address": "",
+    "phone": "",
+    "email": "Graphix@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 120,
+    "name": "Candlewick Press",
+    "address": "",
+    "phone": "",
+    "email": "CandlewickPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 121,
+    "name": "Orbit",
+    "address": "",
+    "phone": "",
+    "email": "Orbit@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 122,
+    "name": "Barnes & Noble",
+    "address": "",
+    "phone": "",
+    "email": "Barnes&Noble@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 123,
+    "name": "Gollancz",
+    "address": "",
+    "phone": "",
+    "email": "Gollancz@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 124,
+    "name": "Ten Speed Press",
+    "address": "",
+    "phone": "",
+    "email": "TenSpeedPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 125,
+    "name": "Createspace",
+    "address": "",
+    "phone": "",
+    "email": "Createspace@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 126,
+    "name": "Hogarth",
+    "address": "",
+    "phone": "",
+    "email": "Hogarth@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 127,
+    "name": "Better Homes and Gardens",
+    "address": "",
+    "phone": "",
+    "email": "BetterHomesandGardens@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 128,
+    "name": "Shadow Mountain",
+    "address": "",
+    "phone": "",
+    "email": "ShadowMountain@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 129,
+    "name": "Gallery Books",
+    "address": "",
+    "phone": "",
+    "email": "GalleryBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 130,
+    "name": "Three Rivers Press",
+    "address": "",
+    "phone": "",
+    "email": "ThreeRiversPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 131,
+    "name": "Pomona Press",
+    "address": "",
+    "phone": "",
+    "email": "PomonaPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 132,
+    "name": "Gardners Books",
+    "address": "",
+    "phone": "",
+    "email": "GardnersBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 133,
+    "name": "Everyman's Library",
+    "address": "",
+    "phone": "",
+    "email": "Everyman'sLibrary@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 134,
+    "name": "Egmont Books Ltd",
+    "address": "",
+    "phone": "",
+    "email": "EgmontBooksLtd@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 135,
+    "name": "Philomel Books",
+    "address": "",
+    "phone": "",
+    "email": "PhilomelBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 136,
+    "name": "Sterling",
+    "address": "",
+    "phone": "",
+    "email": "Sterling@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 137,
+    "name": "Crossway Books",
+    "address": "",
+    "phone": "",
+    "email": "CrosswayBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 138,
+    "name": "Gotham",
+    "address": "",
+    "phone": "",
+    "email": "Gotham@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 139,
+    "name": "Onyx Group",
+    "address": "",
+    "phone": "",
+    "email": "OnyxGroup@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 140,
+    "name": "Twelve",
+    "address": "",
+    "phone": "",
+    "email": "Twelve@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 141,
+    "name": "Ebury Press",
+    "address": "",
+    "phone": "",
+    "email": "EburyPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 142,
+    "name": "Castle Books",
+    "address": "",
+    "phone": "",
+    "email": "CastleBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 143,
+    "name": "Top Shelf",
+    "address": "",
+    "phone": "",
+    "email": "TopShelf@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 144,
+    "name": "Katherine Tegen Books",
+    "address": "",
+    "phone": "",
+    "email": "KatherineTegenBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 145,
+    "name": "City Lights Books",
+    "address": "",
+    "phone": "",
+    "email": "CityLightsBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 146,
+    "name": "Akashic Books",
+    "address": "",
+    "phone": "",
+    "email": "AkashicBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 147,
+    "name": "Fawcett Crest",
+    "address": "",
+    "phone": "",
+    "email": "FawcettCrest@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 148,
+    "name": "Forge",
+    "address": "",
+    "phone": "",
+    "email": "Forge@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 149,
+    "name": "Mysterious Press",
+    "address": "",
+    "phone": "",
+    "email": "MysteriousPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 150,
+    "name": "DAW",
+    "address": "",
+    "phone": "",
+    "email": "DAW@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 151,
+    "name": "E.P. Dutton",
+    "address": "",
+    "phone": "",
+    "email": "E.P.Dutton@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 152,
+    "name": "McSweeney's Books",
+    "address": "",
+    "phone": "",
+    "email": "McSweeney'sBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 153,
+    "name": "Vertigo",
+    "address": "",
+    "phone": "",
+    "email": "Vertigo@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 154,
+    "name": "Metropolitan Books",
+    "address": "",
+    "phone": "",
+    "email": "MetropolitanBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 155,
+    "name": "Methuen",
+    "address": "",
+    "phone": "",
+    "email": "Methuen@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 156,
+    "name": "Thomas Nelson",
+    "address": "",
+    "phone": "",
+    "email": "ThomasNelson@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 157,
+    "name": "Piatkus Books",
+    "address": "",
+    "phone": "",
+    "email": "PiatkusBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 158,
+    "name": "Carroll & Graf",
+    "address": "",
+    "phone": "",
+    "email": "Carroll&Graf@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 159,
+    "name": "Wendy Lamb Books",
+    "address": "",
+    "phone": "",
+    "email": "WendyLambBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 160,
+    "name": "Harvill Secker",
+    "address": "",
+    "phone": "",
+    "email": "HarvillSecker@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 161,
+    "name": "Walker Books Ltd",
+    "address": "",
+    "phone": "",
+    "email": "WalkerBooksLtd@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 162,
+    "name": "Magic Carpet Books",
+    "address": "",
+    "phone": "",
+    "email": "MagicCarpetBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 163,
+    "name": "Wizards of the Coast",
+    "address": "",
+    "phone": "",
+    "email": "WizardsoftheCoast@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 164,
+    "name": "Dark Horse Comics",
+    "address": "",
+    "phone": "",
+    "email": "DarkHorseComics@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 165,
+    "name": "Macmilllan",
+    "address": "",
+    "phone": "",
+    "email": "Macmilllan@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 166,
+    "name": "Hazelden",
+    "address": "",
+    "phone": "",
+    "email": "Hazelden@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 167,
+    "name": "HQN Books",
+    "address": "",
+    "phone": "",
+    "email": "HQNBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 168,
+    "name": "Nightshade Books",
+    "address": "",
+    "phone": "",
+    "email": "NightshadeBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 169,
+    "name": "Atlantic Monthly Press",
+    "address": "",
+    "phone": "",
+    "email": "AtlanticMonthlyPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 170,
+    "name": "Push",
+    "address": "",
+    "phone": "",
+    "email": "Push@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 171,
+    "name": "Fantagraphics Books",
+    "address": "",
+    "phone": "",
+    "email": "FantagraphicsBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 172,
+    "name": "Workman Publishing Company",
+    "address": "",
+    "phone": "",
+    "email": "WorkmanPublishingCompany@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 173,
+    "name": "ReganBooks",
+    "address": "",
+    "phone": "",
+    "email": "ReganBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 174,
+    "name": "Pamela Dorman Books",
+    "address": "",
+    "phone": "",
+    "email": "PamelaDormanBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 175,
+    "name": "Permuted Press",
+    "address": "",
+    "phone": "",
+    "email": "PermutedPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 176,
+    "name": "Flamingo",
+    "address": "",
+    "phone": "",
+    "email": "Flamingo@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 177,
+    "name": "Feiwel & Friends",
+    "address": "",
+    "phone": "",
+    "email": "Feiwel&Friends@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 178,
+    "name": "Harlequin",
+    "address": "",
+    "phone": "",
+    "email": "Harlequin@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 179,
+    "name": "IDW",
+    "address": "",
+    "phone": "",
+    "email": "IDW@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 180,
+    "name": "Jossey-Bass",
+    "address": "",
+    "phone": "",
+    "email": "Jossey-Bass@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 181,
+    "name": "BookSurge Classics",
+    "address": "",
+    "phone": "",
+    "email": "BookSurgeClassics@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 182,
+    "name": "Business Plus",
+    "address": "",
+    "phone": "",
+    "email": "BusinessPlus@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 183,
+    "name": "Doherty",
+    "address": "",
+    "phone": "",
+    "email": "Doherty@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 184,
+    "name": "Allison & Busby",
+    "address": "",
+    "phone": "",
+    "email": "Allison&Busby@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 185,
+    "name": "Thunder's Mouth Press",
+    "address": "",
+    "phone": "",
+    "email": "Thunder'sMouthPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 186,
+    "name": "Owl Books",
+    "address": "",
+    "phone": "",
+    "email": "OwlBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 187,
+    "name": "First Second",
+    "address": "",
+    "phone": "",
+    "email": "FirstSecond@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 188,
+    "name": "47North",
+    "address": "",
+    "phone": "",
+    "email": "47North@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 189,
+    "name": "Clarkson Potter",
+    "address": "",
+    "phone": "",
+    "email": "ClarksonPotter@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 190,
+    "name": "Wildstorm",
+    "address": "",
+    "phone": "",
+    "email": "Wildstorm@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 191,
+    "name": "Macmillan Children's",
+    "address": "",
+    "phone": "",
+    "email": "MacmillanChildren's@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 192,
+    "name": "Presidio Press",
+    "address": "",
+    "phone": "",
+    "email": "PresidioPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 193,
+    "name": "Longman",
+    "address": "",
+    "phone": "",
+    "email": "Longman@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 194,
+    "name": "Mainstream Publishing",
+    "address": "",
+    "phone": "",
+    "email": "MainstreamPublishing@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 195,
+    "name": "Balzer + Bray",
+    "address": "",
+    "phone": "",
+    "email": "Balzer+Bray@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 196,
+    "name": "Devil's Due Publishing",
+    "address": "",
+    "phone": "",
+    "email": "Devil'sDuePublishing@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 197,
+    "name": "Basic Books",
+    "address": "",
+    "phone": "",
+    "email": "BasicBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 198,
+    "name": "Tachyon",
+    "address": "",
+    "phone": "",
+    "email": "Tachyon@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 199,
+    "name": "Applewood Books",
+    "address": "",
+    "phone": "",
+    "email": "ApplewoodBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 200,
+    "name": "Perfection Learning Corp.",
+    "address": "",
+    "phone": "",
+    "email": "PerfectionLearningCorp.@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 201,
+    "name": "Titan Books",
+    "address": "",
+    "phone": "",
+    "email": "TitanBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 202,
+    "name": "Annick Press",
+    "address": "",
+    "phone": "",
+    "email": "AnnickPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 203,
+    "name": "Spencer Hill Press",
+    "address": "",
+    "phone": "",
+    "email": "SpencerHillPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 204,
+    "name": "Portfolio",
+    "address": "",
+    "phone": "",
+    "email": "Portfolio@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 205,
+    "name": "Leisure Books",
+    "address": "",
+    "phone": "",
+    "email": "LeisureBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 206,
+    "name": "Ivy Books",
+    "address": "",
+    "phone": "",
+    "email": "IvyBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 207,
+    "name": "Roaring Brook Press",
+    "address": "",
+    "phone": "",
+    "email": "RoaringBrookPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 208,
+    "name": "Kensington",
+    "address": "",
+    "phone": "",
+    "email": "Kensington@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 209,
+    "name": "Berkely Publishing Group",
+    "address": "",
+    "phone": "",
+    "email": "BerkelyPublishingGroup@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 210,
+    "name": "Amistad",
+    "address": "",
+    "phone": "",
+    "email": "Amistad@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 211,
+    "name": "McGraw-Hill",
+    "address": "",
+    "phone": "",
+    "email": "McGraw-Hill@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 212,
+    "name": "Baen",
+    "address": "",
+    "phone": "",
+    "email": "Baen@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 213,
+    "name": "Fourth Estate",
+    "address": "",
+    "phone": "",
+    "email": "FourthEstate@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 214,
+    "name": "Doublebay Childrens",
+    "address": "",
+    "phone": "",
+    "email": "DoublebayChildrens@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 215,
+    "name": "Melville House Pub.",
+    "address": "",
+    "phone": "",
+    "email": "MelvilleHousePub.@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 216,
+    "name": "Clarion Books",
+    "address": "",
+    "phone": "",
+    "email": "ClarionBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 217,
+    "name": "Canongate",
+    "address": "",
+    "phone": "",
+    "email": "Canongate@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 218,
+    "name": "Starfire",
+    "address": "",
+    "phone": "",
+    "email": "Starfire@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 219,
+    "name": "Yale University Press",
+    "address": "",
+    "phone": "",
+    "email": "YaleUniversityPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 220,
+    "name": "Citadel",
+    "address": "",
+    "phone": "",
+    "email": "Citadel@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 221,
+    "name": "Knockabout Comics",
+    "address": "",
+    "phone": "",
+    "email": "KnockaboutComics@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 222,
+    "name": "Marvel Comics",
+    "address": "",
+    "phone": "",
+    "email": "MarvelComics@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 223,
+    "name": "Windsor-Brooke Books",
+    "address": "",
+    "phone": "",
+    "email": "Windsor-BrookeBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 224,
+    "name": "TSR",
+    "address": "",
+    "phone": "",
+    "email": "TSR@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 225,
+    "name": "Hackett Pub Co Inc",
+    "address": "",
+    "phone": "",
+    "email": "HackettPubCoInc@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 226,
+    "name": "Overlook Press",
+    "address": "",
+    "phone": "",
+    "email": "OverlookPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 227,
+    "name": "Routledge",
+    "address": "",
+    "phone": "",
+    "email": "Routledge@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 228,
+    "name": "Editorial Anagrama",
+    "address": "",
+    "phone": "",
+    "email": "EditorialAnagrama@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 229,
+    "name": "Graywolf Press",
+    "address": "",
+    "phone": "",
+    "email": "GraywolfPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 230,
+    "name": "Minotaur Books",
+    "address": "",
+    "phone": "",
+    "email": "MinotaurBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 231,
+    "name": "Severn House Publishers",
+    "address": "",
+    "phone": "",
+    "email": "SevernHousePublishers@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 232,
+    "name": "Rob Weisbach Books",
+    "address": "",
+    "phone": "",
+    "email": "RobWeisbachBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 233,
+    "name": "Point",
+    "address": "",
+    "phone": "",
+    "email": "Point@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 234,
+    "name": "Liveright",
+    "address": "",
+    "phone": "",
+    "email": "Liveright@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 235,
+    "name": "Bolchazy-Carducci Publishers",
+    "address": "",
+    "phone": "",
+    "email": "Bolchazy-CarducciPublishers@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 236,
+    "name": "Schocken",
+    "address": "",
+    "phone": "",
+    "email": "Schocken@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 237,
+    "name": "Marlowe & Company",
+    "address": "",
+    "phone": "",
+    "email": "Marlowe&Company@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 238,
+    "name": "iUniverse",
+    "address": "",
+    "phone": "",
+    "email": "iUniverse@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 239,
+    "name": "Millennium",
+    "address": "",
+    "phone": "",
+    "email": "Millennium@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 240,
+    "name": "Greenwillow",
+    "address": "",
+    "phone": "",
+    "email": "Greenwillow@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 241,
+    "name": "BOOM! Box",
+    "address": "",
+    "phone": "",
+    "email": "BOOM!Box@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 242,
+    "name": "Drawn & Quarterly",
+    "address": "",
+    "phone": "",
+    "email": "Drawn&Quarterly@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 243,
+    "name": "Heat",
+    "address": "",
+    "phone": "",
+    "email": "Heat@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 244,
+    "name": "Grafton",
+    "address": "",
+    "phone": "",
+    "email": "Grafton@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 245,
+    "name": "Sourcebooks Fire",
+    "address": "",
+    "phone": "",
+    "email": "SourcebooksFire@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 246,
+    "name": "Stonewall Inn Editions",
+    "address": "",
+    "phone": "",
+    "email": "StonewallInnEditions@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 247,
+    "name": "Prime Classics Library",
+    "address": "",
+    "phone": "",
+    "email": "PrimeClassicsLibrary@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 248,
+    "name": "Shaye Areheart Books",
+    "address": "",
+    "phone": "",
+    "email": "ShayeAreheartBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 249,
+    "name": "Orchard Books",
+    "address": "",
+    "phone": "",
+    "email": "OrchardBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 250,
+    "name": "Lulu.com",
+    "address": "",
+    "phone": "",
+    "email": "Lulu.com@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 251,
+    "name": "Infinity Publishing",
+    "address": "",
+    "phone": "",
+    "email": "InfinityPublishing@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 252,
+    "name": "Continuum",
+    "address": "",
+    "phone": "",
+    "email": "Continuum@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 253,
+    "name": "Theatre Communications Group",
+    "address": "",
+    "phone": "",
+    "email": "TheatreCommunicationsGroup@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 254,
+    "name": "TokyoPop",
+    "address": "",
+    "phone": "",
+    "email": "TokyoPop@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 255,
+    "name": "Grosset & Dunlap",
+    "address": "",
+    "phone": "",
+    "email": "Grosset&Dunlap@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 256,
+    "name": "Seuil",
+    "address": "",
+    "phone": "",
+    "email": "Seuil@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 257,
+    "name": "Headline Book Publishing",
+    "address": "",
+    "phone": "",
+    "email": "HeadlineBookPublishing@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 258,
+    "name": "Soho Press",
+    "address": "",
+    "phone": "",
+    "email": "SohoPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 259,
+    "name": "Mulholland Books",
+    "address": "",
+    "phone": "",
+    "email": "MulhollandBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 260,
+    "name": "Cerridwen Press",
+    "address": "",
+    "phone": "",
+    "email": "CerridwenPress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 261,
+    "name": "Wiley",
+    "address": "",
+    "phone": "",
+    "email": "Wiley@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 262,
+    "name": "Earthlight",
+    "address": "",
+    "phone": "",
+    "email": "Earthlight@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 263,
+    "name": "Villard Books",
+    "address": "",
+    "phone": "",
+    "email": "VillardBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 264,
+    "name": "Adamant Media Corporation",
+    "address": "",
+    "phone": "",
+    "email": "AdamantMediaCorporation@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 265,
+    "name": "Taplinger Pub. Co.",
+    "address": "",
+    "phone": "",
+    "email": "TaplingerPub.Co.@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 266,
+    "name": "Dalkey Archive Press",
+    "address": "",
+    "phone": "",
+    "email": "DalkeyArchivePress@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 267,
+    "name": "Blackwell Pub.",
+    "address": "",
+    "phone": "",
+    "email": "BlackwellPub.@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 268,
+    "name": "ADV Manga",
+    "address": "",
+    "phone": "",
+    "email": "ADVManga@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 269,
+    "name": "Aspirations Media Inc.",
+    "address": "",
+    "phone": "",
+    "email": "AspirationsMediaInc.@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 270,
+    "name": "Chronicle Books",
+    "address": "",
+    "phone": "",
+    "email": "ChronicleBooks@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 271,
+    "name": "Cemetery Dance Publications",
+    "address": "",
+    "phone": "",
+    "email": "CemeteryDancePublications@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 272,
+    "name": "Kessinger Publishing, LLC",
+    "address": "",
+    "phone": "",
+    "email": "KessingerPublishing.LLC@worldpublishers.com",
+    "bank_id": ""
+  },
+  {
+    "id": 273,
+    "name": "Love Spell",
+    "address": "",
+    "phone": "",
+    "email": "LoveSpell@worldpublishers.com",
+    "bank_id": ""
+  }
+]

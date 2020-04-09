@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<!-- color is d13100, ffc30b -->
+<html>
+	<head>
+
+		<title>book.sanctum.ca</title>
+		<script src="jquery-1.11.3.js"></script>
+    <script src="requestBookClient.js"></script>
+		<script src="NavbarContentClient.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="store.css">
+
+		<link rel="stylesheet" type="text/css" href="../css/navigationBar.css">
+		<link rel="stylesheet" type="text/css" href="../css/navigationSearch.css">
+    <link rel="stylesheet" type="text/css" href="../css/request.css">
+	</head>
+
+	<body onload="init()"  style='background-color: #e0e0e0;'>
+
+		<ul>
+			<a href="client_home"><img src="themes/images/logo.png"  class="logo"/></a>
+			<div id="loggedInBar"></div>
+
+			</div>
+		</ul>
+
+	<div class="topnav">
+	  <div class="search-container">
+	    <form action="/search?=">
+	      <input type="text" placeholder="Search for anything" name="text">
+				<div  class="select-style" >
+      		<select id="genreSelect"  class="select-width" name="genre">
+      			<option>All Genres</option>
+      		</select>
+        </div>
+				<button type="submit">Search</button>
+				<button type="button" onclick="location.href='form?page=search'">Advanced Search</button>
+
+	    </form>
+	  </div>
+
+	</div>
+
+  <div class="body">
+    <p class="title">Request Book</p>
+
+    <div class="input-col block">
+      <p class="col-title">Request new book</p>
+      <p class="incorrect-text" id="incorrect"></p>
+      <p class="subtitle">Type either the book title or ISBN</p>
+      <b class="input-text">Title</b>
+      <input type="text" class="input" id="title" placeholder="Type in the book title"><br>
+      <b class="input-text">ISBN</b>
+      <input type="text" class="input" id="isbn" placeholder="Type in the book isbn"><br>
+      <br>
+      <button type="button" class="button" onclick="requestBook()">Request Book</button>
+
+    </div>
+    <div class="request-col block">
+      <p class="col-title">View requests</p>
+      <p class="subtitle" id="listNum"></p>
+      <div class="request-list" id="list">
+      </div>
+    </div>
+
+  </div>
+
+
+	</body>
+
+</html>

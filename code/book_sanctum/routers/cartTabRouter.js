@@ -14,29 +14,26 @@ module.exports = function(app){
 
   function get(req, res, next) {
     data = req.query;
-    cartTabQueryInstance.getCartList(serverData.users[req.sessionID],res);
+    cartTabQueryInstance.getCartList(serverData.users[req.sessionID].user,res);
   }
 
   function modifyCart(req, res, next) {
     console.log("testing for "+ req.sessionID)
     console.log(JSON.stringify(serverData.users))
-    if(!serverData.users.hasOwnProperty(req.sessionID) || serverData.users[req.sessionID]==''){
+    if(!serverData.users.hasOwnProperty(req.sessionID) || serverData.users[req.sessionID].user==''){
       res.json('');
     }
     else{
     data = JSON.parse(Object.keys(req.query)[0]);
-    cartTabQueryInstance.addtoCart(serverData.users[req.sessionID], data["isbn"], data["quantity"], res);
+    cartTabQueryInstance.addtoCart(serverData.users[req.sessionID].user, data["isbn"], data["quantity"], res);
     }
   }
 
   function checkout(req, res, next) {
-    var date = new Date();
-    var dd = String(date.getDate()).padStart(2, '0');
-    var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
-    var yyyy = date.getFullYear();
 
-    date = mm + '/' + dd + '/' + yyyy;
-    cartTabQueryInstance.checkoutOrder(serverData.users[req.sessionID],date, res);
+    data = JSON.parse(Object.keys(req.query)[0]);
+    console.log(data);
+    cartTabQueryInstance.checkoutOrder(serverData.users[req.sessionID].user,data.card_number, data.address_id, res);
 
   }
 

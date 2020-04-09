@@ -12,11 +12,15 @@ const pool = new Pool({
 function orderQueries(){
 
   this.getOrders = function(username, res){
-    pool.query("select orders.order_date, book.isbn, book.title, author.name, book.price, order_book.quantity, order_book.order_number "+
+    pool.query("select orders.order_date, book.isbn, book.title, author.name as author,status.name as status, "+
+               "book.price, order_book.quantity, order_book.order_number, "+
+               "orders.card_number, address.code, address.street, address.unit, address.region,address.city "+
               "from order_book "+
               "inner join orders on orders.order_number = order_book.order_number "+
               "inner join book on order_book.isbn = book.isbn "+
               "inner join author on book.author_id = author.id "+
+              "inner join address on orders.address_id = address.id "+
+              "inner join status on orders.status = status.status_id "+
               "where orders.username = $1 " +
               "order by order_book.order_number desc;",
               [username], (err, result) => {

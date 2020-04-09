@@ -16,7 +16,7 @@ module.exports = function(app){
 
   function get(req, res, next) {
     //req.session.touch()
-    console.log(req.cookies);
+    console.log(serverData.users);
     //res.cookie('name', 'express').send('cookie set'); //Sets name = express
     //console.log("session is " +JSON.stringify(req.sessionID ))
     res.sendFile(path.join(__dirname, '../source/pages/html/HomePage.html'));
@@ -31,8 +31,8 @@ module.exports = function(app){
   }
 
   function getRecentlyViewed(req, res, next){
-    if(serverData.users.hasOwnProperty(req.sessionID) && serverData.users[req.sessionID]!=''){
-      clientHomeQueryInstance.getViewedBooks(serverData.users[req.sessionID], res);
+    if(serverData.users.hasOwnProperty(req.sessionID) && serverData.users[req.sessionID].user!=''){
+      clientHomeQueryInstance.getViewedBooks(serverData.users[req.sessionID].user, res);
     }
     else{
       res.json(JSON.stringify([]));

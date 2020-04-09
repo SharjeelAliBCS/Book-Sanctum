@@ -11,18 +11,19 @@ User browsing:
 5. (Done) When checking out, the user inserts billing and shipping information (can be dierent than those used in registration), and completes the order. 
 
 User ordering:
-5. The bookstore has the feature of tracking an order via an order number. 
-6. A user can use this order number to track where the order is currently. 
-7. Although shipping is carried out by a third-party shipping service, the online bookstore should have the tracking information available for when the user inquires about an order using the order number. 
-8. Assume all books are shipped from only one warehouse (no multiple order numbers for multiple books shipped from multiple warehouses). 
+5. (Done) The bookstore has the feature of tracking an order via an order number. 
+6. (Done) A user can use this order number to track where the order is currently. 
+7. (Done) Although shipping is carried out by a third-party shipping service, the online bookstore should have the tracking information available for when the user inquires about an order using the order number. 
+8. (Done) Assume all books are shipped from only one warehouse (no multiple order numbers for multiple books shipped from multiple warehouses). 
 
 Owner: 
 9. The bookstore owners can add new books to their collections, or remove books from their store. 
-10. They also need to store information on the publishers of books such as name, address, email address, phone number(s), banking account. 
-11. The banking account for publishers is used to transfer a percentage of the sales of books published by these publishers. 
-12. This percentage is variable and changes from one book to another. 
+10. (Done) They also need to store information on the publishers of books such as name, address, email address, phone number(s), banking account. 
+11. (Done) The banking account for publishers is used to transfer a percentage of the sales of books published by these publishers. 
+12. (Done) This percentage is variable and changes from one book to another. 
 13. (Done) The owners should have access to reports that show sales vs. expenditures, sales per genres, sales per author, etc.. 
-14. The application should also be able to automatically place orders for new books if the remaining quantity is less than a given threshold (e.g., 10 books). This is done by sending an email to the publisher of the limited books to order a number of books equal to how many books were sold in the previous month (you do not have to implement the email sending component).
+14. The application should also be able to automatically place orders for new books if the remaining quantity is less than a given threshold (e.g., 10 books). This is done by sending an email to the publisher of the limited books to order a number of books equal to how many books were sold in the previous month 
+
 
 PAGES TO DO:
 1.  (Done) Main Home Page
@@ -41,23 +42,17 @@ PAGES TO DO:
 14. (Done) Owner transaction page
 15. (Done) Add book/remove book page
 16. (Done) Publisher page
-17. Owner request book  
-18. Client request book
+17. (Done) Owner request book  
+18. (Done) Client request book
  
-Bonus:
--Request a book
- - If user can't find book, request it. 
- - Book info is sent as messege to owner in messeges table. 
- - owner can choose to order book for store or not in form
-
--Bestsellers
--Newly Released
--Recently viewed
- 
-- Sales?
- - Owner can choose to put publisher books on sale
-
-- Reviews
- - https://s3.amazonaws.com/amazon-reviews-pds/readme.html
-
--Download reports
+Goals:
+1.  (Done) Request Book
+2.  (Done) Add publisher
+3.  (Done) Add book
+4.  (Done) Remove book
+5.  (Done) Automatic book restocking
+5.  (Done) User account creation
+6.  (Done) order tracking
+7.  (Done) order uses address and billing
+9.  (Done) Fix entire postgres schema
+10. (Done) Use date values for all dates instead of varchar

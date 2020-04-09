@@ -6,10 +6,9 @@ function init(){
 function signup(){
   var name = document.getElementById("name").value;
   var card = document.getElementById("card").value;
-  var code = document.getElementById("code").value;
   var expDate = document.getElementById("expDate").value;
 
-  if(card==''|| name=='' ||  code=='' ||  expDate==''){
+  if(card==''|| name=='' ||  expDate==''){
     incorrectsignup("One of the fields is empty");
     return;
   }
@@ -21,7 +20,6 @@ function signup(){
     "card": card,
     "name": name,
     "expDate": expDate,
-    "code": code
   };
 
   account = JSON.parse(localStorage.getItem('registerData'));

@@ -44,8 +44,8 @@ function clientHomeQueries(){
 
   this.searchBookByISBN = function(isbn, res){
 
-    pool.query("select book.isbn, book.title, book.description, book.price, book.page_count, book.stock, "+
-	             "book.rating, book.rating_count, book.published_date, book.add_date, "+
+    pool.query("select book.isbn, book.title, book.description, book.price, book.page_count, "+
+	             "book.published_year, book.add_date, "+
                "author.name as author, genre.name as genre, publisher.name as publisher "+
 	             "from book "+
 	             "inner join author on book.author_id = author.id "+
@@ -65,7 +65,7 @@ function clientHomeQueries(){
 
     pool.query("select book.isbn, book.title, book.price,author.name "+
                "from book left join author on author.id = book.author_id "+
-               "order by book.published_date DESC "+
+               "order by book.add_date DESC "+
                "limit $1;",
     [limit], (err, result) => {
       if (err) {

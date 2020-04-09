@@ -39,18 +39,19 @@ function populateOrders(data){
     div.removeChild(div.firstChild);
   }
 
-
-
   for(let a = 0; a<Object.keys(orders).reverse().length; a++){
 
     num = Object.keys(orders).reverse()[a];
     let divBooks='';
     order = orders[num];
     total = 0;
+    let card_number = order[0].card_number.toString().substring(12);
+    let address = `${order[0].unit} ${order[0].street} ${order[0].city}, ${order[0].region} ${order[0].code}`
+    console.log(address)
     for(let i = 0; i<order.length; i++){
       book = order[i];
 
-      total += parseFloat(book.price);
+      total += parseFloat(book.price*book.quantity);
 
         bookPrice = "CDN $"+book.price;
         url = `http://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg`;
@@ -65,7 +66,7 @@ function populateOrders(data){
 
         + '<div class="info">'
           + '<p class="info-title" onclick=' +onclk+ '>' + book.title + '</p>'
-          + '<p class="info-small info-author">' + book.name +'</p>'
+          + '<p class="info-small info-author">' + book.author +'</p>'
           + '<p>' + bookPrice +'</p>'
           + '<p class="info-small"> Qty: ' + book.quantity +'</p>'
         + '</div>'
@@ -86,7 +87,7 @@ function populateOrders(data){
 
           + '<div class="order-header-text">'
             +'<p>Ordered on</p>'
-            +'<p>'+order[0].order_date+'</p>'
+            +'<p>'+order[0].order_date.split('T')[0]+'</p>'
           + '</div>'
 
           + '<div class="order-header-text">'
@@ -96,15 +97,22 @@ function populateOrders(data){
 
           + '<div class="order-header-text">'
             +'<p>Shipping</p>'
+            +'<p>'+address+'</p>'
           + '</div>'
 
           + '<div class="order-header-text">'
             +'<p>Billing</p>'
+            +'<p>Card ending in '+card_number+'</p>'
           + '</div>'
 
           + '<div class="order-header-text">'
             +'<p>Order #</p>'
             +'<p>'+num+'</p>'
+          + '</div>'
+
+          + '<div class="order-header-text">'
+            +'<p>Status</p>'
+            +'<p>'+order[0].status+'</p>'
           + '</div>'
 
         + '</div>'

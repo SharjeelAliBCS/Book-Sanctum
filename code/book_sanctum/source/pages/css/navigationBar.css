@@ -1,3 +1,4 @@
+/*https://www.w3schools.com/css/tryit.asp?filename=trycss_navbar_horizontal_black*/
 body {
   margin: 0;
 }
@@ -9,7 +10,6 @@ ul {
   background-color: #d13100;
   display: flex;
   width: 100%;
-
 }
 
 li {
@@ -32,4 +32,15 @@ li a:hover:not(.active) {
 
 .active {
   background-color: #ffc30b;
+}
+
+.title{
+  font-size: 50px;
+  font-family: Verdana;
+  font-weight: bold;
+}
+
+.logo{
+  max-width:250px;
+  max-height:auto;
 }
