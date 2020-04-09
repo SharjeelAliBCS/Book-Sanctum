@@ -24,7 +24,9 @@ function requestData(url){
         break;
       case "/recentlyViewed":
         console.log(data);
-        populateBookScroll(data,"recentlyViewedGrid");
+        if(data.length>0){
+          populateBookScroll(data,"recentlyViewedGrid");
+        }
         break;
       case "/newlyAdded":
         populateNewlyAdded(data);

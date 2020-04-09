@@ -7,8 +7,7 @@ where genre.name like '%fantasy%'
 and book.published_date like '%2005%'
 and (length('')= 0 or similarity(book.title,'') > 0.15 )
 and (length('robert') = 0 or  similarity(author.name,'chris') > 0.15 )
-and (length('') = 0 or  similarity(publisher.name,'') > 0.15 )
-;
+and (length('') = 0 or  similarity(publisher.name,'') > 0.15 );
 --------------------------------------------------
 get 3 most newest books:
 select * from book
@@ -104,6 +103,10 @@ inner join author on book.author_id = author.id
 order by sales desc
 limit 10;
 
+select book.isbn, book.title, book.price,author.name
+from book left join author on author.id = book.author_id
+order by book.add_date DESC
+limit $1;
 ------------------------------------------------
 Get most recently viewed books (For home page):
 select book.isbn, book.title, book.price, author.name from

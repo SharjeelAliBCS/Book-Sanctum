@@ -11,7 +11,6 @@ function init(data, textInput,genreInput){
     document.getElementById("genreSelect").selectedIndex =2;
     populateBookList(JSON.parse(data),textInput,genreInput);
   }
-
 }
 
 function requestData(url){

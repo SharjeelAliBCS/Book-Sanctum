@@ -10,7 +10,7 @@ head
   link(rel='stylesheet' type='text/css' href='../css/orderTab.css')
   ul
     a(href='client_home')
-      img(src='themes/images/logo.png' alt='Bootsshop')
+      img(src='themes/images/logo.png' alt='Bootsshop'  class="logo")
     #loggedInBar
   .topnav
     .search-container
@@ -35,20 +35,11 @@ head
   </div>
 #filterCol.row(style='background-color:#ffffff;')
   .column.filter
-    .filter-options
-      h2 Filters
-      #genreList.genre-list
-      #authorList.genre-list
+
   .column.listing
     .list-header
       span#ListHeading.listing-header
-      .sort-select
-        select#sortSelect
-          option Featured
-          option Price: High first
-          option Price: Low first
-          option Release: New first
-          option Release: Old first
+
     #searchListing.grid-container(style='background-color:#ffffff;')
   .column.order-column
     .order-tab

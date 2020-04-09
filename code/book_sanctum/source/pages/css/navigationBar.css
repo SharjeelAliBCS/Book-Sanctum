@@ -38,5 +38,9 @@ li a:hover:not(.active) {
   font-size: 50px;
   font-family: Verdana;
   font-weight: bold;
+}
 
+.logo{
+  max-width:250px;
+  max-height:auto;
 }

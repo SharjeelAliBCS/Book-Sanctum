@@ -1,10 +1,6 @@
 let path = require('path');
 let express = require('express');
 let serverData = require('../data');
-let cartTabQueries = require("../sqlQueries/cartTabQueries");
-let accountQueries = require("../sqlQueries/accountQueries");
-let cartTabQueryInstance = new cartTabQueries();
-let accountQueryInstance = new accountQueries();
 
 module.exports = function(app){
 

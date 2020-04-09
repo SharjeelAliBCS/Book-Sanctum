@@ -59,7 +59,7 @@ function requestData(url, param, data){
           if(localStorage.getItem('requestData')!=null){
              console.log("removing it!")
              reqObject = {"num": JSON.parse(localStorage.getItem('requestData')).num, "desc": true}
-             //window.localStorage.removeItem('requestData');
+             window.localStorage.removeItem('requestData');
              console.log(reqObject)
              requestData('/request', 'decide', JSON.stringify(reqObject));
 
