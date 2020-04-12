@@ -16,7 +16,13 @@ module.exports = function(app){
   router.get('/add', addBook);
   router.get('/remove', removeBook)
   function get(req, res, next) {
-    res.sendFile(path.join(__dirname, '../source/pages/html/InventoryPage.html'));
+    if(serverData.users.hasOwnProperty(req.sessionID) && !serverData.users[req.sessionID].client){
+      res.sendFile(path.join(__dirname, '../source/pages/html/InventoryPage.html'));
+    }
+    else{
+      res.sendFile(path.join(__dirname, '../source/pages/html/error404.html'));
+    }
+
   }
 
   function removeBook(req, res, next){

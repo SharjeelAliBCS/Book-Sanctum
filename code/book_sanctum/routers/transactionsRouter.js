@@ -13,7 +13,13 @@ module.exports = function(app){
   router.get('/add', addTransaction);
 
   function get(req, res, next) {
-    res.sendFile(path.join(__dirname, '../source/pages/html/Transactions.html'));
+    if(serverData.users.hasOwnProperty(req.sessionID) && !serverData.users[req.sessionID].client){
+      res.sendFile(path.join(__dirname, '../source/pages/html/Transactions.html'));
+    }
+    else{
+      res.sendFile(path.join(__dirname, '../source/pages/html/error404.html'));
+    }
+
   }
 
   function addTransaction(req, res, next){

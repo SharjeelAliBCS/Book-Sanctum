@@ -3,6 +3,7 @@ function init(){
   requestData('/clientrequest', '');
 }
 function init_admin(){
+   window.localStorage.removeItem('requestData');
   requestData('/list', '');
 }
 

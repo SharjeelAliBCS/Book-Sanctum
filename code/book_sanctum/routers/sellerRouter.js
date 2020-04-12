@@ -14,7 +14,13 @@ module.exports = function(app){
   router.get('/add', addPublisher);
 
   function get(req, res, next) {
-    res.sendFile(path.join(__dirname, '../source/pages/html/SellerPage.html'));
+    if(serverData.users.hasOwnProperty(req.sessionID) && !serverData.users[req.sessionID].client){
+      res.sendFile(path.join(__dirname, '../source/pages/html/SellerPage.html'));
+    }
+    else{
+      res.sendFile(path.join(__dirname, '../source/pages/html/error404.html'));
+    }
+
   }
 
 function addPublisher(req, res, next){
