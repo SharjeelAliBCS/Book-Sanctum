@@ -48,7 +48,7 @@ $(document).on('keypress',function(e) {
 function reqNext(registerObj){
   var request = $.ajax({
     url: "/form/validate",
-    data: JSON.stringify({"email": registerObj.email}),
+    data: JSON.stringify({"user": registerObj.user}),
     dataType: "json"
   });
 
@@ -62,7 +62,7 @@ function reqNext(registerObj){
       window.location.href = 'form?page=address';
     }
     else{
-      incorrectsignup("Email taken");
+      incorrectsignup("Username taken");
     }
 
   })

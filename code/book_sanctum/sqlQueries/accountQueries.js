@@ -49,7 +49,7 @@ function addAddressMain(username, region, city, code, street, apt,res){
 
 function accountQueries(){
   this.validateEmail = function(email, res){
-    pool.query("select email from client where lower(email) = lower($1);",
+    pool.query("select username from client where lower(username) = lower($1);",
                [email], (err, result) => {
       if (err) {
         return console.error('Error executing query', err.stack)

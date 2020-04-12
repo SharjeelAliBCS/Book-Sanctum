@@ -44,8 +44,8 @@ module.exports = function(app){
 
   function validate(req, res, next){
     let query = JSON.parse(Object.keys(req.query)[0]);
-    if("email" in query){
-      accountQueryInstance.validateEmail(query.email, res);
+    if("user" in query){
+      accountQueryInstance.validateEmail(query.user, res);
     }
 
 
