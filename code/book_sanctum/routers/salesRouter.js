@@ -19,7 +19,13 @@ module.exports = function(app){
   router.get('/stock', getDailyStock);
 
   function get(req, res, next) {
-    res.sendFile(path.join(__dirname, '../source/pages/html/SalesPage.html'));
+    if(serverData.users.hasOwnProperty(req.sessionID) && !serverData.users[req.sessionID].client){
+      res.sendFile(path.join(__dirname, '../source/pages/html/SalesPage.html'));
+    }
+    else{
+      res.sendFile(path.join(__dirname, '../source/pages/html/error404.html'));
+    }
+
   }
 
   function getDailyStock(req,res,next){

@@ -12,8 +12,12 @@ module.exports = function(app){
   router.get('/', get);
   function get(req, res, next) {
     //req.session.touch()
-    
-    res.sendFile(path.join(__dirname, '../source/pages/html/AdminHome.html'));
+    if(serverData.users.hasOwnProperty(req.sessionID) && !serverData.users[req.sessionID].client){
+      res.sendFile(path.join(__dirname, '../source/pages/html/AdminHome.html'));
+    }
+    else{
+      res.sendFile(path.join(__dirname, '../source/pages/html/error404.html'));
+    }
   }
 
   return router;

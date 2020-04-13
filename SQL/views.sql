@@ -1,4 +1,4 @@
-view to get every transaction:
+view to get every transaction (unions and formats tables from transaction, book sales, publisher perecentage sales, and restock):
 create view transactions as
 (
 select to_char(date, 'YYYY-MM-DD') as date, name, amount,'other' as type from transaction
@@ -30,6 +30,6 @@ inner join publisher on book.publisher_id = publisher.id
 order by date desc
 );
 -------------------------------------------------------------------------------------
-create address view
+create address view (Used to simply getting address so no join is needed everytime)
 create view address as 
 select * from  address_main  natural join address_second;

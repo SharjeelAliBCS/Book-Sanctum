@@ -20,7 +20,13 @@ module.exports = function(app){
       res.sendFile(path.join(__dirname, '../source/pages/html/RequestPage.html'));
     }
     else{
-      res.sendFile(path.join(__dirname, '../source/pages/html/AdminRequestPage.html'));
+      if(serverData.users.hasOwnProperty(req.sessionID) && !serverData.users[req.sessionID].client){
+        res.sendFile(path.join(__dirname, '../source/pages/html/AdminRequestPage.html'));
+      }
+      else{
+        res.sendFile(path.join(__dirname, '../source/pages/html/error404.html'));
+      }
+
     }
   }
 

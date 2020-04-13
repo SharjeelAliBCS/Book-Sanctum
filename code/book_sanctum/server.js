@@ -39,10 +39,10 @@ let bookRouter = require('./routers/bookRouter')(app);
 let formRouter = require('./routers/formRouter')(app);
 let cartTabRouter = require('./routers/cartTabRouter')(app);
 let checkoutRouter = require('./routers/checkoutRouter')(app);
-let adminHomeRouter = require('./routers/adminHomeRouter')(app);
+let adminHomeRouter = require('./routers/AdminHomeRouter')(app);
 let salesRouter = require('./routers/salesRouter')(app);
 let transactionsRouter = require('./routers/transactionsRouter')(app);
-let inventoryRouter = require('./routers/inventoryRouter')(app);
+let inventoryRouter = require('./routers/InventoryRouter')(app);
 let sellerRouter = require('./routers/sellerRouter')(app);
 let requestRouter = require('./routers/requestRouter')(app);
 
