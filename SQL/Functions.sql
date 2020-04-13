@@ -28,7 +28,7 @@ end;
 $BODY$ language plpgsql
 
 -----------------------------------------------------------------------------
-add random books to order:
+add random books to order (Used for populating the orders for sales reports):
 create function random_order()
    returns trigger as
 $BODY$
@@ -57,7 +57,7 @@ end;
 $BODY$ language plpgsql
 
 -----------------------------------------------------------------------------
-update all previous books in history for the given user:
+update all previous books in history for the given user (See the documentation on the report for the actual algorithim involved here):
 create function update_view_history()
    returns trigger as
 $BODY$
@@ -83,7 +83,7 @@ end;
 $BODY$ language plpgsql
 
 -----------------------------------------------------------------------------
-restock a book:
+restock a book's quantity when a book has been inserted into the restock table:
 create function restock_book_func()
    returns trigger as
 $BODY$
@@ -96,7 +96,9 @@ end;
 $BODY$ language plpgsql
 
 -----------------------------------------------------------------------------
-update book stocks:
+update book stocks (First update the warehosue_book stock from the order quantity, 
+then do the restock if the book's stock is less than 5 and restock it by inserting into the restock table
+using the sales from the last 30 days:
 create function update_stock()
    returns trigger as
 $BODY$

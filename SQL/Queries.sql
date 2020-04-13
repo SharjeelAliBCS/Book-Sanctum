@@ -1,17 +1,18 @@
 View the fill_data.sql file for insertion queries. 
+NOTE: FOR EACH OF THESE QUERIES, THE $# SYMBOL IS USED TO STORE THE INPUT PARAMETER FORM THE APPLICATION
 SEARCH QUERIES:
 ----------------------------------------------------------------------------------------------------
-get a publisher by name
+get a publisher by matching their name to the input parameter $1. 
 select * from publisher
 inner join address on publisher.address_id = address.id
 where name=$1;
 
 --------------------------------------------------
-get a list of every isbn limited to a set length ($1)
+get a list of every isbn limited to a set length, (set length is $1)
 select isbn from book where removed=false order by isbn limit $1
 
 --------------------------------------------------
-regex example. Insenstive case search for "water", "george r r martin"
+fuzzy search to search for books by any input parameter (i.e. genre, title, year, author, etc...)
 select book.isbn,book.title,book.price,book.published_date, author.name as author, genre.name as genre_name from book
 inner join author on author.id = book.author_id 
 inner join genre on genre.id = book.genre_id 
@@ -35,7 +36,7 @@ order by published_date DESC
 limit 3;
 
 ------------------------------------------------
-get sales history:
+get sales revenue per day:
 select order_date, sum(price*quantity) from orders
 inner join order_book on orders.order_number = order_book.order_number
 inner join book on book.isbn = order_book.isbn
@@ -65,7 +66,7 @@ group by genre.name
 order by sum desc
 limit 10;
 ------------------------------------------------
-get all book sales:
+get all book sales from the book_order table:
 select order_date, book.isbn, price*quantity as sales, book.title from orders
 inner join order_book on orders.order_number = order_book.order_number
 inner join book on book.isbn = order_book.isbn
@@ -82,7 +83,7 @@ on daily.date = transactions.date
 order by date desc
 ;
 ------------------------------------------------
-get all 7 types of sale information as a single number
+get all 7 types of sale information as a single number as a row. 
 select
     count(case when type='book sale' then 1 else 0 end) as sold,
     sum(amount) as profit,
@@ -106,7 +107,7 @@ where username = $1
 order by request_book.request_number desc
 
 --------------------------------------------------
-Get all book requests:
+Get all book requests from clients, and if they're :
 select  request_book.request_number, username, request_isbn as isbn, 
 request_title as title, request_book.date  as req_date,
 admin_decides.date as desc_date, last_name, decision
@@ -134,7 +135,7 @@ order by order_book.order_number desc;
 ----------------------------------------------------------------------------------------------------
 CLIENT HOME PAGE QUERIES:
 --------------------------------------------------
-Get Most sold books:
+Get Most sold books (Ordered by total quantity sold ever):
 select book.isbn, book.title, book.price, author.name as author from 
 (select isbn, sum(quantity) as sales from order_book 
 group by(isbn) ) as sold 

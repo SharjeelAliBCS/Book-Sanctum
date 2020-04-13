@@ -1,9 +1,11 @@
+/*this creates the second address table which stores the postal code and city.*/
 create table address_second(
 	code			varchar(6),
 	city			varchar(20) not null,
 	primary key (code)
 );
 
+/*this creates the main address information*/
 create table address_main(
 	id	    		serial,	
 	region	        	varchar(2)
@@ -15,6 +17,7 @@ create table address_main(
 	foreign key (code) references address_second
 );
 
+/*This creates the user payment info for their order/account*/
 create table card_info(
 	card_number		numeric(16,0),
 	name			varchar(30) not null,
@@ -22,17 +25,22 @@ create table card_info(
 	primary key (card_number)
 );
 
+/*This creates the author table used for book*/
 create table author(
 	 id		        serial, 
 	 name		        varchar(50) not null,
 	 primary key (id)
 );
+
+/*This creates the genre table used for book*/
 create table genre(
 	 id		        serial, 
 	 name		        varchar(50) not null,
          type                   varchar(15),
 	 primary key (id)
 );
+
+/*This creates the publisher table used for book*/
 create table publisher(
 	 id		        serial, 
 	 name		        varchar(200)  not null,
@@ -45,6 +53,7 @@ create table publisher(
 	 foreign key (address_id) references address_main(id)
 );
 
+/*This creates the book table*/
 create table book(
 	 isbn			varchar(13), 
 	 title			varchar(500) not null,
@@ -64,6 +73,7 @@ create table book(
          foreign key (publisher_id) references publisher(id)
 );
 
+/*This creates the warehouse that stores the books*/
 create table warehouse(
 	id			serial,
 	address_id		serial  not null,
@@ -71,6 +81,7 @@ create table warehouse(
 	foreign key (address_id) references address_main(id)
 );
 
+/*This creates the warehouse book relation that holds each book*/
 create table warehouse_books(
 	warehouse_id		serial,
 	isbn			varchar(13)  not null,
@@ -80,6 +91,7 @@ create table warehouse_books(
 	foreign key (warehouse_id) references warehouse (id)
 );
 
+/*This creates the client username table, storing each user/client*/
 create table client(
 	username		varchar(20),
 	email			varchar(40)  not null,
@@ -89,6 +101,7 @@ create table client(
 	primary key (username)
 );
 
+/*This creates the client's cart which stores each book they can "save"*/
 create table cart(
 	username		varchar(20),
 	isbn			varchar(13),
@@ -98,6 +111,7 @@ create table cart(
 	foreign key (isbn) references book
 );
 
+/*This creates the table which stores a client's view history per book*/
 create table view_history(
 	username		varchar(20),
 	isbn			varchar(13),
@@ -107,6 +121,7 @@ create table view_history(
 	foreign key (isbn) references book
 );
 
+/*This creates the table which contains all the tracking information (as name or description).*/
 create table status(
 	status_id		serial,
 	name			varchar(30)  not null,
@@ -114,6 +129,7 @@ create table status(
 	primary key (status_id)
 );
 
+/*This creates the orders table which stores each order done by the client*/
 create table orders(
 	order_number	    	serial,	
 	username	        varchar(20)   not null,
@@ -128,6 +144,7 @@ create table orders(
 	primary key (order_number)
 );
 
+/*This creates the table which stores each book for a given order*/
 create table order_book(
 	isbn			varchar(13),
 	order_number	    	serial,
@@ -138,6 +155,7 @@ create table order_book(
 	foreign key (warehouse_id,isbn) references warehouse_books
 );
 
+/*This creates the client address table whichs stores each client's address*/
 create table client_address(
 	username	        varchar(20),
 	address_id		serial not null,
@@ -146,7 +164,7 @@ create table client_address(
 	foreign key (address_id) references address_main(id)
 );
 
-
+/*This creates the table which stores each client's payment information*/
 create table client_billing(
 	card_number		numeric(16,0),
 	username                varchar(20),
@@ -155,6 +173,7 @@ create table client_billing(
 	foreign key (card_number) references card_info
 );
 
+/*This creates the restock table, which contains a record for each book restock email order*/
 create table restock(
 	restock_number		serial,
 	warehouse_id		serial,
@@ -165,6 +184,7 @@ create table restock(
 	foriegn key (warehouse_id, isbn) references warehouse_books
 );
 
+/*This creates the admin table which stores the admin information.*/
 create table admin(
 	email			varchar(40) not null,
 	first_name		varchar(10),
@@ -173,6 +193,7 @@ create table admin(
 	primary key (email)
 );
 
+/*This stores the other transaction information*/
 create table transaction(
 	transaction_id		serial,
 	name			varchar(30) not null,
@@ -181,6 +202,7 @@ create table transaction(
 	primary key (transaction_id)
 );
 
+/*This creates the table which stores the request_book infomration, which is a bonus.*/
 create table request_book(
 	request_number		serial,
 	username		varchar(20) not null,
@@ -190,6 +212,8 @@ create table request_book(
 	primary key (request_number),
 	foreign key (username) references client on delete cascade
 );
+
+/*This creates the table which stores the admin descision on a book request*/
 create table admin_decides(
 	request_number		serial,
 	email			varchar(40),
