@@ -11,4 +11,7 @@ The project implements node.js and express for the server side and basic CSS for
 
 
 
+
 ## Schema
+
+![alt text](docs/schema.png)
