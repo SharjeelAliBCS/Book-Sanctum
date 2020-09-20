@@ -32,57 +32,59 @@ To setup the application, first clone the repo. After this, go into the [code](/
 
 ## Screenshots
 
-Home
+### Home
 
 ![alt text](documentation/screenshots/home_client.PNG)
 
-Creating account
+### Creating account
 
 ![alt text](documentation/screenshots/create_account.PNG)
 
 
-Advanced Search
+### Advanced Search
 
 ![alt text](documentation/screenshots/advanced_search.PNG)
 
-Search Results
+### Search Results
 
 ![alt text](documentation/screenshots/search.PNG)
 
-Book info
+### Book info
 
 ![alt text](documentation/screenshots/book_info.PNG)
 
 
-Checkout
+### Checkout
 
 ![alt text](documentation/screenshots/checkout.PNG)
 
 
-All orders
+### All orders
 
 ![alt text](documentation/screenshots/orders.PNG)
 
-Admin home page
+### Admin home page
 
 ![alt text](documentation/screenshots/admin_home.PNG)
 
 
-Adding new books
+### Adding new books
 
 ![alt text](documentation/screenshots/inventory.PNG)
 
 
-Viewing transactions
+### Viewing transactions
 
 ![alt text](documentation/screenshots/transactions_1.PNG)
 
 ![alt text](documentation/screenshots/transactions_2.PNG)
-## Database Diagrams
 
-Viewing Sales
+### Viewing Sales
 
 ![alt text](documentation/screenshots/sales_1.PNG)
+
+## Database Diagrams
+
 ### Schema
 ![alt text](documentation/schema.png)
 
