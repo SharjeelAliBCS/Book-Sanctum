@@ -1,4 +1,5 @@
-# Book Sanctum, an artificial bookstore web application
+![alt text](code/book_sanctum/source/pages/themes/images/logoBlack.png)
+# an artificial bookstore web application
 
 ## Contents
 1. [Overview](#Overview)
