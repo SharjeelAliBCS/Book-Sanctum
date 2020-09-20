@@ -29,7 +29,16 @@ The workflow is indicated as here:
 
 ![alt text](documentation/diagrams/workflow.png)
 
-To setup the application, first clone the repo. After this, go into the [code](/code) directory and run:
+To setup the application, first clone the repo. After this, go into the [code/book_sanctum/](/code/book_sanctum/) directory and run:
+
+`npm install` to download all of the required packages.  
+
+After, simply run:
+`node server.js` to start the server. 
+
+Go to the following address to view the page:
+`localhost:3000`
+
 
 ## Screenshots
 
