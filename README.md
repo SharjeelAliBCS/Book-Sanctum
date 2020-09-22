@@ -3,7 +3,7 @@
 
 ## Contents
 1. [Overview](#Overview)
-2. [Architecture](#Overview)
+2. [Architecture](#Architecture)
 3. [Guide](#guide)
 4. [Screenshots](#screenshots)
 5. [Database Diagrams](#Database-Diagrams)
