@@ -13,7 +13,7 @@
     "chart.js": "^2.9.3",
     "cookie-parser": "^1.4.5",
     "date": "^1.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.17.0",
     "jspdf-html2canvas": "^1.1.0",
     "pg": "^7.18.2",
